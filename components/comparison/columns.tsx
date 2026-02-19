@@ -107,6 +107,11 @@ export const columns: ColumnDef<SoftwareTool>[] = [
         cell: ({ row }) => <FeatureStatusCell status={row.original.platforms.web} />,
       },
       {
+        accessorKey: "platforms.pwa",
+        header: "PWA",
+        cell: ({ row }) => <FeatureStatusCell status={row.original.platforms.pwa} />,
+      },
+      {
         accessorKey: "platforms.android",
         header: "Android",
         cell: ({ row }) => <FeatureStatusCell status={row.original.platforms.android} />,
@@ -166,6 +171,11 @@ export const columns: ColumnDef<SoftwareTool>[] = [
   {
     header: "Features",
     columns: [
+      {
+        accessorKey: "armSupport",
+        header: "ARM",
+        cell: ({ row }) => <FeatureStatusCell status={row.original.armSupport} />,
+      },
       {
         accessorKey: "features.hardwareTranscoding",
         header: "HW Transcode",
