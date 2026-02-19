@@ -11,7 +11,7 @@ import {
   getLicenseColor
 } from "@/lib/comparison-utils";
 import { FeatureStatusCell } from "./feature-status-cell";
-import { ChevronDown, ChevronRight, Github, ExternalLink } from "lucide-react";
+import { ChevronDown, ChevronRight, Github, ExternalLink, Activity } from "lucide-react";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
@@ -47,7 +47,7 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
   }, [data]);
 
   return (
-    <div className="w-full border rounded-lg shadow-sm bg-background flex flex-col h-[calc(100vh-200px)] overflow-hidden">
+    <div className="w-full border rounded-lg shadow-sm bg-background flex flex-col h-full overflow-hidden">
       <div className="overflow-auto relative h-full">
         <table className="w-full text-sm text-left border-collapse">
           <thead className="text-xs uppercase bg-muted/90 sticky top-0 z-40 backdrop-blur-md shadow-sm">

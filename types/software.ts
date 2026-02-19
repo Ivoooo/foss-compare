@@ -3,6 +3,10 @@ export type FeatureStatusType = "Yes" | "No" | "Paid" | "Partial" | "Coming Soon
 export interface FeatureStatusObject {
   status: FeatureStatusType;
   note?: string;
+  verification?: {
+    verifiedAtVersion?: string;
+    verificationLink?: string;
+  };
 }
 
 export type FeatureStatus = FeatureStatusType | FeatureStatusObject;
@@ -78,6 +82,15 @@ export interface BaseSoftwareTool {
 
   // Notes
   notes?: string;
+
+  // Metadata
+  meta?: {
+    lastCheck: {
+      date: string; // ISO Date (YYYY-MM-DD)
+      version: string; // e.g., "v1.2.3"
+      changelogLink?: string;
+    };
+  };
 }
 
 export interface StreamerTool extends BaseSoftwareTool {

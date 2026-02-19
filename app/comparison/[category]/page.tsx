@@ -28,14 +28,14 @@ export default async function ComparisonPage({ params }: PageProps) {
   if (categoryConfig.status === "Coming Soon" && categoryConfig.data.length === 0) {
       return (
         <div className="container py-10">
-          <div className="mb-8">
+          <div className="mb-8 flex items-center gap-3">
             <Link href="/">
-              <Button variant="ghost" className="mb-4 pl-0 hover:pl-0 hover:bg-transparent">
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                Back to Categories
+              <Button variant="ghost" size="icon" className="h-9 w-9">
+                <ArrowLeft className="h-4 w-4" />
+                <span className="sr-only">Back to Categories</span>
               </Button>
             </Link>
-            <h1 className="text-3xl font-bold tracking-tight mb-2">{categoryConfig.title}</h1>
+            <h1 className="text-3xl font-bold tracking-tight">{categoryConfig.title}</h1>
           </div>
           <div className="flex flex-col items-center justify-center py-20 text-center">
              <h2 className="text-2xl font-semibold mb-2">Coming Soon</h2>
@@ -46,15 +46,15 @@ export default async function ComparisonPage({ params }: PageProps) {
   }
 
   return (
-    <div className="container py-4 h-screen flex flex-col">
-      <div className="mb-4 shrink-0">
+    <div className="container py-4 h-full flex flex-col overflow-hidden">
+      <div className="mb-4 shrink-0 flex items-center gap-3">
         <Link href="/">
-          <Button variant="ghost" className="mb-2 pl-0 hover:pl-0 hover:bg-transparent">
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to Categories
+          <Button variant="ghost" size="icon" className="h-9 w-9">
+            <ArrowLeft className="h-4 w-4" />
+            <span className="sr-only">Back to Categories</span>
           </Button>
         </Link>
-        <h1 className="text-3xl font-bold tracking-tight mb-0">{categoryConfig.title}</h1>
+        <h1 className="text-3xl font-bold tracking-tight">{categoryConfig.title}</h1>
       </div>
       <div className="flex-1 overflow-hidden">
         <ComparisonTable data={categoryConfig.data} sections={categoryConfig.sections} />

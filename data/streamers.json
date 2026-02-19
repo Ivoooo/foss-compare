@@ -20,7 +20,13 @@
       "web": "Yes",
       "pwa": "Yes",
       "android": "Yes",
-      "ios": "Yes",
+      "ios": {
+        "status": "Yes",
+        "verification": {
+          "verifiedAtVersion": "v1.6.0",
+          "verificationLink": "https://apps.apple.com/us/app/jellyfin-mobile/id1480194887"
+        }
+      },
       "androidTv": "Yes",
       "appleTv": "Yes",
       "windows": "Yes",
@@ -59,7 +65,14 @@
       "jellyseerr_overseerr": "Yes",
       "trakt": "Yes"
     },
-    "notes": "Community-driven fork of Emby. Completely free with no paid features."
+    "notes": "Community-driven fork of Emby. Completely free with no paid features.",
+    "meta": {
+      "lastCheck": {
+        "date": "2024-02-19",
+        "version": "v10.8.13",
+        "changelogLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    }
   },
   {
     "id": "plex",
@@ -118,7 +131,14 @@
       "jellyseerr_overseerr": "Yes",
       "trakt": "Paid"
     },
-    "notes": "Highly polished, requires Plex Pass for hardware transcoding and offline downloads. Auth is centralized via Plex.tv."
+    "notes": "Highly polished, requires Plex Pass for hardware transcoding and offline downloads. Auth is centralized via Plex.tv.",
+    "meta": {
+      "lastCheck": {
+        "date": "2024-02-19",
+        "version": "v1.40.0",
+        "changelogLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    }
   },
   {
     "id": "emby",
@@ -176,6 +196,13 @@
       "jellyseerr_overseerr": "Yes",
       "trakt": "Yes"
     },
-    "notes": "Closed source fork of the original open source Emby (before it became proprietary). Requires Emby Premiere for many features."
+    "notes": "Closed source fork of the original open source Emby (before it became proprietary). Requires Emby Premiere for many features.",
+    "meta": {
+      "lastCheck": {
+        "date": "2024-02-19",
+        "version": "v4.8.1",
+        "changelogLink": "https://emby.media/blog.html"
+      }
+    }
   }
 ]
