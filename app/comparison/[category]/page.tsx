@@ -1,12 +1,9 @@
 import { notFound } from "next/navigation";
 import { ComparisonTable } from "@/components/comparison/comparison-table";
-import streamersData from "@/data/streamers.json";
-import { SoftwareTool } from "@/types/software";
+import { getCategory, categories } from "@/lib/categories";
+import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-
-// This is necessary because the JSON import might not match the interface exactly due to optional fields
-const streamers = streamersData as unknown as SoftwareTool[];
 
 interface PageProps {
   params: Promise<{
@@ -15,31 +12,55 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  return [{ category: "streamers" }];
+  return categories.map((category) => ({
+    category: category.id,
+  }));
 }
 
 export default async function ComparisonPage({ params }: PageProps) {
-  const { category } = await params;
+  const { category: categoryId } = await params;
+  const categoryConfig = getCategory(categoryId);
 
-  if (category !== "streamers") {
+  if (!categoryConfig) {
     return notFound();
   }
 
+  if (categoryConfig.status === "Coming Soon" && categoryConfig.data.length === 0) {
+      return (
+        <div className="container py-10">
+          <div className="mb-8">
+            <Link href="/">
+              <Button variant="ghost" className="mb-4 pl-0 hover:pl-0 hover:bg-transparent">
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Back to Categories
+              </Button>
+            </Link>
+            <h1 className="text-3xl font-bold tracking-tight mb-2">{categoryConfig.title}</h1>
+            <p className="text-muted-foreground">{categoryConfig.description}</p>
+          </div>
+          <div className="flex flex-col items-center justify-center py-20 text-center">
+             <h2 className="text-2xl font-semibold mb-2">Coming Soon</h2>
+             <p className="text-muted-foreground">This comparison category is currently being worked on.</p>
+          </div>
+        </div>
+      );
+  }
+
   return (
-    <div className="container max-w-[100rem] py-8 md:py-12">
-      <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-        <div>
-          <Link href="/" className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground mb-2 transition-colors">
+    <div className="container py-10">
+      <div className="mb-8">
+        <Link href="/">
+          <Button variant="ghost" className="mb-4 pl-0 hover:pl-0 hover:bg-transparent">
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back to Categories
-          </Link>
-          <h1 className="text-3xl font-bold tracking-tight md:text-4xl">TV & Movie Streamers</h1>
-          <p className="text-muted-foreground mt-2 max-w-2xl">
-            Compare features, platform support, and capabilities of top self-hosted media servers.
-          </p>
-        </div>
+          </Button>
+        </Link>
+        <h1 className="text-3xl font-bold tracking-tight mb-2">{categoryConfig.title}</h1>
+        <p className="text-muted-foreground">
+          {categoryConfig.description}
+        </p>
       </div>
-      <ComparisonTable data={streamers} />
+      <ComparisonTable data={categoryConfig.data} sections={categoryConfig.sections} />
     </div>
   );
 }

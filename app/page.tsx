@@ -10,61 +10,12 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import {
-  MonitorPlay,
-  Shield,
-  LayoutDashboard,
-  Database,
-  ArrowRight,
-  CheckCircle2,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useRef } from "react";
+import { categories } from "@/lib/categories";
 
 export default function Home() {
   const categoriesRef = useRef<HTMLElement>(null);
-
-  const categories = [
-    {
-      id: "streamers",
-      title: "TV & Movie Streamers",
-      description:
-        "Jellyfin, Plex, Emby, and more. Compare transcoding, platform support, and features.",
-      icon: MonitorPlay,
-      count: 3,
-      status: "Active",
-      features: ["Transcoding", "Platform Support", "Codecs"],
-    },
-    {
-      id: "password-managers",
-      title: "Password Managers",
-      description:
-        "Bitwarden, Vaultwarden, Keepass, and others. Security features, sync, and clients.",
-      icon: Shield,
-      count: 0,
-      status: "Coming Soon",
-      features: ["Encryption", "Sync", "Clients"],
-    },
-    {
-      id: "dashboards",
-      title: "Dashboards",
-      description:
-        "Homepage, Dashy, Homarr. Customizable start pages for your services.",
-      icon: LayoutDashboard,
-      count: 0,
-      status: "Coming Soon",
-      features: ["Widgets", "Customization", "API"],
-    },
-    {
-      id: "databases",
-      title: "Databases",
-      description:
-        "Postgres, MySQL, MariaDB, SQLite. Performance, replication, and features.",
-      icon: Database,
-      count: 0,
-      status: "Coming Soon",
-      features: ["Performance", "Replication", "SQL"],
-    },
-  ];
 
   const scrollToCategories = () => {
     categoriesRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -122,6 +73,7 @@ export default function Home() {
           {categories.map((category) => {
             const Icon = category.icon;
             const isActive = category.status === "Active";
+            const count = category.data.length;
 
             return (
               <Link
@@ -148,7 +100,7 @@ export default function Home() {
                         </Badge>
                       ) : (
                          <Badge variant="secondary" className="group-hover:bg-primary/10 group-hover:text-primary transition-colors">
-                          {category.count} {category.count === 1 ? "Tool" : "Tools"}
+                          {count} {count === 1 ? "Tool" : "Tools"}
                         </Badge>
                       )}
                     </div>
@@ -158,13 +110,8 @@ export default function Home() {
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <div className="space-y-2">
-                      {category.features.map((feature, i) => (
-                        <div key={i} className="flex items-center text-sm text-muted-foreground">
-                          <CheckCircle2 className={`h-3.5 w-3.5 mr-2 ${isActive ? "text-primary/60" : "text-muted-foreground/40"}`} />
-                          {feature}
-                        </div>
-                      ))}
+                    <div className="text-sm text-muted-foreground">
+                       {/* Feature list removed in favor of simple count/status display */}
                     </div>
                     {isActive && (
                       <div className="mt-6 flex items-center text-sm font-medium text-primary opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">

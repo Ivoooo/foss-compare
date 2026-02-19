@@ -7,7 +7,7 @@ export interface GitHubStats {
   openIssues: number;
 }
 
-export interface PlatformSupport {
+export interface StreamerPlatformSupport {
   web: FeatureStatus;
   pwa: FeatureStatus;
   android: FeatureStatus;
@@ -54,7 +54,7 @@ export interface StreamerFeatures {
   trakt: FeatureStatus;
 }
 
-export interface SoftwareTool {
+export interface BaseSoftwareTool {
   id: string;
   name: string;
   description: string;
@@ -69,11 +69,55 @@ export interface SoftwareTool {
   dockerSupport: FeatureStatus;
   armSupport: FeatureStatus;
 
-  // Category specific data
-  platforms: PlatformSupport;
-  codecs: CodecSupport;
-  features: StreamerFeatures;
-
   // Notes
   notes?: string;
 }
+
+export interface StreamerTool extends BaseSoftwareTool {
+  // Category specific data
+  platforms: StreamerPlatformSupport;
+  codecs: CodecSupport;
+  features: StreamerFeatures;
+}
+
+export interface PasswordManagerPlatformSupport {
+  windows: FeatureStatus;
+  mac: FeatureStatus;
+  linux: FeatureStatus;
+  android: FeatureStatus;
+  ios: FeatureStatus;
+  browserExtensions: FeatureStatus;
+  webVault: FeatureStatus;
+}
+
+export interface PasswordManagerFeatures {
+  twoFactor: FeatureStatus;
+  biometrics: FeatureStatus;
+  passwordSharing: FeatureStatus;
+  organizations: FeatureStatus;
+  importExport: FeatureStatus;
+  auditLogs: FeatureStatus;
+
+  // Auth
+  ldap: FeatureStatus;
+  oidc: FeatureStatus;
+  sso: FeatureStatus;
+}
+
+export interface PasswordManagerTool extends BaseSoftwareTool {
+  platforms: PasswordManagerPlatformSupport;
+  features: PasswordManagerFeatures;
+}
+
+export type SoftwareTool = StreamerTool | PasswordManagerTool;
+
+export type FeatureItem = {
+  key: string;
+  label: string;
+};
+
+export type CategorySection = {
+  id: string;
+  label: string;
+  items: FeatureItem[];
+};

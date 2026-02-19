@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { SoftwareTool, FeatureStatus } from "@/types/software";
+import { SoftwareTool, CategorySection, FeatureStatus } from "@/types/software";
 import { calculateFeatureScore, getGitHubPopularityStatus } from "@/lib/comparison-utils";
 import { FeatureStatusCell } from "./feature-status-cell";
 import { ChevronDown, ChevronRight, Github, ExternalLink } from "lucide-react";
@@ -11,94 +11,15 @@ import { cn } from "@/lib/utils";
 
 interface ComparisonTableProps {
   data: SoftwareTool[];
+  sections: CategorySection[];
 }
-
-type FeatureItem = {
-  key: string;
-  label: string;
-};
-
-type CategorySection = {
-  id: string;
-  label: string;
-  items: FeatureItem[];
-};
-
-const SECTIONS: CategorySection[] = [
-  {
-    id: "platforms",
-    label: "Platform Support",
-    items: [
-      { key: "platforms.web", label: "Web" },
-      { key: "platforms.pwa", label: "PWA" },
-      { key: "platforms.android", label: "Android" },
-      { key: "platforms.ios", label: "iOS" },
-      { key: "platforms.androidTv", label: "Android TV" },
-      { key: "platforms.appleTv", label: "Apple TV" },
-      { key: "platforms.windows", label: "Windows" },
-      { key: "platforms.mac", label: "macOS" },
-      { key: "platforms.linux", label: "Linux" },
-      { key: "platforms.samsungTv", label: "Samsung TV" },
-      { key: "platforms.lgTv", label: "LG TV" },
-      { key: "platforms.roku", label: "Roku" },
-    ],
-  },
-  {
-    id: "codecs",
-    label: "Codec Support",
-    items: [
-      { key: "codecs.h264", label: "H.264" },
-      { key: "codecs.h265", label: "H.265 (HEVC)" },
-      { key: "codecs.av1", label: "AV1" },
-      { key: "codecs.vp9", label: "VP9" },
-    ],
-  },
-  {
-    id: "features",
-    label: "General Features",
-    items: [
-      { key: "features.liveTv", label: "Live TV" },
-      { key: "features.dvr", label: "DVR" },
-      { key: "features.hardwareTranscoding", label: "Hardware Transcoding" },
-      { key: "features.offlineDownloads", label: "Offline Downloads" },
-      { key: "features.introSkipping", label: "Intro Skipping" },
-      { key: "features.lyrics", label: "Lyrics" },
-      { key: "features.podcasts", label: "Podcasts" },
-      { key: "features.audiobooks", label: "Audiobooks" },
-      { key: "features.photos", label: "Photos" },
-      { key: "features.plugins", label: "Plugins" },
-      { key: "dockerSupport", label: "Docker Support" },
-      { key: "armSupport", label: "ARM Support" },
-    ],
-  },
-  {
-    id: "auth",
-    label: "Authentication",
-    items: [
-      { key: "features.ldap", label: "LDAP" },
-      { key: "features.oidc", label: "OIDC" },
-      { key: "features.twoFactor", label: "Two-Factor Auth" },
-      { key: "features.sso", label: "SSO" },
-    ],
-  },
-  {
-    id: "integrations",
-    label: "Integrations",
-    items: [
-      { key: "features.sonarr", label: "Sonarr" },
-      { key: "features.radarr", label: "Radarr" },
-      { key: "features.jellyseerr_overseerr", label: "Jellyseerr / Overseerr" },
-      { key: "features.trakt", label: "Trakt" },
-    ],
-  },
-];
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function getNestedValue(obj: any, path: string): any {
   return path.split(".").reduce((acc, part) => acc && acc[part], obj);
 }
 
-export function ComparisonTable({ data }: ComparisonTableProps) {
+export function ComparisonTable({ data, sections }: ComparisonTableProps) {
   const [openCategory, setOpenCategory] = useState<string | null>(null);
 
   const toggleCategory = (id: string) => {
@@ -201,7 +122,7 @@ export function ComparisonTable({ data }: ComparisonTableProps) {
           </tbody>
 
           {/* Feature Sections */}
-          {SECTIONS.map((section) => (
+          {sections.map((section) => (
             <tbody key={section.id} className="border-b last:border-0">
               <tr
                 className="cursor-pointer group transition-colors hover:bg-muted/50"
