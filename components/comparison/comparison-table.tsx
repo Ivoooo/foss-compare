@@ -56,8 +56,8 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
                 Category
               </th>
               {data.map((tool) => (
-                <th key={tool.id} className="px-4 md:px-6 py-4 font-bold text-base min-w-[220px] border-b bg-muted/50">
-                  <div className="flex flex-col gap-1">
+                <th key={tool.id} className="px-4 md:px-6 py-4 font-bold text-base min-w-[220px] border-b bg-muted/50 align-top">
+                  <div className="flex flex-col gap-2">
                     <div className="flex items-center gap-2">
                       <Link href={tool.website} target="_blank" className="hover:underline flex items-center gap-1 transition-colors hover:text-primary">
                         {tool.name} <ExternalLink className="h-3 w-3 opacity-50" />
@@ -68,6 +68,11 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
                         </Link>
                       )}
                     </div>
+                    {tool.notes && (
+                      <div className="text-xs font-normal text-muted-foreground normal-case">
+                        {tool.notes}
+                      </div>
+                    )}
                   </div>
                 </th>
               ))}

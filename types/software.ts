@@ -1,4 +1,11 @@
-export type FeatureStatus = "Yes" | "No" | "Paid" | "Partial" | "Coming Soon";
+export type FeatureStatusType = "Yes" | "No" | "Paid" | "Partial" | "Coming Soon";
+
+export interface FeatureStatusObject {
+  status: FeatureStatusType;
+  note?: string;
+}
+
+export type FeatureStatus = FeatureStatusType | FeatureStatusObject;
 
 export interface GitHubStats {
   stars: number;
