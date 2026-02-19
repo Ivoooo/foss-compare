@@ -2,7 +2,14 @@
 
 import React, { useState } from "react";
 import { SoftwareTool, CategorySection, FeatureStatus } from "@/types/software";
-import { calculateFeatureScore, getGitHubPopularityStatus } from "@/lib/comparison-utils";
+import {
+  calculateFeatureScore,
+  getGitHubPopularityStatus,
+  getStarsEmote,
+  getForksEmote,
+  getActivityEmote,
+  getLicenseColor
+} from "@/lib/comparison-utils";
 import { FeatureStatusCell } from "./feature-status-cell";
 import { ChevronDown, ChevronRight, Github, ExternalLink } from "lucide-react";
 import Link from "next/link";
@@ -27,10 +34,10 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
   };
 
   return (
-    <div className="w-full border rounded-lg overflow-hidden shadow-sm bg-background">
-      <div className="overflow-x-auto relative">
+    <div className="w-full border rounded-lg shadow-sm bg-background flex flex-col">
+      <div className="overflow-auto relative max-h-[80vh]">
         <table className="w-full text-sm text-left border-collapse">
-          <thead className="text-xs uppercase bg-muted/50 sticky top-0 z-40 backdrop-blur-md">
+          <thead className="text-xs uppercase bg-muted/90 sticky top-0 z-40 backdrop-blur-md shadow-sm">
             <tr>
               <th className="px-4 md:px-6 py-4 font-medium text-muted-foreground w-64 min-w-[200px] sticky left-0 z-50 bg-background/95 backdrop-blur-md border-b border-r shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)]">
                 Category
@@ -38,10 +45,15 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
               {data.map((tool) => (
                 <th key={tool.id} className="px-4 md:px-6 py-4 font-bold text-base min-w-[220px] border-b bg-muted/50">
                   <div className="flex flex-col gap-1">
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 justify-between">
                       <Link href={tool.website} target="_blank" className="hover:underline flex items-center gap-1 transition-colors hover:text-primary">
                         {tool.name} <ExternalLink className="h-3 w-3 opacity-50" />
                       </Link>
+                      {tool.repository && (
+                        <Link href={tool.repository} target="_blank" className="text-muted-foreground hover:text-foreground transition-colors p-1 rounded-md hover:bg-background/50">
+                           <Github className="h-4 w-4" />
+                        </Link>
+                      )}
                     </div>
                     <div className="text-xs font-normal text-muted-foreground normal-case line-clamp-2 h-8">
                       {tool.description}
@@ -55,10 +67,10 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
           {/* GitHub Popularity Section */}
           <tbody className="border-b last:border-0">
             <tr
-              className="cursor-pointer group transition-colors hover:bg-muted/50"
+              className="cursor-pointer group transition-colors hover:bg-muted"
               onClick={() => toggleCategory("github")}
             >
-              <td className="sticky left-0 z-30 bg-background group-hover:bg-muted/50 border-r px-4 md:px-6 py-4 font-medium flex items-center gap-2 shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)] transition-colors">
+              <td className="sticky left-0 z-30 bg-background group-hover:bg-muted border-r px-4 md:px-6 py-4 font-medium flex items-center gap-2 shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)] transition-colors">
                 {openCategory === "github" ? <ChevronDown className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
                 GitHub Popularity
               </td>
@@ -75,9 +87,10 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
                   {data.map((tool) => (
                     <td key={tool.id} className="px-4 md:px-6 py-3 bg-muted/5 group-hover/row:bg-muted/10 transition-colors">
                       {tool.githubStats ? (
-                          <div className="flex items-center gap-1">
-                              <Github className="h-3 w-3" />
-                              {tool.githubStats.stars.toLocaleString()}
+                          <div className="flex items-center gap-2">
+                              <Github className="h-3 w-3 opacity-70" />
+                              <span>{tool.githubStats.stars.toLocaleString()}</span>
+                              <span>{getStarsEmote(tool.githubStats.stars)}</span>
                           </div>
                       ) : "-"}
                     </td>
@@ -87,7 +100,12 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
                   <td className="sticky left-0 z-20 bg-background/95 backdrop-blur-sm border-r px-4 md:px-6 py-3 pl-10 md:pl-12 text-muted-foreground shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)]">Forks</td>
                   {data.map((tool) => (
                     <td key={tool.id} className="px-4 md:px-6 py-3 bg-muted/5 group-hover/row:bg-muted/10 transition-colors">
-                      {tool.githubStats ? tool.githubStats.forks.toLocaleString() : "-"}
+                      {tool.githubStats ? (
+                        <div className="flex items-center gap-2">
+                          <span>{tool.githubStats.forks.toLocaleString()}</span>
+                          <span>{getForksEmote(tool.githubStats.forks)}</span>
+                        </div>
+                      ) : "-"}
                     </td>
                   ))}
                 </tr>
@@ -95,7 +113,12 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
                   <td className="sticky left-0 z-20 bg-background/95 backdrop-blur-sm border-r px-4 md:px-6 py-3 pl-10 md:pl-12 text-muted-foreground shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)]">Last Commit</td>
                   {data.map((tool) => (
                     <td key={tool.id} className="px-4 md:px-6 py-3 bg-muted/5 group-hover/row:bg-muted/10 transition-colors">
-                      {tool.githubStats ? tool.githubStats.lastCommit : "-"}
+                      {tool.githubStats ? (
+                        <div className="flex items-center gap-2">
+                          <span>{tool.githubStats.lastCommit}</span>
+                          <span>{getActivityEmote(tool.githubStats.lastCommit)}</span>
+                        </div>
+                      ) : "-"}
                     </td>
                   ))}
                 </tr>
@@ -103,7 +126,7 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
                   <td className="sticky left-0 z-20 bg-background/95 backdrop-blur-sm border-r px-4 md:px-6 py-3 pl-10 md:pl-12 text-muted-foreground shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)]">License</td>
                   {data.map((tool) => (
                     <td key={tool.id} className="px-4 md:px-6 py-3 bg-muted/5 group-hover/row:bg-muted/10 transition-colors">
-                      <Badge variant={tool.openSource ? "default" : "secondary"}>
+                      <Badge variant="outline" className={getLicenseColor(tool.license)}>
                         {tool.license}
                       </Badge>
                     </td>
@@ -125,10 +148,10 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
           {sections.map((section) => (
             <tbody key={section.id} className="border-b last:border-0">
               <tr
-                className="cursor-pointer group transition-colors hover:bg-muted/50"
+                className="cursor-pointer group transition-colors hover:bg-muted"
                 onClick={() => toggleCategory(section.id)}
               >
-                <td className="sticky left-0 z-30 bg-background group-hover:bg-muted/50 border-r px-4 md:px-6 py-4 font-medium flex items-center gap-2 shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)] transition-colors">
+                <td className="sticky left-0 z-30 bg-background group-hover:bg-muted border-r px-4 md:px-6 py-4 font-medium flex items-center gap-2 shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)] transition-colors">
                   {openCategory === section.id ? <ChevronDown className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
                   {section.label}
                 </td>
