@@ -10,3 +10,4 @@
 ✓ Ready in 1141ms
 ○ Compiling /comparison/[category] ...
  GET /comparison/streamers 200 in 7.4s (compile: 6.6s, generate-params: 1066ms, render: 756ms)
+ GET /comparison/streamers 200 in 991ms (compile: 397ms, generate-params: 72ms, render: 594ms)
