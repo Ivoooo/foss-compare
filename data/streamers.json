@@ -41,7 +41,10 @@
       "dvr": "Yes",
       "hardwareTranscoding": "Yes",
       "offlineDownloads": "Yes",
-      "introSkipping": "Yes",
+      "introSkipping": {
+        "status": "Yes",
+        "note": "Plugin"
+      },
       "lyrics": "Yes",
       "podcasts": "Yes",
       "audiobooks": "Yes",

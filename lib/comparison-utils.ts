@@ -10,7 +10,9 @@ export function calculateFeatureScore(features: Record<string, FeatureStatus | u
 
     total++;
 
-    switch (status) {
+    const statusValue = typeof status === "object" ? status.status : status;
+
+    switch (statusValue) {
       case "Yes":
       case "Paid":
         score += 1;

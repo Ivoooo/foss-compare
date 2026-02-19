@@ -1,18 +1,12 @@
 
 > foss-compare@0.1.0 dev
-> next dev
+> next dev -p 3456
 
 ▲ Next.js 16.1.6 (Turbopack)
-- Local:         http://localhost:3000
-- Network:       http://192.168.0.2:3000
+- Local:         http://localhost:3456
+- Network:       http://192.168.0.2:3456
 
 ✓ Starting...
-✓ Ready in 1155ms
+✓ Ready in 1141ms
 ○ Compiling /comparison/[category] ...
- GET /comparison/streamers 200 in 7.4s (compile: 6.8s, generate-params: 1122ms, render: 592ms)
- GET /comparison/streamers 200 in 158ms (compile: 29ms, generate-params: 22ms, render: 129ms)
-✓ Compiled in 216ms
-✓ Compiled in 1308ms
- GET /comparison/streamers 200 in 2.7s (compile: 1389ms, generate-params: 191ms, render: 1293ms)
- GET /comparison/streamers 200 in 122ms (compile: 33ms, generate-params: 28ms, render: 89ms)
- GET /comparison/streamers 200 in 1276ms (compile: 445ms, generate-params: 79ms, render: 831ms)
+ GET /comparison/streamers 200 in 7.4s (compile: 6.6s, generate-params: 1066ms, render: 756ms)
