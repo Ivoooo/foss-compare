@@ -5,6 +5,10 @@ export const FeatureStatusTypeSchema = z.enum(["Yes", "No", "Paid", "Partial", "
 export const FeatureStatusObjectSchema = z.object({
   status: FeatureStatusTypeSchema,
   note: z.string().optional(),
+  verification: z.object({
+    verifiedAtVersion: z.string().optional(),
+    verificationLink: z.string().url().optional(),
+  }).optional(),
 });
 
 export const FeatureStatusSchema = z.union([FeatureStatusTypeSchema, FeatureStatusObjectSchema]);
@@ -30,7 +34,6 @@ export const BaseSoftwareToolSchema = z.object({
   armSupport: FeatureStatusSchema,
   notes: z.string().optional(),
   meta: z.object({
-    addedAtVersion: z.string().optional(),
     lastCheck: z.object({
       date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Date must be YYYY-MM-DD"),
       version: z.string(),
@@ -60,7 +63,17 @@ export const CodecSupportSchema = z.object({
   h265: FeatureStatusSchema,
   av1: FeatureStatusSchema,
   vp9: FeatureStatusSchema,
+  vp9_10bit: FeatureStatusSchema.optional(), // Added to match potential data if needed, but not in types yet. Keeping strict to types for now.
 });
+
+// Corrected CodecSupportSchema to match the type definition strictly
+export const StrictCodecSupportSchema = z.object({
+  h264: FeatureStatusSchema,
+  h265: FeatureStatusSchema,
+  av1: FeatureStatusSchema,
+  vp9: FeatureStatusSchema,
+});
+
 
 export const StreamerFeaturesSchema = z.object({
   liveTv: FeatureStatusSchema,
@@ -85,7 +98,7 @@ export const StreamerFeaturesSchema = z.object({
 
 export const StreamerToolSchema = BaseSoftwareToolSchema.extend({
   platforms: StreamerPlatformSupportSchema,
-  codecs: CodecSupportSchema,
+  codecs: StrictCodecSupportSchema,
   features: StreamerFeaturesSchema,
 });
 
