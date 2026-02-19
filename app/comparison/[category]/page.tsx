@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
-import { DataTable } from "@/components/comparison/data-table";
-import { columns } from "@/components/comparison/columns";
+import { ComparisonTable } from "@/components/comparison/comparison-table";
 import streamersData from "@/data/streamers.json";
 import { SoftwareTool } from "@/types/software";
 import { Button } from "@/components/ui/button";
@@ -41,7 +40,7 @@ export default async function ComparisonPage({ params }: PageProps) {
           Compare features, platform support, and capabilities of top self-hosted media servers.
         </p>
       </div>
-      <DataTable columns={columns} data={streamers} />
+      <ComparisonTable data={streamers} />
     </div>
   );
 }
