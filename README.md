@@ -26,7 +26,7 @@ This project aims to provide comprehensive feature comparisons for various self-
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/jules/foss-compare.git
+    git clone https://github.com/Ivoooo/foss-compare.git
     cd foss-compare
     ```
 
