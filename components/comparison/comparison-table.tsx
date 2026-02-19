@@ -11,7 +11,7 @@ import {
   getLicenseColor
 } from "@/lib/comparison-utils";
 import { FeatureStatusCell } from "./feature-status-cell";
-import { ChevronDown, ChevronRight, Github, ExternalLink } from "lucide-react";
+import { ChevronDown, ChevronRight, Github, ExternalLink, Activity } from "lucide-react";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
@@ -47,7 +47,7 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
   }, [data]);
 
   return (
-    <div className="w-full border rounded-lg shadow-sm bg-background flex flex-col h-[calc(100vh-200px)] overflow-hidden">
+    <div className="w-full border rounded-lg shadow-sm bg-background flex flex-col h-full overflow-hidden">
       <div className="overflow-auto relative h-full">
         <table className="w-full text-sm text-left border-collapse">
           <thead className="text-xs uppercase bg-muted/90 sticky top-0 z-40 backdrop-blur-md shadow-sm">
@@ -158,6 +158,56 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
               </>
             )}
           </tbody>
+
+          {/* Maintenance Section */}
+           <tbody className="border-b last:border-0">
+             <tr
+              className="cursor-pointer group transition-colors hover:bg-muted"
+              onClick={() => toggleCategory("maintenance")}
+             >
+               <td className="sticky left-0 z-30 bg-background group-hover:bg-muted border-r px-4 md:px-6 py-4 font-medium flex items-center gap-2 shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)] transition-colors">
+                {openCategory === "maintenance" ? <ChevronDown className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
+                Maintenance
+               </td>
+               {data.map((tool) => (
+                 <td key={tool.id} className="px-4 md:px-6 py-4 text-muted-foreground text-xs">
+                    View update status
+                 </td>
+               ))}
+             </tr>
+             {openCategory === "maintenance" && (
+              <>
+                 <tr className="bg-muted/5 group/row hover:bg-muted/20 dark:hover:bg-muted/30 transition-colors">
+                  <td className="sticky left-0 z-20 bg-background/95 backdrop-blur-sm border-r px-4 md:px-6 py-3 pl-10 md:pl-12 text-muted-foreground shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)] group-hover/row:bg-muted/20 dark:group-hover/row:bg-muted/30 transition-colors">Added Version</td>
+                  {data.map((tool) => (
+                    <td key={tool.id} className="px-4 md:px-6 py-3 bg-muted/5 group-hover/row:bg-muted/20 dark:group-hover/row:bg-muted/30 transition-colors">
+                      {tool.meta?.addedAtVersion || "-"}
+                    </td>
+                  ))}
+                </tr>
+                <tr className="bg-muted/5 group/row hover:bg-muted/20 dark:hover:bg-muted/30 transition-colors">
+                  <td className="sticky left-0 z-20 bg-background/95 backdrop-blur-sm border-r px-4 md:px-6 py-3 pl-10 md:pl-12 text-muted-foreground shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)] group-hover/row:bg-muted/20 dark:group-hover/row:bg-muted/30 transition-colors">Last Checked</td>
+                  {data.map((tool) => (
+                    <td key={tool.id} className="px-4 md:px-6 py-3 bg-muted/5 group-hover/row:bg-muted/20 dark:group-hover/row:bg-muted/30 transition-colors">
+                       {tool.meta?.lastCheck ? (
+                        <div className="flex flex-col gap-0.5">
+                          <span className="font-medium text-xs">{tool.meta.lastCheck.date}</span>
+                          <div className="text-xs text-muted-foreground flex items-center gap-1">
+                             {tool.meta.lastCheck.version}
+                             {tool.meta.lastCheck.changelogLink && (
+                                <Link href={tool.meta.lastCheck.changelogLink} target="_blank" className="hover:text-primary transition-colors">
+                                  <ExternalLink className="h-3 w-3" />
+                                </Link>
+                             )}
+                          </div>
+                        </div>
+                       ) : "-"}
+                    </td>
+                  ))}
+                </tr>
+              </>
+             )}
+           </tbody>
 
           {/* Feature Sections */}
           {sections.map((section) => (

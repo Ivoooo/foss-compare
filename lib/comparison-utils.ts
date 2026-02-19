@@ -14,9 +14,9 @@ export function calculateFeatureScore(features: Record<string, FeatureStatus | u
 
     switch (statusValue) {
       case "Yes":
-      case "Paid":
         score += 1;
         break;
+      case "Paid":
       case "Partial":
         score += 0.5;
         break;

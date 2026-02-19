@@ -78,6 +78,16 @@ export interface BaseSoftwareTool {
 
   // Notes
   notes?: string;
+
+  // Metadata
+  meta?: {
+    addedAtVersion?: string;
+    lastCheck: {
+      date: string; // ISO Date (YYYY-MM-DD)
+      version: string; // e.g., "v1.2.3"
+      changelogLink?: string;
+    };
+  };
 }
 
 export interface StreamerTool extends BaseSoftwareTool {
