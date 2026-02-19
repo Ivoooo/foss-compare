@@ -73,3 +73,37 @@ export function getGitHubPopularityStatus(software: SoftwareTool): string {
 
   return `${activity} & ${popularity}`;
 }
+
+export function getStarsEmote(stars: number, maxStars: number): string {
+  if (stars > 1000 || (stars > 0 && stars === maxStars)) return "🔥";
+  return "";
+}
+
+export function getForksEmote(forks: number, maxForks: number): string {
+  if (forks > 200 || (forks > 0 && forks === maxForks)) return "🔥";
+  return "";
+}
+
+export function getActivityEmote(lastCommit: string): string {
+  if (!lastCommit || lastCommit === "N/A") return "";
+  const commitDate = new Date(lastCommit);
+  const now = new Date();
+  const diffTime = Math.abs(now.getTime() - commitDate.getTime());
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+  if (diffDays <= 30) return "🔥";
+  return "";
+}
+
+export function getLicenseColor(license: string): string {
+  const lowerLicense = license.toLowerCase();
+
+  // Proprietary - distinct red
+  if (lowerLicense.includes("proprietary") || lowerLicense.includes("closed")) {
+    return "bg-red-500/15 text-red-700 dark:text-red-400 hover:bg-red-500/25 border-red-500/20";
+  }
+
+  // All Open Source - Green
+  // Includes MIT, Apache, BSD, ISC, GPL, LGPL, AGPL, MPL, etc.
+  return "bg-green-500/15 text-green-700 dark:text-green-400 hover:bg-green-500/25 border-green-500/20";
+}
