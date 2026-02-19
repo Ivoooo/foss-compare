@@ -2,44 +2,10 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Github, LayoutDashboard, MonitorPlay, Shield, Database } from "lucide-react";
+import { Github } from "lucide-react";
+import { categories } from "@/lib/categories";
 
 export default function Home() {
-  const categories = [
-    {
-      id: "streamers",
-      title: "TV & Movie Streamers",
-      description: "Jellyfin, Plex, Emby, and more. Compare transcoding, platform support, and features.",
-      icon: MonitorPlay,
-      count: 3,
-      status: "Active",
-    },
-    {
-      id: "password-managers",
-      title: "Password Managers",
-      description: "Bitwarden, Vaultwarden, Keepass, and others. Security features, sync, and clients.",
-      icon: Shield,
-      count: 0,
-      status: "Coming Soon",
-    },
-    {
-      id: "dashboards",
-      title: "Dashboards",
-      description: "Homepage, Dashy, Homarr. Customizable start pages for your services.",
-      icon: LayoutDashboard,
-      count: 0,
-      status: "Coming Soon",
-    },
-     {
-      id: "databases",
-      title: "Databases",
-      description: "Postgres, MySQL, MariaDB, SQLite. Performance, replication, and features.",
-      icon: Database,
-      count: 0,
-      status: "Coming Soon",
-    },
-  ];
-
   return (
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -95,6 +61,7 @@ export default function Home() {
           <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-3 lg:gap-8 mt-8">
             {categories.map((category) => {
               const Icon = category.icon
+              const count = category.data.length
               return (
               <Link key={category.id} href={category.status === "Active" ? `/comparison/${category.id}` : "#"}>
                 <Card className={`h-full transition-all hover:bg-accent/50 ${category.status !== "Active" ? "opacity-60 cursor-not-allowed" : ""}`}>
@@ -108,7 +75,7 @@ export default function Home() {
                   </CardHeader>
                   <CardContent>
                     <div className="text-sm text-muted-foreground">
-                      {category.count} {category.count === 1 ? "Tool" : "Tools"}
+                      {count} {count === 1 ? "Tool" : "Tools"}
                     </div>
                   </CardContent>
                 </Card>
