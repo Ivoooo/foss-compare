@@ -36,7 +36,6 @@ export default async function ComparisonPage({ params }: PageProps) {
               </Button>
             </Link>
             <h1 className="text-3xl font-bold tracking-tight mb-2">{categoryConfig.title}</h1>
-            <p className="text-muted-foreground">{categoryConfig.description}</p>
           </div>
           <div className="flex flex-col items-center justify-center py-20 text-center">
              <h2 className="text-2xl font-semibold mb-2">Coming Soon</h2>
@@ -47,20 +46,19 @@ export default async function ComparisonPage({ params }: PageProps) {
   }
 
   return (
-    <div className="container py-10">
-      <div className="mb-8">
+    <div className="container py-4 h-screen flex flex-col">
+      <div className="mb-4 shrink-0">
         <Link href="/">
-          <Button variant="ghost" className="mb-4 pl-0 hover:pl-0 hover:bg-transparent">
+          <Button variant="ghost" className="mb-2 pl-0 hover:pl-0 hover:bg-transparent">
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back to Categories
           </Button>
         </Link>
-        <h1 className="text-3xl font-bold tracking-tight mb-2">{categoryConfig.title}</h1>
-        <p className="text-muted-foreground">
-          {categoryConfig.description}
-        </p>
+        <h1 className="text-3xl font-bold tracking-tight mb-0">{categoryConfig.title}</h1>
       </div>
-      <ComparisonTable data={categoryConfig.data} sections={categoryConfig.sections} />
+      <div className="flex-1 overflow-hidden">
+        <ComparisonTable data={categoryConfig.data} sections={categoryConfig.sections} />
+      </div>
     </div>
   );
 }

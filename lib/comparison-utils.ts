@@ -74,17 +74,13 @@ export function getGitHubPopularityStatus(software: SoftwareTool): string {
   return `${activity} & ${popularity}`;
 }
 
-export function getStarsEmote(stars: number): string {
-  if (stars > 20000) return "🔥";
-  if (stars > 5000) return "🚀";
-  if (stars > 1000) return "⭐";
+export function getStarsEmote(stars: number, maxStars: number): string {
+  if (stars > 1000 || (stars > 0 && stars === maxStars)) return "🔥";
   return "";
 }
 
-export function getForksEmote(forks: number): string {
-  if (forks > 1000) return "🔥";
-  if (forks > 200) return "🚀";
-  if (forks > 50) return "⭐";
+export function getForksEmote(forks: number, maxForks: number): string {
+  if (forks > 200 || (forks > 0 && forks === maxForks)) return "🔥";
   return "";
 }
 
@@ -96,39 +92,18 @@ export function getActivityEmote(lastCommit: string): string {
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
   if (diffDays <= 30) return "🔥";
-  if (diffDays <= 90) return "✅";
   return "";
 }
 
 export function getLicenseColor(license: string): string {
   const lowerLicense = license.toLowerCase();
 
+  // Proprietary - distinct red
   if (lowerLicense.includes("proprietary") || lowerLicense.includes("closed")) {
-    return "bg-destructive text-destructive-foreground hover:bg-destructive/80"; // Red
+    return "bg-red-500/15 text-red-700 dark:text-red-400 hover:bg-red-500/25 border-red-500/20";
   }
 
-  if (
-    lowerLicense.includes("mit") ||
-    lowerLicense.includes("apache") ||
-    lowerLicense.includes("bsd") ||
-    lowerLicense.includes("isc") ||
-    lowerLicense.includes("unlicense") ||
-    lowerLicense.includes("0bsd") ||
-    lowerLicense.includes("cc0")
-  ) {
-    return "bg-green-500/15 text-green-700 dark:text-green-400 hover:bg-green-500/25 border-green-500/20"; // Green
-  }
-
-  if (
-    lowerLicense.includes("gpl") ||
-    lowerLicense.includes("agpl") ||
-    lowerLicense.includes("lgpl") ||
-    lowerLicense.includes("mozilla") ||
-    lowerLicense.includes("mpl") ||
-    lowerLicense.includes("eupl")
-  ) {
-    return "bg-yellow-500/15 text-yellow-700 dark:text-yellow-400 hover:bg-yellow-500/25 border-yellow-500/20"; // Yellow/Orange
-  }
-
-  return "bg-secondary text-secondary-foreground hover:bg-secondary/80"; // Default/Gray
+  // All Open Source - Green
+  // Includes MIT, Apache, BSD, ISC, GPL, LGPL, AGPL, MPL, etc.
+  return "bg-green-500/15 text-green-700 dark:text-green-400 hover:bg-green-500/25 border-green-500/20";
 }
