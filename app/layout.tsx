@@ -4,7 +4,7 @@ import "./globals.css";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SiteHeader } from "@/components/site-header";
-// import { SiteFooter } from "@/components/site-footer";
+import { SiteFooter } from "@/components/site-footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -78,8 +78,8 @@ export default function RootLayout({
         >
           <TooltipProvider>
             <SiteHeader />
-            <main className="flex-1 flex flex-col h-[calc(100vh-64px)] overflow-hidden">{children}</main>
-            {/* <SiteFooter /> */}
+            <main className="flex-1">{children}</main>
+            <SiteFooter />
           </TooltipProvider>
         </ThemeProvider>
       </body>

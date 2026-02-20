@@ -92,8 +92,6 @@ async function updateFile(filename: string) {
           if (stats) {
             tool.githubStats = stats;
             updatedCount++;
-            // detailed log
-            // console.log(`    -> Stars: ${stats.stars}, Forks: ${stats.forks}, Last Commit: ${stats.lastCommit}`);
           }
 
           // Slight delay to be nice to the API

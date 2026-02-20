@@ -46,26 +46,6 @@ export default async function ComparisonPage({ params }: PageProps) {
     return notFound();
   }
 
-  if (categoryConfig.status === "Coming Soon" && categoryConfig.data.length === 0) {
-      return (
-        <div className="container py-10">
-          <div className="mb-8 flex items-center gap-3">
-            <Link href="/">
-              <Button variant="ghost" size="icon" className="h-9 w-9">
-                <ArrowLeft className="h-4 w-4" />
-                <span className="sr-only">Back to Categories</span>
-              </Button>
-            </Link>
-            <h1 className="text-3xl font-bold tracking-tight">{categoryConfig.title}</h1>
-          </div>
-          <div className="flex flex-col items-center justify-center py-20 text-center">
-             <h2 className="text-2xl font-semibold mb-2">Coming Soon</h2>
-             <p className="text-muted-foreground">This comparison category is currently being worked on.</p>
-          </div>
-        </div>
-      );
-  }
-
   return (
     <div className="container py-4 h-full flex flex-col overflow-hidden">
       <div className="mb-4 shrink-0 flex items-center gap-3">

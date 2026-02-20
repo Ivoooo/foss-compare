@@ -1,5 +1,5 @@
-import { MonitorPlay, Shield, LayoutDashboard, Database, LucideIcon } from "lucide-react";
-import { CategorySection, SoftwareTool } from "@/types/software";
+import { MonitorPlay, Shield, LucideIcon } from "lucide-react";
+import { CategorySection, SoftwareTool } from "@/lib/schemas";
 import streamersData from "@/data/streamers.json";
 import passwordManagersData from "@/data/password-managers.json";
 
@@ -10,7 +10,6 @@ export interface CategoryConfig {
   icon: LucideIcon;
   data: SoftwareTool[];
   sections: CategorySection[];
-  status: "Active" | "Coming Soon";
 }
 
 const STREAMER_SECTIONS: CategorySection[] = [
@@ -135,7 +134,6 @@ export const categories: CategoryConfig[] = [
     icon: MonitorPlay,
     data: streamersData as unknown as SoftwareTool[],
     sections: STREAMER_SECTIONS,
-    status: "Active",
   },
   {
     id: "password-managers",
@@ -144,25 +142,6 @@ export const categories: CategoryConfig[] = [
     icon: Shield,
     data: passwordManagersData as unknown as SoftwareTool[],
     sections: PASSWORD_MANAGER_SECTIONS,
-    status: "Active",
-  },
-  {
-    id: "dashboards",
-    title: "Dashboards",
-    description: "Homepage, Dashy, Homarr. Customizable start pages for your services.",
-    icon: LayoutDashboard,
-    data: [],
-    sections: [],
-    status: "Coming Soon",
-  },
-   {
-    id: "databases",
-    title: "Databases",
-    description: "Postgres, MySQL, MariaDB, SQLite. Performance, replication, and features.",
-    icon: Database,
-    data: [],
-    sections: [],
-    status: "Coming Soon",
   },
 ];
 

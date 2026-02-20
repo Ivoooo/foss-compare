@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { CategorySection, SoftwareTool } from "@/types/software";
+import { CategorySection, SoftwareTool } from "@/lib/schemas";
 import { getNestedValue } from "@/lib/utils";
 
 interface UseComparisonTableProps {
@@ -42,11 +42,9 @@ export function useComparisonTable({ data, sections }: UseComparisonTableProps) 
 
   const filteredData = useMemo(() => {
     return data.filter((tool) => {
-      // Check filters
       for (const filterId of filters) {
         const status = getNestedValue(tool, filterId);
-        // "Yes" and "Paid" are considered match.
-        // FeatureStatus can be string or object.
+
         let statusStr = "";
         if (typeof status === "string") {
             statusStr = status;
@@ -66,13 +64,11 @@ export function useComparisonTable({ data, sections }: UseComparisonTableProps) 
   }, [data, filters]);
 
   const searchedSections = useMemo(() => {
-    // Only search/expand if query is at least 2 characters
     if (searchQuery.length < 2) return new Set<string>();
 
     const lowerQuery = searchQuery.toLowerCase();
     const next = new Set<string>();
 
-    // Check Project Stats section
     if (
       "project stats".includes(lowerQuery) ||
       "github popularity".includes(lowerQuery) ||
@@ -111,7 +107,6 @@ export function useComparisonTable({ data, sections }: UseComparisonTableProps) 
     return text.toLowerCase().includes(searchQuery.toLowerCase());
   };
 
-  // Calculate maximum stars and forks for relative popularity
   const { maxStars, maxForks } = useMemo(() => {
     let maxS = 0;
     let maxF = 0;

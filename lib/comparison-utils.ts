@@ -1,4 +1,4 @@
-import { FeatureStatus, SoftwareTool } from "@/types/software";
+import { FeatureStatus, SoftwareTool } from "@/lib/schemas";
 
 export function calculateFeatureScore(features: Record<string, FeatureStatus | undefined>): { score: number; total: number } {
   let score = 0;
@@ -42,7 +42,6 @@ export function getGitHubPopularityStatus(software: SoftwareTool): string {
 
   const { stars, lastCommit } = software.githubStats;
 
-  // Calculate Activity
   let activity = "Inactive";
   if (lastCommit && lastCommit !== "N/A") {
     const commitDate = new Date(lastCommit);
@@ -61,7 +60,6 @@ export function getGitHubPopularityStatus(software: SoftwareTool): string {
     }
   }
 
-  // Calculate Popularity
   let popularity = "Niche";
   if (stars > 20000) {
     popularity = "Extremely Popular";
@@ -100,34 +98,24 @@ export function getActivityEmote(lastCommit: string): string {
 export function getLicenseColor(license: string): string {
   const lowerLicense = license.toLowerCase();
 
-  // Proprietary - distinct red
   if (lowerLicense.includes("proprietary") || lowerLicense.includes("closed")) {
     return "bg-red-500/15 text-red-700 dark:text-red-400 hover:bg-red-500/25 border-red-500/20";
   }
 
-  // All Open Source - Green
-  // Includes MIT, Apache, BSD, ISC, GPL, LGPL, AGPL, MPL, etc.
   return "bg-green-500/15 text-green-700 dark:text-green-400 hover:bg-green-500/25 border-green-500/20";
 }
 
 export function parseSizeString(sizeStr?: string): number {
   if (!sizeStr) return Infinity; // Return Infinity for missing values so they don't count as "lowest"
 
-  // Clean string (e.g., "150 MB (Idle)" -> "150 MB")
   const cleanStr = sizeStr.replace(/\(.*?\)/g, "").trim();
 
-  // Use regex to capture numeric part and unit, handling optional spaces
   const match = cleanStr.match(/^([\d.]+)\s*([a-zA-Z]+)$/);
   if (!match) return Infinity;
 
   const value = parseFloat(match[1]);
   const unit = match[2].toUpperCase();
 
-  // Handle both MB and MiB as 1024-based for simplicity in this context,
-  // or just strictly follow the unit.
-  // My script outputs "MB", "GB" (via formatBytes) for Image Size.
-  // Docker stats outputs "MiB", "GiB" for RAM.
-  // Let's normalize.
   const units = ["B", "KB", "MB", "GB", "TB", "MIB", "GIB", "TIB"];
   const multipliers = [
     1,
@@ -135,9 +123,9 @@ export function parseSizeString(sizeStr?: string): number {
     1024 * 1024,
     1024 * 1024 * 1024,
     1024 * 1024 * 1024 * 1024,
-    1024 * 1024, // MiB
-    1024 * 1024 * 1024, // GiB
-    1024 * 1024 * 1024 * 1024 // TiB
+    1024 * 1024,
+    1024 * 1024 * 1024,
+    1024 * 1024 * 1024 * 1024
   ];
 
   const index = units.indexOf(unit);

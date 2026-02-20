@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Check, X, DollarSign, Clock, AlertTriangle } from "lucide-react";
-import { FeatureStatus } from "@/types/software";
+import { FeatureStatus } from "@/lib/schemas";
 
 interface FeatureStatusCellProps {
   status: FeatureStatus;
@@ -11,7 +11,6 @@ export function FeatureStatusCell({ status, details }: FeatureStatusCellProps) {
   const statusValue = typeof status === "object" ? status.status : status;
   const statusNote = typeof status === "object" ? status.note : undefined;
 
-  // Combine details prop with statusNote, preferring statusNote if both exist (though usually only one source will be used)
   const displayDetails = statusNote || details;
 
   switch (statusValue) {

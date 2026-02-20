@@ -77,17 +77,7 @@ export const CodecSupportSchema = z.object({
   h265: FeatureStatusSchema,
   av1: FeatureStatusSchema,
   vp9: FeatureStatusSchema,
-  vp9_10bit: FeatureStatusSchema.optional(), // Added to match potential data if needed, but not in types yet. Keeping strict to types for now.
 });
-
-// Corrected CodecSupportSchema to match the type definition strictly
-export const StrictCodecSupportSchema = z.object({
-  h264: FeatureStatusSchema,
-  h265: FeatureStatusSchema,
-  av1: FeatureStatusSchema,
-  vp9: FeatureStatusSchema,
-});
-
 
 export const StreamerFeaturesSchema = z.object({
   liveTv: FeatureStatusSchema,
@@ -112,7 +102,7 @@ export const StreamerFeaturesSchema = z.object({
 
 export const StreamerToolSchema = BaseSoftwareToolSchema.extend({
   platforms: StreamerPlatformSupportSchema,
-  codecs: StrictCodecSupportSchema,
+  codecs: CodecSupportSchema,
   features: StreamerFeaturesSchema,
 });
 
@@ -156,7 +146,7 @@ export type Performance = z.infer<typeof PerformanceSchema>;
 export type BaseSoftwareTool = z.infer<typeof BaseSoftwareToolSchema>;
 
 export type StreamerPlatformSupport = z.infer<typeof StreamerPlatformSupportSchema>;
-export type CodecSupport = z.infer<typeof StrictCodecSupportSchema>;
+export type CodecSupport = z.infer<typeof CodecSupportSchema>;
 export type StreamerFeatures = z.infer<typeof StreamerFeaturesSchema>;
 export type StreamerTool = z.infer<typeof StreamerToolSchema>;
 
@@ -165,3 +155,14 @@ export type PasswordManagerFeatures = z.infer<typeof PasswordManagerFeaturesSche
 export type PasswordManagerTool = z.infer<typeof PasswordManagerToolSchema>;
 
 export type SoftwareTool = z.infer<typeof SoftwareToolSchema>;
+
+export type FeatureItem = {
+  key: string;
+  label: string;
+};
+
+export type CategorySection = {
+  id: string;
+  label: string;
+  items: FeatureItem[];
+};

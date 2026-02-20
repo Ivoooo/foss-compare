@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { SoftwareTool, CategorySection, FeatureStatus } from "@/types/software";
+import { SoftwareTool, CategorySection, FeatureStatus } from "@/lib/schemas";
 import { calculateFeatureScore } from "@/lib/comparison-utils";
 import { FeatureStatusCell } from "./feature-status-cell";
 import { ProjectStatsSection } from "./project-stats-section";
@@ -127,7 +127,6 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
             </tr>
           </thead>
 
-          {/* Project Stats Section */}
           <ProjectStatsSection
             data={filteredData}
             maxStars={maxStars}
@@ -136,7 +135,6 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
             onToggle={() => toggleCategory("project-stats")}
           />
 
-          {/* Feature Sections */}
           {sections.map((section) => (
             <tbody key={section.id} className="border-b last:border-0">
               <tr

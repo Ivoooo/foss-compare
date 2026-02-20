@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { CategorySection } from "@/types/software";
+import { CategorySection } from "@/lib/schemas";
 import {
   Sheet,
   SheetContent,
@@ -84,7 +84,6 @@ export function ComparisonFilter({
                   <div
                     className="flex items-center space-x-3 sticky top-0 bg-background py-1 z-10 border-b pb-2 cursor-pointer hover:bg-muted/50 rounded-sm px-1 -mx-1 transition-colors"
                     onClick={(e) => {
-                      // Prevent toggling if clicking directly on the checkbox (handled by onCheckedChange)
                       if ((e.target as HTMLElement).getAttribute('role') === 'checkbox') return;
                       handleSectionToggle(section, !allSelected && !isIndeterminate);
                     }}

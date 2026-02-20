@@ -83,7 +83,7 @@ export default function Home() {
             <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
             <Input
               type="text"
-              placeholder="Search for apps (e.g. Plex) or categories..."
+              placeholder="Search for apps (e.g. Jellyfin) or categories..."
               className="pl-10 pr-10 h-10 bg-background/50 backdrop-blur-sm"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
@@ -102,37 +102,23 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {filteredCategories.map((category) => {
             const Icon = category.icon;
-            const isActive = category.status === "Active";
             const count = category.data.length;
 
             return (
               <Link
                 key={category.id}
-                href={isActive ? `/comparison/${category.id}` : "#"}
-                className={`group block h-full ${!isActive ? "cursor-default" : ""}`}
-                onClick={(e) => {
-                  if (!isActive) e.preventDefault();
-                }}
+                href={`/comparison/${category.id}`}
+                className="group block h-full"
               >
-                <Card className={`h-full overflow-hidden border-muted transition-all duration-300 ${
-                  isActive
-                    ? "hover:border-primary/50 hover:shadow-lg hover:-translate-y-1 dark:hover:border-primary/40 dark:hover:bg-muted/10"
-                    : "opacity-70 bg-muted/20"
-                }`}>
+                <Card className="h-full overflow-hidden border-muted transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:-translate-y-1 dark:hover:border-primary/40 dark:hover:bg-muted/10">
                   <CardHeader>
                     <div className="flex items-center justify-between mb-2">
-                      <div className={`p-2.5 rounded-xl ${isActive ? "bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors" : "bg-muted text-muted-foreground"}`}>
+                      <div className="p-2.5 rounded-xl bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors">
                         <Icon className="h-6 w-6" />
                       </div>
-                      {!isActive ? (
-                        <Badge variant="outline" className="text-muted-foreground border-muted-foreground/30">
-                          Coming Soon
-                        </Badge>
-                      ) : (
-                         <Badge variant="secondary" className="group-hover:bg-primary/10 group-hover:text-primary transition-colors">
-                          {count} {count === 1 ? "Tool" : "Tools"}
-                        </Badge>
-                      )}
+                      <Badge variant="secondary" className="group-hover:bg-primary/10 group-hover:text-primary transition-colors">
+                        {count} {count === 1 ? "Tool" : "Tools"}
+                      </Badge>
                     </div>
                     <CardTitle className="text-xl group-hover:text-primary transition-colors">{category.title}</CardTitle>
                     <CardDescription className="line-clamp-2 mt-2 text-base">
@@ -140,14 +126,9 @@ export default function Home() {
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <div className="text-sm text-muted-foreground">
-                       {/* Feature list removed in favor of simple count/status display */}
+                    <div className="mt-6 flex items-center text-sm font-medium text-primary opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">
+                      View Comparison <ArrowRight className="ml-1 h-4 w-4" />
                     </div>
-                    {isActive && (
-                      <div className="mt-6 flex items-center text-sm font-medium text-primary opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">
-                        View Comparison <ArrowRight className="ml-1 h-4 w-4" />
-                      </div>
-                    )}
                   </CardContent>
                 </Card>
               </Link>
