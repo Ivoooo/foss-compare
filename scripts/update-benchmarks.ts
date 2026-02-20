@@ -22,7 +22,7 @@ interface Tool {
     docker?: DockerConfig;
   };
   performance?: PerformanceStats;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 const DATA_DIR = path.join(process.cwd(), 'data');
@@ -30,8 +30,8 @@ const DATA_DIR = path.join(process.cwd(), 'data');
 function runCommand(command: string): string {
   try {
     return execSync(command, { encoding: 'utf-8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
-  } catch (error: any) {
-    throw new Error(`Command failed: ${command}\n${error.message}`);
+  } catch (error: unknown) {
+    throw new Error(`Command failed: ${command}\n${error instanceof Error ? error.message : String(error)}`);
   }
 }
 
@@ -97,7 +97,7 @@ async function benchmarkTool(image: string, env: Record<string, string> = {}): P
     try {
         runCommand(`docker rm -f ${containerName}`);
     } catch (e) {
-        console.error(`  Failed to remove container ${containerName}`);
+        console.error(`  Failed to remove container ${containerName}: ${e instanceof Error ? e.message : String(e)}`);
     }
   }
 }
@@ -133,8 +133,8 @@ async function main() {
 
             console.log(`  Result: Size=${result.imageSize}, RAM=${result.ramUsage}`);
             updated = true;
-        } catch (error: any) {
-            console.error(`  Error benchmarking ${tool.name}: ${error.message}`);
+        } catch (error: unknown) {
+            console.error(`  Error benchmarking ${tool.name}: ${error instanceof Error ? error.message : String(error)}`);
         }
       }
     }

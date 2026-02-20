@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "validate": "npx tsx scripts/validate-data.ts",
-    "benchmark": "npx tsx scripts/update-benchmarks.ts"
+    "benchmark": "npx tsx scripts/update-benchmarks.ts",
+    "check-links": "npx tsx scripts/check-links.ts"
   },
   "dependencies": {
     "@tanstack/react-table": "^8.21.3",
