@@ -4,6 +4,7 @@ import { getCategory, categories } from "@/lib/categories";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { Metadata } from "next";
 
 interface PageProps {
   params: Promise<{
@@ -15,6 +16,26 @@ export async function generateStaticParams() {
   return categories.map((category) => ({
     category: category.id,
   }));
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { category: categoryId } = await params;
+  const categoryConfig = getCategory(categoryId);
+
+  if (!categoryConfig) {
+    return {
+      title: "Category Not Found",
+    };
+  }
+
+  return {
+    title: `${categoryConfig.title} Comparison`,
+    description: categoryConfig.description,
+    openGraph: {
+      title: `${categoryConfig.title} Comparison - foss.compare`,
+      description: categoryConfig.description,
+    },
+  };
 }
 
 export default async function ComparisonPage({ params }: PageProps) {

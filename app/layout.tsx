@@ -17,8 +17,44 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "foss.compare - Self-Hosted Software Comparisons",
-  description: "Detailed comparisons of open source and self-hosted software solutions.",
+  metadataBase: new URL("https://foss.compare"),
+  title: {
+    default: "foss.compare - Self-Hosted Software Comparisons",
+    template: "%s | foss.compare",
+  },
+  description: "Detailed comparisons of open source and self-hosted software solutions. Find the best alternatives to proprietary services.",
+  keywords: ["open source", "self-hosted", "software comparison", "alternatives", "foss", "privacy", "local hosting"],
+  authors: [{ name: "Ivoooo", url: "https://github.com/Ivoooo" }],
+  creator: "Ivoooo",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://foss.compare",
+    siteName: "foss.compare",
+    title: "foss.compare - Self-Hosted Software Comparisons",
+    description: "Detailed comparisons of open source and self-hosted software solutions.",
+    images: [
+      {
+        url: "/og-image.png", // Will be created or needs to be provided
+        width: 1200,
+        height: 630,
+        alt: "foss.compare - Self-Hosted Software Comparisons",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "foss.compare - Self-Hosted Software Comparisons",
+    description: "Detailed comparisons of open source and self-hosted software solutions.",
+    images: ["/og-image.png"],
+    creator: "@Ivoooo", // Assuming based on maintainer name, can be updated
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: "/manifest.json",
 };
 
 export default function RootLayout({
