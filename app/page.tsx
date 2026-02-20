@@ -10,7 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Search } from "lucide-react";
+import { ArrowRight, Search, X } from "lucide-react";
 import { useRef, useState } from "react";
 import { categories } from "@/lib/categories";
 import { Input } from "@/components/ui/input";
@@ -82,12 +82,20 @@ export default function Home() {
           <div className="relative w-full max-w-md mt-4">
             <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
             <Input
-              type="search"
+              type="text"
               placeholder="Search for apps (e.g. Plex) or categories..."
-              className="pl-10 h-10 bg-background/50 backdrop-blur-sm"
+              className="pl-10 pr-10 h-10 bg-background/50 backdrop-blur-sm"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery("")}
+                className="absolute right-3 top-3 text-muted-foreground hover:text-foreground"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            )}
           </div>
         </div>
 

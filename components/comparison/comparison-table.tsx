@@ -5,7 +5,7 @@ import { SoftwareTool, CategorySection, FeatureStatus } from "@/types/software";
 import { calculateFeatureScore } from "@/lib/comparison-utils";
 import { FeatureStatusCell } from "./feature-status-cell";
 import { GitHubPopularitySection } from "./github-popularity-section";
-import { ChevronDown, ChevronRight, Github, ExternalLink, Search } from "lucide-react";
+import { ChevronDown, ChevronRight, Github, ExternalLink, Search, X } from "lucide-react";
 import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
@@ -43,12 +43,13 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
   };
 
   useEffect(() => {
-    if (!searchQuery) return;
+    // Only search/expand if query is at least 2 characters
+    if (searchQuery.length < 2) return;
+
     const lowerQuery = searchQuery.toLowerCase();
 
-    setExpandedSections((prev) => {
-      const next = new Set(prev);
-      let changed = false;
+    setExpandedSections(() => {
+      const next = new Set<string>();
 
       // Check GitHub section
       if (
@@ -59,10 +60,7 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
         "license".includes(lowerQuery) ||
         "open source".includes(lowerQuery)
       ) {
-        if (!next.has("github")) {
-          next.add("github");
-          changed = true;
-        }
+        next.add("github");
       }
 
       sections.forEach((section) => {
@@ -72,19 +70,16 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
         );
 
         if (sectionMatch || itemsMatch) {
-          if (!next.has(section.id)) {
-            next.add(section.id);
-            changed = true;
-          }
+          next.add(section.id);
         }
       });
 
-      return changed ? next : prev;
+      return next;
     });
   }, [searchQuery, sections]);
 
   const isMatch = (text: string) => {
-    if (!searchQuery) return false;
+    if (!searchQuery || searchQuery.length < 2) return false;
     return text.toLowerCase().includes(searchQuery.toLowerCase());
   };
 
@@ -107,12 +102,20 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
         <div className="relative max-w-sm">
           <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
           <Input
-            type="search"
+            type="text"
             placeholder="Search features or tools..."
-            className="pl-9"
+            className="pl-9 pr-8"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
+          {searchQuery && (
+            <button
+              onClick={() => setSearchQuery("")}
+              className="absolute right-2.5 top-2.5 text-muted-foreground hover:text-foreground"
+            >
+              <X className="h-4 w-4" />
+            </button>
+          )}
         </div>
       </div>
       <div className="overflow-auto relative h-full">
