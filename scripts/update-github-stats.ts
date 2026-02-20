@@ -61,21 +61,22 @@ async function fetchGitHubStats(owner: string, repo: string): Promise<GitHubStat
   }
 }
 
-async function updateFile(filename: string) {
-  const filepath = path.join(DATA_DIR, filename);
-  if (!fs.existsSync(filepath)) {
-    console.warn(`File not found: ${filename}`);
+async function updateCategory(category: string) {
+  const categoryDir = path.join(DATA_DIR, category);
+  if (!fs.existsSync(categoryDir)) {
     return;
   }
 
-  try {
-    const rawData = fs.readFileSync(filepath, "utf-8");
-    const tools: Tool[] = JSON.parse(rawData);
-    let updatedCount = 0;
+  const files = fs.readdirSync(categoryDir).filter(file => file.endsWith(".json"));
+  console.log(`Processing category ${category}...`);
 
-    console.log(`Processing ${filename}...`);
+  for (const file of files) {
+    const filepath = path.join(categoryDir, file);
+    try {
+      const rawData = fs.readFileSync(filepath, "utf-8");
+      const tool: Tool = JSON.parse(rawData);
+      let updated = false;
 
-    for (const tool of tools) {
       if (tool.repository && tool.repository.includes("github.com")) {
         // Extract owner and repo from URL
         // format: https://github.com/owner/repo or https://github.com/owner/repo.git
@@ -91,34 +92,33 @@ async function updateFile(filename: string) {
 
           if (stats) {
             tool.githubStats = stats;
-            updatedCount++;
+            updated = true;
           }
 
           // Slight delay to be nice to the API
           await new Promise(resolve => setTimeout(resolve, 500));
         } else {
-            console.warn(`  Could not parse GitHub URL for ${tool.name}: ${tool.repository}`);
+          console.warn(`  Could not parse GitHub URL for ${tool.name}: ${tool.repository}`);
         }
       }
-    }
 
-    if (updatedCount > 0) {
-      fs.writeFileSync(filepath, JSON.stringify(tools, null, 2) + "\n", "utf-8");
-      console.log(`✅ Updated ${updatedCount} tools in ${filename}.`);
-    } else {
-      console.log(`No updates for ${filename}.`);
+      if (updated) {
+        fs.writeFileSync(filepath, JSON.stringify(tool, null, 2) + "\n", "utf-8");
+        console.log(`✅ Updated ${file}.`);
+      }
+    } catch (error) {
+      console.error(`Error processing ${category}/${file}:`, error);
     }
-
-  } catch (error) {
-    console.error(`Error processing ${filename}:`, error);
   }
 }
 
 async function main() {
-  const files = fs.readdirSync(DATA_DIR).filter(file => file.endsWith(".json"));
+  const categories = fs.readdirSync(DATA_DIR).filter(item => {
+    return fs.statSync(path.join(DATA_DIR, item)).isDirectory();
+  });
 
-  for (const file of files) {
-    await updateFile(file);
+  for (const category of categories) {
+    await updateCategory(category);
   }
 }
 

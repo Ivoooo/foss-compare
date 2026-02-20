@@ -2,9 +2,6 @@ import fs from 'fs';
 import path from 'path';
 import { execSync } from 'child_process';
 
-// Since we are running in tsx, we can import types if we want,
-// but for simplicity in a script, we can just treat data as any or define a minimal interface locally
-// to avoid importing from src which might require tsconfig path mapping setup for tsx.
 interface DockerConfig {
   image: string;
   env?: Record<string, string>;
@@ -58,10 +55,6 @@ async function benchmarkTool(image: string, env: Record<string, string> = {}): P
   const envString = Object.entries(env).map(([k, v]) => `-e ${k}="${v}"`).join(' ');
 
   console.log(`  Starting container ${containerName}...`);
-  // Use --network none to prevent external traffic noise if not needed,
-  // but some apps might crash without network. Let's stick to default bridge.
-  // We strictly limit memory to avoid OOMing the runner if the app goes crazy,
-  // but ideally we just want to measure idle usage.
   runCommand(`docker run -d --name ${containerName} ${envString} ${image}`);
 
   try {
@@ -70,21 +63,12 @@ async function benchmarkTool(image: string, env: Record<string, string> = {}): P
     await new Promise(resolve => setTimeout(resolve, 30000));
 
     // 5. Measure RAM
-    // docker stats --no-stream --format "{{.MemUsage}}" returns something like "123MiB / 7.7GiB"
     const statsOutput = runCommand(`docker stats --no-stream --format "{{.MemUsage}}" ${containerName}`);
-    // Extract the first part (used memory)
     const usedMemRaw = statsOutput.split('/')[0].trim();
 
-    // The output from docker stats is already human readable (e.g., "50.5MiB"),
-    // but we might want to normalize it.
-    // For now, let's trust docker's formatting but maybe replace MiB with MB for consistency if we want.
-    // Actually, let's keep it as is, it's readable.
-
-    // NOTE: Docker stats sometimes returns 0 or empty if the container crashed.
-    // Let's verify container is still running.
     const isRunning = runCommand(`docker inspect -f "{{.State.Running}}" ${containerName}`) === 'true';
     if (!isRunning) {
-        throw new Error("Container crashed before measurement.");
+      throw new Error("Container crashed before measurement.");
     }
 
     return {
@@ -95,9 +79,54 @@ async function benchmarkTool(image: string, env: Record<string, string> = {}): P
   } finally {
     // 6. Cleanup
     try {
-        runCommand(`docker rm -f ${containerName}`);
+      runCommand(`docker rm -f ${containerName}`);
     } catch (e) {
-        console.error(`  Failed to remove container ${containerName}: ${e instanceof Error ? e.message : String(e)}`);
+      console.error(`  Failed to remove container ${containerName}: ${e instanceof Error ? e.message : String(e)}`);
+    }
+  }
+}
+
+async function updateCategory(category: string) {
+  const categoryDir = path.join(DATA_DIR, category);
+  if (!fs.existsSync(categoryDir)) {
+    return;
+  }
+
+  const files = fs.readdirSync(categoryDir).filter(file => file.endsWith(".json"));
+  console.log(`Processing category ${category}...`);
+
+  for (const file of files) {
+    const filePath = path.join(categoryDir, file);
+    try {
+      const content = fs.readFileSync(filePath, 'utf-8');
+      const tool: Tool = JSON.parse(content);
+      let updated = false;
+
+      if (tool.automation?.docker?.image) {
+        console.log(`Benchmarking ${tool.name}...`);
+        try {
+          const result = await benchmarkTool(tool.automation.docker.image, tool.automation.docker.env);
+
+          if (!tool.performance) {
+            tool.performance = {};
+          }
+
+          tool.performance.dockerImageSize = result.imageSize;
+          tool.performance.ramUsage = result.ramUsage;
+
+          console.log(`  Result: Size=${result.imageSize}, RAM=${result.ramUsage}`);
+          updated = true;
+        } catch (error: unknown) {
+          console.error(`  Error benchmarking ${tool.name}: ${error instanceof Error ? error.message : String(error)}`);
+        }
+      }
+
+      if (updated) {
+        fs.writeFileSync(filePath, JSON.stringify(tool, null, 2) + '\n');
+        console.log(`Updated ${file}`);
+      }
+    } catch (error) {
+      console.error(`Error processing ${category}/${file}:`, error);
     }
   }
 }
@@ -108,41 +137,12 @@ async function main() {
     process.exit(1);
   }
 
-  const files = fs.readdirSync(DATA_DIR).filter(f => f.endsWith('.json'));
+  const categories = fs.readdirSync(DATA_DIR).filter(item => {
+    return fs.statSync(path.join(DATA_DIR, item)).isDirectory();
+  });
 
-  for (const file of files) {
-    const filePath = path.join(DATA_DIR, file);
-    console.log(`Processing ${file}...`);
-
-    const content = fs.readFileSync(filePath, 'utf-8');
-    const data: Tool[] = JSON.parse(content);
-    let updated = false;
-
-    for (const tool of data) {
-      if (tool.automation?.docker?.image) {
-        console.log(`Benchmarking ${tool.name}...`);
-        try {
-            const result = await benchmarkTool(tool.automation.docker.image, tool.automation.docker.env);
-
-            if (!tool.performance) {
-                tool.performance = {};
-            }
-
-            tool.performance.dockerImageSize = result.imageSize;
-            tool.performance.ramUsage = result.ramUsage;
-
-            console.log(`  Result: Size=${result.imageSize}, RAM=${result.ramUsage}`);
-            updated = true;
-        } catch (error: unknown) {
-            console.error(`  Error benchmarking ${tool.name}: ${error instanceof Error ? error.message : String(error)}`);
-        }
-      }
-    }
-
-    if (updated) {
-      fs.writeFileSync(filePath, JSON.stringify(data, null, 2) + '\n'); // Add newline at EOF
-      console.log(`Updated ${file}`);
-    }
+  for (const category of categories) {
+    await updateCategory(category);
   }
 }
 

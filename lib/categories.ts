@@ -1,7 +1,7 @@
 import { MonitorPlay, Shield, LucideIcon } from "lucide-react";
 import { CategorySection, SoftwareTool } from "@/lib/schemas";
-import streamersData from "@/data/media-servers.json";
-import passwordManagersData from "@/data/password-managers.json";
+import { media_serversData as streamersData } from "@/data/media-servers";
+import { password_managersData as passwordManagersData } from "@/data/password-managers";
 
 export interface CategoryConfig {
   id: string;

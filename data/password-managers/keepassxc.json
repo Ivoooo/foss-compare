@@ -1,0 +1,155 @@
+{
+  "id": "keepassxc",
+  "name": "KeePassXC",
+  "description": "Cross-Platform Password Manager defined by the open KeePass format.",
+  "website": "https://keepassxc.org",
+  "repository": "https://github.com/keepassxreboot/keepassxc",
+  "license": "GPL-3.0",
+  "openSource": true,
+  "githubStats": {
+    "stars": 25917,
+    "forks": 1712,
+    "lastCommit": "2026-02-16T04:45:40Z",
+    "openIssues": 832
+  },
+  "language": [
+    "C++"
+  ],
+  "dockerSupport": {
+    "status": "No",
+    "verification": {
+      "verifiedAtVersion": "v2.7.6",
+      "verificationLink": "https://github.com/keepassxreboot/keepassxc/releases"
+    }
+  },
+  "armSupport": {
+    "status": "Yes",
+    "verification": {
+      "verifiedAtVersion": "v2.7.6",
+      "verificationLink": "https://github.com/keepassxreboot/keepassxc/releases"
+    }
+  },
+  "platforms": {
+    "windows": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.7.6",
+        "verificationLink": "https://github.com/keepassxreboot/keepassxc/releases"
+      }
+    },
+    "mac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.7.6",
+        "verificationLink": "https://github.com/keepassxreboot/keepassxc/releases"
+      }
+    },
+    "linux": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.7.6",
+        "verificationLink": "https://github.com/keepassxreboot/keepassxc/releases"
+      }
+    },
+    "android": {
+      "status": "Partial",
+      "verification": {
+        "verifiedAtVersion": "v2.7.6",
+        "verificationLink": "https://github.com/keepassxreboot/keepassxc/releases"
+      }
+    },
+    "ios": {
+      "status": "Partial",
+      "verification": {
+        "verifiedAtVersion": "v2.7.6",
+        "verificationLink": "https://github.com/keepassxreboot/keepassxc/releases"
+      }
+    },
+    "browserExtensions": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.7.6",
+        "verificationLink": "https://github.com/keepassxreboot/keepassxc/releases"
+      }
+    },
+    "webVault": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.7.6",
+        "verificationLink": "https://github.com/keepassxreboot/keepassxc/releases"
+      }
+    }
+  },
+  "features": {
+    "twoFactor": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.7.6",
+        "verificationLink": "https://github.com/keepassxreboot/keepassxc/releases"
+      }
+    },
+    "biometrics": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.7.6",
+        "verificationLink": "https://github.com/keepassxreboot/keepassxc/releases"
+      }
+    },
+    "passwordSharing": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.7.6",
+        "verificationLink": "https://github.com/keepassxreboot/keepassxc/releases"
+      }
+    },
+    "organizations": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.7.6",
+        "verificationLink": "https://github.com/keepassxreboot/keepassxc/releases"
+      }
+    },
+    "importExport": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.7.6",
+        "verificationLink": "https://github.com/keepassxreboot/keepassxc/releases"
+      }
+    },
+    "auditLogs": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.7.6",
+        "verificationLink": "https://github.com/keepassxreboot/keepassxc/releases"
+      }
+    },
+    "ldap": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.7.6",
+        "verificationLink": "https://github.com/keepassxreboot/keepassxc/releases"
+      }
+    },
+    "oidc": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.7.6",
+        "verificationLink": "https://github.com/keepassxreboot/keepassxc/releases"
+      }
+    },
+    "sso": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.7.6",
+        "verificationLink": "https://github.com/keepassxreboot/keepassxc/releases"
+      }
+    }
+  },
+  "meta": {
+    "lastCheck": {
+      "date": "2023-10-20",
+      "version": "v2.7.6",
+      "changelogLink": "https://github.com/keepassxreboot/keepassxc/releases"
+    }
+  }
+}

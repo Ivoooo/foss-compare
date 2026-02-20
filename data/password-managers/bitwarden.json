@@ -1,0 +1,156 @@
+{
+  "id": "bitwarden",
+  "name": "Bitwarden",
+  "description": "A secure and free password manager for all of your devices.",
+  "website": "https://bitwarden.com",
+  "repository": "https://github.com/bitwarden/server",
+  "license": "GPL-3.0",
+  "openSource": true,
+  "githubStats": {
+    "stars": 18077,
+    "forks": 1539,
+    "lastCommit": "2026-02-20T21:02:10Z",
+    "openIssues": 189
+  },
+  "language": [
+    "C#",
+    "TypeScript"
+  ],
+  "dockerSupport": {
+    "status": "Yes",
+    "verification": {
+      "verifiedAtVersion": "v2023.10.0",
+      "verificationLink": "https://github.com/bitwarden/server/releases"
+    }
+  },
+  "armSupport": {
+    "status": "Yes",
+    "verification": {
+      "verifiedAtVersion": "v2023.10.0",
+      "verificationLink": "https://github.com/bitwarden/server/releases"
+    }
+  },
+  "platforms": {
+    "windows": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2023.10.0",
+        "verificationLink": "https://github.com/bitwarden/server/releases"
+      }
+    },
+    "mac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2023.10.0",
+        "verificationLink": "https://github.com/bitwarden/server/releases"
+      }
+    },
+    "linux": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2023.10.0",
+        "verificationLink": "https://github.com/bitwarden/server/releases"
+      }
+    },
+    "android": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2023.10.0",
+        "verificationLink": "https://github.com/bitwarden/server/releases"
+      }
+    },
+    "ios": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2023.10.0",
+        "verificationLink": "https://github.com/bitwarden/server/releases"
+      }
+    },
+    "browserExtensions": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2023.10.0",
+        "verificationLink": "https://github.com/bitwarden/server/releases"
+      }
+    },
+    "webVault": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2023.10.0",
+        "verificationLink": "https://github.com/bitwarden/server/releases"
+      }
+    }
+  },
+  "features": {
+    "twoFactor": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2023.10.0",
+        "verificationLink": "https://github.com/bitwarden/server/releases"
+      }
+    },
+    "biometrics": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2023.10.0",
+        "verificationLink": "https://github.com/bitwarden/server/releases"
+      }
+    },
+    "passwordSharing": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2023.10.0",
+        "verificationLink": "https://github.com/bitwarden/server/releases"
+      }
+    },
+    "organizations": {
+      "status": "Paid",
+      "verification": {
+        "verifiedAtVersion": "v2023.10.0",
+        "verificationLink": "https://github.com/bitwarden/server/releases"
+      }
+    },
+    "importExport": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2023.10.0",
+        "verificationLink": "https://github.com/bitwarden/server/releases"
+      }
+    },
+    "auditLogs": {
+      "status": "Paid",
+      "verification": {
+        "verifiedAtVersion": "v2023.10.0",
+        "verificationLink": "https://github.com/bitwarden/server/releases"
+      }
+    },
+    "ldap": {
+      "status": "Paid",
+      "verification": {
+        "verifiedAtVersion": "v2023.10.0",
+        "verificationLink": "https://github.com/bitwarden/server/releases"
+      }
+    },
+    "oidc": {
+      "status": "Paid",
+      "verification": {
+        "verifiedAtVersion": "v2023.10.0",
+        "verificationLink": "https://github.com/bitwarden/server/releases"
+      }
+    },
+    "sso": {
+      "status": "Paid",
+      "verification": {
+        "verifiedAtVersion": "v2023.10.0",
+        "verificationLink": "https://github.com/bitwarden/server/releases"
+      }
+    }
+  },
+  "meta": {
+    "lastCheck": {
+      "date": "2023-10-25",
+      "version": "v2023.10.0",
+      "changelogLink": "https://github.com/bitwarden/server/releases"
+    }
+  }
+}

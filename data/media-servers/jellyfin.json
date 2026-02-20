@@ -1,0 +1,409 @@
+{
+  "id": "jellyfin",
+  "name": "Jellyfin",
+  "description": "The Free Software Media System. It puts you in control of managing and streaming your media.",
+  "website": "https://jellyfin.org/",
+  "repository": "https://github.com/jellyfin/jellyfin",
+  "license": "GPL-3.0",
+  "openSource": true,
+  "language": [
+    "C#",
+    "React"
+  ],
+  "dockerSupport": {
+    "status": "Yes",
+    "verification": {
+      "verifiedAtVersion": "v10.8.13",
+      "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+    }
+  },
+  "armSupport": {
+    "status": "Yes",
+    "verification": {
+      "verifiedAtVersion": "v10.8.13",
+      "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+    }
+  },
+  "githubStats": {
+    "stars": 48683,
+    "forks": 4445,
+    "lastCommit": "2026-02-20T17:10:00Z",
+    "openIssues": 834
+  },
+  "platforms": {
+    "web": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "pwa": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "android": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "ios": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.6.0",
+        "verificationLink": "https://apps.apple.com/us/app/jellyfin-mobile/id1480192618"
+      }
+    },
+    "androidTv": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "appleTv": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "windows": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "mac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "linux": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "samsungTv": {
+      "status": "Partial",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "lgTv": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "roku": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    }
+  },
+  "codecs": {
+    "h264": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "h265": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "av1": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "vp9": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "mpeg2": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "vc1": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "aac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "ac3": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "eac3": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "truehd": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "dts": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "dtshdma": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "flac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    }
+  },
+  "features": {
+    "multipleUsers": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "parentalControls": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "watchTogether": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "autoSubtitles": {
+      "status": "Yes",
+      "note": "Plugin",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "ebooks": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "liveTv": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "dvr": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "hardwareTranscoding": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "offlineDownloads": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "introSkipping": {
+      "status": "Yes",
+      "note": "Plugin",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "lyrics": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "podcasts": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "audiobooks": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "photos": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "plugins": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "ldap": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "oidc": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "twoFactor": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "sso": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "sonarr": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "radarr": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "trakt": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "skipCredits": {
+      "status": "Yes",
+      "note": "Plugin",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "skipAds": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "seerr": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v10.8.13",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    }
+  },
+  "notes": "Community-driven fork of Emby. Completely free with no paid features.",
+  "meta": {
+    "lastCheck": {
+      "date": "2024-02-19",
+      "version": "v10.8.13",
+      "changelogLink": "https://github.com/jellyfin/jellyfin/releases"
+    }
+  },
+  "automation": {
+    "docker": {
+      "image": "jellyfin/jellyfin:latest"
+    }
+  },
+  "performance": {
+    "ramUsage": "247.4MiB",
+    "dockerImageSize": "1.44 GB"
+  }
+}

@@ -6,70 +6,67 @@ import { StreamerToolSchema, PasswordManagerToolSchema } from "../lib/schemas";
 const DATA_DIR = path.join(process.cwd(), "data");
 
 const SCHEMAS: Record<string, ZodSchema> = {
-  "media-servers.json": StreamerToolSchema,
-  "password-managers.json": PasswordManagerToolSchema,
+  "media-servers": StreamerToolSchema,
+  "password-managers": PasswordManagerToolSchema,
 };
 
-function validateFile(filename: string) {
-  const filepath = path.join(DATA_DIR, filename);
-  if (!fs.existsSync(filepath)) {
-    console.error(`File not found: ${filename}`);
+function validateCategory(category: string) {
+  const categoryDir = path.join(DATA_DIR, category);
+  if (!fs.existsSync(categoryDir)) {
+    console.error(`Directory not found: ${categoryDir}`);
     return false;
   }
 
-  try {
-    const rawData = fs.readFileSync(filepath, "utf-8");
-    const json = JSON.parse(rawData);
+  const schema = SCHEMAS[category];
+  if (!schema) {
+    console.error(`No schema defined for ${category}`);
+    return false;
+  }
 
-    if (!Array.isArray(json)) {
-      console.error(`Error in ${filename}: Root element is not an array.`);
-      return false;
-    }
+  const files = fs.readdirSync(categoryDir).filter(file => file.endsWith(".json"));
+  let hasError = false;
 
-    const schema = SCHEMAS[filename];
-    if (!schema) {
-      console.error(`No schema defined for ${filename}`);
-      return false;
-    }
+  for (const file of files) {
+    const filepath = path.join(categoryDir, file);
+    try {
+      const rawData = fs.readFileSync(filepath, "utf-8");
+      const json = JSON.parse(rawData);
 
-    let hasError = false;
-    json.forEach((item, index) => {
       try {
-        schema.parse(item);
+        schema.parse(json);
       } catch (error) {
         hasError = true;
         if (error instanceof ZodError) {
-          console.error(`\nError in ${filename} at index ${index} (ID: ${item.id || "unknown"}):`);
+          console.error(`\nError in ${category}/${file} (ID: ${json.id || "unknown"}):`);
           error.issues.forEach((err) => {
             console.error(`  - ${err.path.join(".")}: ${err.message}`);
           });
         } else {
-          console.error(`Unknown error in ${filename} at index ${index}:`, error);
+          console.error(`Unknown error in ${category}/${file}:`, error);
         }
       }
-    });
-
-    if (hasError) {
-      return false;
+    } catch (error) {
+      console.error(`Error reading or parsing ${category}/${file}:`, error);
+      hasError = true;
     }
+  }
 
-    console.log(`✅ ${filename} passed validation.`);
-    return true;
-
-  } catch (error) {
-    console.error(`Error reading or parsing ${filename}:`, error);
+  if (hasError) {
     return false;
   }
+
+  console.log(`✅ ${category} passed validation.`);
+  return true;
 }
 
 function main() {
-  const files = Object.keys(SCHEMAS);
+  const categories = Object.keys(SCHEMAS);
   let allValid = true;
 
   console.log("Starting validation...\n");
 
-  for (const file of files) {
-    if (!validateFile(file)) {
+  for (const category of categories) {
+    if (!validateCategory(category)) {
       allValid = false;
     }
   }
