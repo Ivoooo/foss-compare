@@ -11,6 +11,7 @@ export function useComparisonTable({ data, sections }: UseComparisonTableProps) 
   const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
   const [searchQuery, setSearchQuery] = useState("");
   const [filters, setFilters] = useState<Set<string>>(new Set());
+  const [pinnedTools, setPinnedTools] = useState<Set<string>>(new Set());
 
   const toggleCategory = (id: string) => {
     setExpandedSections((prev) => {
@@ -19,6 +20,18 @@ export function useComparisonTable({ data, sections }: UseComparisonTableProps) 
         next.delete(id);
       } else {
         next.add(id);
+      }
+      return next;
+    });
+  };
+
+  const togglePin = (toolId: string) => {
+    setPinnedTools((prev) => {
+      const next = new Set(prev);
+      if (next.has(toolId)) {
+        next.delete(toolId);
+      } else {
+        next.add(toolId);
       }
       return next;
     });
@@ -119,17 +132,29 @@ export function useComparisonTable({ data, sections }: UseComparisonTableProps) 
     return { maxStars: maxS, maxForks: maxF };
   }, [filteredData]);
 
+  const sortedData = useMemo(() => {
+    return [...filteredData].sort((a, b) => {
+      const aPinned = pinnedTools.has(a.id);
+      const bPinned = pinnedTools.has(b.id);
+      if (aPinned && !bPinned) return -1;
+      if (!aPinned && bPinned) return 1;
+      return 0;
+    });
+  }, [filteredData, pinnedTools]);
+
   return {
     searchQuery,
     setSearchQuery,
     filters,
     handleFilterChange,
     handleResetFilters,
-    filteredData,
+    filteredData: sortedData,
     toggleCategory,
     isSectionExpanded,
     isMatch,
     maxStars,
     maxForks,
+    pinnedTools,
+    togglePin,
   };
 }

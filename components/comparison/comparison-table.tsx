@@ -6,7 +6,7 @@ import { calculateFeatureScore } from "@/lib/comparison-utils";
 import { FeatureStatusCell } from "./feature-status-cell";
 import { ProjectStatsSection } from "./project-stats-section";
 import { ComparisonFilter } from "./comparison-filter";
-import { ChevronDown, ChevronRight, Github, ExternalLink, Search, X } from "lucide-react";
+import { ChevronDown, ChevronRight, Github, ExternalLink, Search, X, Pin, PinOff } from "lucide-react";
 import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { cn, getNestedValue } from "@/lib/utils";
@@ -17,6 +17,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { useComparisonTable } from "./use-comparison-table";
+import { Button } from "@/components/ui/button";
 
 interface ComparisonTableProps {
   data: SoftwareTool[];
@@ -36,6 +37,8 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
     isMatch,
     maxStars,
     maxForks,
+    pinnedTools,
+    togglePin,
   } = useComparisonTable({ data, sections });
 
   return (
@@ -80,30 +83,49 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
              </button>
            </div>
         ) : (
-        <table className="w-full text-sm text-left border-collapse">
+        <table className="w-full text-sm text-left border-collapse table-fixed">
           <thead className="text-xs uppercase bg-muted/90 sticky top-0 z-40 backdrop-blur-md shadow-sm">
             <tr>
-              <th className="px-4 md:px-6 py-4 font-medium text-muted-foreground w-64 min-w-[200px] sticky left-0 z-50 bg-background/95 backdrop-blur-md border-b border-r shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)]">
+              <th className="px-4 md:px-6 py-4 font-medium text-muted-foreground w-64 min-w-[256px] sticky left-0 z-50 bg-background/95 backdrop-blur-md border-b border-r shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)]">
                 Category
               </th>
-              {filteredData.map((tool) => (
+              {filteredData.map((tool, index) => {
+                const isPinned = pinnedTools.has(tool.id);
+                const leftOffset = isPinned ? 256 + index * 240 : undefined;
+                
+                return (
                 <th
                   key={tool.id}
+                  style={isPinned ? { left: `${leftOffset}px` } : undefined}
                   className={cn(
-                    "px-4 md:px-6 py-4 font-bold text-base min-w-[220px] border-b bg-muted/50 align-top transition-colors",
+                    "px-4 md:px-6 py-4 font-bold text-base w-[240px] min-w-[240px] border-b bg-muted/50 align-top transition-colors relative group",
+                    isPinned && "sticky z-40 bg-background/95 backdrop-blur-md border-r shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)]",
                     isMatch(tool.name) && "bg-yellow-100 dark:bg-yellow-900/40"
                   )}
                 >
                   <div className="flex flex-col gap-2">
-                    <div className="flex items-center gap-2">
-                      <Link href={tool.website} target="_blank" className="hover:underline flex items-center gap-1 transition-colors hover:text-primary">
-                        {tool.name} <ExternalLink className="h-3 w-3 opacity-50" />
-                      </Link>
-                      {tool.repository && (
-                        <Link href={tool.repository} target="_blank" className="text-muted-foreground hover:text-foreground transition-colors p-1 rounded-md hover:bg-background/50">
-                           <Github className="h-4 w-4" />
+                    <div className="flex items-center justify-between gap-2">
+                      <div className="flex items-center gap-2 truncate">
+                        <Link href={tool.website} target="_blank" className="hover:underline flex items-center gap-1 transition-colors hover:text-primary truncate">
+                          {tool.name} <ExternalLink className="h-3 w-3 shrink-0 opacity-50" />
                         </Link>
-                      )}
+                        {tool.repository && (
+                          <Link href={tool.repository} target="_blank" className="text-muted-foreground hover:text-foreground transition-colors p-1 rounded-md hover:bg-background/50 shrink-0">
+                             <Github className="h-4 w-4" />
+                          </Link>
+                        )}
+                      </div>
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        className={cn(
+                          "h-7 w-7 shrink-0",
+                          isPinned ? "text-primary" : "text-muted-foreground opacity-0 group-hover:opacity-100"
+                        )}
+                        onClick={() => togglePin(tool.id)}
+                      >
+                        {isPinned ? <Pin className="h-3.5 w-3.5 fill-current" /> : <PinOff className="h-3.5 w-3.5" />}
+                      </Button>
                     </div>
                     {tool.notes && (
                       <div className="hidden md:block text-xs font-normal text-muted-foreground normal-case">
@@ -123,7 +145,7 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
                     )}
                   </div>
                 </th>
-              ))}
+              )})}
             </tr>
           </thead>
 
@@ -131,6 +153,7 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
             data={filteredData}
             maxStars={maxStars}
             maxForks={maxForks}
+            pinnedTools={pinnedTools}
             isOpen={isSectionExpanded("project-stats")}
             onToggle={() => toggleCategory("project-stats")}
           />
@@ -150,15 +173,25 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
                   {isSectionExpanded(section.id) ? <ChevronDown className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
                   {section.label}
                 </td>
-                {filteredData.map((tool) => {
+                {filteredData.map((tool, index) => {
                   const sectionFeatures: Record<string, FeatureStatus | undefined> = {};
                   section.items.forEach(item => {
                       sectionFeatures[item.key] = getNestedValue(tool, item.key) as FeatureStatus | undefined;
                   });
 
                   const { score, total } = calculateFeatureScore(sectionFeatures);
+                  const isPinned = pinnedTools.has(tool.id);
+                  const leftOffset = isPinned ? 256 + index * 240 : undefined;
+
                   return (
-                    <td key={tool.id} className="px-4 md:px-6 py-4 font-medium">
+                    <td 
+                      key={tool.id} 
+                      style={isPinned ? { left: `${leftOffset}px` } : undefined}
+                      className={cn(
+                        "px-4 md:px-6 py-4 font-medium transition-colors",
+                        isPinned && "sticky z-20 bg-background/95 backdrop-blur-md border-r shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)]"
+                      )}
+                    >
                       <div className="flex items-center gap-2">
                         <span className={cn(
                           "font-mono text-xs px-2 py-0.5 rounded-full",
@@ -183,10 +216,19 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
                   >
                     {item.label}
                   </td>
-                  {filteredData.map((tool) => {
+                  {filteredData.map((tool, index) => {
                     const status = getNestedValue(tool, item.key) as FeatureStatus;
+                    const isPinned = pinnedTools.has(tool.id);
+                    const leftOffset = isPinned ? 256 + index * 240 : undefined;
                     return (
-                      <td key={tool.id} className="px-4 md:px-6 py-3 bg-muted/5 group-hover/row:bg-muted/20 dark:group-hover/row:bg-muted/30 transition-colors">
+                      <td 
+                        key={tool.id} 
+                        style={isPinned ? { left: `${leftOffset}px` } : undefined}
+                        className={cn(
+                          "px-4 md:px-6 py-3 bg-muted/5 group-hover/row:bg-muted/20 dark:group-hover/row:bg-muted/30 transition-colors",
+                          isPinned && "sticky z-10 bg-background/95 backdrop-blur-md border-r shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)]"
+                        )}
+                      >
                         <FeatureStatusCell status={status} />
                       </td>
                     );

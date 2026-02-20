@@ -30,7 +30,7 @@ This document outlines the long-term vision and planned features for `foss.compa
 - [x] **PWA Implementation:**
   - Add manifest.json and service workers for offline support and "Add to Home Screen".
 - [x] **Theme Toggle:** fully support Dark/Light mode switching.
-- [ ] **Mobile Optimization:** Refine table view for small screens (maybe card view on mobile).
+- [ ] **Mobile Optimization:** Refine table view for small screens.
 
 ## Phase 5: Community & Contribution
 - [x] **Contribution Guide:** Detailed instructions on how to add a new tool or category.

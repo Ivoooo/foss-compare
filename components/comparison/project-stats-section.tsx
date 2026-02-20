@@ -13,11 +13,13 @@ import {
 import { FeatureStatusCell } from "./feature-status-cell";
 import { ChevronDown, ChevronRight, Github, Code, Box, Cpu } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
 
 interface ProjectStatsSectionProps {
   data: SoftwareTool[];
   maxStars: number;
   maxForks: number;
+  pinnedTools: Set<string>;
   isOpen: boolean;
   onToggle: () => void;
 }
@@ -25,19 +27,31 @@ interface ProjectStatsSectionProps {
 interface StatsRowProps {
   label: React.ReactNode;
   data: SoftwareTool[];
+  pinnedTools: Set<string>;
   renderCell: (tool: SoftwareTool) => React.ReactNode;
 }
 
-const StatsRow = ({ label, data, renderCell }: StatsRowProps) => (
+const StatsRow = ({ label, data, pinnedTools, renderCell }: StatsRowProps) => (
   <tr className="bg-muted/5 group/row hover:bg-muted/20 dark:hover:bg-muted/30 transition-colors">
     <td className="sticky left-0 z-20 bg-background/95 backdrop-blur-sm border-r px-4 md:px-6 py-3 pl-10 md:pl-12 text-muted-foreground shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)] group-hover/row:bg-muted/20 dark:group-hover/row:bg-muted/30 transition-colors flex items-center gap-2 min-h-[48px]">
       {label}
     </td>
-    {data.map((tool) => (
-      <td key={tool.id} className="px-4 md:px-6 py-3 bg-muted/5 group-hover/row:bg-muted/20 dark:group-hover/row:bg-muted/30 transition-colors">
-        {renderCell(tool)}
-      </td>
-    ))}
+    {data.map((tool, index) => {
+      const isPinned = pinnedTools.has(tool.id);
+      const leftOffset = isPinned ? 256 + index * 240 : undefined;
+      return (
+        <td
+          key={tool.id}
+          style={isPinned ? { left: `${leftOffset}px` } : undefined}
+          className={cn(
+            "px-4 md:px-6 py-3 bg-muted/5 group-hover/row:bg-muted/20 dark:group-hover/row:bg-muted/30 transition-colors",
+            isPinned && "sticky z-10 bg-background/95 backdrop-blur-md border-r shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)]"
+          )}
+        >
+          {renderCell(tool)}
+        </td>
+      );
+    })}
   </tr>
 );
 
@@ -45,6 +59,7 @@ export function ProjectStatsSection({
   data,
   maxStars,
   maxForks,
+  pinnedTools,
   isOpen,
   onToggle,
 }: ProjectStatsSectionProps) {
@@ -77,17 +92,29 @@ export function ProjectStatsSection({
           {isOpen ? <ChevronDown className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
           Project Stats
         </td>
-        {data.map((tool) => (
-          <td key={tool.id} className="px-4 md:px-6 py-4">
-            <span className="font-medium">{getGitHubPopularityStatus(tool)}</span>
-          </td>
-        ))}
+        {data.map((tool, index) => {
+          const isPinned = pinnedTools.has(tool.id);
+          const leftOffset = isPinned ? 256 + index * 240 : undefined;
+          return (
+            <td 
+              key={tool.id} 
+              style={isPinned ? { left: `${leftOffset}px` } : undefined}
+              className={cn(
+                "px-4 md:px-6 py-4 transition-colors",
+                isPinned && "sticky z-20 bg-background/95 backdrop-blur-md border-r shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)]"
+              )}
+            >
+              <span className="font-medium">{getGitHubPopularityStatus(tool)}</span>
+            </td>
+          );
+        })}
       </tr>
       {isOpen && (
         <>
           <StatsRow
             label={<><Code className="h-3 w-3" /> Languages</>}
             data={data}
+            pinnedTools={pinnedTools}
             renderCell={(tool) => (
               <div className="flex flex-wrap gap-1">
                 {tool.language.map((lang) => (
@@ -102,6 +129,7 @@ export function ProjectStatsSection({
           <StatsRow
             label={<><Box className="h-3 w-3" /> Image Size</>}
             data={data}
+            pinnedTools={pinnedTools}
             renderCell={(tool) => {
               const val = parseSizeString(tool.performance?.dockerImageSize);
               const isLowest = val !== Infinity && val === minImageSize;
@@ -117,6 +145,7 @@ export function ProjectStatsSection({
           <StatsRow
             label={<><Cpu className="h-3 w-3" /> Idle RAM</>}
             data={data}
+            pinnedTools={pinnedTools}
             renderCell={(tool) => {
                const val = parseSizeString(tool.performance?.ramUsage);
                const isLowest = val !== Infinity && val === minRam;
@@ -132,6 +161,7 @@ export function ProjectStatsSection({
           <StatsRow
             label={<><Github className="h-3 w-3" /> Stars</>}
             data={data}
+            pinnedTools={pinnedTools}
             renderCell={(tool) => tool.githubStats ? (
               <div className="flex items-center gap-2">
                 <span>{tool.githubStats.stars.toLocaleString()}</span>
@@ -143,6 +173,7 @@ export function ProjectStatsSection({
           <StatsRow
             label="Forks"
             data={data}
+            pinnedTools={pinnedTools}
             renderCell={(tool) => tool.githubStats ? (
               <div className="flex items-center gap-2">
                 <span>{tool.githubStats.forks.toLocaleString()}</span>
@@ -154,6 +185,7 @@ export function ProjectStatsSection({
           <StatsRow
             label="Last Commit"
             data={data}
+            pinnedTools={pinnedTools}
             renderCell={(tool) => tool.githubStats ? (
               <div className="flex items-center gap-2">
                 <span>{tool.githubStats.lastCommit}</span>
@@ -165,6 +197,7 @@ export function ProjectStatsSection({
           <StatsRow
             label="License"
             data={data}
+            pinnedTools={pinnedTools}
             renderCell={(tool) => (
               <Badge variant="outline" className={getLicenseColor(tool.license)}>
                 {tool.license}
@@ -175,6 +208,7 @@ export function ProjectStatsSection({
           <StatsRow
             label="Open Source"
             data={data}
+            pinnedTools={pinnedTools}
             renderCell={(tool) => (
               <FeatureStatusCell status={tool.openSource ? "Yes" : "No"} />
             )}
