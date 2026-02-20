@@ -5,6 +5,7 @@ import { SoftwareTool, CategorySection, FeatureStatus } from "@/types/software";
 import { calculateFeatureScore } from "@/lib/comparison-utils";
 import { FeatureStatusCell } from "./feature-status-cell";
 import { GitHubPopularitySection } from "./github-popularity-section";
+import { ComparisonFilter } from "./comparison-filter";
 import { ChevronDown, ChevronRight, Github, ExternalLink, Search, X } from "lucide-react";
 import Link from "next/link";
 import { Input } from "@/components/ui/input";
@@ -29,6 +30,7 @@ function getNestedValue(obj: any, path: string): any {
 export function ComparisonTable({ data, sections }: ComparisonTableProps) {
   const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
   const [searchQuery, setSearchQuery] = useState("");
+  const [filters, setFilters] = useState<Set<string>>(new Set());
 
   const toggleCategory = (id: string) => {
     setExpandedSections((prev) => {
@@ -41,6 +43,46 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
       return next;
     });
   };
+
+  const handleFilterChange = (filterId: string) => {
+    setFilters((prev) => {
+      const next = new Set(prev);
+      if (next.has(filterId)) {
+        next.delete(filterId);
+      } else {
+        next.add(filterId);
+      }
+      return next;
+    });
+  };
+
+  const handleResetFilters = () => {
+    setFilters(new Set());
+  };
+
+  const filteredData = useMemo(() => {
+    return data.filter((tool) => {
+      // Check filters
+      for (const filterId of filters) {
+        const status = getNestedValue(tool, filterId);
+        // "Yes" and "Paid" are considered match.
+        // FeatureStatus can be string or object.
+        // We consider "Yes" and "Paid" as satisfying the requirement.
+        // We could also consider "Partial" depending on strictness, but let's stick to positive affirmation.
+        let statusStr = "";
+        if (typeof status === "string") {
+            statusStr = status;
+        } else if (status && typeof status === "object" && "status" in status) {
+            statusStr = status.status;
+        }
+
+        if (statusStr !== "Yes" && statusStr !== "Paid") {
+          return false;
+        }
+      }
+      return true;
+    });
+  }, [data, filters]);
 
   useEffect(() => {
     // Only search/expand if query is at least 2 characters
@@ -87,19 +129,19 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
   const { maxStars, maxForks } = useMemo(() => {
     let maxS = 0;
     let maxF = 0;
-    data.forEach(tool => {
+    filteredData.forEach(tool => {
       if (tool.githubStats) {
         if (tool.githubStats.stars > maxS) maxS = tool.githubStats.stars;
         if (tool.githubStats.forks > maxF) maxF = tool.githubStats.forks;
       }
     });
     return { maxStars: maxS, maxForks: maxF };
-  }, [data]);
+  }, [filteredData]);
 
   return (
     <div className="w-full border rounded-lg shadow-sm bg-background flex flex-col h-full overflow-hidden">
-      <div className="p-4 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-10">
-        <div className="relative max-w-sm">
+      <div className="p-4 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-10 flex items-center gap-4">
+        <div className="relative max-w-sm flex-1">
           <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
           <Input
             type="text"
@@ -117,15 +159,35 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
             </button>
           )}
         </div>
+        <ComparisonFilter
+          sections={sections}
+          filters={filters}
+          onFilterChange={handleFilterChange}
+          onReset={handleResetFilters}
+          matchCount={filteredData.length}
+          totalCount={data.length}
+        />
       </div>
       <div className="overflow-auto relative h-full">
+        {filteredData.length === 0 ? (
+           <div className="flex flex-col items-center justify-center p-10 text-center h-full">
+             <h3 className="text-lg font-semibold">No matching tools found</h3>
+             <p className="text-muted-foreground">Try adjusting your filters or search query.</p>
+             <button
+                onClick={handleResetFilters}
+                className="mt-4 text-primary hover:underline"
+             >
+               Clear all filters
+             </button>
+           </div>
+        ) : (
         <table className="w-full text-sm text-left border-collapse">
           <thead className="text-xs uppercase bg-muted/90 sticky top-0 z-40 backdrop-blur-md shadow-sm">
             <tr>
               <th className="px-4 md:px-6 py-4 font-medium text-muted-foreground w-64 min-w-[200px] sticky left-0 z-50 bg-background/95 backdrop-blur-md border-b border-r shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)]">
                 Category
               </th>
-              {data.map((tool) => (
+              {filteredData.map((tool) => (
                 <th
                   key={tool.id}
                   className={cn(
@@ -168,7 +230,7 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
 
           {/* GitHub Popularity Section */}
           <GitHubPopularitySection
-            data={data}
+            data={filteredData}
             maxStars={maxStars}
             maxForks={maxForks}
             isOpen={expandedSections.has("github")}
@@ -191,7 +253,7 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
                   {expandedSections.has(section.id) ? <ChevronDown className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
                   {section.label}
                 </td>
-                {data.map((tool) => {
+                {filteredData.map((tool) => {
                   const sectionFeatures: Record<string, FeatureStatus | undefined> = {};
                   section.items.forEach(item => {
                       sectionFeatures[item.key] = getNestedValue(tool, item.key);
@@ -224,7 +286,7 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
                   >
                     {item.label}
                   </td>
-                  {data.map((tool) => {
+                  {filteredData.map((tool) => {
                     const status = getNestedValue(tool, item.key);
                     return (
                       <td key={tool.id} className="px-4 md:px-6 py-3 bg-muted/5 group-hover/row:bg-muted/20 dark:group-hover/row:bg-muted/30 transition-colors">
@@ -237,6 +299,7 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
             </tbody>
           ))}
         </table>
+        )}
       </div>
     </div>
   );
