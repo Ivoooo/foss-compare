@@ -161,12 +161,14 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
                   >
                     <td
                       className={cn(
-                        "bg-background group-hover:bg-muted border-r px-4 md:px-6 py-4 font-medium flex items-center gap-2 border-b",
+                        "bg-background group-hover:bg-muted border-r px-4 md:px-6 py-4 font-medium border-b",
                         isMatch(section.label) && "bg-yellow-100 dark:bg-yellow-900/40"
                       )}
                     >
-                      {isSectionExpanded(section.id) ? <ChevronDown className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
-                      {section.label}
+                      <div className="flex items-center gap-2">
+                        {isSectionExpanded(section.id) ? <ChevronDown className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
+                        {section.label}
+                      </div>
                     </td>
                     {filteredData.map((tool) => {
                       const sectionFeatures: Record<string, FeatureStatus | undefined> = {};

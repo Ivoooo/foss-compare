@@ -32,8 +32,10 @@ interface StatsRowProps {
 
 const StatsRow = ({ label, data, pinnedTools, renderCell }: StatsRowProps) => (
   <tr className="bg-muted/5 group/row hover:bg-muted/20 transition-colors">
-    <td className="bg-background border-r px-4 md:px-6 py-3 pl-10 md:pl-12 text-muted-foreground group-hover/row:bg-muted transition-colors flex items-center gap-2 min-h-[48px] border-b">
-      {label}
+    <td className="bg-background border-r px-4 md:px-6 py-3 pl-10 md:pl-12 text-muted-foreground group-hover/row:bg-muted transition-colors border-b">
+      <div className="flex items-center gap-2 min-h-[48px]">
+        {label}
+      </div>
     </td>
     {data.map((tool) => {
 
@@ -82,9 +84,11 @@ export function ProjectStatsSection({
         className="cursor-pointer group transition-colors hover:bg-muted"
         onClick={onToggle}
       >
-        <td className="bg-background group-hover:bg-muted border-r px-4 md:px-6 py-4 font-medium flex items-center gap-2 transition-colors border-b">
-          {isOpen ? <ChevronDown className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
-          Project Stats
+        <td className="bg-background group-hover:bg-muted border-r px-4 md:px-6 py-4 font-medium transition-colors border-b">
+          <div className="flex items-center gap-2">
+            {isOpen ? <ChevronDown className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
+            Project Stats
+          </div>
         </td>
         {data.map((tool) => {
 
