@@ -10,16 +10,28 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight } from "lucide-react";
-import { useRef } from "react";
+import { ArrowRight, Search, X } from "lucide-react";
+import { useRef, useState } from "react";
 import { categories } from "@/lib/categories";
+import { Input } from "@/components/ui/input";
 
 export default function Home() {
   const categoriesRef = useRef<HTMLElement>(null);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const scrollToCategories = () => {
     categoriesRef.current?.scrollIntoView({ behavior: "smooth" });
   };
+
+  const filteredCategories = categories.filter((category) => {
+    if (!searchQuery) return true;
+    const lowerQuery = searchQuery.toLowerCase();
+    const titleMatch = category.title.toLowerCase().includes(lowerQuery);
+    const toolMatch = category.data.some((tool) =>
+      tool.name.toLowerCase().includes(lowerQuery)
+    );
+    return titleMatch || toolMatch;
+  });
 
   return (
     <>
@@ -67,10 +79,28 @@ export default function Home() {
           <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
             Select a category to view detailed comparison tables. We track everything from GitHub stats to specific feature support.
           </p>
+          <div className="relative w-full max-w-md mt-4">
+            <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+            <Input
+              type="text"
+              placeholder="Search for apps (e.g. Plex) or categories..."
+              className="pl-10 pr-10 h-10 bg-background/50 backdrop-blur-sm"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery("")}
+                className="absolute right-3 top-3 text-muted-foreground hover:text-foreground"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            )}
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {categories.map((category) => {
+          {filteredCategories.map((category) => {
             const Icon = category.icon;
             const isActive = category.status === "Active";
             const count = category.data.length;
