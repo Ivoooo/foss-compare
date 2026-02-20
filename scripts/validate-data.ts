@@ -6,7 +6,7 @@ import { StreamerToolSchema, PasswordManagerToolSchema } from "../lib/schemas";
 const DATA_DIR = path.join(process.cwd(), "data");
 
 const SCHEMAS: Record<string, ZodSchema> = {
-  "streamers.json": StreamerToolSchema,
+  "media-servers.json": StreamerToolSchema,
   "password-managers.json": PasswordManagerToolSchema,
 };
 

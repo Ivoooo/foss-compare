@@ -43,9 +43,26 @@
       "h264": "Yes",
       "h265": "Yes",
       "av1": "Yes",
-      "vp9": "Yes"
+      "vp9": "Yes",
+      "mpeg2": "Yes",
+      "vc1": "Yes",
+      "aac": "Yes",
+      "ac3": "Yes",
+      "eac3": "Yes",
+      "truehd": "Yes",
+      "dts": "Yes",
+      "dtshdma": "Yes",
+      "flac": "Yes"
     },
     "features": {
+      "multipleUsers": "Yes",
+      "parentalControls": "Yes",
+      "watchTogether": "Yes",
+      "autoSubtitles": {
+        "status": "Yes",
+        "note": "Plugin"
+      },
+      "ebooks": "Yes",
       "liveTv": "Yes",
       "dvr": "Yes",
       "hardwareTranscoding": "Yes",
@@ -65,8 +82,13 @@
       "sso": "Yes",
       "sonarr": "Yes",
       "radarr": "Yes",
-      "jellyseerr_overseerr": "Yes",
-      "trakt": "Yes"
+      "trakt": "Yes",
+      "skipCredits": {
+        "status": "Yes",
+        "note": "Plugin"
+      },
+      "skipAds": "No",
+      "seerr_jellyseerr_overseerr": "Yes"
     },
     "notes": "Community-driven fork of Emby. Completely free with no paid features.",
     "meta": {
@@ -82,8 +104,8 @@
       }
     },
     "performance": {
-      "ramUsage": "150 MB",
-      "dockerImageSize": "1.2 GB"
+      "ramUsage": "247.4MiB",
+      "dockerImageSize": "1.44 GB"
     }
   },
   {
@@ -124,9 +146,26 @@
       "h264": "Yes",
       "h265": "Yes",
       "av1": "Yes",
-      "vp9": "Yes"
+      "vp9": "Yes",
+      "mpeg2": "Yes",
+      "vc1": "Yes",
+      "aac": "Yes",
+      "ac3": "Yes",
+      "eac3": "Yes",
+      "truehd": "Yes",
+      "dts": "Yes",
+      "dtshdma": "Yes",
+      "flac": "Yes"
     },
     "features": {
+      "multipleUsers": {
+        "status": "Partial",
+        "note": "Managed users paid"
+      },
+      "parentalControls": "Paid",
+      "watchTogether": "Yes",
+      "autoSubtitles": "Yes",
+      "ebooks": "No",
       "liveTv": "Paid",
       "dvr": "Paid",
       "hardwareTranscoding": "Paid",
@@ -143,8 +182,10 @@
       "sso": "No",
       "sonarr": "Yes",
       "radarr": "Yes",
-      "jellyseerr_overseerr": "Yes",
-      "trakt": "Paid"
+      "trakt": "Paid",
+      "skipCredits": "Paid",
+      "skipAds": "Paid",
+      "seerr_jellyseerr_overseerr": "Yes"
     },
     "notes": "Highly polished, requires Plex Pass for hardware transcoding and offline downloads. Auth is centralized via Plex.tv.",
     "meta": {
@@ -163,8 +204,8 @@
       }
     },
     "performance": {
-      "ramUsage": "250 MB",
-      "dockerImageSize": "800 MB"
+      "ramUsage": "219.8MiB",
+      "dockerImageSize": "346.66 MB"
     }
   },
   {
@@ -203,9 +244,26 @@
       "h264": "Yes",
       "h265": "Yes",
       "av1": "Yes",
-      "vp9": "Yes"
+      "vp9": "Yes",
+      "mpeg2": "Yes",
+      "vc1": "Yes",
+      "aac": "Yes",
+      "ac3": "Yes",
+      "eac3": "Yes",
+      "truehd": "Yes",
+      "dts": "Yes",
+      "dtshdma": "Yes",
+      "flac": "Yes"
     },
     "features": {
+      "multipleUsers": "Yes",
+      "parentalControls": {
+        "status": "Yes",
+        "note": "Advanced controls paid"
+      },
+      "watchTogether": "Partial",
+      "autoSubtitles": "Paid",
+      "ebooks": "Yes",
       "liveTv": "Paid",
       "dvr": "Paid",
       "hardwareTranscoding": "Paid",
@@ -222,8 +280,13 @@
       "sso": "No",
       "sonarr": "Yes",
       "radarr": "Yes",
-      "jellyseerr_overseerr": "Yes",
-      "trakt": "Yes"
+      "trakt": "Yes",
+      "skipCredits": {
+        "status": "Partial",
+        "note": "Manual prompt per episode"
+      },
+      "skipAds": "No",
+      "seerr_jellyseerr_overseerr": "Yes"
     },
     "notes": "Closed source fork of the original open source Emby (before it became proprietary). Requires Emby Premiere for many features.",
     "meta": {
@@ -239,8 +302,8 @@
       }
     },
     "performance": {
-      "ramUsage": "200 MB",
-      "dockerImageSize": "500 MB"
+      "ramUsage": "127.5MiB",
+      "dockerImageSize": "724.35 MB"
     }
   }
 ]
