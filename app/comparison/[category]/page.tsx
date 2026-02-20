@@ -48,7 +48,7 @@ export default async function ComparisonPage({ params }: PageProps) {
   }
 
   return (
-    <div className="container py-4 h-full flex flex-col overflow-hidden">
+    <div className="container py-4 flex-1 flex flex-col overflow-hidden">
       <div className="mb-4 shrink-0 flex items-center gap-3">
         <Link href="/">
           <Button variant="ghost" size="icon" className="h-9 w-9">

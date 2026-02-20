@@ -34,7 +34,7 @@ export default function Home() {
   });
 
   return (
-    <>
+    <div className="flex-1 overflow-y-auto">
       <section className="relative overflow-hidden bg-background pt-16 md:pt-20 lg:pt-32 pb-16 md:pb-24 lg:pb-32">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-background to-background opacity-50" />
         <div className="container flex flex-col items-center text-center gap-6 md:gap-8">
@@ -136,6 +136,6 @@ export default function Home() {
           })}
         </div>
       </section>
-    </>
+    </div>
   );
 }
