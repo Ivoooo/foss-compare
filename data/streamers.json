@@ -79,7 +79,7 @@
       }
     },
     "performance": {
-      "ramUsage": "150 MB (Idle)",
+      "ramUsage": "150 MB",
       "dockerImageSize": "1.2 GB"
     }
   },
@@ -157,7 +157,7 @@
       }
     },
     "performance": {
-      "ramUsage": "250 MB (Idle)",
+      "ramUsage": "250 MB",
       "dockerImageSize": "800 MB"
     }
   },
@@ -231,7 +231,7 @@
       }
     },
     "performance": {
-      "ramUsage": "200 MB (Idle)",
+      "ramUsage": "200 MB",
       "dockerImageSize": "500 MB"
     }
   }

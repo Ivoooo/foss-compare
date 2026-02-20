@@ -89,7 +89,7 @@ async function benchmarkTool(image: string, env: Record<string, string> = {}): P
 
     return {
       imageSize,
-      ramUsage: usedMemRaw + " (Idle)"
+      ramUsage: usedMemRaw
     };
 
   } finally {
