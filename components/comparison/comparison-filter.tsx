@@ -36,6 +36,37 @@ export function ComparisonFilter({
 }: ComparisonFilterProps) {
   const activeFilterCount = filters.size;
 
+  const handleSectionToggle = (section: CategorySection, isChecked: boolean) => {
+    // If we are checking the section, we want to add all items that aren't already selected.
+    // If we are unchecking, we want to remove all items in that section.
+
+    // We can't batch update directly because `onFilterChange` takes a single ID.
+    // However, the `filters` prop is managed by the parent, so we need a way to batch update or just iterate.
+    // Since `onFilterChange` likely toggles, we need to be careful.
+    // Ideally, the parent should support bulk updates, but let's see if we can just iterate.
+    // Iterating `onFilterChange` relies on React state batching or `setFilters` using function updates correctly.
+    // The implementation in `comparison-table.tsx` uses `setFilters((prev) => ...)` which is safe for concurrent updates if we were doing it in one event loop,
+    // BUT calling `onFilterChange` multiple times in a loop might be inefficient or rely on how React batches state updates in handlers.
+
+    // A better approach would be to update the parent to accept a list of IDs to toggle, or just iterate here if we trust React 18 batching.
+    // Let's modify the parent `ComparisonTable` to support bulk updates first, or try to iterate and see.
+    // Given the constraints, let's assume `onFilterChange` toggles.
+
+    // Wait, the user prompt implies I should just "Add a clickbox".
+    // To do this correctly without race conditions, I should probably expose a `setFilters` or `toggleFilters` that takes an array.
+    // But since I can't easily change the interface without changing the parent, I'll update the parent too.
+    // Actually, I can just call onFilterChange for each item that needs to change state.
+
+    section.items.forEach(item => {
+        const isSelected = filters.has(item.key);
+        if (isChecked && !isSelected) {
+            onFilterChange(item.key);
+        } else if (!isChecked && isSelected) {
+            onFilterChange(item.key);
+        }
+    });
+  };
+
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -65,38 +96,54 @@ export function ComparisonFilter({
 
         <div className="flex-1 overflow-y-auto px-6 py-4">
           <div className="space-y-6">
-            {sections.map((section) => (
-              <div key={section.id} className="space-y-3">
-                <h3 className="font-semibold text-sm text-foreground/80 sticky top-0 bg-background py-1 z-10">
-                  {section.label}
-                </h3>
-                <div className="grid grid-cols-1 gap-2">
-                  {section.items.map((item) => {
-                    const isSelected = filters.has(item.key);
-                    return (
-                      <div
-                        key={item.key}
-                        className="flex items-start space-x-3 p-2 rounded-md hover:bg-muted/50 transition-colors"
-                      >
-                        <Checkbox
-                          id={item.key}
-                          checked={isSelected}
-                          onCheckedChange={() => onFilterChange(item.key)}
-                        />
-                        <div className="grid gap-1.5 leading-none">
-                          <label
-                            htmlFor={item.key}
-                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
-                          >
-                            {item.label}
-                          </label>
+            {sections.map((section) => {
+              const allSelected = section.items.every(item => filters.has(item.key));
+              const someSelected = section.items.some(item => filters.has(item.key));
+              const isIndeterminate = someSelected && !allSelected;
+
+              return (
+                <div key={section.id} className="space-y-3">
+                  <div className="flex items-center space-x-3 sticky top-0 bg-background py-1 z-10 border-b pb-2">
+                     <Checkbox
+                        id={`section-${section.id}`}
+                        checked={allSelected ? true : (isIndeterminate ? "indeterminate" : false)}
+                        onCheckedChange={(checked) => handleSectionToggle(section, checked === true)}
+                      />
+                    <label
+                        htmlFor={`section-${section.id}`}
+                        className="font-semibold text-sm text-foreground/80 cursor-pointer select-none"
+                    >
+                      {section.label}
+                    </label>
+                  </div>
+                  <div className="grid grid-cols-1 gap-2 pl-2 border-l ml-2">
+                    {section.items.map((item) => {
+                      const isSelected = filters.has(item.key);
+                      return (
+                        <div
+                          key={item.key}
+                          className="flex items-start space-x-3 p-2 rounded-md hover:bg-muted/50 transition-colors"
+                        >
+                          <Checkbox
+                            id={item.key}
+                            checked={isSelected}
+                            onCheckedChange={() => onFilterChange(item.key)}
+                          />
+                          <div className="grid gap-1.5 leading-none">
+                            <label
+                              htmlFor={item.key}
+                              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer select-none"
+                            >
+                              {item.label}
+                            </label>
+                          </div>
                         </div>
-                      </div>
-                    );
-                  })}
+                      );
+                    })}
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
