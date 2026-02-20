@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React from "react";
 import { SoftwareTool, CategorySection, FeatureStatus } from "@/types/software";
 import { calculateFeatureScore } from "@/lib/comparison-utils";
 import { FeatureStatusCell } from "./feature-status-cell";
@@ -8,98 +8,30 @@ import { ProjectStatsSection } from "./project-stats-section";
 import { ChevronDown, ChevronRight, Github, ExternalLink, Search, X } from "lucide-react";
 import Link from "next/link";
 import { Input } from "@/components/ui/input";
-import { cn } from "@/lib/utils";
+import { cn, getNestedValue } from "@/lib/utils";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { useComparisonTable } from "./use-comparison-table";
 
 interface ComparisonTableProps {
   data: SoftwareTool[];
   sections: CategorySection[];
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function getNestedValue(obj: any, path: string): any {
-  return path.split(".").reduce((acc, part) => acc && acc[part], obj);
-}
-
 export function ComparisonTable({ data, sections }: ComparisonTableProps) {
-  const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
-  const [searchQuery, setSearchQuery] = useState("");
-
-  const toggleCategory = (id: string) => {
-    setExpandedSections((prev) => {
-      const next = new Set(prev);
-      if (next.has(id)) {
-        next.delete(id);
-      } else {
-        next.add(id);
-      }
-      return next;
-    });
-  };
-
-  const searchedSections = useMemo(() => {
-    // Only search/expand if query is at least 2 characters
-    if (searchQuery.length < 2) return new Set<string>();
-
-    const lowerQuery = searchQuery.toLowerCase();
-    const next = new Set<string>();
-
-    // Check Project Stats section
-    if (
-      "project stats".includes(lowerQuery) ||
-      "github popularity".includes(lowerQuery) ||
-      "stars".includes(lowerQuery) ||
-      "forks".includes(lowerQuery) ||
-      "last commit".includes(lowerQuery) ||
-      "license".includes(lowerQuery) ||
-      "open source".includes(lowerQuery) ||
-      "ram".includes(lowerQuery) ||
-      "size".includes(lowerQuery) ||
-      "performance".includes(lowerQuery)
-    ) {
-      next.add("project-stats");
-    }
-
-    sections.forEach((section) => {
-      const sectionMatch = section.label.toLowerCase().includes(lowerQuery);
-      const itemsMatch = section.items.some((item) =>
-        item.label.toLowerCase().includes(lowerQuery)
-      );
-
-      if (sectionMatch || itemsMatch) {
-        next.add(section.id);
-      }
-    });
-
-    return next;
-  }, [searchQuery, sections]);
-
-  const isSectionExpanded = (id: string) => {
-    return expandedSections.has(id) || searchedSections.has(id);
-  };
-
-  const isMatch = (text: string) => {
-    if (!searchQuery || searchQuery.length < 2) return false;
-    return text.toLowerCase().includes(searchQuery.toLowerCase());
-  };
-
-  // Calculate maximum stars and forks for relative popularity
-  const { maxStars, maxForks } = useMemo(() => {
-    let maxS = 0;
-    let maxF = 0;
-    data.forEach(tool => {
-      if (tool.githubStats) {
-        if (tool.githubStats.stars > maxS) maxS = tool.githubStats.stars;
-        if (tool.githubStats.forks > maxF) maxF = tool.githubStats.forks;
-      }
-    });
-    return { maxStars: maxS, maxForks: maxF };
-  }, [data]);
+  const {
+    searchQuery,
+    setSearchQuery,
+    toggleCategory,
+    isSectionExpanded,
+    isMatch,
+    maxStars,
+    maxForks,
+  } = useComparisonTable({ data, sections });
 
   return (
     <div className="w-full border rounded-lg shadow-sm bg-background flex flex-col h-full overflow-hidden">
