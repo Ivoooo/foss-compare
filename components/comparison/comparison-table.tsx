@@ -151,6 +151,7 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
                 pinnedTools={pinnedTools}
                 isOpen={isSectionExpanded("project-stats")}
                 onToggle={() => toggleCategory("project-stats")}
+                isMatch={isMatch}
               />
 
               {sections.map((section) => (
