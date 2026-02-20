@@ -22,9 +22,8 @@ interface ComparisonTableProps {
   sections: CategorySection[];
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function getNestedValue(obj: any, path: string): any {
-  return path.split(".").reduce((acc, part) => acc && acc[part], obj);
+function getNestedValue(obj: unknown, path: string): unknown {
+  return path.split(".").reduce((acc, part) => (acc as Record<string, unknown>)?.[part], obj);
 }
 
 export function ComparisonTable({ data, sections }: ComparisonTableProps) {
@@ -73,7 +72,10 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
         if (typeof status === "string") {
             statusStr = status;
         } else if (status && typeof status === "object" && "status" in status) {
-            statusStr = status.status;
+            const statusObj = status as Record<string, unknown>;
+            if (typeof statusObj.status === "string") {
+                statusStr = statusObj.status;
+            }
         }
 
         if (statusStr !== "Yes" && statusStr !== "Paid") {
@@ -90,6 +92,7 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
 
     const lowerQuery = searchQuery.toLowerCase();
 
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setExpandedSections(() => {
       const next = new Set<string>();
 
@@ -165,7 +168,6 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
           onFilterChange={handleFilterChange}
           onReset={handleResetFilters}
           matchCount={filteredData.length}
-          totalCount={data.length}
         />
       </div>
       <div className="overflow-auto relative h-full">
@@ -256,7 +258,7 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
                 {filteredData.map((tool) => {
                   const sectionFeatures: Record<string, FeatureStatus | undefined> = {};
                   section.items.forEach(item => {
-                      sectionFeatures[item.key] = getNestedValue(tool, item.key);
+                      sectionFeatures[item.key] = getNestedValue(tool, item.key) as FeatureStatus | undefined;
                   });
 
                   const { score, total } = calculateFeatureScore(sectionFeatures);
@@ -287,7 +289,7 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
                     {item.label}
                   </td>
                   {filteredData.map((tool) => {
-                    const status = getNestedValue(tool, item.key);
+                    const status = getNestedValue(tool, item.key) as FeatureStatus;
                     return (
                       <td key={tool.id} className="px-4 md:px-6 py-3 bg-muted/5 group-hover/row:bg-muted/20 dark:group-hover/row:bg-muted/30 transition-colors">
                         <FeatureStatusCell status={status} />

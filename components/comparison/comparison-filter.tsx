@@ -23,7 +23,6 @@ interface ComparisonFilterProps {
   onFilterChange: (filterId: string) => void;
   onReset: () => void;
   matchCount: number;
-  totalCount: number;
 }
 
 export function ComparisonFilter({
@@ -32,7 +31,6 @@ export function ComparisonFilter({
   onFilterChange,
   onReset,
   matchCount,
-  totalCount,
 }: ComparisonFilterProps) {
   const activeFilterCount = filters.size;
 

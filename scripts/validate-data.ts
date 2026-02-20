@@ -1,11 +1,11 @@
 import fs from "fs";
 import path from "path";
-import { ZodError } from "zod";
+import { ZodError, ZodType } from "zod";
 import { StreamerToolSchema, PasswordManagerToolSchema } from "../lib/schemas";
 
 const DATA_DIR = path.join(process.cwd(), "data");
 
-const SCHEMAS: Record<string, any> = {
+const SCHEMAS: Record<string, ZodType> = {
   "streamers.json": StreamerToolSchema,
   "password-managers.json": PasswordManagerToolSchema,
 };
