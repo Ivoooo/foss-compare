@@ -14,13 +14,15 @@ This project aims to provide comprehensive feature comparisons for various self-
 - **Detailed Comparison Tables:** Sort, filter, and toggle column visibility to find the best tool for your needs.
 - **Smart Data:** Tracks GitHub stats, license, features, and platform support.
 - **Open Source Focus:** Prioritizes FOSS but includes popular proprietary alternatives for context.
+- **Automated Validation:** Data is validated against schemas to ensure accuracy.
+- **Performance Benchmarks:** Automated Docker-based benchmarks for RAM and Image Size.
 
 ## Tech Stack
 - **Framework:** Next.js (App Router)
 - **Styling:** Tailwind CSS
 - **UI Components:** shadcn/ui
-- **Data Visualization:** TanStack Table
-- **Data Source:** Static JSON files
+- **Data Visualization:** TanStack Table (Custom implementation)
+- **Data Source:** Static JSON files, validated by Zod
 
 ## Getting Started
 
@@ -46,8 +48,9 @@ This project aims to provide comprehensive feature comparisons for various self-
 ## Contributing
 We welcome contributions! See `ROADMAP.md` for our long-term vision.
 
-- To add a new tool or update data, edit `data/streamers.json` (or create a new category file).
+- **[Read the Contributing Guide](CONTRIBUTING.md)** for detailed instructions on adding tools or categories.
 - To improve the UI, modify components in `components/comparison/`.
+- Run `npm run validate` to check data integrity.
 
 ## License
 MIT

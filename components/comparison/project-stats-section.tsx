@@ -22,6 +22,25 @@ interface ProjectStatsSectionProps {
   onToggle: () => void;
 }
 
+interface StatsRowProps {
+  label: React.ReactNode;
+  data: SoftwareTool[];
+  renderCell: (tool: SoftwareTool) => React.ReactNode;
+}
+
+const StatsRow = ({ label, data, renderCell }: StatsRowProps) => (
+  <tr className="bg-muted/5 group/row hover:bg-muted/20 dark:hover:bg-muted/30 transition-colors">
+    <td className="sticky left-0 z-20 bg-background/95 backdrop-blur-sm border-r px-4 md:px-6 py-3 pl-10 md:pl-12 text-muted-foreground shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)] group-hover/row:bg-muted/20 dark:group-hover/row:bg-muted/30 transition-colors flex items-center gap-2 min-h-[48px]">
+      {label}
+    </td>
+    {data.map((tool) => (
+      <td key={tool.id} className="px-4 md:px-6 py-3 bg-muted/5 group-hover/row:bg-muted/20 dark:group-hover/row:bg-muted/30 transition-colors">
+        {renderCell(tool)}
+      </td>
+    ))}
+  </tr>
+);
+
 export function ProjectStatsSection({
   data,
   maxStars,
@@ -66,122 +85,100 @@ export function ProjectStatsSection({
       </tr>
       {isOpen && (
         <>
-          {/* Languages */}
-          <tr className="bg-muted/5 group/row hover:bg-muted/20 dark:hover:bg-muted/30 transition-colors">
-            <td className="sticky left-0 z-20 bg-background/95 backdrop-blur-sm border-r px-4 md:px-6 py-3 pl-10 md:pl-12 text-muted-foreground shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)] group-hover/row:bg-muted/20 dark:group-hover/row:bg-muted/30 transition-colors flex items-center gap-2">
-              <Code className="h-3 w-3" /> Languages
-            </td>
-            {data.map((tool) => (
-              <td key={tool.id} className="px-4 md:px-6 py-3 bg-muted/5 group-hover/row:bg-muted/20 dark:group-hover/row:bg-muted/30 transition-colors">
-                <div className="flex flex-wrap gap-1">
-                  {tool.language.map((lang) => (
-                    <Badge key={lang} variant="secondary" className="text-[10px] px-1 py-0 h-5">
-                      {lang}
-                    </Badge>
-                  ))}
-                </div>
-              </td>
-            ))}
-          </tr>
+          <StatsRow
+            label={<><Code className="h-3 w-3" /> Languages</>}
+            data={data}
+            renderCell={(tool) => (
+              <div className="flex flex-wrap gap-1">
+                {tool.language.map((lang) => (
+                  <Badge key={lang} variant="secondary" className="text-[10px] px-1 py-0 h-5">
+                    {lang}
+                  </Badge>
+                ))}
+              </div>
+            )}
+          />
 
-          {/* Docker Image Size */}
-          <tr className="bg-muted/5 group/row hover:bg-muted/20 dark:hover:bg-muted/30 transition-colors">
-            <td className="sticky left-0 z-20 bg-background/95 backdrop-blur-sm border-r px-4 md:px-6 py-3 pl-10 md:pl-12 text-muted-foreground shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)] group-hover/row:bg-muted/20 dark:group-hover/row:bg-muted/30 transition-colors flex items-center gap-2">
-              <Box className="h-3 w-3" /> Image Size
-            </td>
-            {data.map((tool) => {
+          <StatsRow
+            label={<><Box className="h-3 w-3" /> Image Size</>}
+            data={data}
+            renderCell={(tool) => {
               const val = parseSizeString(tool.performance?.dockerImageSize);
               const isLowest = val !== Infinity && val === minImageSize;
               return (
-                <td key={tool.id} className="px-4 md:px-6 py-3 bg-muted/5 group-hover/row:bg-muted/20 dark:group-hover/row:bg-muted/30 transition-colors">
-                   <div className="flex items-center gap-2">
-                    <span>{tool.performance?.dockerImageSize || "-"}</span>
-                    {isLowest && <span>🔥</span>}
-                   </div>
-                </td>
+                <div className="flex items-center gap-2">
+                  <span>{tool.performance?.dockerImageSize || "-"}</span>
+                  {isLowest && <span>🔥</span>}
+                </div>
               );
-            })}
-          </tr>
+            }}
+          />
 
-          {/* RAM Usage */}
-          <tr className="bg-muted/5 group/row hover:bg-muted/20 dark:hover:bg-muted/30 transition-colors">
-            <td className="sticky left-0 z-20 bg-background/95 backdrop-blur-sm border-r px-4 md:px-6 py-3 pl-10 md:pl-12 text-muted-foreground shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)] group-hover/row:bg-muted/20 dark:group-hover/row:bg-muted/30 transition-colors flex items-center gap-2">
-              <Cpu className="h-3 w-3" /> Idle RAM
-            </td>
-            {data.map((tool) => {
+          <StatsRow
+            label={<><Cpu className="h-3 w-3" /> Idle RAM</>}
+            data={data}
+            renderCell={(tool) => {
                const val = parseSizeString(tool.performance?.ramUsage);
                const isLowest = val !== Infinity && val === minRam;
                return (
-                <td key={tool.id} className="px-4 md:px-6 py-3 bg-muted/5 group-hover/row:bg-muted/20 dark:group-hover/row:bg-muted/30 transition-colors">
-                   <div className="flex items-center gap-2">
-                    <span>{tool.performance?.ramUsage || "-"}</span>
-                    {isLowest && <span>🔥</span>}
-                   </div>
-                </td>
-              );
-            })}
-          </tr>
+                 <div className="flex items-center gap-2">
+                  <span>{tool.performance?.ramUsage || "-"}</span>
+                  {isLowest && <span>🔥</span>}
+                 </div>
+               );
+            }}
+          />
 
-          {/* GitHub Stats */}
-          <tr className="bg-muted/5 group/row hover:bg-muted/20 dark:hover:bg-muted/30 transition-colors">
-            <td className="sticky left-0 z-20 bg-background/95 backdrop-blur-sm border-r px-4 md:px-6 py-3 pl-10 md:pl-12 text-muted-foreground shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)] group-hover/row:bg-muted/20 dark:group-hover/row:bg-muted/30 transition-colors flex items-center gap-2">
-               <Github className="h-3 w-3" /> Stars
-            </td>
-            {data.map((tool) => (
-              <td key={tool.id} className="px-4 md:px-6 py-3 bg-muted/5 group-hover/row:bg-muted/20 dark:group-hover/row:bg-muted/30 transition-colors">
-                {tool.githubStats ? (
-                    <div className="flex items-center gap-2">
-                        <span>{tool.githubStats.stars.toLocaleString()}</span>
-                        <span>{getStarsEmote(tool.githubStats.stars, maxStars)}</span>
-                    </div>
-                ) : "-"}
-              </td>
-            ))}
-          </tr>
-          <tr className="bg-muted/5 group/row hover:bg-muted/20 dark:hover:bg-muted/30 transition-colors">
-            <td className="sticky left-0 z-20 bg-background/95 backdrop-blur-sm border-r px-4 md:px-6 py-3 pl-10 md:pl-12 text-muted-foreground shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)] group-hover/row:bg-muted/20 dark:group-hover/row:bg-muted/30 transition-colors">Forks</td>
-            {data.map((tool) => (
-              <td key={tool.id} className="px-4 md:px-6 py-3 bg-muted/5 group-hover/row:bg-muted/20 dark:group-hover/row:bg-muted/30 transition-colors">
-                {tool.githubStats ? (
-                  <div className="flex items-center gap-2">
-                    <span>{tool.githubStats.forks.toLocaleString()}</span>
-                    <span>{getForksEmote(tool.githubStats.forks, maxForks)}</span>
-                  </div>
-                ) : "-"}
-              </td>
-            ))}
-          </tr>
-          <tr className="bg-muted/5 group/row hover:bg-muted/20 dark:hover:bg-muted/30 transition-colors">
-            <td className="sticky left-0 z-20 bg-background/95 backdrop-blur-sm border-r px-4 md:px-6 py-3 pl-10 md:pl-12 text-muted-foreground shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)] group-hover/row:bg-muted/20 dark:group-hover/row:bg-muted/30 transition-colors">Last Commit</td>
-            {data.map((tool) => (
-              <td key={tool.id} className="px-4 md:px-6 py-3 bg-muted/5 group-hover/row:bg-muted/20 dark:group-hover/row:bg-muted/30 transition-colors">
-                {tool.githubStats ? (
-                  <div className="flex items-center gap-2">
-                    <span>{tool.githubStats.lastCommit}</span>
-                    <span>{getActivityEmote(tool.githubStats.lastCommit)}</span>
-                  </div>
-                ) : "-"}
-              </td>
-            ))}
-          </tr>
-          <tr className="bg-muted/5 group/row hover:bg-muted/20 dark:hover:bg-muted/30 transition-colors">
-            <td className="sticky left-0 z-20 bg-background/95 backdrop-blur-sm border-r px-4 md:px-6 py-3 pl-10 md:pl-12 text-muted-foreground shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)] group-hover/row:bg-muted/20 dark:group-hover/row:bg-muted/30 transition-colors">License</td>
-            {data.map((tool) => (
-              <td key={tool.id} className="px-4 md:px-6 py-3 bg-muted/5 group-hover/row:bg-muted/20 dark:group-hover/row:bg-muted/30 transition-colors">
-                <Badge variant="outline" className={getLicenseColor(tool.license)}>
-                  {tool.license}
-                </Badge>
-              </td>
-            ))}
-          </tr>
-           <tr className="bg-muted/5 group/row hover:bg-muted/20 dark:hover:bg-muted/30 transition-colors">
-            <td className="sticky left-0 z-20 bg-background/95 backdrop-blur-sm border-r px-4 md:px-6 py-3 pl-10 md:pl-12 text-muted-foreground shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)] group-hover/row:bg-muted/20 dark:group-hover/row:bg-muted/30 transition-colors">Open Source</td>
-            {data.map((tool) => (
-              <td key={tool.id} className="px-4 md:px-6 py-3 bg-muted/5 group-hover/row:bg-muted/20 dark:group-hover/row:bg-muted/30 transition-colors">
-                <FeatureStatusCell status={tool.openSource ? "Yes" : "No"} />
-              </td>
-            ))}
-          </tr>
+          <StatsRow
+            label={<><Github className="h-3 w-3" /> Stars</>}
+            data={data}
+            renderCell={(tool) => tool.githubStats ? (
+              <div className="flex items-center gap-2">
+                <span>{tool.githubStats.stars.toLocaleString()}</span>
+                <span>{getStarsEmote(tool.githubStats.stars, maxStars)}</span>
+              </div>
+            ) : "-"}
+          />
+
+          <StatsRow
+            label="Forks"
+            data={data}
+            renderCell={(tool) => tool.githubStats ? (
+              <div className="flex items-center gap-2">
+                <span>{tool.githubStats.forks.toLocaleString()}</span>
+                <span>{getForksEmote(tool.githubStats.forks, maxForks)}</span>
+              </div>
+            ) : "-"}
+          />
+
+          <StatsRow
+            label="Last Commit"
+            data={data}
+            renderCell={(tool) => tool.githubStats ? (
+              <div className="flex items-center gap-2">
+                <span>{tool.githubStats.lastCommit}</span>
+                <span>{getActivityEmote(tool.githubStats.lastCommit)}</span>
+              </div>
+            ) : "-"}
+          />
+
+          <StatsRow
+            label="License"
+            data={data}
+            renderCell={(tool) => (
+              <Badge variant="outline" className={getLicenseColor(tool.license)}>
+                {tool.license}
+              </Badge>
+            )}
+          />
+
+          <StatsRow
+            label="Open Source"
+            data={data}
+            renderCell={(tool) => (
+              <FeatureStatusCell status={tool.openSource ? "Yes" : "No"} />
+            )}
+          />
         </>
       )}
     </tbody>

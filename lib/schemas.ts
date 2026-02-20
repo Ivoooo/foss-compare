@@ -20,6 +20,18 @@ export const GitHubStatsSchema = z.object({
   openIssues: z.number(),
 });
 
+export const AutomationSchema = z.object({
+  docker: z.object({
+    image: z.string(),
+    env: z.record(z.string(), z.string()).optional(),
+  }).optional(),
+}).optional();
+
+export const PerformanceSchema = z.object({
+  ramUsage: z.string().optional(),
+  dockerImageSize: z.string().optional(),
+}).optional();
+
 export const BaseSoftwareToolSchema = z.object({
   id: z.string(),
   name: z.string(),
@@ -32,6 +44,8 @@ export const BaseSoftwareToolSchema = z.object({
   language: z.array(z.string()),
   dockerSupport: FeatureStatusSchema,
   armSupport: FeatureStatusSchema,
+  automation: AutomationSchema,
+  performance: PerformanceSchema,
   notes: z.string().optional(),
   meta: z.object({
     lastCheck: z.object({
@@ -131,3 +145,23 @@ export const PasswordManagerToolSchema = BaseSoftwareToolSchema.extend({
 });
 
 export const SoftwareToolSchema = z.union([StreamerToolSchema, PasswordManagerToolSchema]);
+
+// Inferred Types
+export type FeatureStatusType = z.infer<typeof FeatureStatusTypeSchema>;
+export type FeatureStatusObject = z.infer<typeof FeatureStatusObjectSchema>;
+export type FeatureStatus = z.infer<typeof FeatureStatusSchema>;
+export type GitHubStats = z.infer<typeof GitHubStatsSchema>;
+export type Automation = z.infer<typeof AutomationSchema>;
+export type Performance = z.infer<typeof PerformanceSchema>;
+export type BaseSoftwareTool = z.infer<typeof BaseSoftwareToolSchema>;
+
+export type StreamerPlatformSupport = z.infer<typeof StreamerPlatformSupportSchema>;
+export type CodecSupport = z.infer<typeof StrictCodecSupportSchema>;
+export type StreamerFeatures = z.infer<typeof StreamerFeaturesSchema>;
+export type StreamerTool = z.infer<typeof StreamerToolSchema>;
+
+export type PasswordManagerPlatformSupport = z.infer<typeof PasswordManagerPlatformSupportSchema>;
+export type PasswordManagerFeatures = z.infer<typeof PasswordManagerFeaturesSchema>;
+export type PasswordManagerTool = z.infer<typeof PasswordManagerToolSchema>;
+
+export type SoftwareTool = z.infer<typeof SoftwareToolSchema>;
