@@ -7,14 +7,17 @@
     "repository": "https://github.com/jellyfin/jellyfin",
     "license": "GPL-3.0",
     "openSource": true,
-    "language": ["C#", "React"],
+    "language": [
+      "C#",
+      "React"
+    ],
     "dockerSupport": "Yes",
     "armSupport": "Yes",
     "githubStats": {
-      "stars": 33000,
-      "forks": 2500,
-      "lastCommit": "2024-02-19",
-      "openIssues": 450
+      "stars": 48668,
+      "forks": 4438,
+      "lastCommit": "2026-02-18T20:05:16Z",
+      "openIssues": 831
     },
     "platforms": {
       "web": "Yes",
@@ -91,7 +94,10 @@
     "repository": "https://github.com/plexinc",
     "license": "Proprietary",
     "openSource": false,
-    "language": ["C++", "Python"],
+    "language": [
+      "C++",
+      "Python"
+    ],
     "dockerSupport": "Yes",
     "armSupport": "Yes",
     "githubStats": {
@@ -168,7 +174,9 @@
     "website": "https://emby.media/",
     "license": "Proprietary",
     "openSource": false,
-    "language": ["C#"],
+    "language": [
+      "C#"
+    ],
     "dockerSupport": "Yes",
     "armSupport": "Yes",
     "githubStats": {
