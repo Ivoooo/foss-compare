@@ -1,0 +1,37 @@
+name: Check Links
+
+on:
+  schedule:
+    - cron: "0 0 * * 1" # Weekly on Monday at 00:00 UTC
+  push:
+    branches:
+      - main
+    paths:
+      - "data/**"
+      - "scripts/check-links.ts"
+      - ".github/workflows/check-links.yml"
+  pull_request:
+    paths:
+      - "data/**"
+      - "scripts/check-links.ts"
+      - ".github/workflows/check-links.yml"
+  workflow_dispatch:
+
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check Links
+        run: npm run check-links
