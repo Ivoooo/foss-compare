@@ -20,8 +20,11 @@ jobs:
           node-version: '20'
           cache: 'npm'
 
+      - name: Install dependencies
+        run: npm ci
+
       - name: Run benchmarks
-        run: npx tsx scripts/update-benchmarks.ts
+        run: npm run benchmark
         env:
           CI: true
 
