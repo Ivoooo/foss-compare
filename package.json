@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "validate": "npx tsx scripts/validate-data.ts"
+    "validate": "npx tsx scripts/validate-data.ts",
+    "check-links": "npx tsx scripts/check-links.ts"
   },
   "dependencies": {
     "@tanstack/react-table": "^8.21.3",
