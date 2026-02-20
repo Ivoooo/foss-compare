@@ -123,6 +123,10 @@
   body {
     @apply bg-background text-foreground;
   }
+  html {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
 }
 
 @layer utilities {
