@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     description: "Detailed comparisons of open source and self-hosted software solutions.",
     images: [
       {
-        url: "/og-image.png", // Will be created or needs to be provided
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "foss.compare - Self-Hosted Software Comparisons",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     title: "foss.compare - Self-Hosted Software Comparisons",
     description: "Detailed comparisons of open source and self-hosted software solutions.",
     images: ["/og-image.png"],
-    creator: "@Ivoooo", // Assuming based on maintainer name, can be updated
+    creator: "@Ivoooo",
   },
   icons: {
     icon: [

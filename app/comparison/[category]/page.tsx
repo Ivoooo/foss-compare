@@ -34,6 +34,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title: `${categoryConfig.title} Comparison - foss.compare`,
       description: categoryConfig.description,
+      images: ["/og-image.png"],
     },
   };
 }
