@@ -4,7 +4,7 @@ import React, { useState, useMemo } from "react";
 import { SoftwareTool, CategorySection, FeatureStatus } from "@/types/software";
 import { calculateFeatureScore } from "@/lib/comparison-utils";
 import { FeatureStatusCell } from "./feature-status-cell";
-import { GitHubPopularitySection } from "./github-popularity-section";
+import { ProjectStatsSection } from "./project-stats-section";
 import { ChevronDown, ChevronRight, Github, ExternalLink } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
@@ -89,13 +89,13 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
             </tr>
           </thead>
 
-          {/* GitHub Popularity Section */}
-          <GitHubPopularitySection
+          {/* Project Stats Section */}
+          <ProjectStatsSection
             data={data}
             maxStars={maxStars}
             maxForks={maxForks}
-            isOpen={openCategory === "github"}
-            onToggle={() => toggleCategory("github")}
+            isOpen={openCategory === "project-stats"}
+            onToggle={() => toggleCategory("project-stats")}
           />
 
           {/* Feature Sections */}
