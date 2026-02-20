@@ -10,12 +10,12 @@ This document outlines the long-term vision and planned features for `foss.compa
 - [x] Basic landing page and category routing.
 
 ## Phase 2: Automation & Data Integrity
-- [ ] **Automated GitHub Stats:** Create a GitHub Action to fetch stars, forks, and last commit dates daily and update the JSON files.
+- [x] **Automated GitHub Stats:** Create a GitHub Action to fetch stars, forks, and last commit dates daily and update the JSON files.
 - [x] **Data Validation:** Implement Zod schemas to validate JSON data during build time.
 - [x] **Broken Link Checker:** Automate checking of project URLs.
 
 ## Phase 3: Content Expansion
-- [ ] **Password Managers:** Add Bitwarden (Vaultwarden), Keepass, etc.
+- [x] **Password Managers:** Add Bitwarden (Vaultwarden), Keepass, etc.
 - [ ] **Dashboards:** Add Homepage, Dashy, Homarr.
 - [ ] **Databases:** Add Postgres, MySQL, MariaDB, SQLite.
 - [ ] **VPNs:** Add WireGuard, Tailscale, Headscale, OpenVPN.
@@ -25,11 +25,11 @@ This document outlines the long-term vision and planned features for `foss.compa
 ## Phase 4: Advanced Features
 - [x] **Performance Benchmarks (Initial):**
   - [x] Automate measurement of Docker image size and idle RAM usage (`npm run benchmark`).
-  - [ ] Standardize environment (Nix shell).
-  - [ ] Add these metrics to the comparison table. (Done)
-- [ ] **PWA Implementation:**
+  - [x] Standardize environment (Nix shell).
+  - [x] Add these metrics to the comparison table. (Done)
+- [x] **PWA Implementation:**
   - Add manifest.json and service workers for offline support and "Add to Home Screen".
-- [ ] **Theme Toggle:** fully support Dark/Light mode switching.
+- [x] **Theme Toggle:** fully support Dark/Light mode switching.
 - [ ] **Mobile Optimization:** Refine table view for small screens (maybe card view on mobile).
 
 ## Phase 5: Community & Contribution

@@ -6,8 +6,6 @@ A modern, detailed comparison tool for self-hosted software solutions.
 This project aims to provide comprehensive feature comparisons for various self-hosted software categories, including:
 - TV & Movie Streamers (Jellyfin, Plex, Emby)
 - Password Managers (Bitwarden, Vaultwarden, etc.)
-- Dashboards
-- Databases
 - And more!
 
 ## Features
