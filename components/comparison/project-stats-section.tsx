@@ -39,14 +39,14 @@ const StatsRow = ({ label, matchText, data, pinnedTools, renderCell, isMatch }: 
 
   return (
     <tr className="bg-muted/5 group/row hover:bg-muted/20 transition-colors">
-      <td className={cn(
-        "bg-background border-r px-4 md:px-6 py-3 pl-10 md:pl-12 text-muted-foreground group-hover/row:bg-muted transition-colors border-b",
+      <th scope="row" className={cn(
+        "bg-background border-r px-4 md:px-6 py-3 pl-10 md:pl-12 text-muted-foreground font-normal text-left group-hover/row:bg-muted transition-colors border-b",
         isRowMatch && "bg-yellow-100 dark:bg-yellow-900/40"
       )}>
         <div className="flex items-center gap-2 min-h-[48px]">
           {label}
         </div>
-      </td>
+      </th>
       {data.map((tool) => {
 
         return (
@@ -92,19 +92,27 @@ export function ProjectStatsSection({
 
   return (
     <tbody className="border-b last:border-0">
-      <tr
-        className="cursor-pointer group transition-colors hover:bg-muted"
-        onClick={onToggle}
-      >
-        <td className={cn(
-          "bg-background group-hover:bg-muted border-r px-4 md:px-6 py-4 font-medium transition-colors border-b",
-          isMatch("Project Stats") && "bg-yellow-100 dark:bg-yellow-900/40"
-        )}>
-          <div className="flex items-center gap-2">
-            {isOpen ? <ChevronDown className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
+      <tr className="group transition-colors hover:bg-muted">
+        <th
+          scope="row"
+          className={cn(
+            "bg-background group-hover:bg-muted border-r p-0 font-medium transition-colors border-b",
+            isMatch("Project Stats") && "bg-yellow-100 dark:bg-yellow-900/40"
+          )}
+        >
+          <button
+            onClick={onToggle}
+            className="w-full h-full flex items-center gap-2 px-4 md:px-6 py-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-inset"
+            aria-expanded={isOpen}
+          >
+            {isOpen ? (
+              <ChevronDown className="h-4 w-4" aria-hidden="true" />
+            ) : (
+              <ChevronRight className="h-4 w-4" aria-hidden="true" />
+            )}
             Project Stats
-          </div>
-        </td>
+          </button>
+        </th>
         {data.map((tool) => {
 
           return (
@@ -120,7 +128,7 @@ export function ProjectStatsSection({
       {isOpen && (
         <>
           <StatsRow
-            label={<><Code className="h-3 w-3" /> Languages</>}
+            label={<><Code className="h-3 w-3" aria-hidden="true" /> Languages</>}
             matchText="Languages"
             data={data}
             pinnedTools={pinnedTools}
@@ -137,7 +145,7 @@ export function ProjectStatsSection({
           />
 
           <StatsRow
-            label={<><Box className="h-3 w-3" /> Image Size</>}
+            label={<><Box className="h-3 w-3" aria-hidden="true" /> Image Size</>}
             matchText="Image Size"
             data={data}
             pinnedTools={pinnedTools}
@@ -148,14 +156,14 @@ export function ProjectStatsSection({
               return (
                 <div className="flex items-center gap-2">
                   <span>{tool.performance?.dockerImageSize || "-"}</span>
-                  {isLowest && <span>🔥</span>}
+                  {isLowest && <span role="img" aria-label="lowest image size">🔥</span>}
                 </div>
               );
             }}
           />
 
           <StatsRow
-            label={<><Cpu className="h-3 w-3" /> Idle RAM</>}
+            label={<><Cpu className="h-3 w-3" aria-hidden="true" /> Idle RAM</>}
             matchText="Idle RAM"
             data={data}
             pinnedTools={pinnedTools}
@@ -166,14 +174,14 @@ export function ProjectStatsSection({
               return (
                 <div className="flex items-center gap-2">
                   <span>{tool.performance?.ramUsage || "-"}</span>
-                  {isLowest && <span>🔥</span>}
+                  {isLowest && <span role="img" aria-label="lowest RAM usage">🔥</span>}
                 </div>
               );
             }}
           />
 
           <StatsRow
-            label={<><Github className="h-3 w-3" /> Stars</>}
+            label={<><Github className="h-3 w-3" aria-hidden="true" /> Stars</>}
             matchText="Stars"
             data={data}
             pinnedTools={pinnedTools}
@@ -181,7 +189,7 @@ export function ProjectStatsSection({
             renderCell={(tool) => tool.githubStats ? (
               <div className="flex items-center gap-2">
                 <span>{tool.githubStats.stars.toLocaleString()}</span>
-                <span>{getStarsEmote(tool.githubStats.stars, maxStars)}</span>
+                <span role="img" aria-label="popularity rating">{getStarsEmote(tool.githubStats.stars, maxStars)}</span>
               </div>
             ) : "-"}
           />
@@ -194,7 +202,7 @@ export function ProjectStatsSection({
             renderCell={(tool) => tool.githubStats ? (
               <div className="flex items-center gap-2">
                 <span>{tool.githubStats.forks.toLocaleString()}</span>
-                <span>{getForksEmote(tool.githubStats.forks, maxForks)}</span>
+                <span role="img" aria-label="fork rating">{getForksEmote(tool.githubStats.forks, maxForks)}</span>
               </div>
             ) : "-"}
           />
@@ -207,7 +215,7 @@ export function ProjectStatsSection({
             renderCell={(tool) => tool.githubStats ? (
               <div className="flex items-center gap-2">
                 <span title={tool.githubStats.lastCommit}>{formatRelativeDate(tool.githubStats.lastCommit)}</span>
-                <span>{getActivityEmote(tool.githubStats.lastCommit)}</span>
+                <span role="img" aria-label="activity level">{getActivityEmote(tool.githubStats.lastCommit)}</span>
               </div>
             ) : "-"}
           />

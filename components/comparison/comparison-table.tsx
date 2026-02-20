@@ -47,10 +47,11 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
     <div className="w-full border rounded-lg bg-background flex flex-col flex-1 min-h-0 overflow-hidden">
       <div className="p-4 border-b bg-background flex items-center gap-4 shrink-0">
         <div className="relative max-w-sm flex-1">
-          <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+          <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" aria-hidden="true" />
           <Input
             type="text"
             placeholder="Search features or tools..."
+            aria-label="Search features or tools"
             className="pl-9 pr-8"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
@@ -59,8 +60,9 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
             <button
               onClick={() => setSearchQuery("")}
               className="absolute right-2.5 top-2.5 text-muted-foreground hover:text-foreground"
+              aria-label="Clear search"
             >
-              <X className="h-4 w-4" />
+              <X className="h-4 w-4" aria-hidden="true" />
             </button>
           )}
         </div>
@@ -104,7 +106,7 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
               </colgroup>
               <thead className="text-xs uppercase bg-muted sticky top-0 z-40">
                 <tr>
-                  <th className="px-4 md:px-6 py-4 font-medium text-muted-foreground bg-background border-b border-r">
+                  <th scope="col" className="px-4 md:px-6 py-4 font-medium text-muted-foreground bg-background border-b border-r">
                     Category
                   </th>
                   {filteredData.map((tool) => {
@@ -113,6 +115,7 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
                     return (
                       <th
                         key={tool.id}
+                        scope="col"
                         className={cn(
                           "px-4 md:px-6 py-4 font-bold text-base border-b bg-muted/50 align-top transition-colors relative group",
                           isMatch(tool.name) && "bg-yellow-100 dark:bg-yellow-900/40"
@@ -122,7 +125,7 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
                           <div className="flex items-center justify-between gap-2">
                             <div className="flex items-center gap-2 truncate">
                               <Link href={tool.website} target="_blank" className="hover:underline flex items-center gap-1 hover:text-primary truncate">
-                                {tool.name} <ExternalLink className="h-3 w-3 shrink-0 opacity-50" />
+                                {tool.name} <ExternalLink className="h-3 w-3 shrink-0 opacity-50" aria-hidden="true" />
                               </Link>
                             </div>
                             <Button
@@ -133,8 +136,9 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
                                 isPinned ? "text-primary opacity-100" : "text-muted-foreground opacity-40 hover:opacity-100"
                               )}
                               onClick={() => togglePin(tool.id)}
+                              aria-label={isPinned ? `Unpin ${tool.name}` : `Pin ${tool.name}`}
                             >
-                              {isPinned ? <Pin className="h-3.5 w-3.5 fill-current" /> : <PinOff className="h-3.5 w-3.5" />}
+                              {isPinned ? <Pin className="h-3.5 w-3.5 fill-current" aria-hidden="true" /> : <PinOff className="h-3.5 w-3.5" aria-hidden="true" />}
                             </Button>
                           </div>
                         </div>
@@ -156,21 +160,27 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
 
               {sections.map((section) => (
                 <tbody key={section.id} className="border-b last:border-0">
-                  <tr
-                    className="cursor-pointer group transition-colors hover:bg-muted"
-                    onClick={() => toggleCategory(section.id)}
-                  >
-                    <td
+                  <tr className="group transition-colors hover:bg-muted">
+                    <th
+                      scope="row"
                       className={cn(
-                        "bg-background group-hover:bg-muted border-r px-4 md:px-6 py-4 font-medium border-b",
+                        "bg-background group-hover:bg-muted border-r p-0 font-medium border-b",
                         isMatch(section.label) && "bg-yellow-100 dark:bg-yellow-900/40"
                       )}
                     >
-                      <div className="flex items-center gap-2">
-                        {isSectionExpanded(section.id) ? <ChevronDown className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
+                      <button
+                        onClick={() => toggleCategory(section.id)}
+                        className="w-full h-full flex items-center gap-2 px-4 md:px-6 py-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-inset"
+                        aria-expanded={isSectionExpanded(section.id)}
+                      >
+                        {isSectionExpanded(section.id) ? (
+                          <ChevronDown className="h-4 w-4" aria-hidden="true" />
+                        ) : (
+                          <ChevronRight className="h-4 w-4" aria-hidden="true" />
+                        )}
                         {section.label}
-                      </div>
-                    </td>
+                      </button>
+                    </th>
                     {filteredData.map((tool) => {
                       const sectionFeatures: Record<string, FeatureStatus | undefined> = {};
                       section.items.forEach(item => {
@@ -202,14 +212,15 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
                   </tr>
                   {isSectionExpanded(section.id) && section.items.map((item) => (
                     <tr key={item.key} className="bg-muted/5 group/row hover:bg-muted/20 transition-colors">
-                      <td
+                      <th
+                        scope="row"
                         className={cn(
-                          "bg-background border-r px-4 md:px-6 py-3 pl-10 md:pl-12 text-muted-foreground group-hover/row:bg-muted transition-colors border-b",
+                          "bg-background border-r px-4 md:px-6 py-3 pl-10 md:pl-12 text-muted-foreground font-normal text-left group-hover/row:bg-muted transition-colors border-b",
                           isMatch(item.label) && "bg-yellow-100 dark:bg-yellow-900/40"
                         )}
                       >
                         {item.label}
-                      </td>
+                      </th>
                       {filteredData.map((tool) => {
                         const status = getNestedValue(tool, item.key) as FeatureStatus;
 
