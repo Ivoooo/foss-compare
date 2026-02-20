@@ -44,7 +44,7 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
   const mobileToolWidth = 180;
 
   return (
-    <div className="w-full border rounded-lg bg-background flex flex-col h-full overflow-hidden">
+    <div className="w-full border rounded-lg bg-background flex flex-col flex-1 min-h-0 overflow-hidden">
       <div className="p-4 border-b bg-background flex items-center gap-4 shrink-0">
         <div className="relative max-w-sm flex-1">
           <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
@@ -73,8 +73,8 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
         />
       </div>
 
-      <div className="flex-1 relative overflow-hidden flex flex-col">
-        <div className="overflow-auto relative h-full scrollbar-thin scrollbar-thumb-muted">
+      <div className="flex-1 min-h-0 relative overflow-hidden flex flex-col">
+        <div className="overflow-auto relative flex-1 min-h-0 scrollbar-thin scrollbar-thumb-muted">
           {filteredData.length === 0 ? (
             <div className="flex flex-col items-center justify-center p-10 text-center h-full">
               <h3 className="text-lg font-semibold">No matching tools found</h3>

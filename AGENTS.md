@@ -6,13 +6,13 @@ This project uses **Nix** for its development environment.
 **NEVER** run `npm`, `npx`, or `node` commands directly on the host system. They will likely fail or use the wrong versions.
 
 ### ALWAYS use `nix develop`
-You must wrap all development commands using `nix develop --command <command>`.
+You must wrap all development commands using `nix develop -c <command>`.
 
 **Examples:**
-- `nix develop --command npm install`
-- `nix develop --command npm run dev`
-- `nix develop --command npm run build`
-- `nix develop --command npx playwright install`
+- `nix develop -c npm install`
+- `nix develop -c npm run dev`
+- `nix develop -c npm run build`
+- `nix develop -c npx playwright install`
 
 ## Project Structure
 - `app/`: Next.js App Router pages.
@@ -24,9 +24,9 @@ You must wrap all development commands using `nix develop --command <command>`.
 ## Data Integrity & Schemas
 - **Strict Validation**: All software data in `data/*.json` is validated against Zod schemas in `lib/schemas.ts`.
 - **Validation Script**: After modifying any data files, ALWAYS run validation:
-  `nix develop --command npm run validate`
+  `nix develop -c npm run validate`
 - **GitHub Stats**: Do not update GitHub stars/forks manually. Use the update script:
-  `nix develop --command npm run benchmark`
+  `nix develop -c npm run benchmark`
 
 ## Layout & Styling
 - **Fixed-Height Design**: The root layout is fixed to the viewport height (`h-[calc(100vh-64px)]`).

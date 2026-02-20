@@ -48,7 +48,7 @@ export default async function ComparisonPage({ params }: PageProps) {
   }
 
   return (
-    <div className="container py-4 flex-1 flex flex-col overflow-hidden">
+    <div className="container py-4 flex-1 flex flex-col overflow-hidden min-h-0">
       <div className="mb-4 shrink-0 flex items-center gap-3">
         <Link href="/">
           <Button variant="ghost" size="icon" className="h-9 w-9">
@@ -58,7 +58,7 @@ export default async function ComparisonPage({ params }: PageProps) {
         </Link>
         <h1 className="text-3xl font-bold tracking-tight">{categoryConfig.title}</h1>
       </div>
-      <div className="flex-1 overflow-hidden">
+      <div className="flex-1 overflow-hidden flex flex-col min-h-0">
         <ComparisonTable data={categoryConfig.data} sections={categoryConfig.sections} />
       </div>
     </div>

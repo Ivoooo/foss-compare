@@ -66,7 +66,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased h-[100dvh] w-full overflow-hidden flex flex-col`}
       >
         <ThemeProvider
           attribute="class"
@@ -76,7 +76,7 @@ export default function RootLayout({
         >
           <TooltipProvider>
             <SiteHeader />
-            <main className="flex-1 flex flex-col h-[calc(100vh-64px)] overflow-hidden min-h-0">{children}</main>
+            <main className="flex-1 flex flex-col overflow-hidden min-h-0">{children}</main>
           </TooltipProvider>
         </ThemeProvider>
       </body>
