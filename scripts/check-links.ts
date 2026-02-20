@@ -72,8 +72,7 @@ async function checkUrl(url: string): Promise<{ ok: boolean; status?: number; er
       return { ok: false, status: response.status, error: `HTTP ${response.status} ${response.statusText}` };
     }
   } catch (error: unknown) {
-    const message = error instanceof Error ? error.message : "Network Error";
-    return { ok: false, error: message };
+    return { ok: false, error: error instanceof Error ? error.message : "Network Error" };
   }
 }
 

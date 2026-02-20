@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useMemo } from "react";
 import { SoftwareTool, CategorySection, FeatureStatus } from "@/types/software";
 import { calculateFeatureScore } from "@/lib/comparison-utils";
 import { FeatureStatusCell } from "./feature-status-cell";
-import { GitHubPopularitySection } from "./github-popularity-section";
+import { ProjectStatsSection } from "./project-stats-section";
 import { ComparisonFilter } from "./comparison-filter";
 import { ChevronDown, ChevronRight, Github, ExternalLink, Search, X } from "lucide-react";
 import Link from "next/link";
@@ -67,7 +67,6 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
         // "Yes" and "Paid" are considered match.
         // FeatureStatus can be string or object.
         // We consider "Yes" and "Paid" as satisfying the requirement.
-        // We could also consider "Partial" depending on strictness, but let's stick to positive affirmation.
         let statusStr = "";
         if (typeof status === "string") {
             statusStr = status;
@@ -86,42 +85,46 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
     });
   }, [data, filters]);
 
-  useEffect(() => {
+  const searchedSections = useMemo(() => {
     // Only search/expand if query is at least 2 characters
-    if (searchQuery.length < 2) return;
+    if (searchQuery.length < 2) return new Set<string>();
 
     const lowerQuery = searchQuery.toLowerCase();
+    const next = new Set<string>();
 
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setExpandedSections(() => {
-      const next = new Set<string>();
+    // Check Project Stats section
+    if (
+      "project stats".includes(lowerQuery) ||
+      "github popularity".includes(lowerQuery) ||
+      "stars".includes(lowerQuery) ||
+      "forks".includes(lowerQuery) ||
+      "last commit".includes(lowerQuery) ||
+      "license".includes(lowerQuery) ||
+      "open source".includes(lowerQuery) ||
+      "ram".includes(lowerQuery) ||
+      "size".includes(lowerQuery) ||
+      "performance".includes(lowerQuery)
+    ) {
+      next.add("project-stats");
+    }
 
-      // Check GitHub section
-      if (
-        "github popularity".includes(lowerQuery) ||
-        "stars".includes(lowerQuery) ||
-        "forks".includes(lowerQuery) ||
-        "last commit".includes(lowerQuery) ||
-        "license".includes(lowerQuery) ||
-        "open source".includes(lowerQuery)
-      ) {
-        next.add("github");
+    sections.forEach((section) => {
+      const sectionMatch = section.label.toLowerCase().includes(lowerQuery);
+      const itemsMatch = section.items.some((item) =>
+        item.label.toLowerCase().includes(lowerQuery)
+      );
+
+      if (sectionMatch || itemsMatch) {
+        next.add(section.id);
       }
-
-      sections.forEach((section) => {
-        const sectionMatch = section.label.toLowerCase().includes(lowerQuery);
-        const itemsMatch = section.items.some((item) =>
-          item.label.toLowerCase().includes(lowerQuery)
-        );
-
-        if (sectionMatch || itemsMatch) {
-          next.add(section.id);
-        }
-      });
-
-      return next;
     });
+
+    return next;
   }, [searchQuery, sections]);
+
+  const isSectionExpanded = (id: string) => {
+    return expandedSections.has(id) || searchedSections.has(id);
+  };
 
   const isMatch = (text: string) => {
     if (!searchQuery || searchQuery.length < 2) return false;
@@ -230,13 +233,13 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
             </tr>
           </thead>
 
-          {/* GitHub Popularity Section */}
-          <GitHubPopularitySection
+          {/* Project Stats Section */}
+          <ProjectStatsSection
             data={filteredData}
             maxStars={maxStars}
             maxForks={maxForks}
-            isOpen={expandedSections.has("github")}
-            onToggle={() => toggleCategory("github")}
+            isOpen={isSectionExpanded("project-stats")}
+            onToggle={() => toggleCategory("project-stats")}
           />
 
           {/* Feature Sections */}
@@ -252,7 +255,7 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
                     isMatch(section.label) && "bg-yellow-100 dark:bg-yellow-900/40"
                   )}
                 >
-                  {expandedSections.has(section.id) ? <ChevronDown className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
+                  {isSectionExpanded(section.id) ? <ChevronDown className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
                   {section.label}
                 </td>
                 {filteredData.map((tool) => {
@@ -278,7 +281,7 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
                   );
                 })}
               </tr>
-              {expandedSections.has(section.id) && section.items.map((item) => (
+              {isSectionExpanded(section.id) && section.items.map((item) => (
                 <tr key={item.key} className="bg-muted/5 group/row hover:bg-muted/20 dark:hover:bg-muted/30 transition-colors">
                   <td
                     className={cn(
