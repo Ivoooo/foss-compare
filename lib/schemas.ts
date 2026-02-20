@@ -112,7 +112,7 @@ export const StreamerFeaturesSchema = z.object({
   sso: FeatureStatusSchema,
   sonarr: FeatureStatusSchema,
   radarr: FeatureStatusSchema,
-  seerr_jellyseerr_overseerr: FeatureStatusSchema,
+  seerr: FeatureStatusSchema,
   trakt: FeatureStatusSchema,
 });
 

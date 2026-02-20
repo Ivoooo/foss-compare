@@ -88,7 +88,7 @@
         "note": "Plugin"
       },
       "skipAds": "No",
-      "seerr_jellyseerr_overseerr": "Yes"
+      "seerr": "Yes"
     },
     "notes": "Community-driven fork of Emby. Completely free with no paid features.",
     "meta": {
@@ -185,7 +185,7 @@
       "trakt": "Paid",
       "skipCredits": "Paid",
       "skipAds": "Paid",
-      "seerr_jellyseerr_overseerr": "Yes"
+      "seerr": "Yes"
     },
     "notes": "Highly polished, requires Plex Pass for hardware transcoding and offline downloads. Auth is centralized via Plex.tv.",
     "meta": {
@@ -286,7 +286,7 @@
         "note": "Manual prompt per episode"
       },
       "skipAds": "No",
-      "seerr_jellyseerr_overseerr": "Yes"
+      "seerr": "Yes"
     },
     "notes": "Closed source fork of the original open source Emby (before it became proprietary). Requires Emby Premiere for many features.",
     "meta": {
