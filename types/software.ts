@@ -80,6 +80,19 @@ export interface BaseSoftwareTool {
   dockerSupport: FeatureStatus;
   armSupport: FeatureStatus;
 
+  // Automation & Performance
+  automation?: {
+    docker?: {
+      image: string; // e.g., "jellyfin/jellyfin:latest"
+      env?: Record<string, string>; // Environment variables needed for startup
+    };
+  };
+
+  performance?: {
+    ramUsage?: string;       // e.g., "150 MB (Idle)"
+    dockerImageSize?: string; // e.g., "1.2 GB"
+  };
+
   // Notes
   notes?: string;
 

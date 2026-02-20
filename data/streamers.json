@@ -72,6 +72,15 @@
         "version": "v10.8.13",
         "changelogLink": "https://github.com/jellyfin/jellyfin/releases"
       }
+    },
+    "automation": {
+      "docker": {
+        "image": "jellyfin/jellyfin:latest"
+      }
+    },
+    "performance": {
+      "ramUsage": "150 MB",
+      "dockerImageSize": "1.2 GB"
     }
   },
   {
@@ -138,6 +147,18 @@
         "version": "v1.40.0",
         "changelogLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
       }
+    },
+    "automation": {
+      "docker": {
+        "image": "plexinc/pms-docker:latest",
+        "env": {
+          "TZ": "UTC"
+        }
+      }
+    },
+    "performance": {
+      "ramUsage": "250 MB",
+      "dockerImageSize": "800 MB"
     }
   },
   {
@@ -203,6 +224,15 @@
         "version": "v4.8.1",
         "changelogLink": "https://emby.media/blog.html"
       }
+    },
+    "automation": {
+      "docker": {
+        "image": "emby/embyserver:latest"
+      }
+    },
+    "performance": {
+      "ramUsage": "200 MB",
+      "dockerImageSize": "500 MB"
     }
   }
 ]

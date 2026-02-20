@@ -10,15 +10,7 @@ interface LinkLocation {
   path: string; // approximate path in JSON (e.g., "0.features.website")
 }
 
-interface LinkCheckResult {
-  url: string;
-  ok: boolean;
-  status?: number;
-  error?: string;
-  locations: LinkLocation[];
-}
-
-function findUrlsInObject(obj: any, currentPath: string, file: string, urls: Map<string, LinkLocation[]>): void {
+function findUrlsInObject(obj: unknown, currentPath: string, file: string, urls: Map<string, LinkLocation[]>): void {
   if (typeof obj === "string") {
     if (obj.startsWith("http://") || obj.startsWith("https://")) {
       const existing = urls.get(obj) || [];
@@ -30,9 +22,10 @@ function findUrlsInObject(obj: any, currentPath: string, file: string, urls: Map
       findUrlsInObject(item, `${currentPath}[${index}]`, file, urls);
     });
   } else if (typeof obj === "object" && obj !== null) {
-    for (const key in obj) {
-      if (Object.prototype.hasOwnProperty.call(obj, key)) {
-        findUrlsInObject(obj[key], `${currentPath}.${key}`, file, urls);
+    const record = obj as Record<string, unknown>;
+    for (const key in record) {
+      if (Object.prototype.hasOwnProperty.call(record, key)) {
+        findUrlsInObject(record[key], `${currentPath}.${key}`, file, urls);
       }
     }
   }
@@ -78,8 +71,8 @@ async function checkUrl(url: string): Promise<{ ok: boolean; status?: number; er
        }
       return { ok: false, status: response.status, error: `HTTP ${response.status} ${response.statusText}` };
     }
-  } catch (error: any) {
-    return { ok: false, error: error.message || "Network Error" };
+  } catch (error: unknown) {
+    return { ok: false, error: error instanceof Error ? error.message : "Network Error" };
   }
 }
 
