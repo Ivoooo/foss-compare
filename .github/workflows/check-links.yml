@@ -3,6 +3,13 @@ name: Check Links
 on:
   schedule:
     - cron: "0 0 * * 1" # Weekly on Monday at 00:00 UTC
+  push:
+    branches:
+      - main
+    paths:
+      - "data/**"
+      - "scripts/check-links.ts"
+      - ".github/workflows/check-links.yml"
   pull_request:
     paths:
       - "data/**"
