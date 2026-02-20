@@ -20,8 +20,8 @@ Used when the link is shared on Twitter, Slack, Discord, LinkedIn, etc.
     *   Keep text centered to avoid being cropped on some platforms.
 
 ## Summary Checklist
-- [ ] `public/favicon.ico`
-- [ ] `public/icon-192.png`
-- [ ] `public/icon-512.png`
-- [ ] `public/apple-touch-icon.png`
-- [ ] `public/og-image.png`
+- [x] `public/favicon.ico`
+- [x] `public/icon-192.png`
+- [x] `public/icon-512.png`
+- [x] `public/apple-touch-icon.png`
+- [x] `public/og-image.png`
