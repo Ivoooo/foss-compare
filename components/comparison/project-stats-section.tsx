@@ -8,13 +8,12 @@ import {
   getForksEmote,
   getActivityEmote,
   getLicenseColor,
-  parseSizeString
+  parseSizeString,
+  formatRelativeDate
 } from "@/lib/comparison-utils";
 import { FeatureStatusCell } from "./feature-status-cell";
 import { ChevronDown, ChevronRight, Github, Code, Box, Cpu } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { cn } from "@/lib/utils";
-
 interface ProjectStatsSectionProps {
   data: SoftwareTool[];
   maxStars: number;
@@ -32,21 +31,16 @@ interface StatsRowProps {
 }
 
 const StatsRow = ({ label, data, pinnedTools, renderCell }: StatsRowProps) => (
-  <tr className="bg-muted/5 group/row hover:bg-muted/20 dark:hover:bg-muted/30 transition-colors">
-    <td className="sticky left-0 z-20 bg-background/95 backdrop-blur-sm border-r px-4 md:px-6 py-3 pl-10 md:pl-12 text-muted-foreground shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)] group-hover/row:bg-muted/20 dark:group-hover/row:bg-muted/30 transition-colors flex items-center gap-2 min-h-[48px]">
+  <tr className="bg-muted/5 group/row hover:bg-muted/20 transition-colors">
+    <td className="bg-background border-r px-4 md:px-6 py-3 pl-10 md:pl-12 text-muted-foreground group-hover/row:bg-muted transition-colors flex items-center gap-2 min-h-[48px] border-b">
       {label}
     </td>
-    {data.map((tool, index) => {
-      const isPinned = pinnedTools.has(tool.id);
-      const leftOffset = isPinned ? 256 + index * 240 : undefined;
+    {data.map((tool) => {
+
       return (
         <td
           key={tool.id}
-          style={isPinned ? { left: `${leftOffset}px` } : undefined}
-          className={cn(
-            "px-4 md:px-6 py-3 bg-muted/5 group-hover/row:bg-muted/20 dark:group-hover/row:bg-muted/30 transition-colors",
-            isPinned && "sticky z-10 bg-background/95 backdrop-blur-md border-r shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)]"
-          )}
+          className="px-4 md:px-6 py-3 bg-muted/5 group-hover/row:bg-muted/20 transition-colors border-b"
         >
           {renderCell(tool)}
         </td>
@@ -88,21 +82,16 @@ export function ProjectStatsSection({
         className="cursor-pointer group transition-colors hover:bg-muted"
         onClick={onToggle}
       >
-        <td className="sticky left-0 z-30 bg-background group-hover:bg-muted border-r px-4 md:px-6 py-4 font-medium flex items-center gap-2 shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)] transition-colors">
+        <td className="bg-background group-hover:bg-muted border-r px-4 md:px-6 py-4 font-medium flex items-center gap-2 transition-colors border-b">
           {isOpen ? <ChevronDown className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
           Project Stats
         </td>
-        {data.map((tool, index) => {
-          const isPinned = pinnedTools.has(tool.id);
-          const leftOffset = isPinned ? 256 + index * 240 : undefined;
+        {data.map((tool) => {
+
           return (
-            <td 
-              key={tool.id} 
-              style={isPinned ? { left: `${leftOffset}px` } : undefined}
-              className={cn(
-                "px-4 md:px-6 py-4 transition-colors",
-                isPinned && "sticky z-20 bg-background/95 backdrop-blur-md border-r shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)]"
-              )}
+            <td
+              key={tool.id}
+              className="px-4 md:px-6 py-4 transition-colors border-b"
             >
               <span className="font-medium">{getGitHubPopularityStatus(tool)}</span>
             </td>
@@ -147,14 +136,14 @@ export function ProjectStatsSection({
             data={data}
             pinnedTools={pinnedTools}
             renderCell={(tool) => {
-               const val = parseSizeString(tool.performance?.ramUsage);
-               const isLowest = val !== Infinity && val === minRam;
-               return (
-                 <div className="flex items-center gap-2">
+              const val = parseSizeString(tool.performance?.ramUsage);
+              const isLowest = val !== Infinity && val === minRam;
+              return (
+                <div className="flex items-center gap-2">
                   <span>{tool.performance?.ramUsage || "-"}</span>
                   {isLowest && <span>🔥</span>}
-                 </div>
-               );
+                </div>
+              );
             }}
           />
 
@@ -188,7 +177,7 @@ export function ProjectStatsSection({
             pinnedTools={pinnedTools}
             renderCell={(tool) => tool.githubStats ? (
               <div className="flex items-center gap-2">
-                <span>{tool.githubStats.lastCommit}</span>
+                <span title={tool.githubStats.lastCommit}>{formatRelativeDate(tool.githubStats.lastCommit)}</span>
                 <span>{getActivityEmote(tool.githubStats.lastCommit)}</span>
               </div>
             ) : "-"}

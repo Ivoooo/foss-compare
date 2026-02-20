@@ -134,3 +134,47 @@ export function parseSizeString(sizeStr?: string): number {
 
   return value * multipliers[index];
 }
+
+export function formatRelativeDate(dateString: string): string {
+  if (!dateString || dateString === "N/A") return "N/A";
+
+  const date = new Date(dateString);
+  const now = new Date();
+  const diffInSeconds = Math.floor((now.getTime() - date.getTime()) / 1000);
+
+  if (diffInSeconds < 0) return "just now";
+
+  const diffInMinutes = Math.floor(diffInSeconds / 60);
+  if (diffInMinutes < 60) {
+    if (diffInMinutes <= 1) return "just now";
+    return `${diffInMinutes} minutes ago`;
+  }
+
+  const diffInHours = Math.floor(diffInMinutes / 60);
+  if (diffInHours < 24) {
+    if (diffInHours === 1) return "an hour ago";
+    return `${diffInHours} hours ago`;
+  }
+
+  const diffInDays = Math.floor(diffInHours / 24);
+  if (diffInDays < 7) {
+    if (diffInDays === 1) return "yesterday";
+    return `${diffInDays} days ago`;
+  }
+
+  const diffInWeeks = Math.floor(diffInDays / 7);
+  if (diffInWeeks < 4) {
+    if (diffInWeeks === 1) return "last week";
+    return `${diffInWeeks} weeks ago`;
+  }
+
+  const diffInMonths = Math.floor(diffInDays / 30);
+  if (diffInMonths < 12) {
+    if (diffInMonths === 1) return "last month";
+    return `${diffInMonths} months ago`;
+  }
+
+  const diffInYears = Math.floor(diffInDays / 365);
+  if (diffInYears === 1) return "last year";
+  return `${diffInYears} years ago`;
+}
