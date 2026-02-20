@@ -30,9 +30,12 @@ interface StatsRowProps {
 
 const StatsRow = ({ label, data, renderCell }: StatsRowProps) => (
   <tr className="bg-muted/5 group/row hover:bg-muted/20 dark:hover:bg-muted/30 transition-colors">
-    <td className="sticky left-0 z-20 bg-background/95 backdrop-blur-sm border-r px-4 md:px-6 py-3 pl-10 md:pl-12 text-muted-foreground shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)] group-hover/row:bg-muted/20 dark:group-hover/row:bg-muted/30 transition-colors flex items-center gap-2 min-h-[48px]">
+    <th
+      scope="row"
+      className="sticky left-0 z-20 bg-background/95 backdrop-blur-sm border-r px-4 md:px-6 py-3 pl-10 md:pl-12 text-muted-foreground font-normal text-left shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)] group-hover/row:bg-muted/20 dark:group-hover/row:bg-muted/30 transition-colors flex items-center gap-2 min-h-[48px]"
+    >
       {label}
-    </td>
+    </th>
     {data.map((tool) => (
       <td key={tool.id} className="px-4 md:px-6 py-3 bg-muted/5 group-hover/row:bg-muted/20 dark:group-hover/row:bg-muted/30 transition-colors">
         {renderCell(tool)}
@@ -69,14 +72,20 @@ export function ProjectStatsSection({
 
   return (
     <tbody className="border-b last:border-0">
-      <tr
-        className="cursor-pointer group transition-colors hover:bg-muted"
-        onClick={onToggle}
-      >
-        <td className="sticky left-0 z-30 bg-background group-hover:bg-muted border-r px-4 md:px-6 py-4 font-medium flex items-center gap-2 shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)] transition-colors">
-          {isOpen ? <ChevronDown className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
-          Project Stats
-        </td>
+      <tr className="group transition-colors hover:bg-muted">
+        <th
+          scope="row"
+          className="sticky left-0 z-30 bg-background group-hover:bg-muted border-r font-medium shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)] transition-colors p-0"
+        >
+          <button
+            onClick={onToggle}
+            className="w-full h-full flex items-center gap-2 px-4 md:px-6 py-4 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset"
+            aria-expanded={isOpen}
+          >
+            {isOpen ? <ChevronDown className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
+            Project Stats
+          </button>
+        </th>
         {data.map((tool) => (
           <td key={tool.id} className="px-4 md:px-6 py-4">
             <span className="font-medium">{getGitHubPopularityStatus(tool)}</span>
@@ -108,7 +117,7 @@ export function ProjectStatsSection({
               return (
                 <div className="flex items-center gap-2">
                   <span>{tool.performance?.dockerImageSize || "-"}</span>
-                  {isLowest && <span>🔥</span>}
+                  {isLowest && <span role="img" aria-label="Lowest image size">🔥</span>}
                 </div>
               );
             }}
@@ -123,7 +132,7 @@ export function ProjectStatsSection({
                return (
                  <div className="flex items-center gap-2">
                   <span>{tool.performance?.ramUsage || "-"}</span>
-                  {isLowest && <span>🔥</span>}
+                  {isLowest && <span role="img" aria-label="Lowest memory usage">🔥</span>}
                  </div>
                );
             }}

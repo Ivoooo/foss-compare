@@ -4,6 +4,7 @@ import "./globals.css";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SiteHeader } from "@/components/site-header";
+import { SkipLink } from "@/components/skip-link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -75,8 +76,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <TooltipProvider>
+            <SkipLink />
             <SiteHeader />
-            <main className="flex-1 flex flex-col h-[calc(100vh-64px)] overflow-hidden min-h-0">{children}</main>
+            <main id="main-content" className="flex-1 flex flex-col h-[calc(100vh-64px)] overflow-hidden min-h-0">{children}</main>
           </TooltipProvider>
         </ThemeProvider>
       </body>

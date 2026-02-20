@@ -81,22 +81,15 @@ export function ComparisonFilter({
 
               return (
                 <div key={section.id} className="space-y-3">
-                  <div
-                    className="flex items-center space-x-3 sticky top-0 bg-background py-1 z-10 border-b pb-2 cursor-pointer hover:bg-muted/50 rounded-sm px-1 -mx-1 transition-colors"
-                    onClick={(e) => {
-                      if ((e.target as HTMLElement).getAttribute('role') === 'checkbox') return;
-                      handleSectionToggle(section, !allSelected && !isIndeterminate);
-                    }}
-                  >
+                  <div className="flex items-center space-x-3 sticky top-0 bg-background py-1 z-10 border-b pb-2 hover:bg-muted/50 rounded-sm px-1 -mx-1 transition-colors">
                      <Checkbox
                         id={`section-${section.id}`}
                         checked={allSelected ? true : (isIndeterminate ? "indeterminate" : false)}
                         onCheckedChange={(checked) => handleSectionToggle(section, checked === true)}
-                        className="pointer-events-none"
                       />
                     <label
                         htmlFor={`section-${section.id}`}
-                        className="font-semibold text-sm text-foreground/80 cursor-pointer select-none flex-1 pointer-events-none"
+                        className="font-semibold text-sm text-foreground/80 cursor-pointer select-none flex-1 py-1"
                     >
                       {section.label}
                     </label>
@@ -107,19 +100,17 @@ export function ComparisonFilter({
                       return (
                         <div
                           key={item.key}
-                          className="flex items-start space-x-3 p-2 rounded-md hover:bg-muted/50 transition-colors cursor-pointer"
-                          onClick={() => onFilterChange(item.key)}
+                          className="flex items-start space-x-3 p-2 rounded-md hover:bg-muted/50 transition-colors"
                         >
                           <Checkbox
                             id={item.key}
                             checked={isSelected}
                             onCheckedChange={() => onFilterChange(item.key)}
-                            className="pointer-events-none"
                           />
                           <div className="grid gap-1.5 leading-none flex-1">
                             <label
                               htmlFor={item.key}
-                              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer select-none pointer-events-none"
+                              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer select-none py-0.5"
                             >
                               {item.label}
                             </label>

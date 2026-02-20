@@ -49,11 +49,13 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
             className="pl-9 pr-8"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
+            aria-label="Search features or tools"
           />
           {searchQuery && (
             <button
               onClick={() => setSearchQuery("")}
               className="absolute right-2.5 top-2.5 text-muted-foreground hover:text-foreground"
+              aria-label="Clear search"
             >
               <X className="h-4 w-4" />
             </button>
@@ -83,11 +85,12 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
         <table className="w-full text-sm text-left border-collapse">
           <thead className="text-xs uppercase bg-muted/90 sticky top-0 z-40 backdrop-blur-md shadow-sm">
             <tr>
-              <th className="px-4 md:px-6 py-4 font-medium text-muted-foreground w-64 min-w-[200px] sticky left-0 z-50 bg-background/95 backdrop-blur-md border-b border-r shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)]">
+              <th scope="col" className="px-4 md:px-6 py-4 font-medium text-muted-foreground w-64 min-w-[200px] sticky left-0 z-50 bg-background/95 backdrop-blur-md border-b border-r shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)]">
                 Category
               </th>
               {filteredData.map((tool) => (
                 <th
+                  scope="col"
                   key={tool.id}
                   className={cn(
                     "px-4 md:px-6 py-4 font-bold text-base min-w-[220px] border-b bg-muted/50 align-top transition-colors",
@@ -137,19 +140,23 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
 
           {sections.map((section) => (
             <tbody key={section.id} className="border-b last:border-0">
-              <tr
-                className="cursor-pointer group transition-colors hover:bg-muted"
-                onClick={() => toggleCategory(section.id)}
-              >
-                <td
+              <tr className="group transition-colors hover:bg-muted">
+                <th
+                  scope="row"
                   className={cn(
-                    "sticky left-0 z-30 bg-background group-hover:bg-muted border-r px-4 md:px-6 py-4 font-medium flex items-center gap-2 shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)] transition-colors",
+                    "sticky left-0 z-30 bg-background group-hover:bg-muted border-r px-4 md:px-6 py-4 font-medium shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)] transition-colors p-0",
                     isMatch(section.label) && "bg-yellow-100 dark:bg-yellow-900/40"
                   )}
                 >
-                  {isSectionExpanded(section.id) ? <ChevronDown className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
-                  {section.label}
-                </td>
+                  <button
+                    onClick={() => toggleCategory(section.id)}
+                    className="w-full h-full flex items-center gap-2 text-left px-4 md:px-6 py-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset"
+                    aria-expanded={isSectionExpanded(section.id)}
+                  >
+                    {isSectionExpanded(section.id) ? <ChevronDown className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
+                    {section.label}
+                  </button>
+                </th>
                 {filteredData.map((tool) => {
                   const sectionFeatures: Record<string, FeatureStatus | undefined> = {};
                   section.items.forEach(item => {
@@ -175,14 +182,15 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
               </tr>
               {isSectionExpanded(section.id) && section.items.map((item) => (
                 <tr key={item.key} className="bg-muted/5 group/row hover:bg-muted/20 dark:hover:bg-muted/30 transition-colors">
-                  <td
+                  <th
+                    scope="row"
                     className={cn(
-                      "sticky left-0 z-20 bg-background/95 backdrop-blur-sm border-r px-4 md:px-6 py-3 pl-10 md:pl-12 text-muted-foreground shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)] group-hover/row:bg-muted/20 dark:group-hover/row:bg-muted/30 transition-colors",
+                      "sticky left-0 z-20 bg-background/95 backdrop-blur-sm border-r px-4 md:px-6 py-3 pl-10 md:pl-12 text-muted-foreground font-normal text-left shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)] group-hover/row:bg-muted/20 dark:group-hover/row:bg-muted/30 transition-colors",
                       isMatch(item.label) && "bg-yellow-100 dark:bg-yellow-900/40"
                     )}
                   >
                     {item.label}
-                  </td>
+                  </th>
                   {filteredData.map((tool) => {
                     const status = getNestedValue(tool, item.key) as FeatureStatus;
                     return (
