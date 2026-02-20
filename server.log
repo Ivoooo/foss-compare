@@ -16,3 +16,7 @@ https://nextjs.org/telemetry
 ○ Compiling /comparison/[category] ...
  GET /comparison/streamers 200 in 6.1s (compile: 5.5s, generate-params: 964ms, render: 613ms)
  GET /comparison/streamers 200 in 1034ms (compile: 433ms, generate-params: 74ms, render: 601ms)
+ GET /comparison/streamers 200 in 1123ms (compile: 504ms, generate-params: 86ms, render: 619ms)
+ GET /comparison/streamers 200 in 181ms (compile: 36ms, generate-params: 30ms, render: 145ms)
+ GET /comparison/streamers 200 in 177ms (compile: 27ms, generate-params: 22ms, render: 149ms)
+ GET /comparison/streamers 200 in 149ms (compile: 27ms, generate-params: 22ms, render: 122ms)

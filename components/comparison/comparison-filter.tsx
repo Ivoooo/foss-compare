@@ -37,26 +37,6 @@ export function ComparisonFilter({
   const activeFilterCount = filters.size;
 
   const handleSectionToggle = (section: CategorySection, isChecked: boolean) => {
-    // If we are checking the section, we want to add all items that aren't already selected.
-    // If we are unchecking, we want to remove all items in that section.
-
-    // We can't batch update directly because `onFilterChange` takes a single ID.
-    // However, the `filters` prop is managed by the parent, so we need a way to batch update or just iterate.
-    // Since `onFilterChange` likely toggles, we need to be careful.
-    // Ideally, the parent should support bulk updates, but let's see if we can just iterate.
-    // Iterating `onFilterChange` relies on React state batching or `setFilters` using function updates correctly.
-    // The implementation in `comparison-table.tsx` uses `setFilters((prev) => ...)` which is safe for concurrent updates if we were doing it in one event loop,
-    // BUT calling `onFilterChange` multiple times in a loop might be inefficient or rely on how React batches state updates in handlers.
-
-    // A better approach would be to update the parent to accept a list of IDs to toggle, or just iterate here if we trust React 18 batching.
-    // Let's modify the parent `ComparisonTable` to support bulk updates first, or try to iterate and see.
-    // Given the constraints, let's assume `onFilterChange` toggles.
-
-    // Wait, the user prompt implies I should just "Add a clickbox".
-    // To do this correctly without race conditions, I should probably expose a `setFilters` or `toggleFilters` that takes an array.
-    // But since I can't easily change the interface without changing the parent, I'll update the parent too.
-    // Actually, I can just call onFilterChange for each item that needs to change state.
-
     section.items.forEach(item => {
         const isSelected = filters.has(item.key);
         if (isChecked && !isSelected) {
@@ -103,15 +83,23 @@ export function ComparisonFilter({
 
               return (
                 <div key={section.id} className="space-y-3">
-                  <div className="flex items-center space-x-3 sticky top-0 bg-background py-1 z-10 border-b pb-2">
+                  <div
+                    className="flex items-center space-x-3 sticky top-0 bg-background py-1 z-10 border-b pb-2 cursor-pointer hover:bg-muted/50 rounded-sm px-1 -mx-1 transition-colors"
+                    onClick={(e) => {
+                      // Prevent toggling if clicking directly on the checkbox (handled by onCheckedChange)
+                      if ((e.target as HTMLElement).getAttribute('role') === 'checkbox') return;
+                      handleSectionToggle(section, !allSelected && !isIndeterminate);
+                    }}
+                  >
                      <Checkbox
                         id={`section-${section.id}`}
                         checked={allSelected ? true : (isIndeterminate ? "indeterminate" : false)}
                         onCheckedChange={(checked) => handleSectionToggle(section, checked === true)}
+                        className="pointer-events-none"
                       />
                     <label
                         htmlFor={`section-${section.id}`}
-                        className="font-semibold text-sm text-foreground/80 cursor-pointer select-none"
+                        className="font-semibold text-sm text-foreground/80 cursor-pointer select-none flex-1 pointer-events-none"
                     >
                       {section.label}
                     </label>
@@ -122,17 +110,19 @@ export function ComparisonFilter({
                       return (
                         <div
                           key={item.key}
-                          className="flex items-start space-x-3 p-2 rounded-md hover:bg-muted/50 transition-colors"
+                          className="flex items-start space-x-3 p-2 rounded-md hover:bg-muted/50 transition-colors cursor-pointer"
+                          onClick={() => onFilterChange(item.key)}
                         >
                           <Checkbox
                             id={item.key}
                             checked={isSelected}
                             onCheckedChange={() => onFilterChange(item.key)}
+                            className="pointer-events-none"
                           />
-                          <div className="grid gap-1.5 leading-none">
+                          <div className="grid gap-1.5 leading-none flex-1">
                             <label
                               htmlFor={item.key}
-                              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer select-none"
+                              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer select-none pointer-events-none"
                             >
                               {item.label}
                             </label>
