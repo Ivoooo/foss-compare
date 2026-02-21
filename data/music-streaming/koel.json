@@ -1,0 +1,226 @@
+{
+  "id": "koel",
+  "name": "Koel",
+  "description": "Modern, design-focused personal audio streaming service built with Laravel and Vue, featuring native synchronized lyrics.",
+  "website": "https://koel.dev",
+  "repository": "https://github.com/koel/koel",
+  "license": "MIT",
+  "openSource": true,
+  "githubStats": {
+    "stars": 17000,
+    "forks": 2100,
+    "lastCommit": "2026-02-21T00:00:00Z",
+    "openIssues": 150
+  },
+  "language": [
+    "PHP",
+    "Vue"
+  ],
+  "dockerSupport": {
+    "status": "Yes",
+    "verification": {
+      "verifiedAtVersion": "v8.3.0",
+      "verificationLink": "https://github.com/koel/koel/releases"
+    }
+  },
+  "armSupport": {
+    "status": "Yes",
+    "verification": {
+      "verifiedAtVersion": "v8.3.0",
+      "verificationLink": "https://github.com/koel/koel/releases"
+    }
+  },
+  "platforms": {
+    "windows": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.3.0",
+        "verificationLink": "https://github.com/koel/koel/releases"
+      }
+    },
+    "mac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.3.0",
+        "verificationLink": "https://github.com/koel/koel/releases"
+      }
+    },
+    "linux": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.3.0",
+        "verificationLink": "https://github.com/koel/koel/releases"
+      }
+    },
+    "android": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.3.0",
+        "verificationLink": "https://github.com/koel/koel/releases"
+      }
+    },
+    "ios": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.3.0",
+        "verificationLink": "https://github.com/koel/koel/releases"
+      }
+    },
+    "webUi": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.3.0",
+        "verificationLink": "https://github.com/koel/koel/releases"
+      }
+    },
+    "cli": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.3.0",
+        "verificationLink": "https://github.com/koel/koel/releases"
+      }
+    }
+  },
+  "features": {
+    "subsonicApi": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v8.3.0",
+        "verificationLink": "https://github.com/koel/koel/releases"
+      }
+    },
+    "tagBased": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.3.0",
+        "verificationLink": "https://github.com/koel/koel/releases"
+      }
+    },
+    "folderBased": {
+      "status": "Unknown"
+    },
+    "losslessFlac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.3.0",
+        "verificationLink": "https://github.com/koel/koel/releases"
+      }
+    },
+    "m4bSupport": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v8.3.0",
+        "verificationLink": "https://github.com/koel/koel/releases"
+      }
+    },
+    "smartPlaylists": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.3.0",
+        "verificationLink": "https://github.com/koel/koel/releases"
+      }
+    },
+    "scrobbling": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.3.0",
+        "verificationLink": "https://github.com/koel/koel/releases"
+      }
+    },
+    "podcasts": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.3.0",
+        "verificationLink": "https://github.com/koel/koel/releases"
+      }
+    },
+    "ebooks": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v8.3.0",
+        "verificationLink": "https://github.com/koel/koel/releases"
+      }
+    },
+    "lyrics": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.3.0",
+        "verificationLink": "https://github.com/koel/koel/releases"
+      }
+    },
+    "progressSync": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v8.3.0",
+        "verificationLink": "https://github.com/koel/koel/releases"
+      }
+    },
+    "gapless": {
+      "status": "Unknown"
+    },
+    "transcoding": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.3.0",
+        "verificationLink": "https://github.com/koel/koel/releases"
+      }
+    },
+    "jukebox": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v8.3.0",
+        "verificationLink": "https://github.com/koel/koel/releases"
+      }
+    },
+    "chromecast": {
+      "status": "Unknown"
+    },
+    "dlnaBridge": {
+      "status": "Unknown"
+    },
+    "multiUser": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.3.0",
+        "verificationLink": "https://github.com/koel/koel/releases"
+      }
+    },
+    "roles": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.3.0",
+        "verificationLink": "https://github.com/koel/koel/releases"
+      }
+    },
+    "publicSharing": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.3.0",
+        "verificationLink": "https://github.com/koel/koel/releases"
+      }
+    },
+    "federation": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v8.3.0",
+        "verificationLink": "https://github.com/koel/koel/releases"
+      }
+    },
+    "twoFactor": {
+      "status": "Unknown"
+    },
+    "ldap": {
+      "status": "Unknown"
+    },
+    "oidc": {
+      "status": "Unknown"
+    }
+  },
+  "meta": {
+    "lastCheck": {
+      "date": "2026-02-21",
+      "version": "v8.3.0",
+      "changelogLink": "https://github.com/koel/koel/releases"
+    }
+  }
+}

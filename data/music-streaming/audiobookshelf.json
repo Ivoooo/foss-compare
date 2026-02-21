@@ -1,0 +1,242 @@
+{
+  "id": "audiobookshelf",
+  "name": "Audiobookshelf",
+  "description": "Self-hosted audiobook and podcast server focusing on precision progress syncing, dynamic metadata fetching, and mobile application integration.",
+  "website": "https://www.audiobookshelf.org",
+  "repository": "https://github.com/advplyr/audiobookshelf",
+  "license": "GPL-3.0",
+  "openSource": true,
+  "githubStats": {
+    "stars": 11700,
+    "forks": 864,
+    "lastCommit": "2026-02-21T00:00:00Z",
+    "openIssues": 850
+  },
+  "language": [
+    "JavaScript",
+    "Vue"
+  ],
+  "dockerSupport": {
+    "status": "Yes",
+    "verification": {
+      "verifiedAtVersion": "v2.32.1",
+      "verificationLink": "https://github.com/advplyr/audiobookshelf/releases"
+    }
+  },
+  "armSupport": {
+    "status": "Yes",
+    "verification": {
+      "verifiedAtVersion": "v2.32.1",
+      "verificationLink": "https://github.com/advplyr/audiobookshelf/releases"
+    }
+  },
+  "platforms": {
+    "windows": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.32.1",
+        "verificationLink": "https://github.com/advplyr/audiobookshelf/releases"
+      }
+    },
+    "mac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.32.1",
+        "verificationLink": "https://github.com/advplyr/audiobookshelf/releases"
+      }
+    },
+    "linux": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.32.1",
+        "verificationLink": "https://github.com/advplyr/audiobookshelf/releases"
+      }
+    },
+    "android": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.32.1",
+        "verificationLink": "https://github.com/advplyr/audiobookshelf/releases"
+      }
+    },
+    "ios": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.32.1",
+        "verificationLink": "https://github.com/advplyr/audiobookshelf/releases"
+      }
+    },
+    "webUi": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.32.1",
+        "verificationLink": "https://github.com/advplyr/audiobookshelf/releases"
+      }
+    },
+    "cli": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.32.1",
+        "verificationLink": "https://github.com/advplyr/audiobookshelf/releases"
+      }
+    }
+  },
+  "features": {
+    "subsonicApi": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.32.1",
+        "verificationLink": "https://github.com/advplyr/audiobookshelf/releases"
+      }
+    },
+    "tagBased": {
+      "status": "Partial",
+      "verification": {
+        "verifiedAtVersion": "v2.32.1",
+        "verificationLink": "https://github.com/advplyr/audiobookshelf/releases"
+      }
+    },
+    "folderBased": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.32.1",
+        "verificationLink": "https://github.com/advplyr/audiobookshelf/releases"
+      }
+    },
+    "losslessFlac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.32.1",
+        "verificationLink": "https://github.com/advplyr/audiobookshelf/releases"
+      }
+    },
+    "m4bSupport": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.32.1",
+        "verificationLink": "https://github.com/advplyr/audiobookshelf/releases"
+      }
+    },
+    "smartPlaylists": {
+      "status": "Unknown"
+    },
+    "scrobbling": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.32.1",
+        "verificationLink": "https://github.com/advplyr/audiobookshelf/releases"
+      }
+    },
+    "podcasts": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.32.1",
+        "verificationLink": "https://github.com/advplyr/audiobookshelf/releases"
+      }
+    },
+    "ebooks": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.32.1",
+        "verificationLink": "https://github.com/advplyr/audiobookshelf/releases"
+      }
+    },
+    "lyrics": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.32.1",
+        "verificationLink": "https://github.com/advplyr/audiobookshelf/releases"
+      }
+    },
+    "progressSync": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.32.1",
+        "verificationLink": "https://github.com/advplyr/audiobookshelf/releases"
+      }
+    },
+    "gapless": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.32.1",
+        "verificationLink": "https://github.com/advplyr/audiobookshelf/releases"
+      }
+    },
+    "transcoding": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.32.1",
+        "verificationLink": "https://github.com/advplyr/audiobookshelf/releases"
+      }
+    },
+    "jukebox": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.32.1",
+        "verificationLink": "https://github.com/advplyr/audiobookshelf/releases"
+      }
+    },
+    "chromecast": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.32.1",
+        "verificationLink": "https://github.com/advplyr/audiobookshelf/releases"
+      }
+    },
+    "dlnaBridge": {
+      "status": "Unknown"
+    },
+    "multiUser": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.32.1",
+        "verificationLink": "https://github.com/advplyr/audiobookshelf/releases"
+      }
+    },
+    "roles": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.32.1",
+        "verificationLink": "https://github.com/advplyr/audiobookshelf/releases"
+      }
+    },
+    "publicSharing": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.32.1",
+        "verificationLink": "https://github.com/advplyr/audiobookshelf/releases"
+      }
+    },
+    "federation": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.32.1",
+        "verificationLink": "https://github.com/advplyr/audiobookshelf/releases"
+      }
+    },
+    "twoFactor": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.32.1",
+        "verificationLink": "https://github.com/advplyr/audiobookshelf/releases"
+      }
+    },
+    "ldap": {
+      "status": "Unknown"
+    },
+    "oidc": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.32.1",
+        "verificationLink": "https://github.com/advplyr/audiobookshelf/releases"
+      }
+    }
+  },
+  "meta": {
+    "lastCheck": {
+      "date": "2026-02-21",
+      "version": "v2.32.1",
+      "changelogLink": "https://github.com/advplyr/audiobookshelf/releases"
+    }
+  }
+}

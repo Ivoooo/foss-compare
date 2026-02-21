@@ -1,0 +1,237 @@
+{
+  "id": "jellyfin",
+  "name": "Jellyfin",
+  "description": "Comprehensive open-source media system with robust audio streaming capabilities, supported by specialized clients like Finamp.",
+  "website": "https://jellyfin.org",
+  "repository": "https://github.com/jellyfin/jellyfin",
+  "license": "GPL-2.0",
+  "openSource": true,
+  "githubStats": {
+    "stars": 48700,
+    "forks": 4400,
+    "lastCommit": "2026-02-21T00:00:00Z",
+    "openIssues": 608
+  },
+  "language": [
+    "C#"
+  ],
+  "dockerSupport": {
+    "status": "Yes",
+    "verification": {
+      "verifiedAtVersion": "10.11.5",
+      "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+    }
+  },
+  "armSupport": {
+    "status": "Yes",
+    "verification": {
+      "verifiedAtVersion": "10.11.5",
+      "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+    }
+  },
+  "platforms": {
+    "windows": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "10.11.5",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "mac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "10.11.5",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "linux": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "10.11.5",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "android": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "10.11.5",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "ios": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "10.11.5",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "webUi": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "10.11.5",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "cli": {
+      "status": "Unknown"
+    }
+  },
+  "features": {
+    "subsonicApi": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "10.11.5",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "tagBased": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "10.11.5",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "folderBased": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "10.11.5",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "losslessFlac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "10.11.5",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "m4bSupport": {
+      "status": "Partial",
+      "verification": {
+        "verifiedAtVersion": "10.11.5",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "smartPlaylists": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "10.11.5",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "scrobbling": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "10.11.5",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "podcasts": {
+      "status": "Unknown"
+    },
+    "ebooks": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "10.11.5",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "lyrics": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "10.11.5",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "progressSync": {
+      "status": "Partial",
+      "verification": {
+        "verifiedAtVersion": "10.11.5",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "gapless": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "10.11.5",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "transcoding": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "10.11.5",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "jukebox": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "10.11.5",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "chromecast": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "10.11.5",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "dlnaBridge": {
+      "status": "Unknown"
+    },
+    "multiUser": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "10.11.5",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "roles": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "10.11.5",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "publicSharing": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "10.11.5",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "federation": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "10.11.5",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "twoFactor": {
+      "status": "Unknown"
+    },
+    "ldap": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "10.11.5",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "oidc": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "10.11.5",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    }
+  },
+  "meta": {
+    "lastCheck": {
+      "date": "2026-02-21",
+      "version": "10.11.5",
+      "changelogLink": "https://github.com/jellyfin/jellyfin/releases"
+    }
+  }
+}

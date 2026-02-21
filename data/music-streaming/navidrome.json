@@ -1,0 +1,238 @@
+{
+  "id": "navidrome",
+  "name": "Navidrome",
+  "description": "High-performance, open-source music server compatible with the Subsonic API. Written in Go.",
+  "website": "https://www.navidrome.org",
+  "repository": "https://github.com/navidrome/navidrome",
+  "license": "GPL-3.0",
+  "openSource": true,
+  "githubStats": {
+    "stars": 12500,
+    "forks": 980,
+    "lastCommit": "2026-02-21T00:00:00Z",
+    "openIssues": 120
+  },
+  "language": [
+    "Go",
+    "JavaScript"
+  ],
+  "dockerSupport": {
+    "status": "Yes",
+    "verification": {
+      "verifiedAtVersion": "v0.60.3",
+      "verificationLink": "https://github.com/navidrome/navidrome/releases"
+    }
+  },
+  "armSupport": {
+    "status": "Yes",
+    "verification": {
+      "verifiedAtVersion": "v0.60.3",
+      "verificationLink": "https://github.com/navidrome/navidrome/releases"
+    }
+  },
+  "platforms": {
+    "windows": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v0.60.3",
+        "verificationLink": "https://github.com/navidrome/navidrome/releases"
+      }
+    },
+    "mac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v0.60.3",
+        "verificationLink": "https://github.com/navidrome/navidrome/releases"
+      }
+    },
+    "linux": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v0.60.3",
+        "verificationLink": "https://github.com/navidrome/navidrome/releases"
+      }
+    },
+    "android": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v0.60.3",
+        "verificationLink": "https://github.com/navidrome/navidrome/releases"
+      }
+    },
+    "ios": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v0.60.3",
+        "verificationLink": "https://github.com/navidrome/navidrome/releases"
+      }
+    },
+    "webUi": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v0.60.3",
+        "verificationLink": "https://github.com/navidrome/navidrome/releases"
+      }
+    },
+    "cli": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v0.60.3",
+        "verificationLink": "https://github.com/navidrome/navidrome/releases"
+      }
+    }
+  },
+  "features": {
+    "subsonicApi": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v0.60.3",
+        "verificationLink": "https://github.com/navidrome/navidrome/releases"
+      }
+    },
+    "tagBased": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v0.60.3",
+        "verificationLink": "https://github.com/navidrome/navidrome/releases"
+      }
+    },
+    "folderBased": {
+      "status": "Partial",
+      "verification": {
+        "verifiedAtVersion": "v0.60.3",
+        "verificationLink": "https://github.com/navidrome/navidrome/releases"
+      }
+    },
+    "losslessFlac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v0.60.3",
+        "verificationLink": "https://github.com/navidrome/navidrome/releases"
+      }
+    },
+    "m4bSupport": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v0.60.3",
+        "verificationLink": "https://github.com/navidrome/navidrome/releases"
+      }
+    },
+    "smartPlaylists": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v0.60.3",
+        "verificationLink": "https://github.com/navidrome/navidrome/releases"
+      }
+    },
+    "scrobbling": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v0.60.3",
+        "verificationLink": "https://github.com/navidrome/navidrome/releases"
+      }
+    },
+    "podcasts": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v0.60.3",
+        "verificationLink": "https://github.com/navidrome/navidrome/releases"
+      }
+    },
+    "ebooks": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v0.60.3",
+        "verificationLink": "https://github.com/navidrome/navidrome/releases"
+      }
+    },
+    "lyrics": {
+      "status": "Unknown"
+    },
+    "progressSync": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v0.60.3",
+        "verificationLink": "https://github.com/navidrome/navidrome/releases"
+      }
+    },
+    "gapless": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v0.60.3",
+        "verificationLink": "https://github.com/navidrome/navidrome/releases"
+      }
+    },
+    "transcoding": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v0.60.3",
+        "verificationLink": "https://github.com/navidrome/navidrome/releases"
+      }
+    },
+    "jukebox": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v0.60.3",
+        "verificationLink": "https://github.com/navidrome/navidrome/releases"
+      }
+    },
+    "chromecast": {
+      "status": "Unknown"
+    },
+    "dlnaBridge": {
+      "status": "Unknown"
+    },
+    "multiUser": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v0.60.3",
+        "verificationLink": "https://github.com/navidrome/navidrome/releases"
+      }
+    },
+    "roles": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v0.60.3",
+        "verificationLink": "https://github.com/navidrome/navidrome/releases"
+      }
+    },
+    "publicSharing": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v0.60.3",
+        "verificationLink": "https://github.com/navidrome/navidrome/releases"
+      }
+    },
+    "federation": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v0.60.3",
+        "verificationLink": "https://github.com/navidrome/navidrome/releases"
+      }
+    },
+    "twoFactor": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v0.60.3",
+        "verificationLink": "https://github.com/navidrome/navidrome/releases"
+      }
+    },
+    "ldap": {
+      "status": "Unknown"
+    },
+    "oidc": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v0.60.3",
+        "verificationLink": "https://github.com/navidrome/navidrome/releases"
+      }
+    }
+  },
+  "meta": {
+    "lastCheck": {
+      "date": "2026-02-21",
+      "version": "v0.60.3",
+      "changelogLink": "https://github.com/navidrome/navidrome/releases"
+    }
+  }
+}
