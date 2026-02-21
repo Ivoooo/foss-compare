@@ -19,7 +19,6 @@ interface ProjectStatsSectionProps {
   data: SoftwareTool[];
   maxStars: number;
   maxForks: number;
-  pinnedTools: Set<string>;
   isOpen: boolean;
   onToggle: () => void;
   isMatch: (text: string) => boolean;
@@ -29,7 +28,6 @@ interface StatsRowProps {
   label: React.ReactNode;
   matchText?: string;
   data: SoftwareTool[];
-  pinnedTools: Set<string>;
   renderCell: (tool: SoftwareTool) => React.ReactNode;
   isMatch: (text: string) => boolean;
 }
@@ -66,7 +64,6 @@ export function ProjectStatsSection({
   data,
   maxStars,
   maxForks,
-  pinnedTools,
   isOpen,
   onToggle,
   isMatch,
@@ -137,7 +134,6 @@ export function ProjectStatsSection({
             label={<><Code className="h-3 w-3" aria-hidden="true" /> Languages</>}
             matchText="Languages"
             data={data}
-            pinnedTools={pinnedTools}
             isMatch={isMatch}
             renderCell={(tool) => (
               <div className="flex flex-wrap gap-1">
@@ -154,7 +150,6 @@ export function ProjectStatsSection({
             label={<><Box className="h-3 w-3" aria-hidden="true" /> Image Size</>}
             matchText="Image Size"
             data={data}
-            pinnedTools={pinnedTools}
             isMatch={isMatch}
             renderCell={(tool) => {
               const val = parseSizeString(tool.performance?.dockerImageSize);
@@ -172,7 +167,6 @@ export function ProjectStatsSection({
             label={<><Cpu className="h-3 w-3" aria-hidden="true" /> Idle RAM</>}
             matchText="Idle RAM"
             data={data}
-            pinnedTools={pinnedTools}
             isMatch={isMatch}
             renderCell={(tool) => {
               const val = parseSizeString(tool.performance?.ramUsage);
@@ -190,7 +184,6 @@ export function ProjectStatsSection({
             label={<><Github className="h-3 w-3" aria-hidden="true" /> Stars</>}
             matchText="Stars"
             data={data}
-            pinnedTools={pinnedTools}
             isMatch={isMatch}
             renderCell={(tool) => tool.githubStats ? (
               <div className="flex items-center gap-2">
@@ -203,7 +196,6 @@ export function ProjectStatsSection({
           <StatsRow
             label="Forks"
             data={data}
-            pinnedTools={pinnedTools}
             isMatch={isMatch}
             renderCell={(tool) => tool.githubStats ? (
               <div className="flex items-center gap-2">
@@ -216,7 +208,6 @@ export function ProjectStatsSection({
           <StatsRow
             label="Last Commit"
             data={data}
-            pinnedTools={pinnedTools}
             isMatch={isMatch}
             renderCell={(tool) => tool.githubStats ? (
               <div className="flex items-center gap-2">
@@ -229,7 +220,6 @@ export function ProjectStatsSection({
           <StatsRow
             label="License"
             data={data}
-            pinnedTools={pinnedTools}
             isMatch={isMatch}
             renderCell={(tool) => (
               <Badge variant="outline" className={getLicenseColor(tool.license)}>
@@ -241,7 +231,6 @@ export function ProjectStatsSection({
           <StatsRow
             label="Open Source"
             data={data}
-            pinnedTools={pinnedTools}
             isMatch={isMatch}
             renderCell={(tool) => (
               <FeatureStatusCell status={tool.openSource ? "Yes" : "No"} />

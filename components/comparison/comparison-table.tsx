@@ -162,7 +162,6 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
                 data={filteredData}
                 maxStars={maxStars}
                 maxForks={maxForks}
-                pinnedTools={pinnedTools}
                 isOpen={isSectionExpanded("project-stats")}
                 onToggle={() => toggleCategory("project-stats")}
                 isMatch={isMatch}
