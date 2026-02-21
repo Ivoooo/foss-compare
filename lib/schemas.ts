@@ -180,7 +180,51 @@ export const PasswordManagerToolSchema = BaseSoftwareToolSchema.extend({
   features: PasswordManagerFeaturesSchema,
 });
 
-export const SoftwareToolSchema = z.union([StreamerToolSchema, PasswordManagerToolSchema]);
+// Music Streaming Schemas
+export const MusicStreamingPlatformSupportSchema = z.object({
+  windows: FeatureStatusSchema,
+  mac: FeatureStatusSchema,
+  linux: FeatureStatusSchema,
+  android: FeatureStatusSchema,
+  ios: FeatureStatusSchema,
+  webUi: FeatureStatusSchema,
+  cli: FeatureStatusSchema,
+});
+
+export const MusicStreamingFeaturesSchema = z.object({
+  subsonicApi: FeatureStatusSchema,
+  tagBased: FeatureStatusSchema,
+  folderBased: FeatureStatusSchema,
+  losslessFlac: FeatureStatusSchema,
+  m4bSupport: FeatureStatusSchema,
+  smartPlaylists: FeatureStatusSchema,
+  scrobbling: FeatureStatusSchema,
+  podcasts: FeatureStatusSchema,
+  ebooks: FeatureStatusSchema,
+  lyrics: FeatureStatusSchema,
+  progressSync: FeatureStatusSchema,
+  gapless: FeatureStatusSchema,
+  transcoding: FeatureStatusSchema,
+  jukebox: FeatureStatusSchema,
+  chromecast: FeatureStatusSchema,
+  dlnaBridge: FeatureStatusSchema,
+  multiUser: FeatureStatusSchema,
+  roles: FeatureStatusSchema,
+  publicSharing: FeatureStatusSchema,
+  federation: FeatureStatusSchema,
+  twoFactor: FeatureStatusSchema,
+  ldap: FeatureStatusSchema,
+  oidc: FeatureStatusSchema,
+});
+
+export const MusicStreamingToolSchema = BaseSoftwareToolSchema.extend({
+  dockerSupport: FeatureStatusSchema,
+  armSupport: FeatureStatusSchema,
+  platforms: MusicStreamingPlatformSupportSchema,
+  features: MusicStreamingFeaturesSchema,
+});
+
+export const SoftwareToolSchema = z.union([StreamerToolSchema, PasswordManagerToolSchema, MusicStreamingToolSchema]);
 
 // Inferred Types
 export type FeatureStatusType = z.infer<typeof FeatureStatusTypeSchema>;
@@ -199,6 +243,10 @@ export type StreamerTool = z.infer<typeof StreamerToolSchema>;
 export type PasswordManagerPlatformSupport = z.infer<typeof PasswordManagerPlatformSupportSchema>;
 export type PasswordManagerFeatures = z.infer<typeof PasswordManagerFeaturesSchema>;
 export type PasswordManagerTool = z.infer<typeof PasswordManagerToolSchema>;
+
+export type MusicStreamingPlatformSupport = z.infer<typeof MusicStreamingPlatformSupportSchema>;
+export type MusicStreamingFeatures = z.infer<typeof MusicStreamingFeaturesSchema>;
+export type MusicStreamingTool = z.infer<typeof MusicStreamingToolSchema>;
 
 export type SoftwareTool = z.infer<typeof SoftwareToolSchema>;
 

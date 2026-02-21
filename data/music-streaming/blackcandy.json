@@ -1,0 +1,201 @@
+{
+  "id": "blackcandy",
+  "name": "Black Candy",
+  "description": "Minimalist, self-hosted music streaming server written in Ruby on Rails with native iOS and Android companions.",
+  "website": "https://github.com/blackcandy-org/blackcandy",
+  "repository": "https://github.com/blackcandy-org/blackcandy",
+  "license": "MIT",
+  "openSource": true,
+  "githubStats": {
+    "stars": 4100,
+    "forks": 213,
+    "lastCommit": "2026-02-21T00:00:00Z",
+    "openIssues": 29
+  },
+  "language": [
+    "Ruby"
+  ],
+  "dockerSupport": {
+    "status": "Yes",
+    "verification": {
+      "verifiedAtVersion": "v1.0.0",
+      "verificationLink": "https://github.com/blackcandy-org/blackcandy/releases"
+    }
+  },
+  "armSupport": {
+    "status": "Yes",
+    "verification": {
+      "verifiedAtVersion": "v1.0.0",
+      "verificationLink": "https://github.com/blackcandy-org/blackcandy/releases"
+    }
+  },
+  "platforms": {
+    "windows": {
+      "status": "Unknown"
+    },
+    "mac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.0.0",
+        "verificationLink": "https://github.com/blackcandy-org/blackcandy/releases"
+      }
+    },
+    "linux": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.0.0",
+        "verificationLink": "https://github.com/blackcandy-org/blackcandy/releases"
+      }
+    },
+    "android": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.0.0",
+        "verificationLink": "https://github.com/blackcandy-org/blackcandy/releases"
+      }
+    },
+    "ios": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.0.0",
+        "verificationLink": "https://github.com/blackcandy-org/blackcandy/releases"
+      }
+    },
+    "webUi": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.0.0",
+        "verificationLink": "https://github.com/blackcandy-org/blackcandy/releases"
+      }
+    },
+    "cli": {
+      "status": "Unknown"
+    }
+  },
+  "features": {
+    "subsonicApi": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v1.0.0",
+        "verificationLink": "https://github.com/blackcandy-org/blackcandy/releases"
+      }
+    },
+    "tagBased": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.0.0",
+        "verificationLink": "https://github.com/blackcandy-org/blackcandy/releases"
+      }
+    },
+    "folderBased": {
+      "status": "Unknown"
+    },
+    "losslessFlac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.0.0",
+        "verificationLink": "https://github.com/blackcandy-org/blackcandy/releases"
+      }
+    },
+    "m4bSupport": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v1.0.0",
+        "verificationLink": "https://github.com/blackcandy-org/blackcandy/releases"
+      }
+    },
+    "smartPlaylists": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.0.0",
+        "verificationLink": "https://github.com/blackcandy-org/blackcandy/releases"
+      }
+    },
+    "scrobbling": {
+      "status": "Unknown"
+    },
+    "podcasts": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v1.0.0",
+        "verificationLink": "https://github.com/blackcandy-org/blackcandy/releases"
+      }
+    },
+    "ebooks": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v1.0.0",
+        "verificationLink": "https://github.com/blackcandy-org/blackcandy/releases"
+      }
+    },
+    "lyrics": {
+      "status": "Unknown"
+    },
+    "progressSync": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v1.0.0",
+        "verificationLink": "https://github.com/blackcandy-org/blackcandy/releases"
+      }
+    },
+    "gapless": {
+      "status": "Unknown"
+    },
+    "transcoding": {
+      "status": "Unknown"
+    },
+    "jukebox": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v1.0.0",
+        "verificationLink": "https://github.com/blackcandy-org/blackcandy/releases"
+      }
+    },
+    "chromecast": {
+      "status": "Unknown"
+    },
+    "dlnaBridge": {
+      "status": "Unknown"
+    },
+    "multiUser": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.0.0",
+        "verificationLink": "https://github.com/blackcandy-org/blackcandy/releases"
+      }
+    },
+    "roles": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.0.0",
+        "verificationLink": "https://github.com/blackcandy-org/blackcandy/releases"
+      }
+    },
+    "publicSharing": {
+      "status": "Unknown"
+    },
+    "federation": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v1.0.0",
+        "verificationLink": "https://github.com/blackcandy-org/blackcandy/releases"
+      }
+    },
+    "twoFactor": {
+      "status": "Unknown"
+    },
+    "ldap": {
+      "status": "Unknown"
+    },
+    "oidc": {
+      "status": "Unknown"
+    }
+  },
+  "meta": {
+    "lastCheck": {
+      "date": "2026-02-21",
+      "version": "v1.0.0",
+      "changelogLink": "https://github.com/blackcandy-org/blackcandy/releases"
+    }
+  }
+}

@@ -1,0 +1,208 @@
+{
+  "id": "funkwhale",
+  "name": "Funkwhale",
+  "description": "Federated, decentralized audio streaming platform leveraging the ActivityPub protocol for cross-server media sharing.",
+  "website": "https://funkwhale.audio",
+  "repository": "https://dev.funkwhale.audio/funkwhale/funkwhale",
+  "license": "AGPL-3.0",
+  "openSource": true,
+  "language": [
+    "Python",
+    "Vue"
+  ],
+  "dockerSupport": {
+    "status": "Yes",
+    "verification": {
+      "verifiedAtVersion": "1.4.1",
+      "verificationLink": "https://docs.funkwhale.audio/develop/changelog.html"
+    }
+  },
+  "armSupport": {
+    "status": "Yes",
+    "verification": {
+      "verifiedAtVersion": "1.4.1",
+      "verificationLink": "https://docs.funkwhale.audio/develop/changelog.html"
+    }
+  },
+  "platforms": {
+    "windows": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "1.4.1",
+        "verificationLink": "https://docs.funkwhale.audio/develop/changelog.html"
+      }
+    },
+    "mac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "1.4.1",
+        "verificationLink": "https://docs.funkwhale.audio/develop/changelog.html"
+      }
+    },
+    "linux": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "1.4.1",
+        "verificationLink": "https://docs.funkwhale.audio/develop/changelog.html"
+      }
+    },
+    "android": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "1.4.1",
+        "verificationLink": "https://docs.funkwhale.audio/develop/changelog.html"
+      }
+    },
+    "ios": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "1.4.1",
+        "verificationLink": "https://docs.funkwhale.audio/develop/changelog.html"
+      }
+    },
+    "webUi": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "1.4.1",
+        "verificationLink": "https://docs.funkwhale.audio/develop/changelog.html"
+      }
+    },
+    "cli": {
+      "status": "Unknown"
+    }
+  },
+  "features": {
+    "subsonicApi": {
+      "status": "Partial",
+      "verification": {
+        "verifiedAtVersion": "1.4.1",
+        "verificationLink": "https://docs.funkwhale.audio/develop/changelog.html"
+      }
+    },
+    "tagBased": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "1.4.1",
+        "verificationLink": "https://docs.funkwhale.audio/develop/changelog.html"
+      }
+    },
+    "folderBased": {
+      "status": "Unknown"
+    },
+    "losslessFlac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "1.4.1",
+        "verificationLink": "https://docs.funkwhale.audio/develop/changelog.html"
+      }
+    },
+    "m4bSupport": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "1.4.1",
+        "verificationLink": "https://docs.funkwhale.audio/develop/changelog.html"
+      }
+    },
+    "smartPlaylists": {
+      "status": "Unknown"
+    },
+    "scrobbling": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "1.4.1",
+        "verificationLink": "https://docs.funkwhale.audio/develop/changelog.html"
+      }
+    },
+    "podcasts": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "1.4.1",
+        "verificationLink": "https://docs.funkwhale.audio/develop/changelog.html"
+      }
+    },
+    "ebooks": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "1.4.1",
+        "verificationLink": "https://docs.funkwhale.audio/develop/changelog.html"
+      }
+    },
+    "lyrics": {
+      "status": "Unknown"
+    },
+    "progressSync": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "1.4.1",
+        "verificationLink": "https://docs.funkwhale.audio/develop/changelog.html"
+      }
+    },
+    "gapless": {
+      "status": "Unknown"
+    },
+    "transcoding": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "1.4.1",
+        "verificationLink": "https://docs.funkwhale.audio/develop/changelog.html"
+      }
+    },
+    "jukebox": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "1.4.1",
+        "verificationLink": "https://docs.funkwhale.audio/develop/changelog.html"
+      }
+    },
+    "chromecast": {
+      "status": "Unknown"
+    },
+    "dlnaBridge": {
+      "status": "Unknown"
+    },
+    "multiUser": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "1.4.1",
+        "verificationLink": "https://docs.funkwhale.audio/develop/changelog.html"
+      }
+    },
+    "roles": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "1.4.1",
+        "verificationLink": "https://docs.funkwhale.audio/develop/changelog.html"
+      }
+    },
+    "publicSharing": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "1.4.1",
+        "verificationLink": "https://docs.funkwhale.audio/develop/changelog.html"
+      }
+    },
+    "federation": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "1.4.1",
+        "verificationLink": "https://docs.funkwhale.audio/develop/changelog.html"
+      }
+    },
+    "twoFactor": {
+      "status": "Unknown"
+    },
+    "ldap": {
+      "status": "Unknown"
+    },
+    "oidc": {
+      "status": "Unknown"
+    }
+  },
+  "meta": {
+    "lastCheck": {
+      "date": "2026-02-21",
+      "version": "1.4.1",
+      "changelogLink": "https://docs.funkwhale.audio/develop/changelog.html"
+    }
+  }
+}

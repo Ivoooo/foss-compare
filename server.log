@@ -1,0 +1,62 @@
+npm warn exec The following package was not found and will be installed: serve@14.2.5
+ INFO  Accepting connections at http://localhost:3000
+ HTTP  2/21/2026 10:20:35 PM ::1 GET /comparison/music-streaming
+ HTTP  2/21/2026 10:20:35 PM ::1 Returned 200 in 294 ms
+ HTTP  2/21/2026 10:20:35 PM ::1 GET /_next/static/media/797e433ab948586e-s.p.dbea232f.woff2
+ HTTP  2/21/2026 10:20:35 PM ::1 GET /_next/static/media/caa3a2e1cccd8315-s.p.853070df.woff2
+ HTTP  2/21/2026 10:20:35 PM ::1 Returned 200 in 4 ms
+ HTTP  2/21/2026 10:20:35 PM ::1 Returned 200 in 3 ms
+ HTTP  2/21/2026 10:20:35 PM ::1 GET /_next/static/chunks/431a4215c737f9b7.css
+ HTTP  2/21/2026 10:20:35 PM ::1 Returned 200 in 3 ms
+ HTTP  2/21/2026 10:20:36 PM ::1 GET /_next/static/chunks/465f799faf41e6df.js
+ HTTP  2/21/2026 10:20:36 PM ::1 Returned 200 in 4 ms
+ HTTP  2/21/2026 10:20:36 PM ::1 GET /_next/static/chunks/806bdb8e4a6a9b95.js
+ HTTP  2/21/2026 10:20:36 PM ::1 GET /_next/static/chunks/f2f58a7e93290fbb.js
+ HTTP  2/21/2026 10:20:36 PM ::1 GET /_next/static/chunks/045e59273b8f7eaf.js
+ HTTP  2/21/2026 10:20:36 PM ::1 GET /_next/static/chunks/turbopack-078b5aea0698c0e3.js
+ HTTP  2/21/2026 10:20:36 PM ::1 GET /_next/static/chunks/ff1a16fafef87110.js
+ HTTP  2/21/2026 10:20:36 PM ::1 GET /_next/static/chunks/bac18b464c02c564.js
+ HTTP  2/21/2026 10:20:36 PM ::1 Returned 200 in 8 ms
+ HTTP  2/21/2026 10:20:36 PM ::1 Returned 200 in 7 ms
+ HTTP  2/21/2026 10:20:36 PM ::1 Returned 200 in 6 ms
+ HTTP  2/21/2026 10:20:36 PM ::1 Returned 200 in 8 ms
+ HTTP  2/21/2026 10:20:36 PM ::1 Returned 200 in 14 ms
+ HTTP  2/21/2026 10:20:36 PM ::1 Returned 200 in 10 ms
+ HTTP  2/21/2026 10:20:36 PM ::1 GET /_next/static/chunks/9a2b2f5ff59a4ee7.js
+ HTTP  2/21/2026 10:20:36 PM ::1 GET /_next/static/chunks/46ead07dc4817f15.js
+ HTTP  2/21/2026 10:20:36 PM ::1 GET /_next/static/chunks/accc16c5178cd5ca.js
+ HTTP  2/21/2026 10:20:36 PM ::1 GET /_next/static/chunks/b854ea5c1d7e5a6c.js
+ HTTP  2/21/2026 10:20:36 PM ::1 Returned 200 in 22 ms
+ HTTP  2/21/2026 10:20:36 PM ::1 Returned 200 in 8 ms
+ HTTP  2/21/2026 10:20:36 PM ::1 Returned 200 in 8 ms
+ HTTP  2/21/2026 10:20:36 PM ::1 GET /_next/static/chunks/d2be314c3ece3fbe.js
+ HTTP  2/21/2026 10:20:36 PM ::1 Returned 200 in 7 ms
+ HTTP  2/21/2026 10:20:36 PM ::1 Returned 200 in 8 ms
+ HTTP  2/21/2026 10:20:36 PM ::1 HEAD /
+ HTTP  2/21/2026 10:20:36 PM ::1 HEAD /comparison/music-streaming
+ HTTP  2/21/2026 10:20:36 PM ::1 Returned 304 in 2 ms
+ HTTP  2/21/2026 10:20:36 PM ::1 Returned 200 in 5 ms
+ HTTP  2/21/2026 10:20:36 PM ::1 GET /comparison/music-streaming/__next._tree.txt?_rsc=ylc0t
+ HTTP  2/21/2026 10:20:36 PM ::1 GET /__next._tree.txt?_rsc=ylc0t
+ HTTP  2/21/2026 10:20:36 PM ::1 Returned 200 in 2 ms
+ HTTP  2/21/2026 10:20:36 PM ::1 Returned 200 in 2 ms
+ HTTP  2/21/2026 10:20:36 PM ::1 GET /comparison/music-streaming/__next._head.txt?_rsc=169kx
+ HTTP  2/21/2026 10:20:36 PM ::1 GET /comparison/music-streaming/__next._index.txt?_rsc=hitjr
+ HTTP  2/21/2026 10:20:36 PM ::1 GET /comparison/music-streaming/__next.comparison.txt?_rsc=10oov
+ HTTP  2/21/2026 10:20:36 PM ::1 GET /__next._head.txt?_rsc=169kx
+ HTTP  2/21/2026 10:20:36 PM ::1 Returned 200 in 7 ms
+ HTTP  2/21/2026 10:20:36 PM ::1 Returned 200 in 7 ms
+ HTTP  2/21/2026 10:20:36 PM ::1 Returned 200 in 5 ms
+ HTTP  2/21/2026 10:20:36 PM ::1 Returned 200 in 6 ms
+ HTTP  2/21/2026 10:20:36 PM ::1 GET /__next.__PAGE__.txt?_rsc=1hij9
+ HTTP  2/21/2026 10:20:36 PM ::1 GET /comparison/music-streaming/__next.comparison.$d$category.txt?_rsc=a8brj
+ HTTP  2/21/2026 10:20:36 PM ::1 GET /comparison/music-streaming/__next.comparison.$d$category.__PAGE__.txt?_rsc=zz87d
+ HTTP  2/21/2026 10:20:36 PM ::1 Returned 200 in 4 ms
+ HTTP  2/21/2026 10:20:36 PM ::1 Returned 200 in 3 ms
+ HTTP  2/21/2026 10:20:36 PM ::1 Returned 200 in 2 ms
+ HTTP  2/21/2026 10:20:36 PM ::1 GET /_next/static/chunks/82b8f63e613a34bf.js
+ HTTP  2/21/2026 10:20:36 PM ::1 GET /_next/static/chunks/6d37e6fbe0b12f15.js
+ HTTP  2/21/2026 10:20:36 PM ::1 Returned 200 in 3 ms
+ HTTP  2/21/2026 10:20:36 PM ::1 Returned 200 in 2 ms
+
+ INFO  Gracefully shutting down. Please wait...

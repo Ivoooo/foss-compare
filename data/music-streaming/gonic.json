@@ -1,0 +1,209 @@
+{
+  "id": "gonic",
+  "name": "Gonic",
+  "description": "Music streaming server implementing the Subsonic API, optimizing performance through strict folder-based taxonomy and multi-value tag support.",
+  "website": "https://github.com/sentriz/gonic",
+  "repository": "https://github.com/sentriz/gonic",
+  "license": "GPL-3.0",
+  "openSource": true,
+  "githubStats": {
+    "stars": 2300,
+    "forks": 143,
+    "lastCommit": "2026-02-21T00:00:00Z",
+    "openIssues": 200
+  },
+  "language": [
+    "Go"
+  ],
+  "dockerSupport": {
+    "status": "Yes",
+    "verification": {
+      "verifiedAtVersion": "v0.20.1",
+      "verificationLink": "https://github.com/sentriz/gonic/releases"
+    }
+  },
+  "armSupport": {
+    "status": "Yes",
+    "verification": {
+      "verifiedAtVersion": "v0.20.1",
+      "verificationLink": "https://github.com/sentriz/gonic/releases"
+    }
+  },
+  "platforms": {
+    "windows": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v0.20.1",
+        "verificationLink": "https://github.com/sentriz/gonic/releases"
+      }
+    },
+    "mac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v0.20.1",
+        "verificationLink": "https://github.com/sentriz/gonic/releases"
+      }
+    },
+    "linux": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v0.20.1",
+        "verificationLink": "https://github.com/sentriz/gonic/releases"
+      }
+    },
+    "android": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v0.20.1",
+        "verificationLink": "https://github.com/sentriz/gonic/releases"
+      }
+    },
+    "ios": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v0.20.1",
+        "verificationLink": "https://github.com/sentriz/gonic/releases"
+      }
+    },
+    "webUi": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v0.20.1",
+        "verificationLink": "https://github.com/sentriz/gonic/releases"
+      }
+    },
+    "cli": {
+      "status": "Unknown"
+    }
+  },
+  "features": {
+    "subsonicApi": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v0.20.1",
+        "verificationLink": "https://github.com/sentriz/gonic/releases"
+      }
+    },
+    "tagBased": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v0.20.1",
+        "verificationLink": "https://github.com/sentriz/gonic/releases"
+      }
+    },
+    "folderBased": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v0.20.1",
+        "verificationLink": "https://github.com/sentriz/gonic/releases"
+      }
+    },
+    "losslessFlac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v0.20.1",
+        "verificationLink": "https://github.com/sentriz/gonic/releases"
+      }
+    },
+    "m4bSupport": {
+      "status": "Unknown"
+    },
+    "smartPlaylists": {
+      "status": "Unknown"
+    },
+    "scrobbling": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v0.20.1",
+        "verificationLink": "https://github.com/sentriz/gonic/releases"
+      }
+    },
+    "podcasts": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v0.20.1",
+        "verificationLink": "https://github.com/sentriz/gonic/releases"
+      }
+    },
+    "ebooks": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v0.20.1",
+        "verificationLink": "https://github.com/sentriz/gonic/releases"
+      }
+    },
+    "lyrics": {
+      "status": "Unknown"
+    },
+    "progressSync": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v0.20.1",
+        "verificationLink": "https://github.com/sentriz/gonic/releases"
+      }
+    },
+    "gapless": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v0.20.1",
+        "verificationLink": "https://github.com/sentriz/gonic/releases"
+      }
+    },
+    "transcoding": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v0.20.1",
+        "verificationLink": "https://github.com/sentriz/gonic/releases"
+      }
+    },
+    "jukebox": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v0.20.1",
+        "verificationLink": "https://github.com/sentriz/gonic/releases"
+      }
+    },
+    "chromecast": {
+      "status": "Unknown"
+    },
+    "dlnaBridge": {
+      "status": "Unknown"
+    },
+    "multiUser": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v0.20.1",
+        "verificationLink": "https://github.com/sentriz/gonic/releases"
+      }
+    },
+    "roles": {
+      "status": "Unknown"
+    },
+    "publicSharing": {
+      "status": "Unknown"
+    },
+    "federation": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v0.20.1",
+        "verificationLink": "https://github.com/sentriz/gonic/releases"
+      }
+    },
+    "twoFactor": {
+      "status": "Unknown"
+    },
+    "ldap": {
+      "status": "Unknown"
+    },
+    "oidc": {
+      "status": "Unknown"
+    }
+  },
+  "meta": {
+    "lastCheck": {
+      "date": "2026-02-21",
+      "version": "v0.20.1",
+      "changelogLink": "https://github.com/sentriz/gonic/releases"
+    }
+  }
+}
