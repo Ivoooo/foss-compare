@@ -6,7 +6,7 @@ import { calculateFeatureScore } from "@/lib/comparison-utils";
 import { FeatureStatusCell } from "./feature-status-cell";
 import { ProjectStatsSection } from "./project-stats-section";
 import { ComparisonFilter } from "./comparison-filter";
-import { ChevronDown, ChevronRight, ExternalLink, Search, X, Pin, PinOff } from "lucide-react";
+import { ChevronDown, ChevronRight, ExternalLink, Search, X, Pin, PinOff, Github } from "lucide-react";
 import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { cn, getNestedValue } from "@/lib/utils";
@@ -127,6 +127,16 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
                               <Link href={tool.website} target="_blank" className="hover:underline flex items-center gap-1 hover:text-primary truncate">
                                 {tool.name} <ExternalLink className="h-3 w-3 shrink-0 opacity-50" aria-hidden="true" />
                               </Link>
+                              {tool.repository && (
+                                <Link
+                                  href={tool.repository}
+                                  target="_blank"
+                                  className="text-muted-foreground hover:text-foreground transition-colors shrink-0"
+                                  aria-label="View on GitHub"
+                                >
+                                  <Github className="h-4 w-4" aria-hidden="true" />
+                                </Link>
+                              )}
                             </div>
                             <Button
                               variant="ghost"
@@ -160,7 +170,10 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
 
               {sections.map((section) => (
                 <tbody key={section.id} className="border-b last:border-0">
-                  <tr className="group transition-colors hover:bg-muted">
+                  <tr
+                    className="group transition-colors hover:bg-muted cursor-pointer"
+                    onClick={() => toggleCategory(section.id)}
+                  >
                     <th
                       scope="row"
                       className={cn(
@@ -169,7 +182,10 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
                       )}
                     >
                       <button
-                        onClick={() => toggleCategory(section.id)}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          toggleCategory(section.id);
+                        }}
                         className="w-full h-full flex items-center gap-2 px-4 md:px-6 py-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-inset"
                         aria-expanded={isSectionExpanded(section.id)}
                       >

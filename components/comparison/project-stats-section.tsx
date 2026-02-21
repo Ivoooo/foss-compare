@@ -34,7 +34,7 @@ interface StatsRowProps {
   isMatch: (text: string) => boolean;
 }
 
-const StatsRow = ({ label, matchText, data, pinnedTools, renderCell, isMatch }: StatsRowProps) => {
+const StatsRow = ({ label, matchText, data, renderCell, isMatch }: StatsRowProps) => {
   const isRowMatch = isMatch(matchText || (typeof label === 'string' ? label : ""));
 
   return (
@@ -92,7 +92,10 @@ export function ProjectStatsSection({
 
   return (
     <tbody className="border-b last:border-0">
-      <tr className="group transition-colors hover:bg-muted">
+      <tr
+        className="group transition-colors hover:bg-muted cursor-pointer"
+        onClick={onToggle}
+      >
         <th
           scope="row"
           className={cn(
@@ -101,7 +104,10 @@ export function ProjectStatsSection({
           )}
         >
           <button
-            onClick={onToggle}
+            onClick={(e) => {
+              e.stopPropagation();
+              onToggle();
+            }}
             className="w-full h-full flex items-center gap-2 px-4 md:px-6 py-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-inset"
             aria-expanded={isOpen}
           >
