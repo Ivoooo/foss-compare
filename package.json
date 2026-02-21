@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "validate": "npx tsx scripts/validate-data.ts",
+    "generate": "npx tsx scripts/generate-category.ts",
     "benchmark": "npx tsx scripts/update-benchmarks.ts",
     "check-links": "npx tsx scripts/check-links.ts"
   },
