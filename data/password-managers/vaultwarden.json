@@ -18,14 +18,14 @@
   "dockerSupport": {
     "status": "Yes",
     "verification": {
-      "verifiedAtVersion": "v1.30.0",
+      "verifiedAtVersion": "v1.35.3",
       "verificationLink": "https://github.com/dani-garcia/vaultwarden/releases"
     }
   },
   "armSupport": {
     "status": "Yes",
     "verification": {
-      "verifiedAtVersion": "v1.30.0",
+      "verifiedAtVersion": "v1.35.3",
       "verificationLink": "https://github.com/dani-garcia/vaultwarden/releases"
     }
   },
@@ -33,122 +33,221 @@
     "windows": {
       "status": "Yes",
       "verification": {
-        "verifiedAtVersion": "v1.30.0",
+        "verifiedAtVersion": "v1.35.3",
         "verificationLink": "https://github.com/dani-garcia/vaultwarden/releases"
       }
     },
     "mac": {
       "status": "Yes",
       "verification": {
-        "verifiedAtVersion": "v1.30.0",
+        "verifiedAtVersion": "v1.35.3",
         "verificationLink": "https://github.com/dani-garcia/vaultwarden/releases"
       }
     },
     "linux": {
       "status": "Yes",
       "verification": {
-        "verifiedAtVersion": "v1.30.0",
+        "verifiedAtVersion": "v1.35.3",
         "verificationLink": "https://github.com/dani-garcia/vaultwarden/releases"
       }
     },
     "android": {
       "status": "Yes",
       "verification": {
-        "verifiedAtVersion": "v1.30.0",
+        "verifiedAtVersion": "v1.35.3",
         "verificationLink": "https://github.com/dani-garcia/vaultwarden/releases"
       }
     },
     "ios": {
       "status": "Yes",
       "verification": {
-        "verifiedAtVersion": "v1.30.0",
+        "verifiedAtVersion": "v1.35.3",
         "verificationLink": "https://github.com/dani-garcia/vaultwarden/releases"
       }
     },
     "browserExtensions": {
       "status": "Yes",
       "verification": {
-        "verifiedAtVersion": "v1.30.0",
+        "verifiedAtVersion": "v1.35.3",
         "verificationLink": "https://github.com/dani-garcia/vaultwarden/releases"
       }
     },
     "webVault": {
       "status": "Yes",
       "verification": {
-        "verifiedAtVersion": "v1.30.0",
+        "verifiedAtVersion": "v1.35.3",
+        "verificationLink": "https://github.com/dani-garcia/vaultwarden/releases"
+      }
+    },
+    "cli": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.35.3",
         "verificationLink": "https://github.com/dani-garcia/vaultwarden/releases"
       }
     }
   },
   "features": {
-    "twoFactor": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v1.30.0",
-        "verificationLink": "https://github.com/dani-garcia/vaultwarden/releases"
-      }
-    },
-    "biometrics": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v1.30.0",
-        "verificationLink": "https://github.com/dani-garcia/vaultwarden/releases"
-      }
-    },
     "passwordSharing": {
       "status": "Yes",
       "verification": {
-        "verifiedAtVersion": "v1.30.0",
+        "verifiedAtVersion": "v1.35.3",
         "verificationLink": "https://github.com/dani-garcia/vaultwarden/releases"
       }
     },
     "organizations": {
       "status": "Yes",
       "verification": {
-        "verifiedAtVersion": "v1.30.0",
+        "verifiedAtVersion": "v1.35.3",
         "verificationLink": "https://github.com/dani-garcia/vaultwarden/releases"
       }
     },
-    "importExport": {
+    "autoFill": {
       "status": "Yes",
       "verification": {
-        "verifiedAtVersion": "v1.30.0",
+        "verifiedAtVersion": "v1.35.3",
+        "verificationLink": "https://github.com/dani-garcia/vaultwarden/releases"
+      }
+    },
+    "passkeys": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.35.3",
+        "verificationLink": "https://github.com/dani-garcia/vaultwarden/releases"
+      }
+    },
+    "secureNotes": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.35.3",
+        "verificationLink": "https://github.com/dani-garcia/vaultwarden/releases"
+      }
+    },
+    "fileAttachments": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.35.3",
+        "verificationLink": "https://github.com/dani-garcia/vaultwarden/releases"
+      }
+    },
+    "passwordGenerator": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.35.3",
+        "verificationLink": "https://github.com/dani-garcia/vaultwarden/releases"
+      }
+    },
+    "localOffline": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.35.3",
+        "verificationLink": "https://github.com/dani-garcia/vaultwarden/releases"
+      }
+    },
+    "emergencyAccess": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.35.3",
         "verificationLink": "https://github.com/dani-garcia/vaultwarden/releases"
       }
     },
     "auditLogs": {
       "status": "Yes",
       "verification": {
-        "verifiedAtVersion": "v1.30.0",
+        "verifiedAtVersion": "v1.35.3",
+        "verificationLink": "https://github.com/dani-garcia/vaultwarden/releases"
+      }
+    },
+    "compromisedPasswords": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.35.3",
+        "verificationLink": "https://github.com/dani-garcia/vaultwarden/releases"
+      }
+    },
+    "twoFactor": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.35.3",
+        "verificationLink": "https://github.com/dani-garcia/vaultwarden/releases"
+      }
+    },
+    "biometrics": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.35.3",
+        "verificationLink": "https://github.com/dani-garcia/vaultwarden/releases"
+      }
+    },
+    "hardwareKeys": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.35.3",
         "verificationLink": "https://github.com/dani-garcia/vaultwarden/releases"
       }
     },
     "ldap": {
       "status": "No",
       "verification": {
-        "verifiedAtVersion": "v1.30.0",
+        "verifiedAtVersion": "v1.35.3",
         "verificationLink": "https://github.com/dani-garcia/vaultwarden/releases"
       }
     },
     "oidc": {
       "status": "No",
       "verification": {
-        "verifiedAtVersion": "v1.30.0",
+        "verifiedAtVersion": "v1.35.3",
         "verificationLink": "https://github.com/dani-garcia/vaultwarden/releases"
       }
     },
     "sso": {
       "status": "No",
       "verification": {
-        "verifiedAtVersion": "v1.30.0",
+        "verifiedAtVersion": "v1.35.3",
+        "verificationLink": "https://github.com/dani-garcia/vaultwarden/releases"
+      }
+    },
+    "kdbxSupport": {
+      "status": "No",
+      "note": "Import Only",
+      "verification": {
+        "verifiedAtVersion": "v1.35.3",
+        "verificationLink": "https://github.com/dani-garcia/vaultwarden/releases"
+      }
+    },
+    "customFields": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.35.3",
+        "verificationLink": "https://github.com/dani-garcia/vaultwarden/releases"
+      }
+    },
+    "totp": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.35.3",
+        "verificationLink": "https://github.com/dani-garcia/vaultwarden/releases"
+      }
+    },
+    "vaultSharing": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.35.3",
+        "verificationLink": "https://github.com/dani-garcia/vaultwarden/releases"
+      }
+    },
+    "autoClear": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.35.3",
         "verificationLink": "https://github.com/dani-garcia/vaultwarden/releases"
       }
     }
   },
   "meta": {
     "lastCheck": {
-      "date": "2023-10-26",
-      "version": "v1.30.0",
+      "date": "2026-02-21",
+      "version": "v1.35.3",
       "changelogLink": "https://github.com/dani-garcia/vaultwarden/releases"
     }
   }

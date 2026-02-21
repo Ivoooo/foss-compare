@@ -6,6 +6,12 @@
   "repository": "https://github.com/plexinc",
   "license": "Proprietary",
   "openSource": false,
+  "githubStats": {
+    "stars": 0,
+    "forks": 0,
+    "lastCommit": "N/A",
+    "openIssues": 0
+  },
   "language": [
     "C++",
     "Python"
@@ -23,12 +29,6 @@
       "verifiedAtVersion": "v1.40.0",
       "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
     }
-  },
-  "githubStats": {
-    "stars": 0,
-    "forks": 0,
-    "lastCommit": "N/A",
-    "openIssues": 0
   },
   "platforms": {
     "web": {
@@ -109,99 +109,6 @@
       }
     },
     "roku": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v1.40.0",
-        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
-      }
-    }
-  },
-  "codecs": {
-    "h264": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v1.40.0",
-        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
-      }
-    },
-    "h265": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v1.40.0",
-        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
-      }
-    },
-    "av1": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v1.40.0",
-        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
-      }
-    },
-    "vp9": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v1.40.0",
-        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
-      }
-    },
-    "mpeg2": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v1.40.0",
-        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
-      }
-    },
-    "vc1": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v1.40.0",
-        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
-      }
-    },
-    "aac": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v1.40.0",
-        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
-      }
-    },
-    "ac3": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v1.40.0",
-        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
-      }
-    },
-    "eac3": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v1.40.0",
-        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
-      }
-    },
-    "truehd": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v1.40.0",
-        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
-      }
-    },
-    "dts": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v1.40.0",
-        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
-      }
-    },
-    "dtshdma": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v1.40.0",
-        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
-      }
-    },
-    "flac": {
       "status": "Yes",
       "verification": {
         "verifiedAtVersion": "v1.40.0",
@@ -390,9 +297,102 @@
   "notes": "Highly polished, requires Plex Pass for hardware transcoding and offline downloads. Auth is centralized via Plex.tv.",
   "meta": {
     "lastCheck": {
-      "date": "2024-02-19",
+      "date": "2026-02-21",
       "version": "v1.40.0",
       "changelogLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+    }
+  },
+  "codecs": {
+    "h264": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "h265": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "av1": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "vp9": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "mpeg2": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "vc1": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "aac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "ac3": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "eac3": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "truehd": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "dts": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "dtshdma": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "flac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
     }
   },
   "automation": {

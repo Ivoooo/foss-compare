@@ -14,6 +14,12 @@ You must wrap all development commands using `nix develop -c <command>`.
 - `nix develop -c npm run build`
 - `nix develop -c npx playwright install`
 
+### Playwright & Browser Subagents
+- **Mandatory Setup**: If you intend to use a Browser Subagent to crawl the web or capture screenshots, you **must** ensure the browsers are downloaded first by running:
+  `nix develop -c npx playwright install`
+- **Nix Integration**: `flake.nix` supplies the `playwright-driver` and correctly configures `PLAYWRIGHT_BROWSERS_PATH=$PWD/.cache/ms-playwright`. This ensures browser binaries are downloaded locally inside the project to `.cache` rather than polluting the host system.
+- If a browser tool fails with `exit status 127: failed to install playwright`, it means this command needs to be executed.
+
 ## Project Structure
 - `app/`: Next.js App Router pages.
 - `components/`: React components (UI and Feature-specific).

@@ -5,6 +5,12 @@
   "website": "https://emby.media/",
   "license": "Proprietary",
   "openSource": false,
+  "githubStats": {
+    "stars": 0,
+    "forks": 0,
+    "lastCommit": "N/A",
+    "openIssues": 0
+  },
   "language": [
     "C#"
   ],
@@ -21,12 +27,6 @@
       "verifiedAtVersion": "v4.8.1",
       "verificationLink": "https://emby.media/blog.html"
     }
-  },
-  "githubStats": {
-    "stars": 0,
-    "forks": 0,
-    "lastCommit": "N/A",
-    "openIssues": 0
   },
   "platforms": {
     "web": {
@@ -107,99 +107,6 @@
       }
     },
     "roku": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v4.8.1",
-        "verificationLink": "https://emby.media/blog.html"
-      }
-    }
-  },
-  "codecs": {
-    "h264": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v4.8.1",
-        "verificationLink": "https://emby.media/blog.html"
-      }
-    },
-    "h265": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v4.8.1",
-        "verificationLink": "https://emby.media/blog.html"
-      }
-    },
-    "av1": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v4.8.1",
-        "verificationLink": "https://emby.media/blog.html"
-      }
-    },
-    "vp9": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v4.8.1",
-        "verificationLink": "https://emby.media/blog.html"
-      }
-    },
-    "mpeg2": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v4.8.1",
-        "verificationLink": "https://emby.media/blog.html"
-      }
-    },
-    "vc1": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v4.8.1",
-        "verificationLink": "https://emby.media/blog.html"
-      }
-    },
-    "aac": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v4.8.1",
-        "verificationLink": "https://emby.media/blog.html"
-      }
-    },
-    "ac3": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v4.8.1",
-        "verificationLink": "https://emby.media/blog.html"
-      }
-    },
-    "eac3": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v4.8.1",
-        "verificationLink": "https://emby.media/blog.html"
-      }
-    },
-    "truehd": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v4.8.1",
-        "verificationLink": "https://emby.media/blog.html"
-      }
-    },
-    "dts": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v4.8.1",
-        "verificationLink": "https://emby.media/blog.html"
-      }
-    },
-    "dtshdma": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v4.8.1",
-        "verificationLink": "https://emby.media/blog.html"
-      }
-    },
-    "flac": {
       "status": "Yes",
       "verification": {
         "verifiedAtVersion": "v4.8.1",
@@ -389,9 +296,102 @@
   "notes": "Closed source fork of the original open source Emby (before it became proprietary). Requires Emby Premiere for many features.",
   "meta": {
     "lastCheck": {
-      "date": "2024-02-19",
+      "date": "2026-02-21",
       "version": "v4.8.1",
       "changelogLink": "https://emby.media/blog.html"
+    }
+  },
+  "codecs": {
+    "h264": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "h265": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "av1": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "vp9": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "mpeg2": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "vc1": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "aac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "ac3": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "eac3": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "truehd": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "dts": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "dtshdma": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "flac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
     }
   },
   "automation": {

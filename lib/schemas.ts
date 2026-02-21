@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const FeatureStatusTypeSchema = z.enum(["Yes", "No", "Paid", "Partial", "Coming Soon"]);
+export const FeatureStatusTypeSchema = z.enum(["Yes", "No", "Paid", "Partial", "Coming Soon", "Unknown"]);
 
 export const FeatureStatusObjectSchema = z.object({
   status: FeatureStatusTypeSchema,
@@ -8,10 +8,22 @@ export const FeatureStatusObjectSchema = z.object({
   verification: z.object({
     verifiedAtVersion: z.string().optional(),
     verificationLink: z.string().url().optional(),
+    dateVerified: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Date must be YYYY-MM-DD").optional(),
   }).optional(),
 });
 
+export const StrictFeatureStatusObjectSchema = z.object({
+  status: FeatureStatusTypeSchema,
+  note: z.string().optional(),
+  verification: z.object({
+    verifiedAtVersion: z.string(),
+    verificationLink: z.string().url(),
+    dateVerified: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Date must be YYYY-MM-DD").optional(),
+  }),
+});
+
 export const FeatureStatusSchema = z.union([FeatureStatusTypeSchema, FeatureStatusObjectSchema]);
+export const StrictFeatureStatusSchema = StrictFeatureStatusObjectSchema;
 
 export const GitHubStatsSchema = z.object({
   stars: z.number(),
@@ -58,65 +70,67 @@ export const BaseSoftwareToolSchema = z.object({
 
 // Streamer Schemas
 export const StreamerPlatformSupportSchema = z.object({
-  web: FeatureStatusSchema,
-  pwa: FeatureStatusSchema,
-  android: FeatureStatusSchema,
-  ios: FeatureStatusSchema,
-  androidTv: FeatureStatusSchema,
-  appleTv: FeatureStatusSchema,
-  windows: FeatureStatusSchema,
-  mac: FeatureStatusSchema,
-  linux: FeatureStatusSchema,
-  samsungTv: FeatureStatusSchema.optional(),
-  lgTv: FeatureStatusSchema.optional(),
-  roku: FeatureStatusSchema.optional(),
+  web: StrictFeatureStatusSchema,
+  pwa: StrictFeatureStatusSchema,
+  android: StrictFeatureStatusSchema,
+  ios: StrictFeatureStatusSchema,
+  androidTv: StrictFeatureStatusSchema,
+  appleTv: StrictFeatureStatusSchema,
+  windows: StrictFeatureStatusSchema,
+  mac: StrictFeatureStatusSchema,
+  linux: StrictFeatureStatusSchema,
+  samsungTv: StrictFeatureStatusSchema.optional(),
+  lgTv: StrictFeatureStatusSchema.optional(),
+  roku: StrictFeatureStatusSchema.optional(),
 });
 
 export const CodecSupportSchema = z.object({
-  h264: FeatureStatusSchema,
-  h265: FeatureStatusSchema,
-  av1: FeatureStatusSchema,
-  vp9: FeatureStatusSchema,
-  mpeg2: FeatureStatusSchema,
-  vc1: FeatureStatusSchema,
-  aac: FeatureStatusSchema,
-  ac3: FeatureStatusSchema,
-  eac3: FeatureStatusSchema,
-  truehd: FeatureStatusSchema,
-  dts: FeatureStatusSchema,
-  dtshdma: FeatureStatusSchema,
-  flac: FeatureStatusSchema,
+  h264: StrictFeatureStatusSchema,
+  h265: StrictFeatureStatusSchema,
+  av1: StrictFeatureStatusSchema,
+  vp9: StrictFeatureStatusSchema,
+  mpeg2: StrictFeatureStatusSchema,
+  vc1: StrictFeatureStatusSchema,
+  aac: StrictFeatureStatusSchema,
+  ac3: StrictFeatureStatusSchema,
+  eac3: StrictFeatureStatusSchema,
+  truehd: StrictFeatureStatusSchema,
+  dts: StrictFeatureStatusSchema,
+  dtshdma: StrictFeatureStatusSchema,
+  flac: StrictFeatureStatusSchema,
 });
 
 export const StreamerFeaturesSchema = z.object({
-  multipleUsers: FeatureStatusSchema,
-  parentalControls: FeatureStatusSchema,
-  liveTv: FeatureStatusSchema,
-  dvr: FeatureStatusSchema,
-  hardwareTranscoding: FeatureStatusSchema,
-  offlineDownloads: FeatureStatusSchema,
-  watchTogether: FeatureStatusSchema,
-  autoSubtitles: FeatureStatusSchema,
-  introSkipping: FeatureStatusSchema,
-  skipCredits: FeatureStatusSchema,
-  skipAds: FeatureStatusSchema,
-  lyrics: FeatureStatusSchema,
-  podcasts: FeatureStatusSchema,
-  audiobooks: FeatureStatusSchema,
-  ebooks: FeatureStatusSchema,
-  photos: FeatureStatusSchema,
-  plugins: FeatureStatusSchema,
-  ldap: FeatureStatusSchema,
-  oidc: FeatureStatusSchema,
-  twoFactor: FeatureStatusSchema,
-  sso: FeatureStatusSchema,
-  sonarr: FeatureStatusSchema,
-  radarr: FeatureStatusSchema,
-  seerr: FeatureStatusSchema,
-  trakt: FeatureStatusSchema,
+  multipleUsers: StrictFeatureStatusSchema,
+  parentalControls: StrictFeatureStatusSchema,
+  liveTv: StrictFeatureStatusSchema,
+  dvr: StrictFeatureStatusSchema,
+  hardwareTranscoding: StrictFeatureStatusSchema,
+  offlineDownloads: StrictFeatureStatusSchema,
+  watchTogether: StrictFeatureStatusSchema,
+  autoSubtitles: StrictFeatureStatusSchema,
+  introSkipping: StrictFeatureStatusSchema,
+  skipCredits: StrictFeatureStatusSchema,
+  skipAds: StrictFeatureStatusSchema,
+  lyrics: StrictFeatureStatusSchema,
+  podcasts: StrictFeatureStatusSchema,
+  audiobooks: StrictFeatureStatusSchema,
+  ebooks: StrictFeatureStatusSchema,
+  photos: StrictFeatureStatusSchema,
+  plugins: StrictFeatureStatusSchema,
+  ldap: StrictFeatureStatusSchema,
+  oidc: StrictFeatureStatusSchema,
+  twoFactor: StrictFeatureStatusSchema,
+  sso: StrictFeatureStatusSchema,
+  sonarr: StrictFeatureStatusSchema,
+  radarr: StrictFeatureStatusSchema,
+  seerr: StrictFeatureStatusSchema,
+  trakt: StrictFeatureStatusSchema,
 });
 
 export const StreamerToolSchema = BaseSoftwareToolSchema.extend({
+  dockerSupport: StrictFeatureStatusSchema,
+  armSupport: StrictFeatureStatusSchema,
   platforms: StreamerPlatformSupportSchema,
   codecs: CodecSupportSchema,
   features: StreamerFeaturesSchema,
@@ -124,28 +138,44 @@ export const StreamerToolSchema = BaseSoftwareToolSchema.extend({
 
 // Password Manager Schemas
 export const PasswordManagerPlatformSupportSchema = z.object({
-  windows: FeatureStatusSchema,
-  mac: FeatureStatusSchema,
-  linux: FeatureStatusSchema,
-  android: FeatureStatusSchema,
-  ios: FeatureStatusSchema,
-  browserExtensions: FeatureStatusSchema,
-  webVault: FeatureStatusSchema,
+  windows: StrictFeatureStatusSchema,
+  mac: StrictFeatureStatusSchema,
+  linux: StrictFeatureStatusSchema,
+  android: StrictFeatureStatusSchema,
+  ios: StrictFeatureStatusSchema,
+  browserExtensions: StrictFeatureStatusSchema,
+  webVault: StrictFeatureStatusSchema,
+  cli: StrictFeatureStatusSchema,
 });
 
 export const PasswordManagerFeaturesSchema = z.object({
-  twoFactor: FeatureStatusSchema,
-  biometrics: FeatureStatusSchema,
-  passwordSharing: FeatureStatusSchema,
-  organizations: FeatureStatusSchema,
-  importExport: FeatureStatusSchema,
-  auditLogs: FeatureStatusSchema,
-  ldap: FeatureStatusSchema,
-  oidc: FeatureStatusSchema,
-  sso: FeatureStatusSchema,
+  kdbxSupport: StrictFeatureStatusSchema,
+  customFields: StrictFeatureStatusSchema,
+  totp: StrictFeatureStatusSchema,
+  passwordSharing: StrictFeatureStatusSchema,
+  vaultSharing: StrictFeatureStatusSchema,
+  organizations: StrictFeatureStatusSchema,
+  autoFill: StrictFeatureStatusSchema,
+  passkeys: StrictFeatureStatusSchema,
+  secureNotes: StrictFeatureStatusSchema,
+  fileAttachments: StrictFeatureStatusSchema,
+  passwordGenerator: StrictFeatureStatusSchema,
+  localOffline: StrictFeatureStatusSchema,
+  emergencyAccess: StrictFeatureStatusSchema,
+  autoClear: StrictFeatureStatusSchema,
+  auditLogs: StrictFeatureStatusSchema,
+  compromisedPasswords: StrictFeatureStatusSchema,
+  twoFactor: StrictFeatureStatusSchema,
+  biometrics: StrictFeatureStatusSchema,
+  hardwareKeys: StrictFeatureStatusSchema,
+  ldap: StrictFeatureStatusSchema,
+  oidc: StrictFeatureStatusSchema,
+  sso: StrictFeatureStatusSchema,
 });
 
 export const PasswordManagerToolSchema = BaseSoftwareToolSchema.extend({
+  dockerSupport: StrictFeatureStatusSchema,
+  armSupport: StrictFeatureStatusSchema,
   platforms: PasswordManagerPlatformSupportSchema,
   features: PasswordManagerFeaturesSchema,
 });
