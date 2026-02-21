@@ -8,6 +8,7 @@ export const FeatureStatusObjectSchema = z.object({
   verification: z.object({
     verifiedAtVersion: z.string().optional(),
     verificationLink: z.string().url().optional(),
+    dateVerified: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Date must be YYYY-MM-DD").optional(),
   }).optional(),
 });
 
@@ -17,6 +18,7 @@ export const StrictFeatureStatusObjectSchema = z.object({
   verification: z.object({
     verifiedAtVersion: z.string(),
     verificationLink: z.string().url(),
+    dateVerified: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Date must be YYYY-MM-DD").optional(),
   }),
 });
 
