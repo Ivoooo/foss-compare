@@ -7,10 +7,10 @@
   "license": "GPL-3.0",
   "openSource": true,
   "githubStats": {
-    "stars": 25917,
-    "forks": 1712,
+    "stars": 25918,
+    "forks": 1713,
     "lastCommit": "2026-02-16T04:45:40Z",
-    "openIssues": 832
+    "openIssues": 834
   },
   "language": [
     "C++"
