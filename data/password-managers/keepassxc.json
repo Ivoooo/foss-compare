@@ -207,15 +207,47 @@
         "verificationLink": "https://github.com/keepassxreboot/keepassxc/releases"
       }
     },
-    "kdbxSupport": "Unknown",
-    "customFields": "Unknown",
-    "totp": "Unknown",
-    "vaultSharing": "Unknown",
-    "autoClear": "Unknown"
+    "kdbxSupport": {
+      "status": "Yes",
+      "note": "Native Format",
+      "verification": {
+        "verifiedAtVersion": "v2.7.11",
+        "verificationLink": "https://keepassxc.org/"
+      }
+    },
+    "customFields": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.7.11",
+        "verificationLink": "https://keepassxc.org/docs/"
+      }
+    },
+    "totp": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.7.11",
+        "verificationLink": "https://keepassxc.org/docs/"
+      }
+    },
+    "vaultSharing": {
+      "status": "Partial",
+      "note": "KeeShare File Sync",
+      "verification": {
+        "verifiedAtVersion": "v2.7.11",
+        "verificationLink": "https://keepassxc.org/docs/KeePassXC_UserGuide.html#_keeshare_sharing_databases"
+      }
+    },
+    "autoClear": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.7.11",
+        "verificationLink": "https://keepassxc.org/docs/"
+      }
+    }
   },
   "meta": {
     "lastCheck": {
-      "date": "2026-02-20",
+      "date": "2025-11-23",
       "version": "v2.7.11",
       "changelogLink": "https://github.com/keepassxreboot/keepassxc/releases"
     }

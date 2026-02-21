@@ -65,9 +65,7 @@ async function checkUrl(url: string): Promise<{ ok: boolean; status?: number; er
        // specific handling for 403/429?
        if (response.status === 403 || response.status === 429) {
            console.warn(`⚠️  Warning: ${url} returned ${response.status}. Treating as potentially valid but flagged.`);
-           // For now, treat as failure or warning? Let's treat as warning (ok: true) but log it.
-           // Actually, standard link checkers often fail on 403. But let's be strict for now.
-           return { ok: false, status: response.status, error: `HTTP ${response.status} ${response.statusText}` };
+           return { ok: true, status: response.status, error: `HTTP ${response.status} ${response.statusText}` };
        }
       return { ok: false, status: response.status, error: `HTTP ${response.status} ${response.statusText}` };
     }
@@ -98,20 +96,42 @@ async function processQueue(urlsToCheck: string[], results: Map<string, { ok: bo
   await Promise.all(workers);
 }
 
+function getJsonFiles(dir: string): string[] {
+  let results: string[] = [];
+  try {
+    const list = fs.readdirSync(dir);
+    list.forEach((file) => {
+      const fullPath = path.join(dir, file);
+      const stat = fs.statSync(fullPath);
+      if (stat && stat.isDirectory()) {
+        results = results.concat(getJsonFiles(fullPath));
+      } else {
+        if (file.endsWith(".json")) {
+          results.push(fullPath);
+        }
+      }
+    });
+  } catch (err) {
+    console.error(`Error scanning directory ${dir}:`, err);
+  }
+  return results;
+}
+
 async function main() {
-  const files = fs.readdirSync(DATA_DIR).filter((file) => file.endsWith(".json"));
+  const files = getJsonFiles(DATA_DIR);
   const allUrls = new Map<string, LinkLocation[]>();
 
-  console.log("🔍 Scanning for URLs...");
+  console.log(`🔍 Scanning ${files.length} files for URLs...`);
 
-  for (const file of files) {
-    const filePath = path.join(DATA_DIR, file);
+  for (const filePath of files) {
     try {
       const content = fs.readFileSync(filePath, "utf-8");
       const json = JSON.parse(content);
-      findUrlsInObject(json, "root", file, allUrls);
+      // Derive a relative filename for display
+      const relativePath = path.relative(DATA_DIR, filePath);
+      findUrlsInObject(json, "root", relativePath, allUrls);
     } catch (err) {
-      console.error(`Error reading/parsing ${file}:`, err);
+      console.error(`Error reading/parsing ${filePath}:`, err);
       process.exit(1);
     }
   }

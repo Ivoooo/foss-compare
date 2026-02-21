@@ -207,15 +207,46 @@
         "verificationLink": "https://github.com/dani-garcia/vaultwarden/releases"
       }
     },
-    "kdbxSupport": "Unknown",
-    "customFields": "Unknown",
-    "totp": "Unknown",
-    "vaultSharing": "Unknown",
-    "autoClear": "Unknown"
+    "kdbxSupport": {
+      "status": "No",
+      "note": "Import Only",
+      "verification": {
+        "verifiedAtVersion": "v1.35.3",
+        "verificationLink": "https://github.com/dani-garcia/vaultwarden/releases"
+      }
+    },
+    "customFields": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.35.3",
+        "verificationLink": "https://github.com/dani-garcia/vaultwarden/releases"
+      }
+    },
+    "totp": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.35.3",
+        "verificationLink": "https://github.com/dani-garcia/vaultwarden/releases"
+      }
+    },
+    "vaultSharing": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.35.3",
+        "verificationLink": "https://github.com/dani-garcia/vaultwarden/releases"
+      }
+    },
+    "autoClear": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.35.3",
+        "verificationLink": "https://github.com/dani-garcia/vaultwarden/releases"
+      }
+    }
   },
   "meta": {
     "lastCheck": {
-      "date": "2026-02-20",
+      "date": "2026-02-17",
       "version": "v1.35.3",
       "changelogLink": "https://github.com/dani-garcia/vaultwarden/releases"
     }
