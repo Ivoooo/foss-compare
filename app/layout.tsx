@@ -1,7 +1,10 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { ThemeProvider } from "@/components/theme-provider";
+import { SiteHeader } from "@/components/site-header";
+import { SkipLink } from "@/components/skip-link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,9 +16,66 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
+  ],
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+};
+
 export const metadata: Metadata = {
-  title: "foss.compare - Self-Hosted Software Comparisons",
-  description: "Detailed comparisons of open source and self-hosted software solutions.",
+  metadataBase: new URL("https://foss.compare"),
+  title: {
+    default: "foss.compare - Self-Hosted Software Comparisons",
+    template: "%s | foss.compare",
+  },
+  description: "Detailed comparisons of open source and self-hosted software solutions. Find the best alternatives to proprietary services.",
+  keywords: ["open source", "self-hosted", "software comparison", "alternatives", "foss", "privacy", "local hosting"],
+  authors: [{ name: "Ivoooo", url: "https://github.com/Ivoooo" }],
+  creator: "Ivoooo",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://foss.compare",
+    siteName: "foss.compare",
+    title: "foss.compare - Self-Hosted Software Comparisons",
+    description: "Detailed comparisons of open source and self-hosted software solutions.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "foss.compare - Self-Hosted Software Comparisons",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "foss.compare - Self-Hosted Software Comparisons",
+    description: "Detailed comparisons of open source and self-hosted software solutions.",
+    images: ["/og-image.png"],
+    creator: "@Ivoooo",
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "foss.compare",
+  },
+  formatDetection: {
+    telephone: false,
+  },
 };
 
 export default function RootLayout({
@@ -24,13 +84,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased h-[100dvh] w-full overflow-hidden flex flex-col`}
       >
-        <TooltipProvider>
-          {children}
-        </TooltipProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <TooltipProvider>
+            <SkipLink />
+            <SiteHeader />
+            <main id="main-content" className="flex-1 flex flex-col overflow-hidden min-h-0">{children}</main>
+          </TooltipProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

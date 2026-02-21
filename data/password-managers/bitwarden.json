@@ -1,0 +1,255 @@
+{
+  "id": "bitwarden",
+  "name": "Bitwarden",
+  "description": "A secure and free password manager for all of your devices.",
+  "website": "https://bitwarden.com",
+  "repository": "https://github.com/bitwarden/server",
+  "license": "GPL-3.0",
+  "openSource": true,
+  "githubStats": {
+    "stars": 18077,
+    "forks": 1539,
+    "lastCommit": "2026-02-20T21:02:10Z",
+    "openIssues": 189
+  },
+  "language": [
+    "C#",
+    "TypeScript"
+  ],
+  "dockerSupport": {
+    "status": "Yes",
+    "verification": {
+      "verifiedAtVersion": "v2026.2.0",
+      "verificationLink": "https://bitwarden.com/help/releasenotes/"
+    }
+  },
+  "armSupport": {
+    "status": "Yes",
+    "verification": {
+      "verifiedAtVersion": "v2026.2.0",
+      "verificationLink": "https://bitwarden.com/help/releasenotes/"
+    }
+  },
+  "platforms": {
+    "windows": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2026.2.0",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
+      }
+    },
+    "mac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2026.2.0",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
+      }
+    },
+    "linux": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2026.2.0",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
+      }
+    },
+    "android": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2026.2.0",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
+      }
+    },
+    "ios": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2026.2.0",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
+      }
+    },
+    "browserExtensions": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2026.2.0",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
+      }
+    },
+    "webVault": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2026.2.0",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
+      }
+    },
+    "cli": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2026.2.0",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
+      }
+    }
+  },
+  "features": {
+    "passwordSharing": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2026.2.0",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
+      }
+    },
+    "organizations": {
+      "status": "Paid",
+      "verification": {
+        "verifiedAtVersion": "v2026.2.0",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
+      }
+    },
+    "autoFill": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2026.2.0",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
+      }
+    },
+    "passkeys": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2026.2.0",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
+      }
+    },
+    "secureNotes": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2026.2.0",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
+      }
+    },
+    "fileAttachments": {
+      "status": "Paid",
+      "verification": {
+        "verifiedAtVersion": "v2026.2.0",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
+      }
+    },
+    "passwordGenerator": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2026.2.0",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
+      }
+    },
+    "localOffline": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2026.2.0",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
+      }
+    },
+    "emergencyAccess": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2026.2.0",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
+      }
+    },
+    "auditLogs": {
+      "status": "Paid",
+      "verification": {
+        "verifiedAtVersion": "v2026.2.0",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
+      }
+    },
+    "compromisedPasswords": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2026.2.0",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
+      }
+    },
+    "twoFactor": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2026.2.0",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
+      }
+    },
+    "biometrics": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2026.2.0",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
+      }
+    },
+    "hardwareKeys": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2026.2.0",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
+      }
+    },
+    "ldap": {
+      "status": "Paid",
+      "verification": {
+        "verifiedAtVersion": "v2026.2.0",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
+      }
+    },
+    "oidc": {
+      "status": "Paid",
+      "verification": {
+        "verifiedAtVersion": "v2026.2.0",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
+      }
+    },
+    "sso": {
+      "status": "Paid",
+      "verification": {
+        "verifiedAtVersion": "v2026.2.0",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
+      }
+    },
+    "kdbxSupport": {
+      "status": "No",
+      "note": "Import Only",
+      "verification": {
+        "verifiedAtVersion": "v2026.2.0",
+        "verificationLink": "https://bitwarden.com/help/import-data/"
+      }
+    },
+    "customFields": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2026.2.0",
+        "verificationLink": "https://bitwarden.com/help/custom-fields/"
+      }
+    },
+    "totp": {
+      "status": "Paid",
+      "verification": {
+        "verifiedAtVersion": "v2026.2.0",
+        "verificationLink": "https://bitwarden.com/pricing/"
+      }
+    },
+    "vaultSharing": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2026.2.0",
+        "verificationLink": "https://bitwarden.com/help/sharing/"
+      }
+    },
+    "autoClear": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2026.2.0",
+        "verificationLink": "https://bitwarden.com/help/vault-timeout/"
+      }
+    }
+  },
+  "meta": {
+    "lastCheck": {
+      "date": "2026-02-20",
+      "version": "v2026.2.0",
+      "changelogLink": "https://bitwarden.com/help/releasenotes/"
+    }
+  }
+}

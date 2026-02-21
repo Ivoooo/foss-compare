@@ -1,0 +1,254 @@
+{
+  "id": "passbolt",
+  "name": "Passbolt",
+  "description": "Open source password manager for teams and business.",
+  "website": "https://www.passbolt.com/",
+  "repository": "https://github.com/passbolt/passbolt_api",
+  "license": "AGPL-3.0",
+  "openSource": true,
+  "githubStats": {
+    "stars": 5700,
+    "forks": 370,
+    "lastCommit": "2026-01-27T00:00:00Z",
+    "openIssues": 22
+  },
+  "language": [
+    "PHP"
+  ],
+  "dockerSupport": {
+    "status": "Yes",
+    "verification": {
+      "verifiedAtVersion": "v5.9.0",
+      "verificationLink": "https://github.com/passbolt/passbolt_api/releases"
+    }
+  },
+  "armSupport": {
+    "status": "No",
+    "verification": {
+      "verifiedAtVersion": "v5.9.0",
+      "verificationLink": "https://github.com/passbolt/passbolt_api/releases"
+    }
+  },
+  "platforms": {
+    "windows": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v5.9.0",
+        "verificationLink": "https://github.com/passbolt/passbolt_api/releases"
+      }
+    },
+    "mac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v5.9.0",
+        "verificationLink": "https://github.com/passbolt/passbolt_api/releases"
+      }
+    },
+    "linux": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v5.9.0",
+        "verificationLink": "https://github.com/passbolt/passbolt_api/releases"
+      }
+    },
+    "android": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v5.9.0",
+        "verificationLink": "https://github.com/passbolt/passbolt_api/releases"
+      }
+    },
+    "ios": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v5.9.0",
+        "verificationLink": "https://github.com/passbolt/passbolt_api/releases"
+      }
+    },
+    "browserExtensions": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v5.9.0",
+        "verificationLink": "https://github.com/passbolt/passbolt_api/releases"
+      }
+    },
+    "webVault": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v5.9.0",
+        "verificationLink": "https://github.com/passbolt/passbolt_api/releases"
+      }
+    },
+    "cli": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v5.9.0",
+        "verificationLink": "https://github.com/passbolt/passbolt_api/releases"
+      }
+    }
+  },
+  "features": {
+    "passwordSharing": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v5.9.0",
+        "verificationLink": "https://github.com/passbolt/passbolt_api/releases"
+      }
+    },
+    "organizations": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v5.9.0",
+        "verificationLink": "https://github.com/passbolt/passbolt_api/releases"
+      }
+    },
+    "autoFill": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v5.9.0",
+        "verificationLink": "https://github.com/passbolt/passbolt_api/releases"
+      }
+    },
+    "passkeys": {
+      "status": "Unknown",
+      "verification": {
+        "verifiedAtVersion": "v5.9.0",
+        "verificationLink": "https://github.com/passbolt/passbolt_api/releases"
+      }
+    },
+    "secureNotes": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v5.9.0",
+        "verificationLink": "https://github.com/passbolt/passbolt_api/releases"
+      }
+    },
+    "fileAttachments": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v5.9.0",
+        "verificationLink": "https://github.com/passbolt/passbolt_api/releases"
+      }
+    },
+    "passwordGenerator": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v5.9.0",
+        "verificationLink": "https://github.com/passbolt/passbolt_api/releases"
+      }
+    },
+    "localOffline": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v5.9.0",
+        "verificationLink": "https://github.com/passbolt/passbolt_api/releases"
+      }
+    },
+    "emergencyAccess": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v5.9.0",
+        "verificationLink": "https://github.com/passbolt/passbolt_api/releases"
+      }
+    },
+    "auditLogs": {
+      "status": "Paid",
+      "verification": {
+        "verifiedAtVersion": "v5.9.0",
+        "verificationLink": "https://github.com/passbolt/passbolt_api/releases"
+      }
+    },
+    "compromisedPasswords": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v5.9.0",
+        "verificationLink": "https://github.com/passbolt/passbolt_api/releases"
+      }
+    },
+    "twoFactor": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v5.9.0",
+        "verificationLink": "https://github.com/passbolt/passbolt_api/releases"
+      }
+    },
+    "biometrics": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v5.9.0",
+        "verificationLink": "https://github.com/passbolt/passbolt_api/releases"
+      }
+    },
+    "hardwareKeys": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v5.9.0",
+        "verificationLink": "https://github.com/passbolt/passbolt_api/releases"
+      }
+    },
+    "ldap": {
+      "status": "Paid",
+      "verification": {
+        "verifiedAtVersion": "v5.9.0",
+        "verificationLink": "https://github.com/passbolt/passbolt_api/releases"
+      }
+    },
+    "oidc": {
+      "status": "Paid",
+      "verification": {
+        "verifiedAtVersion": "v5.9.0",
+        "verificationLink": "https://github.com/passbolt/passbolt_api/releases"
+      }
+    },
+    "sso": {
+      "status": "Paid",
+      "verification": {
+        "verifiedAtVersion": "v5.9.0",
+        "verificationLink": "https://github.com/passbolt/passbolt_api/releases"
+      }
+    },
+    "kdbxSupport": {
+      "status": "No",
+      "note": "Import/Export only",
+      "verification": {
+        "verifiedAtVersion": "v5.9.0",
+        "verificationLink": "https://www.passbolt.com/docs/user/basic-features/browser/import/keepass-kdbx/"
+      }
+    },
+    "customFields": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v5.9.0",
+        "verificationLink": "https://www.passbolt.com/blog/passbolt-5-3-introduces-custom-fields-and-performance-improvements"
+      }
+    },
+    "totp": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v5.9.0",
+        "verificationLink": "https://www.passbolt.com/blog/passbolt-adds-collaborative-management-of-third-party-totps"
+      }
+    },
+    "vaultSharing": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v5.9.0",
+        "verificationLink": "https://www.passbolt.com/docs/user/basic-features/browser/share-resource/"
+      }
+    },
+    "autoClear": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v5.9.0",
+        "verificationLink": "https://www.passbolt.com/docs/"
+      }
+    }
+  },
+  "meta": {
+    "lastCheck": {
+      "date": "2026-01-27",
+      "version": "v5.9.0",
+      "changelogLink": "https://github.com/passbolt/passbolt_api/releases"
+    }
+  }
+}

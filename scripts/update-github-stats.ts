@@ -1,0 +1,125 @@
+import fs from "fs";
+import path from "path";
+
+const DATA_DIR = path.join(process.cwd(), "data");
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
+
+interface GitHubStats {
+  stars: number;
+  forks: number;
+  lastCommit: string;
+  openIssues: number;
+}
+
+interface Tool {
+  id: string;
+  name: string;
+  repository?: string;
+  githubStats?: GitHubStats;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  [key: string]: any;
+}
+
+async function fetchGitHubStats(owner: string, repo: string): Promise<GitHubStats | null> {
+  const url = `https://api.github.com/repos/${owner}/${repo}`;
+  const headers: HeadersInit = {
+    "User-Agent": "foss-compare-updater",
+    "Accept": "application/vnd.github.v3+json",
+  };
+
+  if (GITHUB_TOKEN) {
+    headers["Authorization"] = `token ${GITHUB_TOKEN}`;
+  }
+
+  try {
+    const response = await fetch(url, { headers });
+
+    if (!response.ok) {
+      if (response.status === 404) {
+        console.warn(`Repository not found: ${owner}/${repo}`);
+        return null;
+      }
+      if (response.status === 403) {
+        console.warn(`Rate limit exceeded or forbidden for: ${owner}/${repo}`);
+        // Optionally inspect headers for rate limit reset
+        return null;
+      }
+      console.warn(`Error fetching ${owner}/${repo}: ${response.status} ${response.statusText}`);
+      return null;
+    }
+
+    const data = await response.json();
+    return {
+      stars: data.stargazers_count,
+      forks: data.forks_count,
+      lastCommit: data.pushed_at, // ISO date string
+      openIssues: data.open_issues_count,
+    };
+  } catch (error) {
+    console.error(`Network error fetching ${owner}/${repo}:`, error);
+    return null;
+  }
+}
+
+async function updateCategory(category: string) {
+  const categoryDir = path.join(DATA_DIR, category);
+  if (!fs.existsSync(categoryDir)) {
+    return;
+  }
+
+  const files = fs.readdirSync(categoryDir).filter(file => file.endsWith(".json"));
+  console.log(`Processing category ${category}...`);
+
+  for (const file of files) {
+    const filepath = path.join(categoryDir, file);
+    try {
+      const rawData = fs.readFileSync(filepath, "utf-8");
+      const tool: Tool = JSON.parse(rawData);
+      let updated = false;
+
+      if (tool.repository && tool.repository.includes("github.com")) {
+        // Extract owner and repo from URL
+        // format: https://github.com/owner/repo or https://github.com/owner/repo.git
+        const match = tool.repository.match(/github\.com\/([^/]+)\/([^/]+?)(\.git)?$/);
+
+        if (match) {
+          const owner = match[1];
+          const repo = match[2];
+
+          console.log(`  Fetching stats for ${tool.name} (${owner}/${repo})...`);
+
+          const stats = await fetchGitHubStats(owner, repo);
+
+          if (stats) {
+            tool.githubStats = stats;
+            updated = true;
+          }
+
+          // Slight delay to be nice to the API
+          await new Promise(resolve => setTimeout(resolve, 500));
+        } else {
+          console.warn(`  Could not parse GitHub URL for ${tool.name}: ${tool.repository}`);
+        }
+      }
+
+      if (updated) {
+        fs.writeFileSync(filepath, JSON.stringify(tool, null, 2) + "\n", "utf-8");
+        console.log(`✅ Updated ${file}.`);
+      }
+    } catch (error) {
+      console.error(`Error processing ${category}/${file}:`, error);
+    }
+  }
+}
+
+async function main() {
+  const categories = fs.readdirSync(DATA_DIR).filter(item => {
+    return fs.statSync(path.join(DATA_DIR, item)).isDirectory();
+  });
+
+  for (const category of categories) {
+    await updateCategory(category);
+  }
+}
+
+main();

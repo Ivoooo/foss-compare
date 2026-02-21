@@ -1,0 +1,410 @@
+{
+  "id": "plex",
+  "name": "Plex",
+  "description": "Stream smarter. The most comprehensive media server.",
+  "website": "https://www.plex.tv/",
+  "repository": "https://github.com/plexinc",
+  "license": "Proprietary",
+  "openSource": false,
+  "language": [
+    "C++",
+    "Python"
+  ],
+  "dockerSupport": {
+    "status": "Yes",
+    "verification": {
+      "verifiedAtVersion": "v1.40.0",
+      "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+    }
+  },
+  "armSupport": {
+    "status": "Yes",
+    "verification": {
+      "verifiedAtVersion": "v1.40.0",
+      "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+    }
+  },
+  "githubStats": {
+    "stars": 0,
+    "forks": 0,
+    "lastCommit": "N/A",
+    "openIssues": 0
+  },
+  "platforms": {
+    "web": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "pwa": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "android": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "ios": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "androidTv": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "appleTv": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "windows": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "mac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "linux": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "samsungTv": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "lgTv": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "roku": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    }
+  },
+  "codecs": {
+    "h264": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "h265": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "av1": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "vp9": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "mpeg2": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "vc1": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "aac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "ac3": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "eac3": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "truehd": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "dts": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "dtshdma": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "flac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    }
+  },
+  "features": {
+    "multipleUsers": {
+      "status": "Partial",
+      "note": "Managed users paid",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "parentalControls": {
+      "status": "Paid",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "watchTogether": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "autoSubtitles": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "ebooks": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "liveTv": {
+      "status": "Paid",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "dvr": {
+      "status": "Paid",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "hardwareTranscoding": {
+      "status": "Paid",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "offlineDownloads": {
+      "status": "Paid",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "introSkipping": {
+      "status": "Paid",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "lyrics": {
+      "status": "Paid",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "podcasts": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "audiobooks": {
+      "status": "Partial",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "photos": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "plugins": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "ldap": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "oidc": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "twoFactor": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "sso": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "sonarr": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "radarr": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "trakt": {
+      "status": "Paid",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "skipCredits": {
+      "status": "Paid",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "skipAds": {
+      "status": "Paid",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    },
+    "seerr": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.40.0",
+        "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+      }
+    }
+  },
+  "notes": "Highly polished, requires Plex Pass for hardware transcoding and offline downloads. Auth is centralized via Plex.tv.",
+  "meta": {
+    "lastCheck": {
+      "date": "2024-02-19",
+      "version": "v1.40.0",
+      "changelogLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
+    }
+  },
+  "automation": {
+    "docker": {
+      "image": "plexinc/pms-docker:latest",
+      "env": {
+        "TZ": "UTC"
+      }
+    }
+  },
+  "performance": {
+    "ramUsage": "219.8MiB",
+    "dockerImageSize": "346.66 MB"
+  }
+}

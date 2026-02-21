@@ -1,0 +1,406 @@
+{
+  "id": "emby",
+  "name": "Emby",
+  "description": "Your personal media on any device.",
+  "website": "https://emby.media/",
+  "license": "Proprietary",
+  "openSource": false,
+  "language": [
+    "C#"
+  ],
+  "dockerSupport": {
+    "status": "Yes",
+    "verification": {
+      "verifiedAtVersion": "v4.8.1",
+      "verificationLink": "https://emby.media/blog.html"
+    }
+  },
+  "armSupport": {
+    "status": "Yes",
+    "verification": {
+      "verifiedAtVersion": "v4.8.1",
+      "verificationLink": "https://emby.media/blog.html"
+    }
+  },
+  "githubStats": {
+    "stars": 0,
+    "forks": 0,
+    "lastCommit": "N/A",
+    "openIssues": 0
+  },
+  "platforms": {
+    "web": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "pwa": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "android": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "ios": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "androidTv": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "appleTv": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "windows": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "mac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "linux": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "samsungTv": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "lgTv": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "roku": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    }
+  },
+  "codecs": {
+    "h264": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "h265": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "av1": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "vp9": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "mpeg2": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "vc1": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "aac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "ac3": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "eac3": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "truehd": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "dts": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "dtshdma": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "flac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    }
+  },
+  "features": {
+    "multipleUsers": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "parentalControls": {
+      "status": "Yes",
+      "note": "Advanced controls paid",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "watchTogether": {
+      "status": "Partial",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "autoSubtitles": {
+      "status": "Paid",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "ebooks": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "liveTv": {
+      "status": "Paid",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "dvr": {
+      "status": "Paid",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "hardwareTranscoding": {
+      "status": "Paid",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "offlineDownloads": {
+      "status": "Paid",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "introSkipping": {
+      "status": "Paid",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "lyrics": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "podcasts": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "audiobooks": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "photos": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "plugins": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "ldap": {
+      "status": "Paid",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "oidc": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "twoFactor": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "sso": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "sonarr": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "radarr": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "trakt": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "skipCredits": {
+      "status": "Partial",
+      "note": "Manual prompt per episode",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "skipAds": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    },
+    "seerr": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.8.1",
+        "verificationLink": "https://emby.media/blog.html"
+      }
+    }
+  },
+  "notes": "Closed source fork of the original open source Emby (before it became proprietary). Requires Emby Premiere for many features.",
+  "meta": {
+    "lastCheck": {
+      "date": "2024-02-19",
+      "version": "v4.8.1",
+      "changelogLink": "https://emby.media/blog.html"
+    }
+  },
+  "automation": {
+    "docker": {
+      "image": "emby/embyserver:latest"
+    }
+  },
+  "performance": {
+    "ramUsage": "127.5MiB",
+    "dockerImageSize": "724.35 MB"
+  }
+}
