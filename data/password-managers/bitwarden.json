@@ -19,138 +19,206 @@
   "dockerSupport": {
     "status": "Yes",
     "verification": {
-      "verifiedAtVersion": "v2023.10.0",
-      "verificationLink": "https://github.com/bitwarden/server/releases"
+      "verifiedAtVersion": "v2025.1.3",
+      "verificationLink": "https://bitwarden.com/help/releasenotes/"
     }
   },
   "armSupport": {
     "status": "Yes",
     "verification": {
-      "verifiedAtVersion": "v2023.10.0",
-      "verificationLink": "https://github.com/bitwarden/server/releases"
+      "verifiedAtVersion": "v2025.1.3",
+      "verificationLink": "https://bitwarden.com/help/releasenotes/"
     }
   },
   "platforms": {
     "windows": {
       "status": "Yes",
       "verification": {
-        "verifiedAtVersion": "v2023.10.0",
-        "verificationLink": "https://github.com/bitwarden/server/releases"
+        "verifiedAtVersion": "v2025.1.3",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
       }
     },
     "mac": {
       "status": "Yes",
       "verification": {
-        "verifiedAtVersion": "v2023.10.0",
-        "verificationLink": "https://github.com/bitwarden/server/releases"
+        "verifiedAtVersion": "v2025.1.3",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
       }
     },
     "linux": {
       "status": "Yes",
       "verification": {
-        "verifiedAtVersion": "v2023.10.0",
-        "verificationLink": "https://github.com/bitwarden/server/releases"
+        "verifiedAtVersion": "v2025.1.3",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
       }
     },
     "android": {
       "status": "Yes",
       "verification": {
-        "verifiedAtVersion": "v2023.10.0",
-        "verificationLink": "https://github.com/bitwarden/server/releases"
+        "verifiedAtVersion": "v2025.1.3",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
       }
     },
     "ios": {
       "status": "Yes",
       "verification": {
-        "verifiedAtVersion": "v2023.10.0",
-        "verificationLink": "https://github.com/bitwarden/server/releases"
+        "verifiedAtVersion": "v2025.1.3",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
       }
     },
     "browserExtensions": {
       "status": "Yes",
       "verification": {
-        "verifiedAtVersion": "v2023.10.0",
-        "verificationLink": "https://github.com/bitwarden/server/releases"
+        "verifiedAtVersion": "v2025.1.3",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
       }
     },
     "webVault": {
       "status": "Yes",
       "verification": {
-        "verifiedAtVersion": "v2023.10.0",
-        "verificationLink": "https://github.com/bitwarden/server/releases"
+        "verifiedAtVersion": "v2025.1.3",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
+      }
+    },
+    "cli": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2025.1.3",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
       }
     }
   },
   "features": {
-    "twoFactor": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v2023.10.0",
-        "verificationLink": "https://github.com/bitwarden/server/releases"
-      }
-    },
-    "biometrics": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v2023.10.0",
-        "verificationLink": "https://github.com/bitwarden/server/releases"
-      }
-    },
     "passwordSharing": {
       "status": "Yes",
       "verification": {
-        "verifiedAtVersion": "v2023.10.0",
-        "verificationLink": "https://github.com/bitwarden/server/releases"
+        "verifiedAtVersion": "v2025.1.3",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
       }
     },
     "organizations": {
       "status": "Paid",
       "verification": {
-        "verifiedAtVersion": "v2023.10.0",
-        "verificationLink": "https://github.com/bitwarden/server/releases"
+        "verifiedAtVersion": "v2025.1.3",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
       }
     },
-    "importExport": {
+    "autoFill": {
       "status": "Yes",
       "verification": {
-        "verifiedAtVersion": "v2023.10.0",
-        "verificationLink": "https://github.com/bitwarden/server/releases"
+        "verifiedAtVersion": "v2025.1.3",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
+      }
+    },
+    "passkeys": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2025.1.3",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
+      }
+    },
+    "secureNotes": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2025.1.3",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
+      }
+    },
+    "fileAttachments": {
+      "status": "Paid",
+      "verification": {
+        "verifiedAtVersion": "v2025.1.3",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
+      }
+    },
+    "passwordGenerator": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2025.1.3",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
+      }
+    },
+    "localOffline": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2025.1.3",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
+      }
+    },
+    "emergencyAccess": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2025.1.3",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
       }
     },
     "auditLogs": {
       "status": "Paid",
       "verification": {
-        "verifiedAtVersion": "v2023.10.0",
-        "verificationLink": "https://github.com/bitwarden/server/releases"
+        "verifiedAtVersion": "v2025.1.3",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
+      }
+    },
+    "compromisedPasswords": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2025.1.3",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
+      }
+    },
+    "twoFactor": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2025.1.3",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
+      }
+    },
+    "biometrics": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2025.1.3",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
+      }
+    },
+    "hardwareKeys": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2025.1.3",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
       }
     },
     "ldap": {
       "status": "Paid",
       "verification": {
-        "verifiedAtVersion": "v2023.10.0",
-        "verificationLink": "https://github.com/bitwarden/server/releases"
+        "verifiedAtVersion": "v2025.1.3",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
       }
     },
     "oidc": {
       "status": "Paid",
       "verification": {
-        "verifiedAtVersion": "v2023.10.0",
-        "verificationLink": "https://github.com/bitwarden/server/releases"
+        "verifiedAtVersion": "v2025.1.3",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
       }
     },
     "sso": {
       "status": "Paid",
       "verification": {
-        "verifiedAtVersion": "v2023.10.0",
-        "verificationLink": "https://github.com/bitwarden/server/releases"
+        "verifiedAtVersion": "v2025.1.3",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
       }
-    }
+    },
+    "kdbxSupport": "Unknown",
+    "customFields": "Unknown",
+    "totp": "Unknown",
+    "vaultSharing": "Unknown",
+    "autoClear": "Unknown"
   },
   "meta": {
     "lastCheck": {
-      "date": "2023-10-25",
-      "version": "v2023.10.0",
-      "changelogLink": "https://github.com/bitwarden/server/releases"
+      "date": "2026-02-20",
+      "version": "v2025.1.3",
+      "changelogLink": "https://bitwarden.com/help/releasenotes/"
     }
   }
 }

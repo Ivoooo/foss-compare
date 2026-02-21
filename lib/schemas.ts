@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const FeatureStatusTypeSchema = z.enum(["Yes", "No", "Paid", "Partial", "Coming Soon"]);
+export const FeatureStatusTypeSchema = z.enum(["Yes", "No", "Paid", "Partial", "Coming Soon", "Unknown"]);
 
 export const FeatureStatusObjectSchema = z.object({
   status: FeatureStatusTypeSchema,
@@ -131,15 +131,29 @@ export const PasswordManagerPlatformSupportSchema = z.object({
   ios: FeatureStatusSchema,
   browserExtensions: FeatureStatusSchema,
   webVault: FeatureStatusSchema,
+  cli: FeatureStatusSchema,
 });
 
 export const PasswordManagerFeaturesSchema = z.object({
+  kdbxSupport: FeatureStatusSchema,
+  customFields: FeatureStatusSchema,
+  totp: FeatureStatusSchema,
+  passwordSharing: FeatureStatusSchema,
+  vaultSharing: FeatureStatusSchema,
+  organizations: FeatureStatusSchema,
+  autoFill: FeatureStatusSchema,
+  passkeys: FeatureStatusSchema,
+  secureNotes: FeatureStatusSchema,
+  fileAttachments: FeatureStatusSchema,
+  passwordGenerator: FeatureStatusSchema,
+  localOffline: FeatureStatusSchema,
+  emergencyAccess: FeatureStatusSchema,
+  autoClear: FeatureStatusSchema,
+  auditLogs: FeatureStatusSchema,
+  compromisedPasswords: FeatureStatusSchema,
   twoFactor: FeatureStatusSchema,
   biometrics: FeatureStatusSchema,
-  passwordSharing: FeatureStatusSchema,
-  organizations: FeatureStatusSchema,
-  importExport: FeatureStatusSchema,
-  auditLogs: FeatureStatusSchema,
+  hardwareKeys: FeatureStatusSchema,
   ldap: FeatureStatusSchema,
   oidc: FeatureStatusSchema,
   sso: FeatureStatusSchema,

@@ -1,0 +1,223 @@
+{
+  "id": "psono",
+  "name": "Psono",
+  "description": "Enterprise password manager for teams. Open-source and self-hosted.",
+  "website": "https://psono.com",
+  "repository": "https://gitlab.com/psono/psono-server",
+  "license": "Apache-2.0",
+  "openSource": true,
+  "githubStats": {
+    "stars": 0,
+    "forks": 0,
+    "lastCommit": "2024-01-01T00:00:00Z",
+    "openIssues": 0
+  },
+  "language": [
+    "Python"
+  ],
+  "dockerSupport": {
+    "status": "Yes",
+    "verification": {
+      "verifiedAtVersion": "latest",
+      "verificationLink": "https://gitlab.com/psono/psono-server/-/releases"
+    }
+  },
+  "armSupport": {
+    "status": "Yes",
+    "verification": {
+      "verifiedAtVersion": "latest",
+      "verificationLink": "https://gitlab.com/psono/psono-server/-/releases"
+    }
+  },
+  "platforms": {
+    "windows": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "latest",
+        "verificationLink": "https://gitlab.com/psono/psono-server/-/releases"
+      }
+    },
+    "mac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "latest",
+        "verificationLink": "https://gitlab.com/psono/psono-server/-/releases"
+      }
+    },
+    "linux": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "latest",
+        "verificationLink": "https://gitlab.com/psono/psono-server/-/releases"
+      }
+    },
+    "android": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "latest",
+        "verificationLink": "https://gitlab.com/psono/psono-server/-/releases"
+      }
+    },
+    "ios": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "latest",
+        "verificationLink": "https://gitlab.com/psono/psono-server/-/releases"
+      }
+    },
+    "browserExtensions": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "latest",
+        "verificationLink": "https://gitlab.com/psono/psono-server/-/releases"
+      }
+    },
+    "webVault": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "latest",
+        "verificationLink": "https://gitlab.com/psono/psono-server/-/releases"
+      }
+    },
+    "cli": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "latest",
+        "verificationLink": "https://gitlab.com/psono/psono-server/-/releases"
+      }
+    }
+  },
+  "features": {
+    "passwordSharing": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "latest",
+        "verificationLink": "https://gitlab.com/psono/psono-server/-/releases"
+      }
+    },
+    "organizations": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "latest",
+        "verificationLink": "https://gitlab.com/psono/psono-server/-/releases"
+      }
+    },
+    "autoFill": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "latest",
+        "verificationLink": "https://gitlab.com/psono/psono-server/-/releases"
+      }
+    },
+    "passkeys": {
+      "status": "Unknown",
+      "verification": {
+        "verifiedAtVersion": "latest",
+        "verificationLink": "https://gitlab.com/psono/psono-server/-/releases"
+      }
+    },
+    "secureNotes": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "latest",
+        "verificationLink": "https://gitlab.com/psono/psono-server/-/releases"
+      }
+    },
+    "fileAttachments": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "latest",
+        "verificationLink": "https://gitlab.com/psono/psono-server/-/releases"
+      }
+    },
+    "passwordGenerator": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "latest",
+        "verificationLink": "https://gitlab.com/psono/psono-server/-/releases"
+      }
+    },
+    "localOffline": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "latest",
+        "verificationLink": "https://gitlab.com/psono/psono-server/-/releases"
+      }
+    },
+    "emergencyAccess": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "latest",
+        "verificationLink": "https://gitlab.com/psono/psono-server/-/releases"
+      }
+    },
+    "auditLogs": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "latest",
+        "verificationLink": "https://gitlab.com/psono/psono-server/-/releases"
+      }
+    },
+    "compromisedPasswords": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "latest",
+        "verificationLink": "https://gitlab.com/psono/psono-server/-/releases"
+      }
+    },
+    "twoFactor": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "latest",
+        "verificationLink": "https://gitlab.com/psono/psono-server/-/releases"
+      }
+    },
+    "biometrics": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "latest",
+        "verificationLink": "https://gitlab.com/psono/psono-server/-/releases"
+      }
+    },
+    "hardwareKeys": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "latest",
+        "verificationLink": "https://gitlab.com/psono/psono-server/-/releases"
+      }
+    },
+    "ldap": {
+      "status": "Paid",
+      "verification": {
+        "verifiedAtVersion": "latest",
+        "verificationLink": "https://gitlab.com/psono/psono-server/-/releases"
+      }
+    },
+    "oidc": {
+      "status": "Paid",
+      "verification": {
+        "verifiedAtVersion": "latest",
+        "verificationLink": "https://gitlab.com/psono/psono-server/-/releases"
+      }
+    },
+    "sso": {
+      "status": "Paid",
+      "verification": {
+        "verifiedAtVersion": "latest",
+        "verificationLink": "https://gitlab.com/psono/psono-server/-/releases"
+      }
+    },
+    "kdbxSupport": "Unknown",
+    "customFields": "Unknown",
+    "totp": "Unknown",
+    "vaultSharing": "Unknown",
+    "autoClear": "Unknown"
+  },
+  "meta": {
+    "lastCheck": {
+      "date": "2026-02-20",
+      "version": "latest",
+      "changelogLink": "https://gitlab.com/psono/psono-server/-/releases"
+    }
+  }
+}
