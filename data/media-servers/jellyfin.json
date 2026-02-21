@@ -30,6 +30,12 @@
       "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
     }
   },
+  "githubStats": {
+    "stars": 48689,
+    "forks": 4446,
+    "lastCommit": "2026-02-21T00:14:26Z",
+    "openIssues": 835
+  },
   "platforms": {
     "web": {
       "status": "Yes",
