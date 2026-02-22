@@ -1,0 +1,233 @@
+{
+  "id": "seafile",
+  "name": "Seafile",
+  "description": "High-performance file syncing and sharing tool utilizing a Git-like object storage model for extreme delta-sync speeds.",
+  "website": "https://www.seafile.com",
+  "repository": "https://github.com/haiwen/seafile",
+  "license": "GPL-2.0",
+  "openSource": true,
+  "githubStats": {
+    "stars": 14400,
+    "forks": 1600,
+    "lastCommit": "2026-02-27T07:51:00Z",
+    "openIssues": 70
+  },
+  "language": [
+    "C",
+    "Python"
+  ],
+  "dockerSupport": {
+    "status": "Yes",
+    "verification": {
+      "verifiedAtVersion": "v13.0.18",
+      "verificationLink": "https://manual.seafile.com/latest/setup/setup_ce_by_docker/"
+    }
+  },
+  "armSupport": {
+    "status": "Yes",
+    "verification": {
+      "verifiedAtVersion": "v13.0.18",
+      "verificationLink": "https://manual.seafile.com/latest/setup/architecture/"
+    }
+  },
+  "platforms": {
+    "windows": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v13.0.18",
+        "verificationLink": "https://www.seafile.com/en/download/"
+      }
+    },
+    "mac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v13.0.18",
+        "verificationLink": "https://www.seafile.com/en/download/"
+      }
+    },
+    "linux": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v13.0.18",
+        "verificationLink": "https://www.seafile.com/en/download/"
+      }
+    },
+    "android": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v13.0.18",
+        "verificationLink": "https://github.com/haiwen/seadroid/issues"
+      }
+    },
+    "ios": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v13.0.18",
+        "verificationLink": "https://github.com/haiwen/seafile-iOS/issues"
+      }
+    },
+    "webInterface": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v13.0.18",
+        "verificationLink": "https://manual.seafile.com/latest/changelog/server-changelog/"
+      }
+    },
+    "cli": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v13.0.18",
+        "verificationLink": "https://www.seafile.com/en/download/"
+      }
+    }
+  },
+  "features": {
+    "automation": {
+      "status": "Unknown",
+      "verification": {
+        "verifiedAtVersion": "v13.0.18",
+        "verificationLink": "https://manual.seafile.com/latest/changelog/server-changelog/"
+      }
+    },
+    "performance": {
+      "status": "High",
+      "verification": {
+        "verifiedAtVersion": "v13.0.18",
+        "verificationLink": "https://www.ssdnodes.com/blog/nextcloud-vs-seafile-dropbox-alternative/"
+      }
+    },
+    "s3Backend": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v13.0.18",
+        "verificationLink": "https://manual.seafile.com/11.0/changelog/changelog-for-seafile-professional-server/"
+      }
+    },
+    "deltaSync": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v13.0.18",
+        "verificationLink": "https://www.ssdnodes.com/blog/nextcloud-vs-seafile-dropbox-alternative/"
+      }
+    },
+    "decentralized": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v13.0.18",
+        "verificationLink": "https://github.com/haiwen/seafile"
+      }
+    },
+    "versioning": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v13.0.18",
+        "verificationLink": "https://manual.seafile.com/latest/changelog/server-changelog/"
+      }
+    },
+    "fileLocking": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v13.0.18",
+        "verificationLink": "https://manual.seafile.com/latest/changelog/server-changelog/"
+      }
+    },
+    "webdav": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v13.0.18",
+        "verificationLink": "https://manual.seafile.com/latest/changelog/server-changelog/"
+      }
+    },
+    "fullTextSearch": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v13.0.18",
+        "verificationLink": "https://manual.seafile.com/13.0/changelog/changelog-for-seafile-professional-server/"
+      }
+    },
+    "officeIntegration": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v13.0.18",
+        "verificationLink": "https://manual.seafile.com/11.0/changelog/server-changelog/"
+      }
+    },
+    "publicSharing": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v13.0.18",
+        "verificationLink": "https://manual.seafile.com/latest/changelog/server-changelog/"
+      }
+    },
+    "fileComments": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v13.0.18",
+        "verificationLink": "https://manual.seafile.com/11.0/changelog/server-changelog/"
+      }
+    },
+    "e2eEncryption": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v13.0.18",
+        "verificationLink": "https://github.com/haiwen/seadroid/issues"
+      }
+    },
+    "ransomwareProtection": {
+      "status": "Unknown",
+      "verification": {
+        "verifiedAtVersion": "v13.0.18",
+        "verificationLink": "https://manual.seafile.com/latest/changelog/server-changelog/"
+      }
+    },
+    "auditLogs": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v13.0.18",
+        "verificationLink": "https://manual.seafile.com/13.0/config/ldap_in_ce/"
+      }
+    },
+    "granularAcls": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v13.0.18",
+        "verificationLink": "https://forum.seafile.com/t/major-changes-in-seafile-version-11-0/18474"
+      }
+    },
+    "twoFactor": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v13.0.18",
+        "verificationLink": "https://forum.seafile.com/t/support-two-factor-authentication-2fa-for-non-pro-version/2518"
+      }
+    },
+    "ldap": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v13.0.18",
+        "verificationLink": "https://manual.seafile.com/13.0/config/ldap_in_ce/"
+      }
+    },
+    "oidc": {
+      "status": "Unknown",
+      "verification": {
+        "verifiedAtVersion": "v13.0.18",
+        "verificationLink": "https://manual.seafile.com/13.0/config/ldap_in_ce/"
+      }
+    },
+    "sso": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v13.0.18",
+        "verificationLink": "https://forum.seafile.com/t/major-changes-in-seafile-version-11-0/18474"
+      }
+    }
+  },
+  "meta": {
+    "lastCheck": {
+      "date": "2026-02-21",
+      "version": "v13.0.18",
+      "changelogLink": "https://manual.seafile.com/latest/changelog/server-changelog/"
+    }
+  }
+}

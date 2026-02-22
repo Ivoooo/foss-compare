@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { ZodError, ZodSchema } from "zod";
-import { StreamerToolSchema, PasswordManagerToolSchema, MusicStreamingToolSchema } from "../lib/schemas";
+import { StreamerToolSchema, PasswordManagerToolSchema, MusicStreamingToolSchema, FileSyncStorageToolSchema } from "../lib/schemas";
 
 const DATA_DIR = path.join(process.cwd(), "data");
 
@@ -9,6 +9,7 @@ const SCHEMAS: Record<string, ZodSchema> = {
   "media-servers": StreamerToolSchema,
   "password-managers": PasswordManagerToolSchema,
   "music-streaming": MusicStreamingToolSchema,
+  "file-sync-storage": FileSyncStorageToolSchema,
 };
 
 function validateCategory(category: string) {

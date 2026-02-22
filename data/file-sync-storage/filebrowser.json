@@ -1,0 +1,233 @@
+{
+  "id": "filebrowser",
+  "name": "FileBrowser",
+  "description": "A single-binary web file manager focused on minimalist directory browsing and direct file manipulation.",
+  "website": "https://filebrowser.org",
+  "repository": "https://github.com/filebrowser/filebrowser",
+  "license": "Apache-2.0",
+  "openSource": true,
+  "githubStats": {
+    "stars": 33500,
+    "forks": 3700,
+    "lastCommit": "2026-02-21T17:34:00Z",
+    "openIssues": 23
+  },
+  "language": [
+    "Go",
+    "Vue"
+  ],
+  "dockerSupport": {
+    "status": "Yes",
+    "verification": {
+      "verifiedAtVersion": "v2.60.0",
+      "verificationLink": "https://github.com/filebrowser/filebrowser/releases"
+    }
+  },
+  "armSupport": {
+    "status": "Yes",
+    "verification": {
+      "verifiedAtVersion": "v2.60.0",
+      "verificationLink": "https://github.com/filebrowser/filebrowser/releases"
+    }
+  },
+  "platforms": {
+    "windows": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.60.0",
+        "verificationLink": "https://github.com/filebrowser/filebrowser/releases"
+      }
+    },
+    "mac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.60.0",
+        "verificationLink": "https://github.com/filebrowser/filebrowser/releases"
+      }
+    },
+    "linux": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.60.0",
+        "verificationLink": "https://github.com/filebrowser/filebrowser/releases"
+      }
+    },
+    "android": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.60.0",
+        "verificationLink": "https://github.com/filebrowser/filebrowser"
+      }
+    },
+    "ios": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.60.0",
+        "verificationLink": "https://github.com/filebrowser/filebrowser"
+      }
+    },
+    "webInterface": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.60.0",
+        "verificationLink": "https://github.com/filebrowser/filebrowser"
+      }
+    },
+    "cli": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.60.0",
+        "verificationLink": "https://filebrowser.org/authentication.html"
+      }
+    }
+  },
+  "features": {
+    "automation": {
+      "status": "Unknown",
+      "verification": {
+        "verifiedAtVersion": "v2.60.0",
+        "verificationLink": "https://github.com/filebrowser/filebrowser"
+      }
+    },
+    "performance": {
+      "status": "High",
+      "verification": {
+        "verifiedAtVersion": "v2.60.0",
+        "verificationLink": "https://github.com/filebrowser/filebrowser"
+      }
+    },
+    "s3Backend": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.60.0",
+        "verificationLink": "https://github.com/filebrowser/filebrowser"
+      }
+    },
+    "deltaSync": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.60.0",
+        "verificationLink": "https://github.com/filebrowser/filebrowser"
+      }
+    },
+    "decentralized": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.60.0",
+        "verificationLink": "https://github.com/filebrowser/filebrowser"
+      }
+    },
+    "versioning": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.60.0",
+        "verificationLink": "https://github.com/filebrowser/filebrowser"
+      }
+    },
+    "fileLocking": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.60.0",
+        "verificationLink": "https://github.com/filebrowser/filebrowser"
+      }
+    },
+    "webdav": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.60.0",
+        "verificationLink": "https://github.com/filebrowser/filebrowser/pulls"
+      }
+    },
+    "fullTextSearch": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.60.0",
+        "verificationLink": "https://github.com/filebrowser/filebrowser"
+      }
+    },
+    "officeIntegration": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.60.0",
+        "verificationLink": "https://github.com/filebrowser/filebrowser"
+      }
+    },
+    "publicSharing": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.60.0",
+        "verificationLink": "https://github.com/filebrowser/filebrowser/issues"
+      }
+    },
+    "fileComments": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.60.0",
+        "verificationLink": "https://github.com/filebrowser/filebrowser"
+      }
+    },
+    "e2eEncryption": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.60.0",
+        "verificationLink": "https://github.com/filebrowser/filebrowser"
+      }
+    },
+    "ransomwareProtection": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.60.0",
+        "verificationLink": "https://github.com/filebrowser/filebrowser"
+      }
+    },
+    "auditLogs": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.60.0",
+        "verificationLink": "https://github.com/filebrowser/filebrowser"
+      }
+    },
+    "granularAcls": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.60.0",
+        "verificationLink": "https://filebrowser.readthedocs.io/en/latest/configuration/auth.html"
+      }
+    },
+    "twoFactor": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.60.0",
+        "verificationLink": "https://github.com/filebrowser/filebrowser/pulls"
+      }
+    },
+    "ldap": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.60.0",
+        "verificationLink": "https://filebrowser.readthedocs.io/en/latest/configuration/auth.html"
+      }
+    },
+    "oidc": {
+      "status": "Unknown",
+      "verification": {
+        "verifiedAtVersion": "v2.60.0",
+        "verificationLink": "https://filebrowser.org/authentication.html"
+      }
+    },
+    "sso": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.60.0",
+        "verificationLink": "https://filebrowser.org/authentication.html"
+      }
+    }
+  },
+  "meta": {
+    "lastCheck": {
+      "date": "2026-02-21",
+      "version": "v2.60.0",
+      "changelogLink": "https://github.com/filebrowser/filebrowser/releases"
+    }
+  }
+}

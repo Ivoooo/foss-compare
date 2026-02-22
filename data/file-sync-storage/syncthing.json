@@ -1,0 +1,232 @@
+{
+  "id": "syncthing",
+  "name": "Syncthing",
+  "description": "Continuous decentralized peer-to-peer file synchronization program.",
+  "website": "https://syncthing.net",
+  "repository": "https://github.com/syncthing/syncthing",
+  "license": "MPL-2.0",
+  "openSource": true,
+  "githubStats": {
+    "stars": 80100,
+    "forks": 4900,
+    "lastCommit": "2026-02-11T12:11:00Z",
+    "openIssues": 370
+  },
+  "language": [
+    "Go"
+  ],
+  "dockerSupport": {
+    "status": "Yes",
+    "verification": {
+      "verifiedAtVersion": "v2.0.14",
+      "verificationLink": "https://docs.syncthing.net/users/contrib.html"
+    }
+  },
+  "armSupport": {
+    "status": "Yes",
+    "verification": {
+      "verifiedAtVersion": "v2.0.14",
+      "verificationLink": "https://en.wikipedia.org/wiki/Syncthing"
+    }
+  },
+  "platforms": {
+    "windows": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.0.14",
+        "verificationLink": "https://en.wikipedia.org/wiki/Syncthing"
+      }
+    },
+    "mac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.0.14",
+        "verificationLink": "https://en.wikipedia.org/wiki/Syncthing"
+      }
+    },
+    "linux": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.0.14",
+        "verificationLink": "https://en.wikipedia.org/wiki/Syncthing"
+      }
+    },
+    "android": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.0.14",
+        "verificationLink": "https://docs.syncthing.net/users/contrib.html"
+      }
+    },
+    "ios": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.0.14",
+        "verificationLink": "https://en.wikipedia.org/wiki/Syncthing"
+      }
+    },
+    "webInterface": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.0.14",
+        "verificationLink": "https://docs.syncthing.net/users/contrib.html"
+      }
+    },
+    "cli": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.0.14",
+        "verificationLink": "https://github.com/syncthing/syncthing"
+      }
+    }
+  },
+  "features": {
+    "automation": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.0.14",
+        "verificationLink": "https://github.com/syncthing/syncthing"
+      }
+    },
+    "performance": {
+      "status": "High",
+      "verification": {
+        "verifiedAtVersion": "v2.0.14",
+        "verificationLink": "https://github.com/syncthing/syncthing/releases"
+      }
+    },
+    "s3Backend": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.0.14",
+        "verificationLink": "https://github.com/syncthing/syncthing"
+      }
+    },
+    "deltaSync": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.0.14",
+        "verificationLink": "https://www.ssdnodes.com/blog/nextcloud-vs-seafile-dropbox-alternative/"
+      }
+    },
+    "decentralized": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.0.14",
+        "verificationLink": "https://www.ssdnodes.com/blog/nextcloud-vs-seafile-dropbox-alternative/"
+      }
+    },
+    "versioning": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.0.14",
+        "verificationLink": "https://github.com/syncthing/syncthing"
+      }
+    },
+    "fileLocking": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.0.14",
+        "verificationLink": "https://github.com/syncthing/syncthing/releases"
+      }
+    },
+    "webdav": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.0.14",
+        "verificationLink": "https://github.com/syncthing/syncthing"
+      }
+    },
+    "fullTextSearch": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.0.14",
+        "verificationLink": "https://github.com/syncthing/syncthing"
+      }
+    },
+    "officeIntegration": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.0.14",
+        "verificationLink": "https://github.com/syncthing/syncthing"
+      }
+    },
+    "publicSharing": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.0.14",
+        "verificationLink": "https://github.com/syncthing/syncthing"
+      }
+    },
+    "fileComments": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.0.14",
+        "verificationLink": "https://github.com/syncthing/syncthing"
+      }
+    },
+    "e2eEncryption": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.0.14",
+        "verificationLink": "https://forum.syncthing.net/t/sync-files-to-an-untrusted-device/22933"
+      }
+    },
+    "ransomwareProtection": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.0.14",
+        "verificationLink": "https://github.com/syncthing/syncthing"
+      }
+    },
+    "auditLogs": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.0.14",
+        "verificationLink": "https://github.com/syncthing/syncthing"
+      }
+    },
+    "granularAcls": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.0.14",
+        "verificationLink": "https://github.com/syncthing/syncthing"
+      }
+    },
+    "twoFactor": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.0.14",
+        "verificationLink": "https://github.com/syncthing/syncthing"
+      }
+    },
+    "ldap": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.0.14",
+        "verificationLink": "https://github.com/syncthing/syncthing"
+      }
+    },
+    "oidc": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.0.14",
+        "verificationLink": "https://github.com/syncthing/syncthing"
+      }
+    },
+    "sso": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.0.14",
+        "verificationLink": "https://github.com/syncthing/syncthing"
+      }
+    }
+  },
+  "meta": {
+    "lastCheck": {
+      "date": "2026-02-21",
+      "version": "v2.0.14",
+      "changelogLink": "https://github.com/syncthing/syncthing/releases"
+    }
+  }
+}

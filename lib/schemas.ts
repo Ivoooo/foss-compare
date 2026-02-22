@@ -224,7 +224,72 @@ export const MusicStreamingToolSchema = BaseSoftwareToolSchema.extend({
   features: MusicStreamingFeaturesSchema,
 });
 
-export const SoftwareToolSchema = z.union([StreamerToolSchema, PasswordManagerToolSchema, MusicStreamingToolSchema]);
+// File Sync & Storage Schemas
+export const FileSyncStoragePlatformSupportSchema = z.object({
+  windows: FeatureStatusSchema,
+  mac: FeatureStatusSchema,
+  linux: FeatureStatusSchema,
+  android: FeatureStatusSchema,
+  ios: FeatureStatusSchema,
+  webInterface: FeatureStatusSchema,
+  cli: FeatureStatusSchema,
+});
+
+export const FileSyncStorageFeaturesSchema = z.object({
+  // Core Sync
+  s3Backend: FeatureStatusSchema,
+  deltaSync: FeatureStatusSchema,
+  decentralized: FeatureStatusSchema,
+  versioning: FeatureStatusSchema,
+  fileLocking: FeatureStatusSchema,
+  webdav: FeatureStatusSchema,
+
+  // Collaboration
+  fullTextSearch: FeatureStatusSchema,
+  officeIntegration: FeatureStatusSchema,
+  publicSharing: FeatureStatusSchema,
+  fileComments: FeatureStatusSchema,
+
+  // Security
+  e2eEncryption: FeatureStatusSchema,
+  ransomwareProtection: FeatureStatusSchema,
+  auditLogs: FeatureStatusSchema,
+  granularAcls: FeatureStatusSchema,
+
+  // Auth
+  twoFactor: FeatureStatusSchema,
+  ldap: FeatureStatusSchema,
+  oidc: FeatureStatusSchema,
+  sso: FeatureStatusSchema,
+
+  // Moved from top-level due to schema conflict
+  automation: FeatureStatusSchema,
+  performance: z.object({
+    status: z.string(),
+    note: z.string().optional(),
+    verification: z.object({
+      verifiedAtVersion: z.string(),
+      verificationLink: z.string().url(),
+      dateVerified: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Date must be YYYY-MM-DD").optional(),
+    }),
+  }),
+});
+
+export const FileSyncStorageToolSchema = BaseSoftwareToolSchema.extend({
+  // Override base schema generic types with specific ones if needed,
+  // but here we just ensure platforms and features match.
+  // Note: base 'automation' and 'performance' are optional objects in BaseSoftwareToolSchema.
+  // We are adding them to 'features' instead in our data, so the base ones will be undefined.
+  platforms: FileSyncStoragePlatformSupportSchema,
+  features: FileSyncStorageFeaturesSchema,
+});
+
+export const SoftwareToolSchema = z.union([
+  StreamerToolSchema,
+  PasswordManagerToolSchema,
+  MusicStreamingToolSchema,
+  FileSyncStorageToolSchema
+]);
 
 // Inferred Types
 export type FeatureStatusType = z.infer<typeof FeatureStatusTypeSchema>;
@@ -247,6 +312,10 @@ export type PasswordManagerTool = z.infer<typeof PasswordManagerToolSchema>;
 export type MusicStreamingPlatformSupport = z.infer<typeof MusicStreamingPlatformSupportSchema>;
 export type MusicStreamingFeatures = z.infer<typeof MusicStreamingFeaturesSchema>;
 export type MusicStreamingTool = z.infer<typeof MusicStreamingToolSchema>;
+
+export type FileSyncStoragePlatformSupport = z.infer<typeof FileSyncStoragePlatformSupportSchema>;
+export type FileSyncStorageFeatures = z.infer<typeof FileSyncStorageFeaturesSchema>;
+export type FileSyncStorageTool = z.infer<typeof FileSyncStorageToolSchema>;
 
 export type SoftwareTool = z.infer<typeof SoftwareToolSchema>;
 
