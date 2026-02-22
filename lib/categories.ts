@@ -9,14 +9,14 @@ import { MusicStreamingTool } from "./categories/music-streaming/config";
 
 export type { CategoryConfig };
 
-export const categories: CategoryConfig<any>[] = [
+export type SoftwareTool = StreamerTool | PasswordManagerTool | MusicStreamingTool;
+
+export const categories: CategoryConfig<SoftwareTool>[] = [
   mediaServersCategory,
   musicStreamingCategory,
   passwordManagersCategory,
 ];
 
-export type SoftwareTool = StreamerTool | PasswordManagerTool | MusicStreamingTool;
-
-export function getCategory(id: string): CategoryConfig<any> | undefined {
+export function getCategory(id: string): CategoryConfig<SoftwareTool> | undefined {
   return categories.find((c) => c.id === id);
 }

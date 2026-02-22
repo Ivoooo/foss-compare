@@ -1,11 +1,11 @@
 import fs from "fs";
 import path from "path";
-import { ZodError } from "zod";
+import { ZodError, ZodSchema } from "zod";
 import { categories } from "../lib/categories";
 
 const DATA_DIR = path.join(process.cwd(), "data");
 
-function validateCategory(categoryId: string, schema: any) {
+function validateCategory(categoryId: string, schema: ZodSchema) {
   const categoryDir = path.join(DATA_DIR, categoryId);
   if (!fs.existsSync(categoryDir)) {
     console.error(`Directory not found: ${categoryDir}`);
