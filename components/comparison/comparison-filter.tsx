@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { CategorySection } from "@/lib/schemas";
+import { CategorySection } from "@/lib/base-schemas";
 import {
   Sheet,
   SheetContent,

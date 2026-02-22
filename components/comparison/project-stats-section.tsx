@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useMemo } from "react";
-import { SoftwareTool } from "@/lib/schemas";
+import { SoftwareTool } from "@/lib/categories";
 import {
   getGitHubPopularityStatus,
   getStarsEmote,

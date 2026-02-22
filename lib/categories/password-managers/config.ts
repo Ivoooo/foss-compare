@@ -1,9 +1,63 @@
+import { z } from "zod";
 import { Shield } from "lucide-react";
-import { CategorySection, SoftwareTool } from "@/lib/schemas";
-import { CategoryConfig } from "./types";
-import { password_managersData as passwordManagersData } from "@/data/password-managers";
+import {
+    BaseSoftwareToolSchema,
+    StrictFeatureStatusSchema,
+    CategorySection
+} from "@/lib/base-schemas";
+import { CategoryConfig } from "../types";
 
-export const PASSWORD_MANAGER_SECTIONS: CategorySection[] = [
+// Schemas
+export const PasswordManagerPlatformSupportSchema = z.object({
+  windows: StrictFeatureStatusSchema,
+  mac: StrictFeatureStatusSchema,
+  linux: StrictFeatureStatusSchema,
+  android: StrictFeatureStatusSchema,
+  ios: StrictFeatureStatusSchema,
+  browserExtensions: StrictFeatureStatusSchema,
+  webVault: StrictFeatureStatusSchema,
+  cli: StrictFeatureStatusSchema,
+});
+
+export const PasswordManagerFeaturesSchema = z.object({
+  kdbxSupport: StrictFeatureStatusSchema,
+  customFields: StrictFeatureStatusSchema,
+  totp: StrictFeatureStatusSchema,
+  passwordSharing: StrictFeatureStatusSchema,
+  vaultSharing: StrictFeatureStatusSchema,
+  organizations: StrictFeatureStatusSchema,
+  autoFill: StrictFeatureStatusSchema,
+  passkeys: StrictFeatureStatusSchema,
+  secureNotes: StrictFeatureStatusSchema,
+  fileAttachments: StrictFeatureStatusSchema,
+  passwordGenerator: StrictFeatureStatusSchema,
+  localOffline: StrictFeatureStatusSchema,
+  emergencyAccess: StrictFeatureStatusSchema,
+  autoClear: StrictFeatureStatusSchema,
+  auditLogs: StrictFeatureStatusSchema,
+  compromisedPasswords: StrictFeatureStatusSchema,
+  twoFactor: StrictFeatureStatusSchema,
+  biometrics: StrictFeatureStatusSchema,
+  hardwareKeys: StrictFeatureStatusSchema,
+  ldap: StrictFeatureStatusSchema,
+  oidc: StrictFeatureStatusSchema,
+  sso: StrictFeatureStatusSchema,
+});
+
+export const PasswordManagerToolSchema = BaseSoftwareToolSchema.extend({
+  dockerSupport: StrictFeatureStatusSchema,
+  armSupport: StrictFeatureStatusSchema,
+  platforms: PasswordManagerPlatformSupportSchema,
+  features: PasswordManagerFeaturesSchema,
+});
+
+// Types
+export type PasswordManagerPlatformSupport = z.infer<typeof PasswordManagerPlatformSupportSchema>;
+export type PasswordManagerFeatures = z.infer<typeof PasswordManagerFeaturesSchema>;
+export type PasswordManagerTool = z.infer<typeof PasswordManagerToolSchema>;
+
+// Sections
+export const sections: CategorySection[] = [
     {
         id: "architecture",
         label: "Architecture & Formats",
@@ -80,11 +134,11 @@ export const PASSWORD_MANAGER_SECTIONS: CategorySection[] = [
     }
 ];
 
-export const passwordManagersCategory: CategoryConfig = {
+export const passwordManagersConfig: Omit<CategoryConfig<PasswordManagerTool>, 'data'> = {
     id: "password-managers",
     title: "Password Managers",
     description: "Bitwarden, Vaultwarden, Keepass, and others. Security features, sync, and clients.",
     icon: Shield,
-    data: passwordManagersData as unknown as SoftwareTool[],
-    sections: PASSWORD_MANAGER_SECTIONS,
+    sections: sections,
+    schema: PasswordManagerToolSchema,
 };
