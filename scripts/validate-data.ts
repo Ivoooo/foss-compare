@@ -1,26 +1,14 @@
 import fs from "fs";
 import path from "path";
 import { ZodError, ZodSchema } from "zod";
-import { StreamerToolSchema, PasswordManagerToolSchema, MusicStreamingToolSchema } from "../lib/schemas";
+import { categories } from "../lib/categories";
 
 const DATA_DIR = path.join(process.cwd(), "data");
 
-const SCHEMAS: Record<string, ZodSchema> = {
-  "media-servers": StreamerToolSchema,
-  "password-managers": PasswordManagerToolSchema,
-  "music-streaming": MusicStreamingToolSchema,
-};
-
-function validateCategory(category: string) {
-  const categoryDir = path.join(DATA_DIR, category);
+function validateCategory(categoryId: string, schema: ZodSchema) {
+  const categoryDir = path.join(DATA_DIR, categoryId);
   if (!fs.existsSync(categoryDir)) {
     console.error(`Directory not found: ${categoryDir}`);
-    return false;
-  }
-
-  const schema = SCHEMAS[category];
-  if (!schema) {
-    console.error(`No schema defined for ${category}`);
     return false;
   }
 
@@ -38,16 +26,16 @@ function validateCategory(category: string) {
       } catch (error) {
         hasError = true;
         if (error instanceof ZodError) {
-          console.error(`\nError in ${category}/${file} (ID: ${json.id || "unknown"}):`);
+          console.error(`\nError in ${categoryId}/${file} (ID: ${json.id || "unknown"}):`);
           error.issues.forEach((err) => {
             console.error(`  - ${err.path.join(".")}: ${err.message}`);
           });
         } else {
-          console.error(`Unknown error in ${category}/${file}:`, error);
+          console.error(`Unknown error in ${categoryId}/${file}:`, error);
         }
       }
     } catch (error) {
-      console.error(`Error reading or parsing ${category}/${file}:`, error);
+      console.error(`Error reading or parsing ${categoryId}/${file}:`, error);
       hasError = true;
     }
   }
@@ -56,18 +44,17 @@ function validateCategory(category: string) {
     return false;
   }
 
-  console.log(`✅ ${category} passed validation.`);
+  console.log(`✅ ${categoryId} passed validation.`);
   return true;
 }
 
 function main() {
-  const categories = Object.keys(SCHEMAS);
   let allValid = true;
 
   console.log("Starting validation...\n");
 
   for (const category of categories) {
-    if (!validateCategory(category)) {
+    if (!validateCategory(category.id, category.schema)) {
       allValid = false;
     }
   }

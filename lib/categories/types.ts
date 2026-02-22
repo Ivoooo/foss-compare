@@ -1,11 +1,13 @@
 import { LucideIcon } from "lucide-react";
-import { CategorySection, SoftwareTool } from "@/lib/schemas";
+import { ZodSchema } from "zod";
+import { CategorySection, BaseSoftwareTool } from "@/lib/base-schemas";
 
-export interface CategoryConfig {
+export interface CategoryConfig<T extends BaseSoftwareTool = BaseSoftwareTool> {
     id: string;
     title: string;
     description: string;
     icon: LucideIcon;
-    data: SoftwareTool[];
+    data: T[];
     sections: CategorySection[];
+    schema: ZodSchema<T>;
 }

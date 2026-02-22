@@ -1,9 +1,63 @@
+import { z } from "zod";
 import { Headphones } from "lucide-react";
-import { CategorySection, SoftwareTool } from "@/lib/schemas";
-import { CategoryConfig } from "./types";
-import { musicStreamingData } from "@/data/music-streaming";
+import {
+    BaseSoftwareToolSchema,
+    FeatureStatusSchema,
+    CategorySection
+} from "@/lib/base-schemas";
+import { CategoryConfig } from "../types";
 
-export const MUSIC_STREAMING_SECTIONS: CategorySection[] = [
+// Schemas
+export const MusicStreamingPlatformSupportSchema = z.object({
+  windows: FeatureStatusSchema,
+  mac: FeatureStatusSchema,
+  linux: FeatureStatusSchema,
+  android: FeatureStatusSchema,
+  ios: FeatureStatusSchema,
+  webUi: FeatureStatusSchema,
+  cli: FeatureStatusSchema,
+});
+
+export const MusicStreamingFeaturesSchema = z.object({
+  subsonicApi: FeatureStatusSchema,
+  tagBased: FeatureStatusSchema,
+  folderBased: FeatureStatusSchema,
+  losslessFlac: FeatureStatusSchema,
+  m4bSupport: FeatureStatusSchema,
+  smartPlaylists: FeatureStatusSchema,
+  scrobbling: FeatureStatusSchema,
+  podcasts: FeatureStatusSchema,
+  ebooks: FeatureStatusSchema,
+  lyrics: FeatureStatusSchema,
+  progressSync: FeatureStatusSchema,
+  gapless: FeatureStatusSchema,
+  transcoding: FeatureStatusSchema,
+  jukebox: FeatureStatusSchema,
+  chromecast: FeatureStatusSchema,
+  dlnaBridge: FeatureStatusSchema,
+  multiUser: FeatureStatusSchema,
+  roles: FeatureStatusSchema,
+  publicSharing: FeatureStatusSchema,
+  federation: FeatureStatusSchema,
+  twoFactor: FeatureStatusSchema,
+  ldap: FeatureStatusSchema,
+  oidc: FeatureStatusSchema,
+});
+
+export const MusicStreamingToolSchema = BaseSoftwareToolSchema.extend({
+  dockerSupport: FeatureStatusSchema,
+  armSupport: FeatureStatusSchema,
+  platforms: MusicStreamingPlatformSupportSchema,
+  features: MusicStreamingFeaturesSchema,
+});
+
+// Types
+export type MusicStreamingPlatformSupport = z.infer<typeof MusicStreamingPlatformSupportSchema>;
+export type MusicStreamingFeatures = z.infer<typeof MusicStreamingFeaturesSchema>;
+export type MusicStreamingTool = z.infer<typeof MusicStreamingToolSchema>;
+
+// Sections
+export const sections: CategorySection[] = [
     {
         id: "features",
         label: "General Features",
@@ -74,11 +128,11 @@ export const MUSIC_STREAMING_SECTIONS: CategorySection[] = [
     }
 ];
 
-export const musicStreamingCategory: CategoryConfig = {
+export const musicStreamingConfig: Omit<CategoryConfig<MusicStreamingTool>, 'data'> = {
     id: "music-streaming",
     title: "Music & Audio Streaming",
     description: "Spotify and Audible alternatives. Subsonic servers, audiobook managers, and federated media streamers.",
     icon: Headphones,
-    data: musicStreamingData as unknown as SoftwareTool[],
-    sections: MUSIC_STREAMING_SECTIONS,
+    sections: sections,
+    schema: MusicStreamingToolSchema,
 };

@@ -15,7 +15,7 @@ This guide will help you get started with adding new tools, creating new categor
 
 To add a new software tool (e.g., a new Password Manager) to an existing category:
 
-1.  **Locate the Data File**: Find the relevant JSON file in the `data/` directory (e.g., `data/password-managers.json`).
+1.  **Locate the Data File**: Find the relevant JSON file in the `data/` directory (e.g., `data/password-managers/vaultwarden.json`).
 2.  **Add the Entry**: Add a new object to the array. You can copy an existing entry as a template.
 3.  **Fill Required Fields**:
     -   `id`: A unique, URL-friendly identifier (e.g., `vaultwarden`).
@@ -35,19 +35,19 @@ To add a new software tool (e.g., a new Password Manager) to an existing categor
 
 To add a completely new category (e.g., "VPNs"):
 
-1.  **Create Data File**: Create a new JSON file in `data/` (e.g., `data/vpns.json`).
-2.  **Define Schema**:
-    -   Edit `lib/schemas.ts` to define the Zod schema for the new tool type (e.g., `VpnToolSchema`).
-    -   Define the feature sets (e.g., `VpnFeaturesSchema`).
-    -   Export the inferred TypeScript type.
-3.  **Update Validation Script**:
-    -   Edit `scripts/validate-data.ts` to include your new file and schema in the `SCHEMAS` map.
-4.  **Configure Category**:
+1.  **Create Data Directory**: Create a new directory in `data/` (e.g., `data/vpns/`).
+2.  **Create Config**:
+    -   Create a new directory `lib/categories/vpns/`.
+    -   Create `lib/categories/vpns/config.ts` to define the Zod schema, types, and sections for the new category.
+    -   Export the config object.
+3.  **Create Index**:
+    -   Create `lib/categories/vpns/index.ts` to import the config and data, and export the final category object.
+4.  **Register Category**:
     -   Edit `lib/categories.ts`.
-    -   Add a new `CategoryConfig` object to the `categories` array.
-    -   Define the table structure (sections and rows) in `sections`.
-    -   Import your JSON data.
-5.  **Add Navigation**: The new category will automatically appear in the UI if added to `categories` in `lib/categories.ts`.
+    -   Import your new category index file.
+    -   Add it to the `categories` array.
+    -   Add the new tool type to the `SoftwareTool` union type.
+5.  **Add Navigation**: The new category will automatically appear in the UI.
 
 ## Running Validation
 
@@ -81,6 +81,6 @@ This script will:
 
 ## Code Style & Structure
 
--   **Types**: We use Zod for runtime validation and TypeScript for static analysis. `lib/schemas.ts` is the single source of truth.
+-   **Types**: We use Zod for runtime validation and TypeScript for static analysis. The category's `config.ts` is the single source of truth.
 -   **Components**: UI components are located in `components/comparison/`.
 -   **Styling**: We use Tailwind CSS.

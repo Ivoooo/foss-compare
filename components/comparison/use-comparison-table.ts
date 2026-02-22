@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
-import { CategorySection, SoftwareTool } from "@/lib/schemas";
+import { CategorySection } from "@/lib/base-schemas";
+import { SoftwareTool } from "@/lib/categories";
 import { getNestedValue } from "@/lib/utils";
 
 interface UseComparisonTableProps {
