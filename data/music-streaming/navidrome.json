@@ -7,10 +7,10 @@
   "license": "GPL-3.0",
   "openSource": true,
   "githubStats": {
-    "stars": 12500,
-    "forks": 980,
-    "lastCommit": "2026-02-21T00:00:00Z",
-    "openIssues": 120
+    "stars": 19411,
+    "forks": 1381,
+    "lastCommit": "2026-02-22T00:57:14Z",
+    "openIssues": 199
   },
   "language": [
     "Go",

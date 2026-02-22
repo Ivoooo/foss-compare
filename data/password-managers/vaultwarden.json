@@ -7,10 +7,10 @@
   "license": "GPL-3.0",
   "openSource": true,
   "githubStats": {
-    "stars": 55249,
-    "forks": 2564,
+    "stars": 55293,
+    "forks": 2566,
     "lastCommit": "2026-02-17T23:17:20Z",
-    "openIssues": 34
+    "openIssues": 36
   },
   "language": [
     "Rust"

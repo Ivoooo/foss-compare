@@ -7,10 +7,10 @@
   "license": "GPL-3.0",
   "openSource": true,
   "githubStats": {
-    "stars": 48683,
-    "forks": 4445,
-    "lastCommit": "2026-02-20T17:10:00Z",
-    "openIssues": 834
+    "stars": 48719,
+    "forks": 4447,
+    "lastCommit": "2026-02-21T18:11:29Z",
+    "openIssues": 838
   },
   "language": [
     "C#",
@@ -29,12 +29,6 @@
       "verifiedAtVersion": "v10.8.13",
       "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
     }
-  },
-  "githubStats": {
-    "stars": 48689,
-    "forks": 4446,
-    "lastCommit": "2026-02-21T00:14:26Z",
-    "openIssues": 835
   },
   "platforms": {
     "web": {
