@@ -1,9 +1,88 @@
+import { z } from "zod";
 import { MonitorPlay } from "lucide-react";
-import { CategorySection, SoftwareTool } from "@/lib/schemas";
-import { CategoryConfig } from "./types";
-import { media_serversData as streamersData } from "@/data/media-servers";
+import {
+    BaseSoftwareToolSchema,
+    StrictFeatureStatusSchema,
+    CategorySection
+} from "@/lib/base-schemas";
+import { CategoryConfig } from "../types";
 
-export const STREAMER_SECTIONS: CategorySection[] = [
+// Schemas
+export const StreamerPlatformSupportSchema = z.object({
+  web: StrictFeatureStatusSchema,
+  pwa: StrictFeatureStatusSchema,
+  android: StrictFeatureStatusSchema,
+  ios: StrictFeatureStatusSchema,
+  androidTv: StrictFeatureStatusSchema,
+  appleTv: StrictFeatureStatusSchema,
+  windows: StrictFeatureStatusSchema,
+  mac: StrictFeatureStatusSchema,
+  linux: StrictFeatureStatusSchema,
+  samsungTv: StrictFeatureStatusSchema.optional(),
+  lgTv: StrictFeatureStatusSchema.optional(),
+  roku: StrictFeatureStatusSchema.optional(),
+});
+
+export const CodecSupportSchema = z.object({
+  h264: StrictFeatureStatusSchema,
+  h265: StrictFeatureStatusSchema,
+  av1: StrictFeatureStatusSchema,
+  vp9: StrictFeatureStatusSchema,
+  mpeg2: StrictFeatureStatusSchema,
+  vc1: StrictFeatureStatusSchema,
+  aac: StrictFeatureStatusSchema,
+  ac3: StrictFeatureStatusSchema,
+  eac3: StrictFeatureStatusSchema,
+  truehd: StrictFeatureStatusSchema,
+  dts: StrictFeatureStatusSchema,
+  dtshdma: StrictFeatureStatusSchema,
+  flac: StrictFeatureStatusSchema,
+});
+
+export const StreamerFeaturesSchema = z.object({
+  multipleUsers: StrictFeatureStatusSchema,
+  parentalControls: StrictFeatureStatusSchema,
+  liveTv: StrictFeatureStatusSchema,
+  dvr: StrictFeatureStatusSchema,
+  hardwareTranscoding: StrictFeatureStatusSchema,
+  offlineDownloads: StrictFeatureStatusSchema,
+  watchTogether: StrictFeatureStatusSchema,
+  autoSubtitles: StrictFeatureStatusSchema,
+  introSkipping: StrictFeatureStatusSchema,
+  skipCredits: StrictFeatureStatusSchema,
+  skipAds: StrictFeatureStatusSchema,
+  lyrics: StrictFeatureStatusSchema,
+  podcasts: StrictFeatureStatusSchema,
+  audiobooks: StrictFeatureStatusSchema,
+  ebooks: StrictFeatureStatusSchema,
+  photos: StrictFeatureStatusSchema,
+  plugins: StrictFeatureStatusSchema,
+  ldap: StrictFeatureStatusSchema,
+  oidc: StrictFeatureStatusSchema,
+  twoFactor: StrictFeatureStatusSchema,
+  sso: StrictFeatureStatusSchema,
+  sonarr: StrictFeatureStatusSchema,
+  radarr: StrictFeatureStatusSchema,
+  seerr: StrictFeatureStatusSchema,
+  trakt: StrictFeatureStatusSchema,
+});
+
+export const StreamerToolSchema = BaseSoftwareToolSchema.extend({
+  dockerSupport: StrictFeatureStatusSchema,
+  armSupport: StrictFeatureStatusSchema,
+  platforms: StreamerPlatformSupportSchema,
+  codecs: CodecSupportSchema,
+  features: StreamerFeaturesSchema,
+});
+
+// Types
+export type StreamerPlatformSupport = z.infer<typeof StreamerPlatformSupportSchema>;
+export type CodecSupport = z.infer<typeof CodecSupportSchema>;
+export type StreamerFeatures = z.infer<typeof StreamerFeaturesSchema>;
+export type StreamerTool = z.infer<typeof StreamerToolSchema>;
+
+// Sections
+export const sections: CategorySection[] = [
     {
         id: "features",
         label: "General Features",
@@ -88,11 +167,11 @@ export const STREAMER_SECTIONS: CategorySection[] = [
     },
 ];
 
-export const mediaServersCategory: CategoryConfig = {
+export const mediaServersConfig: Omit<CategoryConfig<StreamerTool>, 'data'> = {
     id: "media-servers",
     title: "Media Servers",
     description: "Jellyfin, Plex, Emby, and more. Compare transcoding, platform support, and features.",
     icon: MonitorPlay,
-    data: streamersData as unknown as SoftwareTool[],
-    sections: STREAMER_SECTIONS,
+    sections: sections,
+    schema: StreamerToolSchema,
 };

@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Check, X, DollarSign, Clock, AlertTriangle } from "lucide-react";
-import { FeatureStatus } from "@/lib/schemas";
+import { FeatureStatus } from "@/lib/base-schemas";
 
 interface FeatureStatusCellProps {
   status: FeatureStatus;

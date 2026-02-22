@@ -1,9 +1,75 @@
+import { z } from "zod";
 import { HardDrive } from "lucide-react";
-import { CategorySection, SoftwareTool } from "@/lib/schemas";
-import { CategoryConfig } from "./types";
-import { fileSyncStorageData } from "@/data/file-sync-storage";
+import {
+    BaseSoftwareToolSchema,
+    FeatureStatusSchema,
+    CategorySection
+} from "@/lib/base-schemas";
+import { CategoryConfig } from "../types";
 
-export const FILE_SYNC_STORAGE_SECTIONS: CategorySection[] = [
+// Schemas
+export const FileSyncStoragePlatformSupportSchema = z.object({
+  windows: FeatureStatusSchema,
+  mac: FeatureStatusSchema,
+  linux: FeatureStatusSchema,
+  android: FeatureStatusSchema,
+  ios: FeatureStatusSchema,
+  webInterface: FeatureStatusSchema,
+  cli: FeatureStatusSchema,
+});
+
+export const FileSyncStorageFeaturesSchema = z.object({
+  // Core Sync
+  s3Backend: FeatureStatusSchema,
+  deltaSync: FeatureStatusSchema,
+  decentralized: FeatureStatusSchema,
+  versioning: FeatureStatusSchema,
+  fileLocking: FeatureStatusSchema,
+  webdav: FeatureStatusSchema,
+
+  // Collaboration
+  fullTextSearch: FeatureStatusSchema,
+  officeIntegration: FeatureStatusSchema,
+  publicSharing: FeatureStatusSchema,
+  fileComments: FeatureStatusSchema,
+
+  // Security
+  e2eEncryption: FeatureStatusSchema,
+  ransomwareProtection: FeatureStatusSchema,
+  auditLogs: FeatureStatusSchema,
+  granularAcls: FeatureStatusSchema,
+
+  // Auth
+  twoFactor: FeatureStatusSchema,
+  ldap: FeatureStatusSchema,
+  oidc: FeatureStatusSchema,
+  sso: FeatureStatusSchema,
+
+  // Moved from top-level due to schema conflict
+  automation: FeatureStatusSchema,
+  performance: z.object({
+    status: z.string(),
+    note: z.string().optional(),
+    verification: z.object({
+      verifiedAtVersion: z.string(),
+      verificationLink: z.string().url(),
+      dateVerified: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Date must be YYYY-MM-DD").optional(),
+    }),
+  }),
+});
+
+export const FileSyncStorageToolSchema = BaseSoftwareToolSchema.extend({
+  platforms: FileSyncStoragePlatformSupportSchema,
+  features: FileSyncStorageFeaturesSchema,
+});
+
+// Types
+export type FileSyncStoragePlatformSupport = z.infer<typeof FileSyncStoragePlatformSupportSchema>;
+export type FileSyncStorageFeatures = z.infer<typeof FileSyncStorageFeaturesSchema>;
+export type FileSyncStorageTool = z.infer<typeof FileSyncStorageToolSchema>;
+
+// Sections
+export const sections: CategorySection[] = [
     {
         id: "features",
         label: "File Management & Sync",
@@ -71,11 +137,11 @@ export const FILE_SYNC_STORAGE_SECTIONS: CategorySection[] = [
     }
 ];
 
-export const fileSyncStorageCategory: CategoryConfig = {
+export const fileSyncStorageConfig: Omit<CategoryConfig<FileSyncStorageTool>, 'data'> = {
     id: "file-sync-storage",
     title: "File Sync & Storage",
     description: "Self-hosted cloud storage, peer-to-peer file synchronization, and enterprise content collaboration platforms.",
     icon: HardDrive,
-    data: fileSyncStorageData as unknown as SoftwareTool[],
-    sections: FILE_SYNC_STORAGE_SECTIONS,
+    sections: sections,
+    schema: FileSyncStorageToolSchema,
 };
