@@ -13,23 +13,37 @@ This guide will help you get started with adding new tools, creating new categor
 
 ## Adding a New Tool
 
-To add a new software tool (e.g., a new Password Manager) to an existing category:
+To add a new software tool (e.g., a new Password Manager) to an existing category, we recommend using the CLI helper:
 
-1.  **Locate the Data File**: Find the relevant JSON file in the `data/` directory (e.g., `data/password-managers/vaultwarden.json`).
-2.  **Add the Entry**: Add a new object to the array. You can copy an existing entry as a template.
-3.  **Fill Required Fields**:
-    -   `id`: A unique, URL-friendly identifier (e.g., `vaultwarden`).
-    -   `name`: The display name of the tool.
-    -   `website`: Official website URL.
-    -   `license`: License type (e.g., "MIT", "GPL-3.0", "Proprietary").
-    -   `openSource`: `true` or `false`.
-    -   `dockerSupport` / `armSupport`: "Yes", "No", "Partial", etc.
-    -   `automation`: (Optional) Docker image details for benchmarking.
-4.  **Fill Category-Specific Fields**:
-    -   `platforms`: Support status for each platform.
-    -   `features`: Support status for each feature defined in the category schema.
-    -   **Status Values**: Use "Yes", "No", "Paid", "Partial", or "Coming Soon". You can also use an object `{ "status": "Yes", "note": "..." }` for more detail.
-5.  **Validate**: Run `npm run validate` to ensure your JSON matches the schema.
+```bash
+npm run create-tool
+```
+
+This interactive script will:
+1.  Ask you to select a category.
+2.  Prompt for basic details (Name, Website, Repository, etc.).
+3.  Generate a new JSON file in the correct directory with default values.
+4.  Update the category's `index.ts` file to include the new tool.
+
+After generating the file, open it (e.g., `data/password-managers/new-tool.json`) and fill in the specific feature support status (e.g., `platforms`, `features`).
+
+**Manual Method**:
+If you prefer manual creation:
+1.  Create a new JSON file in the category directory (e.g., `data/vpns/my-vpn.json`).
+2.  Copy an existing tool's JSON as a template.
+3.  Update the `id`, `name`, and other fields.
+4.  Add the import to `data/vpns/index.ts`.
+5.  Run `npm run validate`.
+
+## Updating GitHub Stats & Versions
+
+To update GitHub stars, forks, last commit date, and fetch the latest release version for all tools:
+
+```bash
+npm run update-stats
+```
+
+This script requires a `GITHUB_TOKEN` environment variable to avoid rate limits. It updates the `githubStats` object and `meta.lastCheck` in each tool's JSON file.
 
 ## Creating a New Category
 

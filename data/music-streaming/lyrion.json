@@ -6,6 +6,12 @@
   "repository": "https://github.com/LMS-Community/slimserver",
   "license": "GPL",
   "openSource": true,
+  "githubStats": {
+    "stars": 1652,
+    "forks": 351,
+    "lastCommit": "2026-02-20T14:08:09Z",
+    "openIssues": 99
+  },
   "language": [
     "Perl"
   ],
@@ -21,57 +27,6 @@
     "verification": {
       "verifiedAtVersion": "Unknown",
       "verificationLink": "https://github.com/LMS-Community/slimserver/releases"
-    }
-  },
-  "platforms": {
-    "windows": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "Unknown",
-        "verificationLink": "https://github.com/LMS-Community/slimserver/releases"
-      }
-    },
-    "mac": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "Unknown",
-        "verificationLink": "https://github.com/LMS-Community/slimserver/releases"
-      }
-    },
-    "linux": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "Unknown",
-        "verificationLink": "https://github.com/LMS-Community/slimserver/releases"
-      }
-    },
-    "android": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "Unknown",
-        "verificationLink": "https://github.com/LMS-Community/slimserver/releases"
-      }
-    },
-    "ios": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "Unknown",
-        "verificationLink": "https://github.com/LMS-Community/slimserver/releases"
-      }
-    },
-    "webUi": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "Unknown",
-        "verificationLink": "https://github.com/LMS-Community/slimserver/releases"
-      }
-    },
-    "cli": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "Unknown",
-        "verificationLink": "https://github.com/LMS-Community/slimserver/releases"
-      }
     }
   },
   "features": {
@@ -205,10 +160,61 @@
       "status": "Unknown"
     }
   },
+  "platforms": {
+    "windows": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "Unknown",
+        "verificationLink": "https://github.com/LMS-Community/slimserver/releases"
+      }
+    },
+    "mac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "Unknown",
+        "verificationLink": "https://github.com/LMS-Community/slimserver/releases"
+      }
+    },
+    "linux": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "Unknown",
+        "verificationLink": "https://github.com/LMS-Community/slimserver/releases"
+      }
+    },
+    "android": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "Unknown",
+        "verificationLink": "https://github.com/LMS-Community/slimserver/releases"
+      }
+    },
+    "ios": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "Unknown",
+        "verificationLink": "https://github.com/LMS-Community/slimserver/releases"
+      }
+    },
+    "webUi": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "Unknown",
+        "verificationLink": "https://github.com/LMS-Community/slimserver/releases"
+      }
+    },
+    "cli": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "Unknown",
+        "verificationLink": "https://github.com/LMS-Community/slimserver/releases"
+      }
+    }
+  },
   "meta": {
     "lastCheck": {
-      "date": "2026-02-21",
-      "version": "Unknown",
+      "date": "2026-02-22",
+      "version": "ueml/10.0.4",
       "changelogLink": "https://github.com/LMS-Community/slimserver/releases"
     }
   }

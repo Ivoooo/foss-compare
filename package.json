@@ -9,7 +9,9 @@
     "lint": "eslint",
     "validate": "npx tsx scripts/validate-data.ts",
     "benchmark": "npx tsx scripts/update-benchmarks.ts",
-    "check-links": "npx tsx scripts/check-links.ts"
+    "check-links": "npx tsx scripts/check-links.ts",
+    "update-stats": "npx tsx scripts/update-github-stats.ts",
+    "create-tool": "npx tsx scripts/create-tool.ts"
   },
   "dependencies": {
     "@tanstack/react-table": "^8.21.3",

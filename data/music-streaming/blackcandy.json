@@ -7,10 +7,10 @@
   "license": "MIT",
   "openSource": true,
   "githubStats": {
-    "stars": 4100,
-    "forks": 213,
-    "lastCommit": "2026-02-21T00:00:00Z",
-    "openIssues": 29
+    "stars": 4143,
+    "forks": 210,
+    "lastCommit": "2026-02-05T11:21:40Z",
+    "openIssues": 31
   },
   "language": [
     "Ruby"
@@ -27,49 +27,6 @@
     "verification": {
       "verifiedAtVersion": "v1.0.0",
       "verificationLink": "https://github.com/blackcandy-org/blackcandy/releases"
-    }
-  },
-  "platforms": {
-    "windows": {
-      "status": "Unknown"
-    },
-    "mac": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v1.0.0",
-        "verificationLink": "https://github.com/blackcandy-org/blackcandy/releases"
-      }
-    },
-    "linux": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v1.0.0",
-        "verificationLink": "https://github.com/blackcandy-org/blackcandy/releases"
-      }
-    },
-    "android": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v1.0.0",
-        "verificationLink": "https://github.com/blackcandy-org/blackcandy/releases"
-      }
-    },
-    "ios": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v1.0.0",
-        "verificationLink": "https://github.com/blackcandy-org/blackcandy/releases"
-      }
-    },
-    "webUi": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v1.0.0",
-        "verificationLink": "https://github.com/blackcandy-org/blackcandy/releases"
-      }
-    },
-    "cli": {
-      "status": "Unknown"
     }
   },
   "features": {
@@ -191,10 +148,53 @@
       "status": "Unknown"
     }
   },
+  "platforms": {
+    "windows": {
+      "status": "Unknown"
+    },
+    "mac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.0.0",
+        "verificationLink": "https://github.com/blackcandy-org/blackcandy/releases"
+      }
+    },
+    "linux": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.0.0",
+        "verificationLink": "https://github.com/blackcandy-org/blackcandy/releases"
+      }
+    },
+    "android": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.0.0",
+        "verificationLink": "https://github.com/blackcandy-org/blackcandy/releases"
+      }
+    },
+    "ios": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.0.0",
+        "verificationLink": "https://github.com/blackcandy-org/blackcandy/releases"
+      }
+    },
+    "webUi": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v1.0.0",
+        "verificationLink": "https://github.com/blackcandy-org/blackcandy/releases"
+      }
+    },
+    "cli": {
+      "status": "Unknown"
+    }
+  },
   "meta": {
     "lastCheck": {
-      "date": "2026-02-21",
-      "version": "v1.0.0",
+      "date": "2026-02-22",
+      "version": "v3.1.0",
       "changelogLink": "https://github.com/blackcandy-org/blackcandy/releases"
     }
   }
