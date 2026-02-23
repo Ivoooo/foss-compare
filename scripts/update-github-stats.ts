@@ -79,7 +79,7 @@ async function fetchLatestVersion(owner: string, repo: string): Promise<{ tag: s
         url: data.html_url
       };
     }
-  } catch {
+  } catch (e) {
     // ignore and try tags
   }
 

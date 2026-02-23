@@ -17,11 +17,6 @@
 /.next/
 /out/
 
-# pwa
-public/sw.js
-public/workbox-*.js
-public/worker-*.js
-
 # production
 /build
 
@@ -41,6 +36,9 @@ yarn-error.log*
 
 # cache
 .cache/
+
+# images
+*.png
 
 # vercel
 .vercel
