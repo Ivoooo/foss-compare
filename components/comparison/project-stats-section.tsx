@@ -12,7 +12,7 @@ import {
   formatRelativeDate
 } from "@/lib/comparison-utils";
 import { FeatureStatusCell } from "./feature-status-cell";
-import { ChevronDown, ChevronRight, Github, Code, Box, Cpu } from "lucide-react";
+import { ChevronDown, ChevronRight, Github, Code, Box, Cpu, GitFork, Clock, Scale, Unlock } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 interface ProjectStatsSectionProps {
@@ -41,7 +41,7 @@ const StatsRow = ({ label, matchText, data, renderCell, isMatch }: StatsRowProps
         "bg-background border-r px-4 md:px-6 py-3 pl-10 md:pl-12 text-muted-foreground font-normal text-left group-hover/row:bg-muted transition-colors border-b",
         isRowMatch && "bg-yellow-100 dark:bg-yellow-900/40"
       )}>
-        <div className="flex items-center gap-2 min-h-[48px]">
+        <div className="flex items-center gap-2">
           {label}
         </div>
       </th>
@@ -123,7 +123,11 @@ export function ProjectStatsSection({
               key={tool.id}
               className="px-4 md:px-6 py-4 transition-colors border-b"
             >
-              <span className="font-medium">{getGitHubPopularityStatus(tool)}</span>
+              <div className="flex items-center gap-2">
+                <span className="font-mono text-xs px-2 py-0.5 rounded-full bg-muted text-muted-foreground whitespace-nowrap">
+                  {getGitHubPopularityStatus(tool)}
+                </span>
+              </div>
             </td>
           );
         })}
@@ -194,7 +198,8 @@ export function ProjectStatsSection({
           />
 
           <StatsRow
-            label="Forks"
+            label={<><GitFork className="h-3 w-3" aria-hidden="true" /> Forks</>}
+            matchText="Forks"
             data={data}
             isMatch={isMatch}
             renderCell={(tool) => tool.githubStats ? (
@@ -206,7 +211,8 @@ export function ProjectStatsSection({
           />
 
           <StatsRow
-            label="Last Commit"
+            label={<><Clock className="h-3 w-3" aria-hidden="true" /> Last Commit</>}
+            matchText="Last Commit"
             data={data}
             isMatch={isMatch}
             renderCell={(tool) => tool.githubStats ? (
@@ -218,7 +224,8 @@ export function ProjectStatsSection({
           />
 
           <StatsRow
-            label="License"
+            label={<><Scale className="h-3 w-3" aria-hidden="true" /> License</>}
+            matchText="License"
             data={data}
             isMatch={isMatch}
             renderCell={(tool) => (
@@ -229,7 +236,8 @@ export function ProjectStatsSection({
           />
 
           <StatsRow
-            label="Open Source"
+            label={<><Unlock className="h-3 w-3" aria-hidden="true" /> Open Source</>}
+            matchText="Open Source"
             data={data}
             isMatch={isMatch}
             renderCell={(tool) => (

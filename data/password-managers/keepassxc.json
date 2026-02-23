@@ -7,10 +7,10 @@
   "license": "GPL-3.0",
   "openSource": true,
   "githubStats": {
-    "stars": 25923,
-    "forks": 1714,
+    "stars": 25943,
+    "forks": 1712,
     "lastCommit": "2026-02-16T04:45:40Z",
-    "openIssues": 836
+    "openIssues": 837
   },
   "language": [
     "C++"
@@ -247,7 +247,7 @@
   },
   "meta": {
     "lastCheck": {
-      "date": "2026-02-22",
+      "date": "2026-02-23",
       "version": "2.7.11",
       "changelogLink": "https://github.com/keepassxreboot/keepassxc/releases"
     }

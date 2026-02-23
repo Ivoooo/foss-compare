@@ -7,10 +7,10 @@
   "license": "GPL-3.0",
   "openSource": true,
   "githubStats": {
-    "stars": 11787,
-    "forks": 876,
-    "lastCommit": "2026-02-21T22:00:39Z",
-    "openIssues": 953
+    "stars": 11801,
+    "forks": 878,
+    "lastCommit": "2026-02-22T22:19:19Z",
+    "openIssues": 952
   },
   "language": [
     "JavaScript",
@@ -234,7 +234,7 @@
   },
   "meta": {
     "lastCheck": {
-      "date": "2026-02-22",
+      "date": "2026-02-23",
       "version": "v2.32.1",
       "changelogLink": "https://github.com/advplyr/audiobookshelf/releases"
     }

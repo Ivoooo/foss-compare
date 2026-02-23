@@ -404,7 +404,7 @@
     }
   },
   "performance": {
-    "ramUsage": "219.8MiB",
-    "dockerImageSize": "346.66 MB"
+    "ramUsage": "221.7MiB",
+    "dockerImageSize": "346.64 MB"
   }
 }

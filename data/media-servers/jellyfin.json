@@ -7,10 +7,10 @@
   "license": "GPL-3.0",
   "openSource": true,
   "githubStats": {
-    "stars": 48719,
-    "forks": 4447,
-    "lastCommit": "2026-02-21T18:11:29Z",
-    "openIssues": 838
+    "stars": 48761,
+    "forks": 4450,
+    "lastCommit": "2026-02-23T10:39:51Z",
+    "openIssues": 844
   },
   "language": [
     "C#",
@@ -395,13 +395,13 @@
     }
   },
   "performance": {
-    "ramUsage": "247.4MiB",
+    "ramUsage": "165.4MiB",
     "dockerImageSize": "1.44 GB"
   },
   "notes": "Community-driven fork of Emby. Completely free with no paid features.",
   "meta": {
     "lastCheck": {
-      "date": "2026-02-22",
+      "date": "2026-02-23",
       "version": "v10.11.6",
       "changelogLink": "https://github.com/jellyfin/jellyfin/releases"
     }

@@ -7,7 +7,7 @@
   "license": "MIT",
   "openSource": true,
   "githubStats": {
-    "stars": 4143,
+    "stars": 4144,
     "forks": 210,
     "lastCommit": "2026-02-05T11:21:40Z",
     "openIssues": 31
@@ -193,7 +193,7 @@
   },
   "meta": {
     "lastCheck": {
-      "date": "2026-02-22",
+      "date": "2026-02-23",
       "version": "v3.1.0",
       "changelogLink": "https://github.com/blackcandy-org/blackcandy/releases"
     }
