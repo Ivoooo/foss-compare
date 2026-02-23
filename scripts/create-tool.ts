@@ -2,8 +2,7 @@ import fs from "fs";
 import path from "path";
 import readline from "readline";
 import { categories } from "../lib/categories";
-import { writeTool, getCategoryTools, sortToolKeys } from "./utils";
-import { CategoryConfig } from "../lib/categories/types";
+import { writeTool, getCategoryTools } from "./utils";
 import { CategorySection, FeatureItem } from "../lib/base-schemas";
 
 const rl = readline.createInterface({
