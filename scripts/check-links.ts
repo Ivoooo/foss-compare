@@ -93,7 +93,7 @@ async function checkUrl(url: string): Promise<CheckResult> {
        try {
          const responseGet = await fetchWithTimeout(url, "GET");
          if (responseGet.ok) return { ok: true, status: responseGet.status };
-       } catch (retryError) {
+       } catch {
          // ignore retry error
        }
     }
