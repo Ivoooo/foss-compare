@@ -1,11 +1,8 @@
-import jellyfin from "./jellyfin.json";
-import plex from "./plex.json";
-import emby from "./emby.json";
+import { mediaServersConfig, StreamerTool } from "./config";
+import { media_serversData } from "./data";
+import { CategoryConfig } from "@/lib/types";
 
-export const media_serversData = [
-  jellyfin,
-  plex,
-  emby,
-];
-
-export default media_serversData;
+export const mediaServersCategory: CategoryConfig<StreamerTool> = {
+    ...mediaServersConfig,
+    data: media_serversData as StreamerTool[],
+};

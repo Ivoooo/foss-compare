@@ -23,7 +23,7 @@ This interactive script will:
 1.  Ask you to select a category.
 2.  Prompt for basic details (Name, Website, Repository, etc.).
 3.  Generate a new JSON file in the correct directory with default values.
-4.  Update the category's `index.ts` file to include the new tool.
+4.  Update the category's `data.ts` file to include the new tool.
 
 After generating the file, open it (e.g., `data/password-managers/new-tool.json`) and fill in the specific feature support status (e.g., `platforms`, `features`).
 
@@ -32,7 +32,7 @@ If you prefer manual creation:
 1.  Create a new JSON file in the category directory (e.g., `data/vpns/my-vpn.json`).
 2.  Copy an existing tool's JSON as a template.
 3.  Update the `id`, `name`, and other fields.
-4.  Add the import to `data/vpns/index.ts`.
+4.  Add the import to `data/vpns/data.ts`.
 5.  Run `npm run validate`.
 
 ## Updating GitHub Stats & Versions
@@ -51,17 +51,18 @@ To add a completely new category (e.g., "VPNs"):
 
 1.  **Create Data Directory**: Create a new directory in `data/` (e.g., `data/vpns/`).
 2.  **Create Config**:
-    -   Create a new directory `lib/categories/vpns/`.
-    -   Create `lib/categories/vpns/config.ts` to define the Zod schema, types, and sections for the new category.
+    -   Create `data/vpns/config.ts` to define the Zod schema, types, and sections for the new category.
     -   Export the config object.
-3.  **Create Index**:
-    -   Create `lib/categories/vpns/index.ts` to import the config and data, and export the final category object.
-4.  **Register Category**:
+3.  **Create Data Index**:
+    -   Create `data/vpns/data.ts` to export the list of JSON files (initially empty or with one tool).
+4.  **Create Main Index**:
+    -   Create `data/vpns/index.ts` to import the config and data, and export the final category object.
+5.  **Register Category**:
     -   Edit `lib/categories.ts`.
-    -   Import your new category index file.
+    -   Import your new category index file from `@/data/vpns`.
     -   Add it to the `categories` array.
     -   Add the new tool type to the `SoftwareTool` union type.
-5.  **Add Navigation**: The new category will automatically appear in the UI.
+6.  **Add Navigation**: The new category will automatically appear in the UI.
 
 ## Running Validation
 

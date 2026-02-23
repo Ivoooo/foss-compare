@@ -1,11 +1,8 @@
-import bitwarden from "./bitwarden.json";
-import vaultwarden from "./vaultwarden.json";
-import keepassxc from "./keepassxc.json";
-import passbolt from "./passbolt.json";
+import { passwordManagersConfig, PasswordManagerTool } from "./config";
+import { password_managersData } from "./data";
+import { CategoryConfig } from "@/lib/types";
 
-export const password_managersData = [
-  bitwarden,
-  vaultwarden,
-  keepassxc,
-  passbolt
-];
+export const passwordManagersCategory: CategoryConfig<PasswordManagerTool> = {
+    ...passwordManagersConfig,
+    data: password_managersData as PasswordManagerTool[],
+};
