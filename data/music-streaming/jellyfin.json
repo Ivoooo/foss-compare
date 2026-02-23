@@ -7,10 +7,10 @@
   "license": "GPL-2.0",
   "openSource": true,
   "githubStats": {
-    "stars": 48719,
-    "forks": 4447,
-    "lastCommit": "2026-02-21T18:11:29Z",
-    "openIssues": 838
+    "stars": 48751,
+    "forks": 4448,
+    "lastCommit": "2026-02-22T22:28:34Z",
+    "openIssues": 843
   },
   "language": [
     "C#"
