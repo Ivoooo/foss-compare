@@ -1,5 +1,3 @@
-import fs from 'fs';
-import path from 'path';
 import { execSync } from 'child_process';
 import { getAllCategories, getCategoryTools, writeTool } from './utils';
 
