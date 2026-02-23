@@ -51,4 +51,4 @@ We welcome contributions! See `ROADMAP.md` for our long-term vision.
 - Run `npm run validate` to check data integrity.
 
 ## License
-MIT
+AGPL-3.0
