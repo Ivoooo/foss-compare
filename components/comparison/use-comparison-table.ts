@@ -61,12 +61,14 @@ export function useComparisonTable({ data, sections }: UseComparisonTableProps) 
 
         let statusStr = "";
         if (typeof status === "string") {
-            statusStr = status;
+          statusStr = status;
+        } else if (typeof status === "boolean") {
+          statusStr = status ? "Yes" : "No";
         } else if (status && typeof status === "object" && "status" in status) {
-            const statusObj = status as Record<string, unknown>;
-            if (typeof statusObj.status === "string") {
-                statusStr = statusObj.status;
-            }
+          const statusObj = status as Record<string, unknown>;
+          if (typeof statusObj.status === "string") {
+            statusStr = statusObj.status;
+          }
         }
 
         if (statusStr !== "Yes" && statusStr !== "Paid") {

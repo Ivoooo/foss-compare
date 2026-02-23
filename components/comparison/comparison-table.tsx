@@ -68,7 +68,18 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
           )}
         </div>
         <ComparisonFilter
-          sections={sections}
+          sections={[
+            {
+              id: "project-stats",
+              label: "Project Stats",
+              items: [
+                { key: "openSource", label: "Open Source Only" },
+                { key: "dockerSupport", label: "Docker Support" },
+                { key: "armSupport", label: "ARM Support" },
+              ]
+            },
+            ...sections
+          ]}
           filters={filters}
           onFilterChange={handleFilterChange}
           onReset={handleResetFilters}
@@ -158,16 +169,14 @@ export function ComparisonTable({ data, sections }: ComparisonTableProps) {
                   })}
                 </tr>
               </thead>
-              <tbody>
-                <ProjectStatsSection
-                  data={filteredData}
-                  maxStars={maxStars}
-                  maxForks={maxForks}
-                  isOpen={isSectionExpanded("project-stats")}
-                  onToggle={() => toggleCategory("project-stats")}
-                  isMatch={isMatch}
-                />
-              </tbody>
+              <ProjectStatsSection
+                data={filteredData}
+                maxStars={maxStars}
+                maxForks={maxForks}
+                isOpen={isSectionExpanded("project-stats")}
+                onToggle={() => toggleCategory("project-stats")}
+                isMatch={isMatch}
+              />
               {sections.map((section) => (
                 <tbody key={section.id} className="border-b last:border-0">
                   <tr
