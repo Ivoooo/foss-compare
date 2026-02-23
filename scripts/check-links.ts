@@ -1,13 +1,19 @@
-import fs from "fs";
 import path from "path";
 import { getAllTools } from "./utils";
 
 const CONCURRENCY_LIMIT = 5;
 const USER_AGENT = "foss-compare-link-checker/1.0 (+https://github.com/Ivoooo/foss-compare)";
+const TIMEOUT_MS = 10000;
 
 interface LinkLocation {
   file: string;
   path: string; // approximate path in JSON (e.g., "0.features.website")
+}
+
+interface CheckResult {
+  ok: boolean;
+  status?: number;
+  error?: string;
 }
 
 function findUrlsInObject(obj: unknown, currentPath: string, file: string, urls: Map<string, LinkLocation[]>): void {
@@ -31,50 +37,72 @@ function findUrlsInObject(obj: unknown, currentPath: string, file: string, urls:
   }
 }
 
-async function checkUrl(url: string): Promise<{ ok: boolean; status?: number; error?: string }> {
-  try {
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 10000); // 10s timeout
+async function fetchWithTimeout(url: string, method: string): Promise<Response> {
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), TIMEOUT_MS);
 
+  try {
     const response = await fetch(url, {
-      method: "HEAD",
+      method,
       headers: { "User-Agent": USER_AGENT },
       signal: controller.signal,
     });
+    return response;
+  } finally {
     clearTimeout(timeoutId);
-
-    if (response.ok) {
-      return { ok: true, status: response.status };
-    } else if (response.status === 405) {
-      // Method Not Allowed, try GET
-      const controllerGet = new AbortController();
-      const timeoutIdGet = setTimeout(() => controllerGet.abort(), 10000);
-      const responseGet = await fetch(url, {
-        method: "GET",
-        headers: { "User-Agent": USER_AGENT },
-        signal: controllerGet.signal,
-      });
-      clearTimeout(timeoutIdGet);
-
-      return {
-        ok: responseGet.ok,
-        status: responseGet.status,
-        error: responseGet.ok ? undefined : `HTTP ${responseGet.status} ${responseGet.statusText}`,
-      };
-    } else {
-       // specific handling for 403/429?
-       if (response.status === 403 || response.status === 429) {
-           console.warn(`⚠️  Warning: ${url} returned ${response.status}. Treating as potentially valid but flagged.`);
-           return { ok: true, status: response.status, error: `HTTP ${response.status} ${response.statusText}` };
-       }
-      return { ok: false, status: response.status, error: `HTTP ${response.status} ${response.statusText}` };
-    }
-  } catch (error: unknown) {
-    return { ok: false, error: error instanceof Error ? error.message : "Network Error" };
   }
 }
 
-async function processQueue(urlsToCheck: string[], results: Map<string, { ok: boolean; status?: number; error?: string }>) {
+async function checkUrl(url: string): Promise<CheckResult> {
+  try {
+    // 1. Try HEAD first
+    let response = await fetchWithTimeout(url, "HEAD");
+
+    if (response.ok) {
+      return { ok: true, status: response.status };
+    }
+
+    // 2. If HEAD fails with 405 (Method Not Allowed), try GET
+    if (response.status === 405) {
+      response = await fetchWithTimeout(url, "GET");
+    }
+
+    if (response.ok) {
+      return { ok: true, status: response.status };
+    }
+
+    // 3. Handle specific status codes that might be valid but blocked (403, 429)
+    if (response.status === 403 || response.status === 429) {
+      console.warn(`⚠️  Warning: ${url} returned ${response.status}. Treating as potentially valid but flagged.`);
+      // We return ok: true to avoid breaking the build, but log it as a warning.
+      return { ok: true, status: response.status, error: `HTTP ${response.status} ${response.statusText}` };
+    }
+
+    return {
+      ok: false,
+      status: response.status,
+      error: `HTTP ${response.status} ${response.statusText}`
+    };
+
+  } catch (error: unknown) {
+    const errorMessage = error instanceof Error ? error.message : "Unknown Network Error";
+
+    // Retry with GET if the first HEAD failed due to network/timeout (sometimes HEAD is blocked at network level)
+    // But only if we haven't already tried GET (which isn't tracked here, but usually HEAD network error => try GET is safer)
+    if (errorMessage.includes("aborted") || errorMessage.includes("fetch")) {
+       try {
+         const responseGet = await fetchWithTimeout(url, "GET");
+         if (responseGet.ok) return { ok: true, status: responseGet.status };
+       } catch (retryError) {
+         // ignore retry error
+       }
+    }
+
+    return { ok: false, error: errorMessage };
+  }
+}
+
+async function processQueue(urlsToCheck: string[], results: Map<string, CheckResult>) {
   const queue = [...urlsToCheck];
   const workers = [];
 
@@ -110,7 +138,7 @@ async function main() {
   const uniqueUrls = Array.from(allUrls.keys());
   console.log(`Found ${uniqueUrls.length} unique URLs.`);
 
-  const checkResults = new Map<string, { ok: boolean; status?: number; error?: string }>();
+  const checkResults = new Map<string, CheckResult>();
   await processQueue(uniqueUrls, checkResults);
 
   let hasErrors = false;
