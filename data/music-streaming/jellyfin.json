@@ -7,10 +7,10 @@
   "license": "GPL-2.0",
   "openSource": true,
   "githubStats": {
-    "stars": 48751,
-    "forks": 4448,
-    "lastCommit": "2026-02-22T22:28:34Z",
-    "openIssues": 843
+    "stars": 48761,
+    "forks": 4450,
+    "lastCommit": "2026-02-23T10:39:51Z",
+    "openIssues": 844
   },
   "language": [
     "C#"
@@ -27,53 +27,6 @@
     "verification": {
       "verifiedAtVersion": "10.11.5",
       "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
-    }
-  },
-  "platforms": {
-    "windows": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "10.11.5",
-        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
-      }
-    },
-    "mac": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "10.11.5",
-        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
-      }
-    },
-    "linux": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "10.11.5",
-        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
-      }
-    },
-    "android": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "10.11.5",
-        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
-      }
-    },
-    "ios": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "10.11.5",
-        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
-      }
-    },
-    "webUi": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "10.11.5",
-        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
-      }
-    },
-    "cli": {
-      "status": "Unknown"
     }
   },
   "features": {
@@ -227,10 +180,57 @@
       }
     }
   },
+  "platforms": {
+    "windows": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "10.11.5",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "mac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "10.11.5",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "linux": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "10.11.5",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "android": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "10.11.5",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "ios": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "10.11.5",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "webUi": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "10.11.5",
+        "verificationLink": "https://github.com/jellyfin/jellyfin/releases"
+      }
+    },
+    "cli": {
+      "status": "Unknown"
+    }
+  },
   "meta": {
     "lastCheck": {
-      "date": "2026-02-21",
-      "version": "10.11.5",
+      "date": "2026-02-23",
+      "version": "v10.11.6",
       "changelogLink": "https://github.com/jellyfin/jellyfin/releases"
     }
   }

@@ -7,7 +7,7 @@
   "license": "MIT",
   "openSource": true,
   "githubStats": {
-    "stars": 17049,
+    "stars": 17048,
     "forks": 2093,
     "lastCommit": "2026-02-11T16:29:32Z",
     "openIssues": 66
@@ -28,57 +28,6 @@
     "verification": {
       "verifiedAtVersion": "v8.3.0",
       "verificationLink": "https://github.com/koel/koel/releases"
-    }
-  },
-  "platforms": {
-    "windows": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v8.3.0",
-        "verificationLink": "https://github.com/koel/koel/releases"
-      }
-    },
-    "mac": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v8.3.0",
-        "verificationLink": "https://github.com/koel/koel/releases"
-      }
-    },
-    "linux": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v8.3.0",
-        "verificationLink": "https://github.com/koel/koel/releases"
-      }
-    },
-    "android": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v8.3.0",
-        "verificationLink": "https://github.com/koel/koel/releases"
-      }
-    },
-    "ios": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v8.3.0",
-        "verificationLink": "https://github.com/koel/koel/releases"
-      }
-    },
-    "webUi": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v8.3.0",
-        "verificationLink": "https://github.com/koel/koel/releases"
-      }
-    },
-    "cli": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v8.3.0",
-        "verificationLink": "https://github.com/koel/koel/releases"
-      }
     }
   },
   "features": {
@@ -216,9 +165,60 @@
       "status": "Unknown"
     }
   },
+  "platforms": {
+    "windows": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.3.0",
+        "verificationLink": "https://github.com/koel/koel/releases"
+      }
+    },
+    "mac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.3.0",
+        "verificationLink": "https://github.com/koel/koel/releases"
+      }
+    },
+    "linux": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.3.0",
+        "verificationLink": "https://github.com/koel/koel/releases"
+      }
+    },
+    "android": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.3.0",
+        "verificationLink": "https://github.com/koel/koel/releases"
+      }
+    },
+    "ios": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.3.0",
+        "verificationLink": "https://github.com/koel/koel/releases"
+      }
+    },
+    "webUi": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.3.0",
+        "verificationLink": "https://github.com/koel/koel/releases"
+      }
+    },
+    "cli": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.3.0",
+        "verificationLink": "https://github.com/koel/koel/releases"
+      }
+    }
+  },
   "meta": {
     "lastCheck": {
-      "date": "2026-02-21",
+      "date": "2026-02-23",
       "version": "v8.3.0",
       "changelogLink": "https://github.com/koel/koel/releases"
     }

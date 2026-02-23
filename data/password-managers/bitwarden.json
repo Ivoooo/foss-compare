@@ -7,10 +7,10 @@
   "license": "GPL-3.0",
   "openSource": true,
   "githubStats": {
-    "stars": 18094,
+    "stars": 18097,
     "forks": 1538,
-    "lastCommit": "2026-02-22T18:28:19Z",
-    "openIssues": 190
+    "lastCommit": "2026-02-23T14:41:21Z",
+    "openIssues": 189
   },
   "language": [
     "C#",
@@ -28,64 +28,6 @@
     "verification": {
       "verifiedAtVersion": "v2026.2.0",
       "verificationLink": "https://bitwarden.com/help/releasenotes/"
-    }
-  },
-  "platforms": {
-    "windows": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v2026.2.0",
-        "verificationLink": "https://bitwarden.com/help/releasenotes/"
-      }
-    },
-    "mac": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v2026.2.0",
-        "verificationLink": "https://bitwarden.com/help/releasenotes/"
-      }
-    },
-    "linux": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v2026.2.0",
-        "verificationLink": "https://bitwarden.com/help/releasenotes/"
-      }
-    },
-    "android": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v2026.2.0",
-        "verificationLink": "https://bitwarden.com/help/releasenotes/"
-      }
-    },
-    "ios": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v2026.2.0",
-        "verificationLink": "https://bitwarden.com/help/releasenotes/"
-      }
-    },
-    "browserExtensions": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v2026.2.0",
-        "verificationLink": "https://bitwarden.com/help/releasenotes/"
-      }
-    },
-    "webVault": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v2026.2.0",
-        "verificationLink": "https://bitwarden.com/help/releasenotes/"
-      }
-    },
-    "cli": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v2026.2.0",
-        "verificationLink": "https://bitwarden.com/help/releasenotes/"
-      }
     }
   },
   "features": {
@@ -245,9 +187,67 @@
       }
     }
   },
+  "platforms": {
+    "windows": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2026.2.0",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
+      }
+    },
+    "mac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2026.2.0",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
+      }
+    },
+    "linux": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2026.2.0",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
+      }
+    },
+    "android": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2026.2.0",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
+      }
+    },
+    "ios": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2026.2.0",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
+      }
+    },
+    "browserExtensions": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2026.2.0",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
+      }
+    },
+    "webVault": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2026.2.0",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
+      }
+    },
+    "cli": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2026.2.0",
+        "verificationLink": "https://bitwarden.com/help/releasenotes/"
+      }
+    }
+  },
   "meta": {
     "lastCheck": {
-      "date": "2026-02-21",
+      "date": "2026-02-23",
       "version": "v2026.2.0",
       "changelogLink": "https://bitwarden.com/help/releasenotes/"
     }
