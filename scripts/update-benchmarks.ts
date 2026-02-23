@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { execSync } from 'child_process';
+import { getAllCategories, getCategoryTools, writeTool } from './utils';
 
 interface DockerConfig {
   image: string;
@@ -21,8 +22,6 @@ interface Tool {
   performance?: PerformanceStats;
   [key: string]: unknown;
 }
-
-const DATA_DIR = path.join(process.cwd(), 'data');
 
 function runCommand(command: string): string {
   try {
@@ -87,59 +86,43 @@ async function benchmarkTool(image: string, env: Record<string, string> = {}): P
 }
 
 async function updateCategory(category: string) {
-  const categoryDir = path.join(DATA_DIR, category);
-  if (!fs.existsSync(categoryDir)) {
-    return;
-  }
+  const tools = getCategoryTools(category);
+  if (tools.length === 0) return;
 
-  const files = fs.readdirSync(categoryDir).filter(file => file.endsWith(".json"));
   console.log(`Processing category ${category}...`);
 
-  for (const file of files) {
-    const filePath = path.join(categoryDir, file);
-    try {
-      const content = fs.readFileSync(filePath, 'utf-8');
-      const tool: Tool = JSON.parse(content);
-      let updated = false;
+  for (const toolFile of tools) {
+    const tool = toolFile.data as unknown as Tool;
+    let updated = false;
 
-      if (tool.automation?.docker?.image) {
-        console.log(`Benchmarking ${tool.name}...`);
-        try {
-          const result = await benchmarkTool(tool.automation.docker.image, tool.automation.docker.env);
+    if (tool.automation?.docker?.image) {
+      console.log(`Benchmarking ${tool.name}...`);
+      try {
+        const result = await benchmarkTool(tool.automation.docker.image, tool.automation.docker.env);
 
-          if (!tool.performance) {
-            tool.performance = {};
-          }
-
-          tool.performance.dockerImageSize = result.imageSize;
-          tool.performance.ramUsage = result.ramUsage;
-
-          console.log(`  Result: Size=${result.imageSize}, RAM=${result.ramUsage}`);
-          updated = true;
-        } catch (error: unknown) {
-          console.error(`  Error benchmarking ${tool.name}: ${error instanceof Error ? error.message : String(error)}`);
+        if (!tool.performance) {
+          tool.performance = {};
         }
-      }
 
-      if (updated) {
-        fs.writeFileSync(filePath, JSON.stringify(tool, null, 2) + '\n');
-        console.log(`Updated ${file}`);
+        tool.performance.dockerImageSize = result.imageSize;
+        tool.performance.ramUsage = result.ramUsage;
+
+        console.log(`  Result: Size=${result.imageSize}, RAM=${result.ramUsage}`);
+        updated = true;
+      } catch (error: unknown) {
+        console.error(`  Error benchmarking ${tool.name}: ${error instanceof Error ? error.message : String(error)}`);
       }
-    } catch (error) {
-      console.error(`Error processing ${category}/${file}:`, error);
+    }
+
+    if (updated) {
+      writeTool(toolFile.filepath, tool);
+      console.log(`Updated ${toolFile.filename}`);
     }
   }
 }
 
 async function main() {
-  if (!fs.existsSync(DATA_DIR)) {
-    console.error(`Data directory not found: ${DATA_DIR}`);
-    process.exit(1);
-  }
-
-  const categories = fs.readdirSync(DATA_DIR).filter(item => {
-    return fs.statSync(path.join(DATA_DIR, item)).isDirectory();
-  });
+  const categories = getAllCategories();
 
   for (const category of categories) {
     await updateCategory(category);

@@ -29,53 +29,6 @@
       "verificationLink": "https://github.com/sentriz/gonic/releases"
     }
   },
-  "platforms": {
-    "windows": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v0.20.1",
-        "verificationLink": "https://github.com/sentriz/gonic/releases"
-      }
-    },
-    "mac": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v0.20.1",
-        "verificationLink": "https://github.com/sentriz/gonic/releases"
-      }
-    },
-    "linux": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v0.20.1",
-        "verificationLink": "https://github.com/sentriz/gonic/releases"
-      }
-    },
-    "android": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v0.20.1",
-        "verificationLink": "https://github.com/sentriz/gonic/releases"
-      }
-    },
-    "ios": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v0.20.1",
-        "verificationLink": "https://github.com/sentriz/gonic/releases"
-      }
-    },
-    "webUi": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v0.20.1",
-        "verificationLink": "https://github.com/sentriz/gonic/releases"
-      }
-    },
-    "cli": {
-      "status": "Unknown"
-    }
-  },
   "features": {
     "subsonicApi": {
       "status": "Yes",
@@ -199,9 +152,56 @@
       "status": "Unknown"
     }
   },
+  "platforms": {
+    "windows": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v0.20.1",
+        "verificationLink": "https://github.com/sentriz/gonic/releases"
+      }
+    },
+    "mac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v0.20.1",
+        "verificationLink": "https://github.com/sentriz/gonic/releases"
+      }
+    },
+    "linux": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v0.20.1",
+        "verificationLink": "https://github.com/sentriz/gonic/releases"
+      }
+    },
+    "android": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v0.20.1",
+        "verificationLink": "https://github.com/sentriz/gonic/releases"
+      }
+    },
+    "ios": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v0.20.1",
+        "verificationLink": "https://github.com/sentriz/gonic/releases"
+      }
+    },
+    "webUi": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v0.20.1",
+        "verificationLink": "https://github.com/sentriz/gonic/releases"
+      }
+    },
+    "cli": {
+      "status": "Unknown"
+    }
+  },
   "meta": {
     "lastCheck": {
-      "date": "2026-02-21",
+      "date": "2026-02-23",
       "version": "v0.20.1",
       "changelogLink": "https://github.com/sentriz/gonic/releases"
     }

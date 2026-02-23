@@ -1,0 +1,232 @@
+{
+  "id": "owncloud-ocis",
+  "name": "ownCloud Infinite Scale",
+  "description": "Cloud-native, microservices-based file collaboration platform written in Go, featuring S3 backing and OIDC authentication.",
+  "website": "https://owncloud.com/infinite-scale/",
+  "repository": "https://github.com/owncloud/ocis",
+  "license": "Apache-2.0",
+  "openSource": true,
+  "githubStats": {
+    "stars": 1900,
+    "forks": 232,
+    "lastCommit": "2026-02-16T09:24:00Z",
+    "openIssues": 532
+  },
+  "language": [
+    "Go"
+  ],
+  "dockerSupport": {
+    "status": "Yes",
+    "verification": {
+      "verifiedAtVersion": "v8.0.0",
+      "verificationLink": "https://github.com/owncloud/ocis/releases"
+    }
+  },
+  "armSupport": {
+    "status": "Yes",
+    "verification": {
+      "verifiedAtVersion": "v8.0.0",
+      "verificationLink": "https://owncloud.com/news/platform-independence-owncloud-infinite-scale/"
+    }
+  },
+  "automation": {
+    "status": "Unknown",
+    "verification": {
+      "verifiedAtVersion": "v8.0.0",
+      "verificationLink": "https://owncloud.com/infinite-scale/"
+    }
+  },
+  "performance": {
+    "status": "High",
+    "verification": {
+      "verifiedAtVersion": "v8.0.0",
+      "verificationLink": "https://owncloud.com/news/the-state-of-owncloud-infinite-scale/"
+    }
+  },
+  "platforms": {
+    "windows": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.0.0",
+        "verificationLink": "https://owncloud.com/find-the-right-edition/"
+      }
+    },
+    "mac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.0.0",
+        "verificationLink": "https://owncloud.com/find-the-right-edition/"
+      }
+    },
+    "linux": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.0.0",
+        "verificationLink": "https://owncloud.com/find-the-right-edition/"
+      }
+    },
+    "android": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.0.0",
+        "verificationLink": "https://doc.owncloud.com/server/next/admin_manual/configuration/user/user_auth_twofactor.html"
+      }
+    },
+    "ios": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.0.0",
+        "verificationLink": "https://doc.owncloud.com/server/next/admin_manual/configuration/user/user_auth_twofactor.html"
+      }
+    },
+    "webInterface": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.0.0",
+        "verificationLink": "https://github.com/owncloud/ocis/releases"
+      }
+    },
+    "cli": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.0.0",
+        "verificationLink": "https://github.com/owncloud/ocis/releases"
+      }
+    }
+  },
+  "features": {
+    "s3Backend": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.0.0",
+        "verificationLink": "https://doc.owncloud.com/ocis/next/deployment/storage/s3.html"
+      }
+    },
+    "deltaSync": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v8.0.0",
+        "verificationLink": "https://github.com/owncloud/ocis"
+      }
+    },
+    "decentralized": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v8.0.0",
+        "verificationLink": "https://github.com/owncloud/ocis"
+      }
+    },
+    "versioning": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.0.0",
+        "verificationLink": "https://owncloud.com/infinite-scale/"
+      }
+    },
+    "fileLocking": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.0.0",
+        "verificationLink": "https://owncloud.com/infinite-scale/"
+      }
+    },
+    "webdav": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.0.0",
+        "verificationLink": "https://github.com/owncloud/ocis/releases"
+      }
+    },
+    "fullTextSearch": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.0.0",
+        "verificationLink": "https://owncloud.com/infinite-scale/"
+      }
+    },
+    "officeIntegration": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.0.0",
+        "verificationLink": "https://doc.owncloud.com/ocis/next/"
+      }
+    },
+    "publicSharing": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.0.0",
+        "verificationLink": "https://github.com/owncloud/ocis/releases"
+      }
+    },
+    "fileComments": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.0.0",
+        "verificationLink": "https://owncloud.com/infinite-scale/"
+      }
+    },
+    "e2eEncryption": {
+      "status": "Unknown",
+      "verification": {
+        "verifiedAtVersion": "v8.0.0",
+        "verificationLink": "https://github.com/owncloud/ocis"
+      }
+    },
+    "ransomwareProtection": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.0.0",
+        "verificationLink": "https://owncloud.com/infinite-scale/"
+      }
+    },
+    "auditLogs": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.0.0",
+        "verificationLink": "https://doc.owncloud.com/"
+      }
+    },
+    "granularAcls": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.0.0",
+        "verificationLink": "https://owncloud.com/infinite-scale/"
+      }
+    },
+    "twoFactor": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.0.0",
+        "verificationLink": "https://www.reddit.com/r/owncloud/comments/1054l48/how_to_add_2fa_to_infinite_scale/"
+      }
+    },
+    "ldap": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.0.0",
+        "verificationLink": "https://github.com/owncloud/ocis/releases"
+      }
+    },
+    "oidc": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.0.0",
+        "verificationLink": "https://owncloud.com/news/openid-connect-oidc-app/"
+      }
+    },
+    "sso": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v8.0.0",
+        "verificationLink": "https://owncloud.com/news/openid-connect-oidc-app/"
+      }
+    }
+  },
+  "meta": {
+    "lastCheck": {
+      "date": "2026-02-21",
+      "version": "v8.0.0",
+      "changelogLink": "https://github.com/owncloud/ocis/releases#changelog-for-800-2026-02-13"
+    }
+  }
+}

@@ -1,11 +1,12 @@
 import fs from "fs";
 import path from "path";
-import { ZodError, ZodSchema } from "zod";
+import { ZodError } from "zod";
 import { categories } from "../lib/categories";
+import { readTool } from "./utils";
 
 const DATA_DIR = path.join(process.cwd(), "data");
 
-function validateCategory(categoryId: string, schema: ZodSchema) {
+function validateCategory(categoryId: string, schema: import("zod").ZodSchema) {
   const categoryDir = path.join(DATA_DIR, categoryId);
   if (!fs.existsSync(categoryDir)) {
     console.error(`Directory not found: ${categoryDir}`);
@@ -18,8 +19,7 @@ function validateCategory(categoryId: string, schema: ZodSchema) {
   for (const file of files) {
     const filepath = path.join(categoryDir, file);
     try {
-      const rawData = fs.readFileSync(filepath, "utf-8");
-      const json = JSON.parse(rawData);
+      const json = readTool(filepath);
 
       try {
         schema.parse(json);

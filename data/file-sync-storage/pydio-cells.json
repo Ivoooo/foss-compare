@@ -1,0 +1,230 @@
+{
+  "id": "pydio-cells",
+  "name": "Pydio Cells",
+  "description": "Microservices-based file management platform prioritizing security and cloud scalability via Go architecture.",
+  "website": "https://pydio.com",
+  "repository": "https://github.com/pydio/cells",
+  "license": "AGPL-3.0",
+  "openSource": true,
+  "githubStats": {
+    "stars": 2200,
+    "forks": 214,
+    "lastCommit": "2026-01-08T22:43:00Z",
+    "openIssues": 49
+  },
+  "language": ["Go"],
+  "dockerSupport": {
+    "status": "Yes",
+    "verification": {
+      "verifiedAtVersion": "v4.4.17",
+      "verificationLink": "https://docs.pydio.com/latest/admin-guide/quick-start/requirements/"
+    }
+  },
+  "armSupport": {
+    "status": "Yes",
+    "verification": {
+      "verifiedAtVersion": "v4.4.17",
+      "verificationLink": "https://docs.pydio.com/latest/knowledge-base/deployment/install-cells-on-raspberry/"
+    }
+  },
+  "automation": {
+    "status": "Yes",
+    "verification": {
+      "verifiedAtVersion": "v4.4.17",
+      "verificationLink": "https://www.pydio.com/en/product-updates/pydio-cells/pydio-cells-enterprise-410"
+    }
+  },
+  "performance": {
+    "status": "High",
+    "verification": {
+      "verifiedAtVersion": "v4.4.17",
+      "verificationLink": "https://www.pydio.com/en/product-updates/pydio-cells/pydio-cells-enterprise-410"
+    }
+  },
+  "platforms": {
+    "windows": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.4.17",
+        "verificationLink": "https://docs.pydio.com/latest/admin-guide/quick-start/requirements/"
+      }
+    },
+    "mac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.4.17",
+        "verificationLink": "https://docs.pydio.com/latest/admin-guide/quick-start/requirements/"
+      }
+    },
+    "linux": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.4.17",
+        "verificationLink": "https://docs.pydio.com/latest/admin-guide/quick-start/requirements/"
+      }
+    },
+    "android": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.4.17",
+        "verificationLink": "https://docs.pydio.com/latest/admin-guide/quick-start/requirements/"
+      }
+    },
+    "ios": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.4.17",
+        "verificationLink": "https://docs.pydio.com/latest/admin-guide/quick-start/requirements/"
+      }
+    },
+    "webInterface": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.4.17",
+        "verificationLink": "https://docs.pydio.com/latest/admin-guide/quick-start/requirements/"
+      }
+    },
+    "cli": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.4.17",
+        "verificationLink": "https://docs.pydio.com/latest/knowledge-base/deployment/install-cells-on-raspberry/"
+      }
+    }
+  },
+  "features": {
+    "s3Backend": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.4.17",
+        "verificationLink": "https://www.pydio.com/en/features/cells-home-vs-cells-enterprise"
+      }
+    },
+    "deltaSync": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v4.4.17",
+        "verificationLink": "https://docs.pydio.com/latest/developer-guide/cells-development/microservices/architecture-overview/"
+      }
+    },
+    "decentralized": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v4.4.17",
+        "verificationLink": "https://docs.pydio.com/latest/developer-guide/cells-development/microservices/architecture-overview/"
+      }
+    },
+    "versioning": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.4.17",
+        "verificationLink": "https://www.pydio.com/en/features/cells-home-vs-cells-enterprise"
+      }
+    },
+    "fileLocking": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.4.17",
+        "verificationLink": "https://www.pydio.com/en/features/cells-home-vs-cells-enterprise"
+      }
+    },
+    "webdav": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.4.17",
+        "verificationLink": "https://docs.pydio.com/latest/developer-guide/cells-development/microservices/architecture-overview/"
+      }
+    },
+    "fullTextSearch": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.4.17",
+        "verificationLink": "https://www.pydio.com/en/features/cells-home-vs-cells-enterprise"
+      }
+    },
+    "officeIntegration": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.4.17",
+        "verificationLink": "https://docs.pydio.com/latest/admin-guide/quick-start/requirements/"
+      }
+    },
+    "publicSharing": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.4.17",
+        "verificationLink": "https://www.pydio.com/en/features/cells-home-vs-cells-enterprise"
+      }
+    },
+    "fileComments": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.4.17",
+        "verificationLink": "https://www.pydio.com/en/features/cells-home-vs-cells-enterprise"
+      }
+    },
+    "e2eEncryption": {
+      "status": "Unknown",
+      "verification": {
+        "verifiedAtVersion": "v4.4.17",
+        "verificationLink": "https://www.pydio.com/en/features/cells-home-vs-cells-enterprise"
+      }
+    },
+    "ransomwareProtection": {
+      "status": "Unknown",
+      "verification": {
+        "verifiedAtVersion": "v4.4.17",
+        "verificationLink": "https://www.pydio.com/en/features/cells-home-vs-cells-enterprise"
+      }
+    },
+    "auditLogs": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v4.4.17",
+        "verificationLink": "https://www.pydio.com/en/features/cells-home-vs-cells-enterprise"
+      }
+    },
+    "granularAcls": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v4.4.17",
+        "verificationLink": "https://www.pydio.com/en/features/cells-home-vs-cells-enterprise"
+      }
+    },
+    "twoFactor": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v4.4.17",
+        "verificationLink": "https://forum.pydio.com/t/mfa-in-home-edition/5000"
+      }
+    },
+    "ldap": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v4.4.17",
+        "verificationLink": "https://www.pydio.com/en/features/cells-home-vs-cells-enterprise"
+      }
+    },
+    "oidc": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v4.4.17",
+        "verificationLink": "https://www.pydio.com/en/features/cells-home-vs-cells-enterprise"
+      }
+    },
+    "sso": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v4.4.17",
+        "verificationLink": "https://www.pydio.com/en/features/cells-home-vs-cells-enterprise"
+      }
+    }
+  },
+  "meta": {
+    "lastCheck": {
+      "date": "2026-02-21",
+      "version": "v4.4.17",
+      "changelogLink": "https://github.com/pydio/cells/releases"
+    }
+  }
+}
