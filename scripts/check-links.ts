@@ -18,10 +18,17 @@ interface CheckResult {
 
 function findUrlsInObject(obj: unknown, currentPath: string, file: string, urls: Map<string, LinkLocation[]>): void {
   if (typeof obj === "string") {
-    if (obj.startsWith("http://") || obj.startsWith("https://")) {
-      const existing = urls.get(obj) || [];
-      existing.push({ file, path: currentPath });
-      urls.set(obj, existing);
+    // Improved regex to find URLs within text, not just starting with http
+    const urlRegex = /https?:\/\/[^\s"']+/g;
+    const matches = obj.match(urlRegex);
+    if (matches) {
+      matches.forEach(url => {
+        // Clean up trailing punctuation often caught in regex
+        const cleanUrl = url.replace(/[.,;)]+$/, "");
+        const existing = urls.get(cleanUrl) || [];
+        existing.push({ file, path: currentPath });
+        urls.set(cleanUrl, existing);
+      });
     }
   } else if (Array.isArray(obj)) {
     obj.forEach((item, index) => {
@@ -44,7 +51,10 @@ async function fetchWithTimeout(url: string, method: string): Promise<Response> 
   try {
     const response = await fetch(url, {
       method,
-      headers: { "User-Agent": USER_AGENT },
+      headers: { 
+        "User-Agent": USER_AGENT,
+        "Accept": "*/*"
+      },
       signal: controller.signal,
     });
     return response;
@@ -62,19 +72,24 @@ async function checkUrl(url: string): Promise<CheckResult> {
       return { ok: true, status: response.status };
     }
 
-    // 2. If HEAD fails with 405 (Method Not Allowed), try GET
-    if (response.status === 405) {
-      response = await fetchWithTimeout(url, "GET");
+    // 2. Fallback to GET for almost any non-ok HEAD (except 404 which is usually final)
+    // Many WAFs/Servers block HEAD (403, 405, 503) but allow GET
+    if (response.status !== 404) {
+      try {
+        const getResponse = await fetchWithTimeout(url, "GET");
+        if (getResponse.ok) {
+          return { ok: true, status: getResponse.status };
+        }
+        // update response for final status check if GET also failed
+        response = getResponse;
+      } catch {
+        // if GET fails with exception, we still have the HEAD response to fall back to
+      }
     }
 
-    if (response.ok) {
-      return { ok: true, status: response.status };
-    }
-
-    // 3. Handle specific status codes that might be valid but blocked (403, 429)
+    // 3. Handle specific status codes that might be valid but blocked (403, 429) after GET also failed
     if (response.status === 403 || response.status === 429) {
       console.warn(`⚠️  Warning: ${url} returned ${response.status}. Treating as potentially valid but flagged.`);
-      // We return ok: true to avoid breaking the build, but log it as a warning.
       return { ok: true, status: response.status, error: `HTTP ${response.status} ${response.statusText}` };
     }
 
@@ -87,15 +102,15 @@ async function checkUrl(url: string): Promise<CheckResult> {
   } catch (error: unknown) {
     const errorMessage = error instanceof Error ? error.message : "Unknown Network Error";
 
-    // Retry with GET if the first HEAD failed due to network/timeout (sometimes HEAD is blocked at network level)
-    // But only if we haven't already tried GET (which isn't tracked here, but usually HEAD network error => try GET is safer)
-    if (errorMessage.includes("aborted") || errorMessage.includes("fetch")) {
-       try {
-         const responseGet = await fetchWithTimeout(url, "GET");
-         if (responseGet.ok) return { ok: true, status: responseGet.status };
-       } catch (retryError) {
-         // ignore retry error
-       }
+    // Retry with GET on any network/timeout error
+    try {
+      const responseGet = await fetchWithTimeout(url, "GET");
+      if (responseGet.ok) return { ok: true, status: responseGet.status };
+      if (responseGet.status === 403 || responseGet.status === 429) {
+         return { ok: true, status: responseGet.status, error: `HTTP ${responseGet.status}` };
+      }
+    } catch {
+      // ignore retry error
     }
 
     return { ok: false, error: errorMessage };
