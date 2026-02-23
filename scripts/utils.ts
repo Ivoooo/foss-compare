@@ -76,6 +76,14 @@ export function getCategoryTools(category: string): ToolFile[] {
 }
 
 /**
+ * Returns a list of all tool files across all categories.
+ */
+export function getAllTools(): ToolFile[] {
+  const categories = getAllCategories();
+  return categories.flatMap(category => getCategoryTools(category));
+}
+
+/**
  * Reads a JSON file from the given path.
  */
 export function readTool(filepath: string): Record<string, unknown> {

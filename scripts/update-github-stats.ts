@@ -115,7 +115,8 @@ async function updateCategory(category: string) {
     let updated = false;
 
     if (tool.repository && tool.repository.includes("github.com")) {
-      const match = tool.repository.match(/github\.com\/([^/]+)\/([^/]+?)(\.git)?$/);
+      // Handles https://github.com/owner/repo, owner/repo.git, and trailing slashes
+      const match = tool.repository.match(/github\.com\/([^/]+)\/([^/]+?)(?:\.git|\/)?$/);
 
       if (match) {
         const owner = match[1];

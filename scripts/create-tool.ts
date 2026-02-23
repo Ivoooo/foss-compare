@@ -46,7 +46,11 @@ async function updateCategoryIndex(categoryId: string) {
   tools.sort((a, b) => a.filename.localeCompare(b.filename));
 
   for (const tool of tools) {
-     const importName = tool.filename.replace(".json", "").replace(/-/g, "_");
+     let importName = tool.filename.replace(".json", "").replace(/-/g, "_");
+     // Ensure it's a valid JS identifier
+     if (/^[0-9]/.test(importName)) {
+        importName = `tool_${importName}`;
+     }
      imports.push(`import ${importName} from "./${tool.filename}";`);
      exportList.push(importName);
   }

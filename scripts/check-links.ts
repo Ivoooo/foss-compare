@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
+import { getAllTools } from "./utils";
 
-const DATA_DIR = path.join(process.cwd(), "data");
 const CONCURRENCY_LIMIT = 5;
 const USER_AGENT = "foss-compare-link-checker/1.0 (+https://github.com/Ivoooo/foss-compare)";
 
@@ -96,44 +96,15 @@ async function processQueue(urlsToCheck: string[], results: Map<string, { ok: bo
   await Promise.all(workers);
 }
 
-function getJsonFiles(dir: string): string[] {
-  let results: string[] = [];
-  try {
-    const list = fs.readdirSync(dir);
-    list.forEach((file) => {
-      const fullPath = path.join(dir, file);
-      const stat = fs.statSync(fullPath);
-      if (stat && stat.isDirectory()) {
-        results = results.concat(getJsonFiles(fullPath));
-      } else {
-        if (file.endsWith(".json")) {
-          results.push(fullPath);
-        }
-      }
-    });
-  } catch (err) {
-    console.error(`Error scanning directory ${dir}:`, err);
-  }
-  return results;
-}
-
 async function main() {
-  const files = getJsonFiles(DATA_DIR);
+  const tools = getAllTools();
   const allUrls = new Map<string, LinkLocation[]>();
 
-  console.log(`🔍 Scanning ${files.length} files for URLs...`);
+  console.log(`🔍 Scanning ${tools.length} files for URLs...`);
 
-  for (const filePath of files) {
-    try {
-      const content = fs.readFileSync(filePath, "utf-8");
-      const json = JSON.parse(content);
-      // Derive a relative filename for display
-      const relativePath = path.relative(DATA_DIR, filePath);
-      findUrlsInObject(json, "root", relativePath, allUrls);
-    } catch (err) {
-      console.error(`Error reading/parsing ${filePath}:`, err);
-      process.exit(1);
-    }
+  for (const tool of tools) {
+    const relativePath = path.join(tool.category, tool.filename);
+    findUrlsInObject(tool.data, "root", relativePath, allUrls);
   }
 
   const uniqueUrls = Array.from(allUrls.keys());
