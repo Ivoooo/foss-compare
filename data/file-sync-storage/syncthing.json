@@ -7,10 +7,10 @@
   "license": "MPL-2.0",
   "openSource": true,
   "githubStats": {
-    "stars": 80100,
-    "forks": 4900,
-    "lastCommit": "2026-02-11T12:11:00Z",
-    "openIssues": 370
+    "stars": 80260,
+    "forks": 4942,
+    "lastCommit": "2026-02-24T01:33:04Z",
+    "openIssues": 401
   },
   "language": [
     "Go"
@@ -27,71 +27,6 @@
     "verification": {
       "verifiedAtVersion": "v2.0.14",
       "verificationLink": "https://en.wikipedia.org/wiki/Syncthing"
-    }
-  },
-  "automation": {
-    "status": "No",
-    "verification": {
-      "verifiedAtVersion": "v2.0.14",
-      "verificationLink": "https://github.com/syncthing/syncthing"
-    }
-  },
-  "performance": {
-    "status": "High",
-    "verification": {
-      "verifiedAtVersion": "v2.0.14",
-      "verificationLink": "https://github.com/syncthing/syncthing/releases"
-    }
-  },
-  "platforms": {
-    "windows": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v2.0.14",
-        "verificationLink": "https://en.wikipedia.org/wiki/Syncthing"
-      }
-    },
-    "mac": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v2.0.14",
-        "verificationLink": "https://en.wikipedia.org/wiki/Syncthing"
-      }
-    },
-    "linux": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v2.0.14",
-        "verificationLink": "https://en.wikipedia.org/wiki/Syncthing"
-      }
-    },
-    "android": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v2.0.14",
-        "verificationLink": "https://docs.syncthing.net/users/contrib.html"
-      }
-    },
-    "ios": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v2.0.14",
-        "verificationLink": "https://en.wikipedia.org/wiki/Syncthing"
-      }
-    },
-    "webInterface": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v2.0.14",
-        "verificationLink": "https://docs.syncthing.net/users/contrib.html"
-      }
-    },
-    "cli": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v2.0.14",
-        "verificationLink": "https://github.com/syncthing/syncthing"
-      }
     }
   },
   "features": {
@@ -222,9 +157,74 @@
       }
     }
   },
+  "platforms": {
+    "windows": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.0.14",
+        "verificationLink": "https://en.wikipedia.org/wiki/Syncthing"
+      }
+    },
+    "mac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.0.14",
+        "verificationLink": "https://en.wikipedia.org/wiki/Syncthing"
+      }
+    },
+    "linux": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.0.14",
+        "verificationLink": "https://en.wikipedia.org/wiki/Syncthing"
+      }
+    },
+    "android": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.0.14",
+        "verificationLink": "https://docs.syncthing.net/users/contrib.html"
+      }
+    },
+    "ios": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.0.14",
+        "verificationLink": "https://en.wikipedia.org/wiki/Syncthing"
+      }
+    },
+    "webInterface": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.0.14",
+        "verificationLink": "https://docs.syncthing.net/users/contrib.html"
+      }
+    },
+    "cli": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.0.14",
+        "verificationLink": "https://github.com/syncthing/syncthing"
+      }
+    }
+  },
+  "automation": {
+    "status": "No",
+    "verification": {
+      "verifiedAtVersion": "v2.0.14",
+      "verificationLink": "https://github.com/syncthing/syncthing"
+    }
+  },
+  "performance": {
+    "status": "High",
+    "verification": {
+      "verifiedAtVersion": "v2.0.14",
+      "verificationLink": "https://github.com/syncthing/syncthing/releases"
+    }
+  },
   "meta": {
     "lastCheck": {
-      "date": "2026-02-21",
+      "date": "2026-02-24",
       "version": "v2.0.14",
       "changelogLink": "https://github.com/syncthing/syncthing/releases"
     }

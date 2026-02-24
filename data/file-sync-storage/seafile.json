@@ -7,10 +7,10 @@
   "license": "GPL-2.0",
   "openSource": true,
   "githubStats": {
-    "stars": 14400,
-    "forks": 1600,
-    "lastCommit": "2026-02-27T07:51:00Z",
-    "openIssues": 70
+    "stars": 14366,
+    "forks": 1637,
+    "lastCommit": "2026-02-13T02:08:51Z",
+    "openIssues": 81
   },
   "language": [
     "C",
@@ -28,71 +28,6 @@
     "verification": {
       "verifiedAtVersion": "v13.0.18",
       "verificationLink": "https://manual.seafile.com/latest/setup/architecture/"
-    }
-  },
-  "automation": {
-    "status": "Unknown",
-    "verification": {
-      "verifiedAtVersion": "v13.0.18",
-      "verificationLink": "https://manual.seafile.com/latest/changelog/server-changelog/"
-    }
-  },
-  "performance": {
-    "status": "High",
-    "verification": {
-      "verifiedAtVersion": "v13.0.18",
-      "verificationLink": "https://www.ssdnodes.com/blog/nextcloud-vs-seafile-dropbox-alternative/"
-    }
-  },
-  "platforms": {
-    "windows": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v13.0.18",
-        "verificationLink": "https://www.seafile.com/en/download/"
-      }
-    },
-    "mac": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v13.0.18",
-        "verificationLink": "https://www.seafile.com/en/download/"
-      }
-    },
-    "linux": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v13.0.18",
-        "verificationLink": "https://www.seafile.com/en/download/"
-      }
-    },
-    "android": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v13.0.18",
-        "verificationLink": "https://github.com/haiwen/seadroid/issues"
-      }
-    },
-    "ios": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v13.0.18",
-        "verificationLink": "https://github.com/haiwen/seafile-iOS/issues"
-      }
-    },
-    "webInterface": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v13.0.18",
-        "verificationLink": "https://manual.seafile.com/latest/changelog/server-changelog/"
-      }
-    },
-    "cli": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v13.0.18",
-        "verificationLink": "https://www.seafile.com/en/download/"
-      }
     }
   },
   "features": {
@@ -223,10 +158,75 @@
       }
     }
   },
+  "platforms": {
+    "windows": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v13.0.18",
+        "verificationLink": "https://www.seafile.com/en/download/"
+      }
+    },
+    "mac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v13.0.18",
+        "verificationLink": "https://www.seafile.com/en/download/"
+      }
+    },
+    "linux": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v13.0.18",
+        "verificationLink": "https://www.seafile.com/en/download/"
+      }
+    },
+    "android": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v13.0.18",
+        "verificationLink": "https://github.com/haiwen/seadroid/issues"
+      }
+    },
+    "ios": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v13.0.18",
+        "verificationLink": "https://github.com/haiwen/seafile-iOS/issues"
+      }
+    },
+    "webInterface": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v13.0.18",
+        "verificationLink": "https://manual.seafile.com/latest/changelog/server-changelog/"
+      }
+    },
+    "cli": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v13.0.18",
+        "verificationLink": "https://www.seafile.com/en/download/"
+      }
+    }
+  },
+  "automation": {
+    "status": "Unknown",
+    "verification": {
+      "verifiedAtVersion": "v13.0.18",
+      "verificationLink": "https://manual.seafile.com/latest/changelog/server-changelog/"
+    }
+  },
+  "performance": {
+    "status": "High",
+    "verification": {
+      "verifiedAtVersion": "v13.0.18",
+      "verificationLink": "https://www.ssdnodes.com/blog/nextcloud-vs-seafile-dropbox-alternative/"
+    }
+  },
   "meta": {
     "lastCheck": {
-      "date": "2026-02-21",
-      "version": "v13.0.18",
+      "date": "2026-02-24",
+      "version": "v9.0.5",
       "changelogLink": "https://manual.seafile.com/latest/changelog/server-changelog/"
     }
   }

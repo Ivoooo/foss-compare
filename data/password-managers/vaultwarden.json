@@ -7,10 +7,10 @@
   "license": "GPL-3.0",
   "openSource": true,
   "githubStats": {
-    "stars": 55373,
+    "stars": 55393,
     "forks": 2564,
-    "lastCommit": "2026-02-17T23:17:20Z",
-    "openIssues": 37
+    "lastCommit": "2026-02-23T21:24:23Z",
+    "openIssues": 34
   },
   "language": [
     "Rust"
@@ -246,8 +246,8 @@
   },
   "meta": {
     "lastCheck": {
-      "date": "2026-02-23",
-      "version": "1.35.3",
+      "date": "2026-02-24",
+      "version": "1.35.4",
       "changelogLink": "https://github.com/dani-garcia/vaultwarden/releases"
     }
   }

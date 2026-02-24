@@ -7,10 +7,10 @@
   "license": "GPL-3.0",
   "openSource": true,
   "githubStats": {
-    "stars": 18097,
-    "forks": 1538,
-    "lastCommit": "2026-02-23T14:41:21Z",
-    "openIssues": 189
+    "stars": 18104,
+    "forks": 1539,
+    "lastCommit": "2026-02-23T23:07:45Z",
+    "openIssues": 186
   },
   "language": [
     "C#",
@@ -247,7 +247,7 @@
   },
   "meta": {
     "lastCheck": {
-      "date": "2026-02-23",
+      "date": "2026-02-24",
       "version": "v2026.2.0",
       "changelogLink": "https://bitwarden.com/help/releasenotes/"
     }
