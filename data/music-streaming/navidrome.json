@@ -7,9 +7,9 @@
   "license": "GPL-3.0",
   "openSource": true,
   "githubStats": {
-    "stars": 19453,
-    "forks": 1381,
-    "lastCommit": "2026-02-23T13:51:56Z",
+    "stars": 19466,
+    "forks": 1380,
+    "lastCommit": "2026-02-24T01:28:39Z",
     "openIssues": 199
   },
   "language": [
@@ -230,7 +230,7 @@
   },
   "meta": {
     "lastCheck": {
-      "date": "2026-02-23",
+      "date": "2026-02-24",
       "version": "v0.60.3",
       "changelogLink": "https://github.com/navidrome/navidrome/releases"
     }

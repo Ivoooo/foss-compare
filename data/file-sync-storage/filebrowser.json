@@ -7,12 +7,15 @@
   "license": "Apache-2.0",
   "openSource": true,
   "githubStats": {
-    "stars": 33500,
-    "forks": 3700,
-    "lastCommit": "2026-02-21T17:34:00Z",
-    "openIssues": 23
+    "stars": 33536,
+    "forks": 3716,
+    "lastCommit": "2026-02-22T06:12:46Z",
+    "openIssues": 32
   },
-  "language": ["Go", "Vue"],
+  "language": [
+    "Go",
+    "Vue"
+  ],
   "dockerSupport": {
     "status": "Yes",
     "verification": {
@@ -25,71 +28,6 @@
     "verification": {
       "verifiedAtVersion": "v2.60.0",
       "verificationLink": "https://github.com/filebrowser/filebrowser/releases"
-    }
-  },
-  "automation": {
-    "status": "Unknown",
-    "verification": {
-      "verifiedAtVersion": "v2.60.0",
-      "verificationLink": "https://github.com/filebrowser/filebrowser"
-    }
-  },
-  "performance": {
-    "status": "High",
-    "verification": {
-      "verifiedAtVersion": "v2.60.0",
-      "verificationLink": "https://github.com/filebrowser/filebrowser"
-    }
-  },
-  "platforms": {
-    "windows": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v2.60.0",
-        "verificationLink": "https://github.com/filebrowser/filebrowser/releases"
-      }
-    },
-    "mac": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v2.60.0",
-        "verificationLink": "https://github.com/filebrowser/filebrowser/releases"
-      }
-    },
-    "linux": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v2.60.0",
-        "verificationLink": "https://github.com/filebrowser/filebrowser/releases"
-      }
-    },
-    "android": {
-      "status": "No",
-      "verification": {
-        "verifiedAtVersion": "v2.60.0",
-        "verificationLink": "https://github.com/filebrowser/filebrowser"
-      }
-    },
-    "ios": {
-      "status": "No",
-      "verification": {
-        "verifiedAtVersion": "v2.60.0",
-        "verificationLink": "https://github.com/filebrowser/filebrowser"
-      }
-    },
-    "webInterface": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v2.60.0",
-        "verificationLink": "https://github.com/filebrowser/filebrowser"
-      }
-    },
-    "cli": {
-      "status": "Yes",
-      "verification": {
-        "verifiedAtVersion": "v2.60.0",
-        "verificationLink": "https://filebrowser.org/authentication.html"
-      }
     }
   },
   "features": {
@@ -220,9 +158,74 @@
       }
     }
   },
+  "platforms": {
+    "windows": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.60.0",
+        "verificationLink": "https://github.com/filebrowser/filebrowser/releases"
+      }
+    },
+    "mac": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.60.0",
+        "verificationLink": "https://github.com/filebrowser/filebrowser/releases"
+      }
+    },
+    "linux": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.60.0",
+        "verificationLink": "https://github.com/filebrowser/filebrowser/releases"
+      }
+    },
+    "android": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.60.0",
+        "verificationLink": "https://github.com/filebrowser/filebrowser"
+      }
+    },
+    "ios": {
+      "status": "No",
+      "verification": {
+        "verifiedAtVersion": "v2.60.0",
+        "verificationLink": "https://github.com/filebrowser/filebrowser"
+      }
+    },
+    "webInterface": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.60.0",
+        "verificationLink": "https://github.com/filebrowser/filebrowser"
+      }
+    },
+    "cli": {
+      "status": "Yes",
+      "verification": {
+        "verifiedAtVersion": "v2.60.0",
+        "verificationLink": "https://filebrowser.org/authentication.html"
+      }
+    }
+  },
+  "automation": {
+    "status": "Unknown",
+    "verification": {
+      "verifiedAtVersion": "v2.60.0",
+      "verificationLink": "https://github.com/filebrowser/filebrowser"
+    }
+  },
+  "performance": {
+    "status": "High",
+    "verification": {
+      "verifiedAtVersion": "v2.60.0",
+      "verificationLink": "https://github.com/filebrowser/filebrowser"
+    }
+  },
   "meta": {
     "lastCheck": {
-      "date": "2026-02-21",
+      "date": "2026-02-24",
       "version": "v2.60.0",
       "changelogLink": "https://github.com/filebrowser/filebrowser/releases"
     }

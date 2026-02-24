@@ -7,7 +7,7 @@
   "license": "AGPL-3.0",
   "openSource": true,
   "githubStats": {
-    "stars": 5658,
+    "stars": 5659,
     "forks": 370,
     "lastCommit": "2026-02-12T10:12:19Z",
     "openIssues": 26
@@ -246,7 +246,7 @@
   },
   "meta": {
     "lastCheck": {
-      "date": "2026-02-23",
+      "date": "2026-02-24",
       "version": "v5.9.0",
       "changelogLink": "https://github.com/passbolt/passbolt_api/releases"
     }
