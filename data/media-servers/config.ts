@@ -5,7 +5,7 @@ import {
     StrictFeatureStatusSchema,
     CategorySection
 } from "@/lib/base-schemas";
-import { CategoryConfig } from "../types";
+import { CategoryConfig } from "@/lib/types";
 
 // Schemas
 export const StreamerPlatformSupportSchema = z.object({

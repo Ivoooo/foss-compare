@@ -1,17 +1,8 @@
-import nextcloud from "./nextcloud.json";
-import owncloudOcis from "./owncloud-ocis.json";
-import seafile from "./seafile.json";
-import pydioCells from "./pydio-cells.json";
-import syncthing from "./syncthing.json";
-import filebrowser from "./filebrowser.json";
+import { fileSyncStorageConfig, FileSyncStorageTool } from "./config";
+import { fileSyncStorageData } from "./data";
+import { CategoryConfig } from "@/lib/types";
 
-export const fileSyncStorageData = [
-  nextcloud,
-  owncloudOcis,
-  seafile,
-  pydioCells,
-  syncthing,
-  filebrowser,
-];
-
-export default fileSyncStorageData;
+export const fileSyncStorageCategory: CategoryConfig<FileSyncStorageTool> = {
+    ...fileSyncStorageConfig,
+    data: fileSyncStorageData as FileSyncStorageTool[],
+};

@@ -28,7 +28,7 @@ You must wrap all development commands using `nix develop -c <command>`.
 - `scripts/`: Maintenance scripts (benchmarking, GitHub stats, validation).
 
 ## Data Integrity & Schemas
-- **Strict Validation**: All software data in `data/*.json` is validated against Zod schemas defined in each category's config file (e.g., `lib/categories/[category]/config.ts`).
+- **Strict Validation**: All software data in `data/*.json` is validated against Zod schemas defined in each category's config file (e.g., `data/[category]/config.ts`).
 - **Validation Script**: After modifying any data files, ALWAYS run validation:
   `nix develop -c npm run validate`
 - **GitHub Stats**: Do not update GitHub stars/forks manually. Use the update script:

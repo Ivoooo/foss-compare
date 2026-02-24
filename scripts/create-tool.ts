@@ -2,7 +2,8 @@ import fs from "fs";
 import path from "path";
 import readline from "readline";
 import { categories } from "../lib/categories";
-import { writeTool, getCategoryTools } from "./utils";
+import { writeTool, getCategoryTools, sortToolKeys } from "./utils";
+import { CategoryConfig } from "../lib/types";
 import { CategorySection, FeatureItem } from "../lib/base-schemas";
 
 const rl = readline.createInterface({
@@ -26,10 +27,10 @@ function slugify(text: string): string {
 
 async function updateCategoryIndex(categoryId: string) {
   const dataDir = path.join(process.cwd(), "data", categoryId);
-  const indexFile = path.join(dataDir, "index.ts");
+  const indexFile = path.join(dataDir, "data.ts");
 
   if (!fs.existsSync(indexFile)) {
-    console.warn(`Warning: index.ts not found for ${categoryId}. Skipping index update.`);
+    console.warn(`Warning: data.ts not found for ${categoryId}. Skipping index update.`);
     return;
   }
 
@@ -64,7 +65,7 @@ export default ${exportName};
 `;
 
   fs.writeFileSync(indexFile, newContent, "utf-8");
-  console.log(`Updated ${categoryId}/index.ts`);
+  console.log(`Updated ${categoryId}/data.ts`);
 }
 
 async function main() {

@@ -5,7 +5,7 @@ import {
     FeatureStatusSchema,
     CategorySection
 } from "@/lib/base-schemas";
-import { CategoryConfig } from "../types";
+import { CategoryConfig } from "@/lib/types";
 
 // Schemas
 export const MusicStreamingPlatformSupportSchema = z.object({
