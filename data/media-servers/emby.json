@@ -186,7 +186,7 @@
         "verificationLink": "https://emby.media/blog.html"
       }
     },
-    "lyrics": {
+    "music": {
       "status": "Yes",
       "verification": {
         "verifiedAtVersion": "v4.8.1",

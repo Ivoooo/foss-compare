@@ -188,7 +188,7 @@
         "verificationLink": "https://www.plex.tv/media-server-downloads/#plex-media-server"
       }
     },
-    "lyrics": {
+    "music": {
       "status": "Paid",
       "verification": {
         "verifiedAtVersion": "v1.40.0",
