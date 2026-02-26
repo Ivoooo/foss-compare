@@ -29,6 +29,9 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://foss.compare"),
+  alternates: {
+    canonical: "/",
+  },
   title: {
     default: "foss.compare - Self-Hosted Software Comparisons",
     template: "%s | foss.compare",

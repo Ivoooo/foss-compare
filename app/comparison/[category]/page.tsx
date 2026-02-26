@@ -31,6 +31,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `${categoryConfig.title} Comparison`,
     description: categoryConfig.description,
+    alternates: {
+      canonical: `/comparison/${categoryId}`,
+    },
     openGraph: {
       title: `${categoryConfig.title} Comparison - foss.compare`,
       description: categoryConfig.description,
