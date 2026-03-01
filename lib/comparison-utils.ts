@@ -1,5 +1,5 @@
-import { FeatureStatus } from "@/lib/base-schemas";
-import { SoftwareTool } from "@/lib/categories";
+import type { FeatureStatus } from "./base-schemas.ts";
+import type { SoftwareTool } from "./categories.ts";
 
 export function calculateFeatureScore(features: Record<string, FeatureStatus | undefined>): { score: number; total: number } {
   let score = 0;
